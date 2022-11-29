@@ -13,7 +13,7 @@ public class Movement2D : MonoBehaviour
     [Header("Movement Variables")]
     [SerializeField] private float _movementAcceleration = 50f;
     [SerializeField] private float _maxMoveSpeed = 12f;
-    [SerializeField] private float _groundLinearDrag = 10f; //aka deceleration
+    [SerializeField] private float _groundLinearDrag = 10f; //a.k.a deceleration
     private float _horizontalDirection;
     private bool _changingDirection => (_rb.velocity.x > 0f && _horizontalDirection < 0f) || (_rb.velocity.x < 0f && _horizontalDirection > 0f);
 
@@ -39,6 +39,8 @@ public class Movement2D : MonoBehaviour
     private void Update()
     {
         _horizontalDirection = GetInput().x;
+        // I don't know why I had to put the Jump() call here
+        // But if we move it into FixedUpdate it's not responsive 
         if (_canJump) Jump();
     }
 
@@ -121,10 +123,13 @@ public class Movement2D : MonoBehaviour
 
     private void CheckGroundCollision()
     {
+        // To check the ground collision, we cast rays from the player to the ground. One in front of the player
+        // And the other in his back to still detect the ground if the player is on the edge of the ground.
         _onGround = Physics2D.Raycast(transform.position + _groundRaycastOffset , Vector2.down, _groundRaycastLength, _groundLayer) ||
                     Physics2D.Raycast(transform.position - _groundRaycastOffset , Vector2.down, _groundRaycastLength, _groundLayer);
     }
 
+    //These guizmos show the ray that is cast to check the ground collision
     private void OnDrawGizmos() 
     {
         Gizmos.color = Color.green;
