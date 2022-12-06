@@ -25,6 +25,8 @@ public class Movement2D : MonoBehaviour
     [SerializeField] private int _extraJumps = 1;
     private int _extraJumpsValue;
     private bool _canJump => Input.GetButtonDown("Jump") && (_onGround || _extraJumpsValue > 0);
+    [SerializeField] private float _fastfall_gravity = 500f; 
+	[SerializeField] private float _fastfall_max_speed = 50.0f;
 
     [Header("Ground Collision Variable")]
     [SerializeField] private float _groundRaycastLength;
@@ -60,6 +62,7 @@ public class Movement2D : MonoBehaviour
         {
             ApplyAirLinearDrag();
             FallMultiplier();
+            fast_fall();
         }
 
     }
@@ -143,6 +146,21 @@ public class Movement2D : MonoBehaviour
         else
         {
             _rb.gravityScale = 1f;
+        }
+
+       
+
+    }
+
+    private void fast_fall()
+    {
+        if(get_input().y < 0)
+        {
+            _rb.gravityScale = _fastfall_gravity;
+            if(_rb.velocity.y > _fastfall_max_speed && !_is_crouching)
+            {
+                _rb.velocity = new Vector2(_rb.velocity.x, _rb.velocity.y * _fastfall_max_speed);
+            }       
         }
     }
 
