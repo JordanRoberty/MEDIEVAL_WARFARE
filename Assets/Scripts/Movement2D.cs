@@ -30,6 +30,8 @@ public class Movement2D : MonoBehaviour
     [SerializeField] private float _groundRaycastLength;
     [SerializeField] private Vector3 _groundRaycastOffset;
     private bool _onGround;
+    //crouch variables
+    private bool _is_crouching = false;
 
     private void Start()
     {
@@ -52,6 +54,7 @@ public class Movement2D : MonoBehaviour
         {
             ApplyGroundLinearDrag();
             _extraJumpsValue = _extraJumps;
+            crouch();
         }
         else
         {
@@ -76,6 +79,21 @@ public class Movement2D : MonoBehaviour
         }
     }
 
+    //Check is the player is crouching and change his collider's size if he is
+    private void crouch()
+    {   
+        if(get_input().y < 0)
+        {
+            GetComponent<BoxCollider2D>().size = new Vector2(1f, 0.5f);
+            _is_crouching = true;
+        }
+        else
+        {
+            GetComponent<BoxCollider2D>().size = new Vector2(1f, 1f);
+            _is_crouching = false;
+        }
+        
+    }
 
 
     private void ApplyGroundLinearDrag()
@@ -98,11 +116,18 @@ public class Movement2D : MonoBehaviour
     private void Jump()
     {
         if (!_onGround)
+        //If the player is crouching, the player jump a little bit higher (25% as we reduce his size by 50% (25% top side, 25% bot side))
+        if (_is_crouching)
         {
-            _extraJumpsValue--;
+            _rb.velocity = new Vector2(_rb.velocity.x, 0f);
+            _rb.AddForce(Vector2.up * 1.25f * _jump_force, ForceMode2D.Impulse);
         }
-        _rb.velocity = new Vector2(_rb.velocity.x, 0f);
-        _rb.AddForce(Vector2.up * _jumpForce, ForceMode2D.Impulse);
+        else
+        {
+            _rb.velocity = new Vector2(_rb.velocity.x, 0f);
+            _rb.AddForce(Vector2.up * _jump_force, ForceMode2D.Impulse);
+        }
+        
     }
 
     private void FallMultiplier()
@@ -127,6 +152,16 @@ public class Movement2D : MonoBehaviour
         // And the other in his back to still detect the ground if the player is on the edge of the ground.
         _onGround = Physics2D.Raycast(transform.position + _groundRaycastOffset , Vector2.down, _groundRaycastLength, _groundLayer) ||
                     Physics2D.Raycast(transform.position - _groundRaycastOffset , Vector2.down, _groundRaycastLength, _groundLayer);
+        if(_is_crouching)
+        {
+            _on_ground = Physics2D.Raycast(transform.position + _ground_raycast_offset , Vector2.down, _ground_raycast_length * 0.5f, _ground_layer) ||
+                    Physics2D.Raycast(transform.position - _ground_raycast_offset , Vector2.down, _ground_raycast_length * 0.5f, _ground_layer);
+        }
+        else
+        {
+            _on_ground = Physics2D.Raycast(transform.position + _ground_raycast_offset , Vector2.down, _ground_raycast_length, _ground_layer) ||
+                    Physics2D.Raycast(transform.position - _ground_raycast_offset , Vector2.down, _ground_raycast_length, _ground_layer);
+        }
     }
 
     //These guizmos show the ray that is cast to check the ground collision
@@ -135,6 +170,16 @@ public class Movement2D : MonoBehaviour
         Gizmos.color = Color.green;
         Gizmos.DrawLine(transform.position + _groundRaycastOffset, transform.position + _groundRaycastOffset + Vector3.down * _groundRaycastLength);
         Gizmos.DrawLine(transform.position - _groundRaycastOffset, transform.position - _groundRaycastOffset + Vector3.down * _groundRaycastLength);    
+        if(_is_crouching)
+        {
+            Gizmos.DrawLine(transform.position + _ground_raycast_offset, transform.position + _ground_raycast_offset + Vector3.down * _ground_raycast_length * 0.5f);
+            Gizmos.DrawLine(transform.position - _ground_raycast_offset, transform.position - _ground_raycast_offset + Vector3.down * _ground_raycast_length * 0.5f); 
+        }
+        else
+        {
+            Gizmos.DrawLine(transform.position + _ground_raycast_offset, transform.position + _ground_raycast_offset + Vector3.down * _ground_raycast_length);
+            Gizmos.DrawLine(transform.position - _ground_raycast_offset, transform.position - _ground_raycast_offset + Vector3.down * _ground_raycast_length); 
+        }
 
     }
 }
