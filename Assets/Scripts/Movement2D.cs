@@ -65,7 +65,6 @@ public class Movement2D : MonoBehaviour
         {
             apply_air_linear_drag();
             set_gravity();
-            fast_fall();
         }
 
     }
@@ -143,16 +142,26 @@ public class Movement2D : MonoBehaviour
 
     private void set_gravity()
     {    
-        //jump
-        if(_rb.velocity.y < 0f)
-        {
-            _rb.gravityScale = _fall_gravity;
-        }
         //jump Cut
-        else if ( _rb.velocity.y > 0 && !Input.GetButton("Jump"))
+        if ( _rb.velocity.y > 0 && !Input.GetButton("Jump"))
         {
             _rb.gravityScale = _low_jump_fall_gravity;
-        }      
+        }
+        //fast fall
+        else if(_rb.velocity.y < 0f && get_input().y <0)
+        {
+             _rb.gravityScale = _fastfall_gravity;
+            if(Mathf.Abs(_rb.velocity.y) > _fastfall_max_speed)
+            {
+                _rb.velocity = new Vector2(_rb.velocity.x, Mathf.Sign(_rb.velocity.y) * _fastfall_max_speed);
+                
+            }
+        } 
+        //jump
+        else if(_rb.velocity.y < 0f)
+        {
+            _rb.gravityScale = _fall_gravity;
+        }   
         else
         {
             _rb.gravityScale = 1f;
@@ -160,18 +169,6 @@ public class Movement2D : MonoBehaviour
 
        
 
-    }
-
-    private void fast_fall()
-    {
-        if(get_input().y < 0)
-        {
-            _rb.gravityScale = _fastfall_gravity;
-            if(_rb.velocity.y > _fastfall_max_speed && !_is_crouching)
-            {
-                _rb.velocity = new Vector2(_rb.velocity.x, _rb.velocity.y * _fastfall_max_speed);
-            }       
-        }
     }
 
     private void check_ground_collision()
