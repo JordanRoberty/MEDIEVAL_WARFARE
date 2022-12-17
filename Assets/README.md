@@ -1,6 +1,6 @@
 # Assets folder
 
-## index
+## Index
 
 ```
 +---Art
@@ -9,7 +9,7 @@
 +---Audio
 | +---Musics
 | +---Sounds
-+---Scene
++---Scenes
 | \---Main
 +---Scripts
 | +---Managers
@@ -17,18 +17,18 @@
 | +---Utilities
 ```
 
-## Folders Description
+## Folders description
 
-- **Art** : Contains all the art materials of the project, from games assets to menu assets.
+- **Art**: Contains all the art materials of the project, from game assets to menu assets.
 
-- **Audio** : Contains all the Audio material of the project, from music to sound effects.
+- **Audio**: Contains all the audio material of the project, from music to sound effects.
 
-- **Scene** : Contains all the Unity scenes created during development. The "Main" scene is the actual Game.
+- **Scenes**: Contains all the Unity scenes created during development. The "Main" scene is the actual game.
 
-- **Scripts** : Basically contains all the C# code of the project.
+- **Scripts**: Basically contains all the C# code of the project.
     
-    - **Managers** : Contains all the "Manager" scripts.
+    - **Managers**: Contains all the "Manager" scripts.
 
-    - **Units** : Contains all the scripts link to Unit classes (Player, Ennemis, etc.).
+    - **Units**: Contains all the scripts linked to unit classes (Player, Enemies, etc.).
 
-    - **Utilities** : Contains all the recurrent and useful functions.
+    - **Utilities**: Contains all the recurrent and useful functions.
