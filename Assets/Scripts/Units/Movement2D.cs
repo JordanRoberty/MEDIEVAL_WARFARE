@@ -17,44 +17,44 @@ public class Movement2D : MonoBehaviour
 
     private void Update()
     {
-        _horizontal_direction = get_input().x;
-        _vertical_direction = get_input().y;
+        _horizontal_direction = getInput().x;
+        _vertical_direction = getInput().y;
 
         _player.changing_direction = (_player.rb.velocity.x > 0f && _horizontal_direction < 0f) || (_player.rb.velocity.x < 0f && _horizontal_direction > 0f);
         _player.can_jump = Input.GetButtonDown("Jump") && (_player.on_ground || _player.extra_jumps_count > 0); 
         
         // I don't know why I had to put the jump() call here
         // But if we move it into FixedUpdate it's not responsive 
-        if (_player.can_jump) jump();
+        if (_player.can_jump) Jump();
     }
 
     private void FixedUpdate()
     {
-        check_ground_collision();
-        move_character();
+        checkGroundCollision();
+        moveCharacter();
         
         if (_player.on_ground)
         {
-            apply_ground_linear_drag();
-            crouch();
+            applyGroundLinearDrag();
+            Crouch();
             _player.extra_jumps_count = _player.extra_jumps;
             _player.rb.gravityScale = 1f;
         }
         else
         {
-            apply_air_linear_drag();
-            set_gravity();
+            applyAirLinearDrag();
+            setGravity();
         }
 
     }
 
-    private Vector2 get_input()
+    private Vector2 getInput()
     {
         return new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
     }
 
     //Move the character on the horizontal direction
-    private void move_character()
+    private void moveCharacter()
     {
         _player.rb.AddForce(new Vector2(_horizontal_direction, 0f) * _player.movement_acceleration);
 
@@ -65,7 +65,7 @@ public class Movement2D : MonoBehaviour
     }
 
     //Check is the player is crouching and change his collider's size if he is
-    private void crouch()
+    private void Crouch()
     {   
         if(_vertical_direction < 0)
         {
@@ -81,7 +81,7 @@ public class Movement2D : MonoBehaviour
     }
 
 
-    private void apply_ground_linear_drag()
+    private void applyGroundLinearDrag()
     {
         if(Mathf.Abs(_horizontal_direction) < 0.4f || _player.changing_direction)
         {
@@ -93,12 +93,12 @@ public class Movement2D : MonoBehaviour
         }
     }
 
-     private void apply_air_linear_drag()
+     private void applyAirLinearDrag()
     {
         _player.rb.drag = _player.air_linear_drag;
     }
 
-    private void jump()
+    private void Jump()
     {
         if (!_player.on_ground)
         {
@@ -119,7 +119,7 @@ public class Movement2D : MonoBehaviour
         
     }
 
-    private void set_gravity()
+    private void setGravity()
     {    
         //jump Cut
         if ( _player.rb.velocity.y > 0 && !Input.GetButton("Jump"))
@@ -150,7 +150,7 @@ public class Movement2D : MonoBehaviour
 
     }
 
-    private void check_ground_collision()
+    private void checkGroundCollision()
     {
         // To check the ground collision, we cast rays from the player to the ground. One in front of the player
         // And the other in his back to still detect the ground if the player is on the edge of the ground.
