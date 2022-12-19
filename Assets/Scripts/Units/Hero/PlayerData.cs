@@ -7,6 +7,15 @@ public class PlayerData : MonoBehaviour
 
     [HideInInspector]public Rigidbody2D rb;
 
+    [Header("Health & score")]
+    public int health = 100;
+    public int score;
+    public int nb_coins;
+    //RUNES ??
+
+    [Header("Weapon")]
+    //WEAPON???
+
     [Header("Movement Variables")]
     public float movement_acceleration = 50f;
     public float max_move_speed = 12f;
