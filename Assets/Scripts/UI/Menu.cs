@@ -5,5 +5,7 @@ using UnityEngine;
 public class Menu : MonoBehaviour
 {
     [SerializeField]
-    public Menu_Id id;
+    public MenuId id;
+    [SerializeField]
+    public bool is_modal = false;
 }

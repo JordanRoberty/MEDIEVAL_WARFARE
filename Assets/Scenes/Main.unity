@@ -234,7 +234,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -0.000061035156}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -1820, y: -980}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &36786630
@@ -249,7 +249,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5475f14880a3d8e48a28a12d1732bfea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 7
+  id: 8
+  is_modal: 0
 --- !u!1 &81766183
 GameObject:
   m_ObjectHideFlags: 0
@@ -1047,6 +1048,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 7
+  is_modal: 0
 --- !u!1 &314512130
 GameObject:
   m_ObjectHideFlags: 0
@@ -1183,6 +1185,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: 5
+  link_button: {fileID: 0}
 --- !u!1 &389500482
 GameObject:
   m_ObjectHideFlags: 0
@@ -1319,6 +1322,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: 3
+  link_button: {fileID: 0}
 --- !u!1 &409174407
 GameObject:
   m_ObjectHideFlags: 0
@@ -1331,7 +1335,6 @@ GameObject:
   - component: {fileID: 409174411}
   - component: {fileID: 409174410}
   - component: {fileID: 409174409}
-  - component: {fileID: 409174412}
   m_Layer: 5
   m_Name: Main Canvas
   m_TagString: Untagged
@@ -1429,18 +1432,6 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
---- !u!114 &409174412
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 409174407}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 686e24f6e8f2d0c48891c23cee8ea2e5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &448148008
 GameObject:
   m_ObjectHideFlags: 0
@@ -1795,6 +1786,52 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 547332239}
   m_CullTransparentMesh: 1
+--- !u!1 &570821569
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 570821570}
+  - component: {fileID: 570821571}
+  m_Layer: 0
+  m_Name: Menu Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &570821570
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 570821569}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 685018911}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &570821571
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 570821569}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 686e24f6e8f2d0c48891c23cee8ea2e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  root_canvas: {fileID: 409174408}
+  initial_menu: 0
 --- !u!1 &574133592
 GameObject:
   m_ObjectHideFlags: 0
@@ -1847,6 +1884,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 4
+  is_modal: 0
 --- !u!1 &574740516
 GameObject:
   m_ObjectHideFlags: 0
@@ -2234,7 +2272,8 @@ Transform:
   m_LocalPosition: {x: -1.287792, y: -2.0814831, z: -0.029242046}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 570821570}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2374,6 +2413,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: 5
+  link_button: {fileID: 0}
 --- !u!1 &707036895
 GameObject:
   m_ObjectHideFlags: 0
@@ -2667,6 +2707,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 1
+  is_modal: 0
 --- !u!1 &769575137
 GameObject:
   m_ObjectHideFlags: 0
@@ -3046,6 +3087,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: 4
+  link_button: {fileID: 0}
 --- !u!1 &791167426
 GameObject:
   m_ObjectHideFlags: 0
@@ -3270,6 +3312,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: 3
+  link_button: {fileID: 0}
 --- !u!1 &824687551
 GameObject:
   m_ObjectHideFlags: 0
@@ -4053,6 +4096,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: 2
+  link_button: {fileID: 0}
 --- !u!1 &1044608749
 GameObject:
   m_ObjectHideFlags: 0
@@ -4928,6 +4972,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 5
+  is_modal: 0
 --- !u!1 &1189835665
 GameObject:
   m_ObjectHideFlags: 0
@@ -5064,6 +5109,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: 4
+  link_button: {fileID: 0}
 --- !u!1 &1191542841
 GameObject:
   m_ObjectHideFlags: 0
@@ -5592,6 +5638,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 6
+  is_modal: 0
 --- !u!1 &1293207648
 GameObject:
   m_ObjectHideFlags: 0
@@ -5728,6 +5775,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: 3
+  link_button: {fileID: 0}
 --- !u!1 &1295937540
 GameObject:
   m_ObjectHideFlags: 0
@@ -6040,6 +6088,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: 0
+  link_button: {fileID: 0}
 --- !u!1 &1329954213
 GameObject:
   m_ObjectHideFlags: 0
@@ -6486,6 +6535,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 3
+  is_modal: 0
 --- !u!1 &1562803848
 GameObject:
   m_ObjectHideFlags: 0
@@ -6622,6 +6672,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: 1
+  link_button: {fileID: 0}
 --- !u!1 &1617364936
 GameObject:
   m_ObjectHideFlags: 0
@@ -7041,6 +7092,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: 1
+  link_button: {fileID: 0}
 --- !u!1 &1636302899
 GameObject:
   m_ObjectHideFlags: 0
@@ -7214,6 +7266,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: 1
+  link_button: {fileID: 0}
 --- !u!1 &1681059606
 GameObject:
   m_ObjectHideFlags: 0
@@ -7882,6 +7935,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 0
+  is_modal: 0
 --- !u!1 &1759380065
 GameObject:
   m_ObjectHideFlags: 0
@@ -8146,6 +8200,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: 5
+  link_button: {fileID: 0}
 --- !u!1 &1912543791
 GameObject:
   m_ObjectHideFlags: 0
@@ -8381,7 +8436,6 @@ GameObject:
   - component: {fileID: 1950831592}
   - component: {fileID: 1950831591}
   - component: {fileID: 1950831590}
-  - component: {fileID: 1950831593}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -8453,7 +8507,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1950831591}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 570821569}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1950831591
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8492,19 +8558,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1950831588}
   m_CullTransparentMesh: 1
---- !u!114 &1950831593
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1950831588}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 52b76eccb1b555c4984125ece596968a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: 1
 --- !u!1 &2030277470
 GameObject:
   m_ObjectHideFlags: 0
@@ -8641,6 +8694,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: 1
+  link_button: {fileID: 0}
 --- !u!1 &2035121484
 GameObject:
   m_ObjectHideFlags: 0
@@ -8858,6 +8912,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 2
+  is_modal: 0
 --- !u!1 &2099117856
 GameObject:
   m_ObjectHideFlags: 0
@@ -9171,6 +9226,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: 2
+  link_button: {fileID: 0}
 --- !u!1 &2120100646
 GameObject:
   m_ObjectHideFlags: 0
