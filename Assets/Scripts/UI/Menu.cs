@@ -8,4 +8,8 @@ public class Menu : MonoBehaviour
     public MenuId id;
     [SerializeField]
     public bool is_modal = false;
+
+    [SerializeField]
+    public GameObject first_button_selected;
+
 }

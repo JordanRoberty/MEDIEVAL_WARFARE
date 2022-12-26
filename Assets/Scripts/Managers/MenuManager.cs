@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
 public class MenuManager : Singleton<MenuManager>
@@ -9,7 +10,7 @@ public class MenuManager : Singleton<MenuManager>
     [SerializeField]
     private Transform root_canvas;
     [SerializeField]
-    private MenuId initial_menu;
+    private Menu initial_menu;
 
     private Dictionary<MenuId, Menu> menus = new Dictionary<MenuId, Menu>();
     private Stack<Menu> menu_stack = new Stack<Menu>();
@@ -23,55 +24,17 @@ public class MenuManager : Singleton<MenuManager>
             hide_menu(menu.GetComponent<Menu>());
             menus.Add(menu.GetComponent<Menu>().id, menu.GetComponent<Menu>());
         }
-        set_menu(initial_menu);
     }
 
-    public void set_menu(MenuId new_menu_id)
+    private void Start()
     {
-        switch (new_menu_id)
+        if (initial_menu != null)
         {
-            case MenuId.TITLE:
-                push_menu(menus[new_menu_id]);
-                break;
-
-            case MenuId.MAIN:
-                push_menu(menus[new_menu_id]);
-                break;
-
-            case MenuId.SCORES:
-                push_menu(menus[new_menu_id]);
-                break;
-
-            case MenuId.SHOP:
-                push_menu(menus[new_menu_id]);
-                break;
-
-            case MenuId.GEARS:
-                push_menu(menus[new_menu_id]);
-                break;
-
-            case MenuId.GAME:
-                push_menu(menus[new_menu_id]);
-                break;
-
-            case MenuId.PAUSE:
-                push_menu(menus[new_menu_id]);
-                break;
-
-            case MenuId.REGISTER:
-                push_menu(menus[new_menu_id]);
-                break;
-
-            case MenuId.LEVEL:
-                push_menu(menus[new_menu_id]);
-                break;
-
-            default:
-                Debug.LogWarning("The desired menu was not found");
-                break;
+            push_menu(initial_menu);
         }
-        
     }
+
+    
 
     public void push_menu(Menu new_menu)
     {
@@ -86,6 +49,8 @@ public class MenuManager : Singleton<MenuManager>
         }
 
         menu_stack.Push(new_menu);
+        display_menu(new_menu);
+        EventSystem.current.SetSelectedGameObject(new_menu.first_button_selected);
     }
 
     public void pop_menu()
@@ -96,10 +61,9 @@ public class MenuManager : Singleton<MenuManager>
             hide_menu(previous_menu);
 
             Menu current_menu = menu_stack.Peek();
-            if (!previous_menu.is_modal)
-            {
-                display_menu(current_menu);
-            }
+            
+            display_menu(current_menu);
+            
         }
         else
         {
@@ -115,5 +79,6 @@ public class MenuManager : Singleton<MenuManager>
     private void display_menu(Menu menu)
     {
         menu.gameObject.SetActive(true);
+        EventSystem.current.SetSelectedGameObject(menu.first_button_selected);
     }
 }
