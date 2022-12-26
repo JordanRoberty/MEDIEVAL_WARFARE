@@ -2,10 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyBasic : MonoBehaviour
+public class EnemyBasic : Enemy
 {
+    public EnemyBasic()
+    {
+        pv = 200.0f;
+        speed = 5.0f;
+        damage = 50.0f;
+    }
+
     public GameObject player;
-    public float jump_force = 100;
+    public float jump_force = 100.0f;
     private Rigidbody2D rigid_body;
 
     [Header("Ground Collision Variable")]
@@ -31,7 +38,7 @@ public class EnemyBasic : MonoBehaviour
     void FixedUpdate()
     {
         check_ground_collision();
-        transform.position += new Vector3(-0.05f, 0.0f, 0.0f);
+        transform.position += Vector3.left * speed * Time.deltaTime;
         if (player.transform.position.y > transform.position.y + 0.1 && _on_ground && !is_jumping)
         {
             is_jumping = true;
