@@ -38,6 +38,8 @@ public class MenuManager : Singleton<MenuManager>
 
     public void push_menu(Menu new_menu)
     {
+        new_menu.enter();
+
         if (menu_stack.Count > 0)
         {
             Menu current_menu = menu_stack.Peek();
@@ -58,6 +60,7 @@ public class MenuManager : Singleton<MenuManager>
         if (menu_stack.Count > 1)
         {
             Menu previous_menu = menu_stack.Pop();
+            previous_menu.exit();
             hide_menu(previous_menu);
 
             Menu current_menu = menu_stack.Peek();
