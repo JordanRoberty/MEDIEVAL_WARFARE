@@ -23,16 +23,16 @@ public class CharacterHealth : MonoBehaviour
         }
     }
 
-    void OnTriggerEnter2D(Collider2D collider)
+    void OnCollisionEnter2D(Collision2D collision)
     {
         // Si le collider en contact est l'ennemi
-        if (collider.gameObject.tag == "Enemy")
+        if (collision.gameObject.tag == "Enemy")
         {
             // Si le personnage n'est pas actuellement invincible
-            if (invincibleTime <= 0)
+            if (invincibleTime <= 0.0f)
             {
                 // Réduction de la vie du personnage et rendu invincible pendant 2 secondes
-                health -= collider.gameObject.GetComponent<Enemy>().get_damage();
+                health -= collision.gameObject.GetComponent<Enemy>().get_damage();
                 invincibleTime = 2.0f;
             }
 
@@ -41,6 +41,7 @@ public class CharacterHealth : MonoBehaviour
             {
                 // Affichage d'un message de game over ou relancement du niveau
                 Debug.Log("Game Over");
+                Destroy(gameObject);
             }
         }
     }
