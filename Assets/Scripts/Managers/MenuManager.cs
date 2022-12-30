@@ -1,87 +1,113 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
-public class MenuManager : Singleton<MenuManager>
+[Serializable]
+public enum MenuState : ushort
+{
+    TITLE = 0,
+    MAIN = 1,
+    SCORES = 2,
+    SHOP = 3,
+    GEARS = 4,
+    START_GAME = 5,
+    PAUSE = 6,
+    REGISTER = 7,
+    LEVEL = 8
+}
+
+public class MenuManager : MenuController
 {
     [SerializeField]
-    private Transform root_canvas;
-    [SerializeField]
-    private Menu initial_menu;
+    private MenuState _initial_state;
 
-    private Dictionary<MenuId, Menu> menus = new Dictionary<MenuId, Menu>();
-    private Stack<Menu> menu_stack = new Stack<Menu>();
+    private MenuState _state;
+    private Dictionary<MenuState, Menu> _menus = new Dictionary<MenuState, Menu>();
 
     protected override void Awake()
     {
         base.Awake();
 
+        /* Store all the specific menu for a specific state */
         foreach (Transform menu in root_canvas)
         {
-            hide_menu(menu.GetComponent<Menu>());
-            menus.Add(menu.GetComponent<Menu>().id, menu.GetComponent<Menu>());
+            _menus.Add(menu.GetComponent<Menu>().id, menu.GetComponent<Menu>());
         }
     }
 
-    private void Start()
+    private void Start() => set_state((ushort)_initial_state);
+
+    public override void set_state(ushort new_state)
     {
-        if (initial_menu != null)
+        switch((MenuState)new_state)
         {
-            push_menu(initial_menu);
+            case MenuState.TITLE:
+                handle_title();
+                break;
+            case MenuState.MAIN:
+                handle_main();
+                break;
+            case MenuState.SCORES:
+                handle_scores();
+                break;
+            case MenuState.SHOP:
+                handle_shop();
+                break;
+            case MenuState.GEARS:
+                handle_gears();
+                break;
+            case MenuState.START_GAME:
+                handle_start_game();
+                break;
+            case MenuState.REGISTER:
+                handle_register();
+                break;
+            default:
+                throw new ArgumentOutOfRangeException(nameof(new_state), new_state, null);
         }
     }
 
-    
-
-    public void push_menu(Menu new_menu)
+    private void handle_title()
     {
-        new_menu.enter();
-
-        if (menu_stack.Count > 0)
-        {
-            Menu current_menu = menu_stack.Peek();
-
-            if (!new_menu.is_modal)
-            {
-                hide_menu(current_menu);
-            }
-        }
-
-        menu_stack.Push(new_menu);
-        display_menu(new_menu);
-        EventSystem.current.SetSelectedGameObject(new_menu.first_button_selected);
+        push_menu(_menus[MenuState.TITLE]);
+        _state = MenuState.TITLE;
     }
 
-    public void pop_menu()
+    private void handle_main()
     {
-        if (menu_stack.Count > 1)
-        {
-            Menu previous_menu = menu_stack.Pop();
-            previous_menu.exit();
-            hide_menu(previous_menu);
-
-            Menu current_menu = menu_stack.Peek();
-            
-            display_menu(current_menu);
-            
-        }
-        else
-        {
-            Debug.LogWarning("Trying to pop a menu but only 1 remains in the stack!");
-        }
+        push_menu(_menus[MenuState.MAIN]);
+        _state = MenuState.MAIN;
     }
 
-    private void hide_menu(Menu menu)
+    private void handle_scores()
     {
-        menu.gameObject.SetActive(false);
+        push_menu(_menus[MenuState.SCORES]);
+        _state = MenuState.SCORES;
     }
 
-    private void display_menu(Menu menu)
+    private void handle_shop()
     {
-        menu.gameObject.SetActive(true);
-        EventSystem.current.SetSelectedGameObject(menu.first_button_selected);
+        push_menu(_menus[MenuState.SHOP]);
+        _state = MenuState.SHOP;
+    }
+
+    private void handle_gears()
+    {
+        push_menu(_menus[MenuState.GEARS]);
+        _state = MenuState.GEARS;
+    }
+
+    private void handle_start_game()
+    {
+        SceneManager.LoadSceneAsync("level_one");
+        set_state((ushort)MenuState.MAIN);        
+    }
+
+    private void handle_register()
+    {
+        push_menu(_menus[MenuState.REGISTER]);
+        _state = MenuState.REGISTER;
     }
 }
