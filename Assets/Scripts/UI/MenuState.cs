@@ -1,4 +1,4 @@
-public enum MenuId
+public enum MenuState
 {
     TITLE,
     MAIN,
