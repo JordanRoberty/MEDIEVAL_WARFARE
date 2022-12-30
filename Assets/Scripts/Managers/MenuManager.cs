@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [Serializable]
 public enum MenuState : ushort
@@ -100,6 +101,7 @@ public class MenuManager : MenuController
 
     private void handle_start_game()
     {
+        SceneManager.LoadSceneAsync("level_one");
         set_state((ushort)MenuState.MAIN);        
     }
 
