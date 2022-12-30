@@ -18,19 +18,14 @@ public abstract class MenuController : PersistentSingleton<MenuController>
     {
         base.Awake();
 
+        /* Hide by default all the menus */
         foreach (Transform menu in root_canvas)
         {
             hide_menu(menu.GetComponent<Menu>());
         }
     }
 
-    private void Start()
-    {
-        if (initial_menu != null)
-        {
-            push_menu(initial_menu);
-        }
-    }
+    public abstract void set_state(ushort new_state);
 
     public void push_menu(Menu new_menu)
     {
