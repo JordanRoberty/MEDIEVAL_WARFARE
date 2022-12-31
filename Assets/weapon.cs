@@ -6,13 +6,11 @@ public class weapon : MonoBehaviour
 {
     public Transform firePoint;
     public GameObject bulletPrefab;
+    [SerializeField] public float seconds;
     // Update is called once per frame
-    void Update()
-    {
-        if(Input.GetButtonDown("Fire1"))
-        {
-            Shoot();
-        }
+    void Start()
+    {   
+        InvokeRepeating("Shoot",1.0f, seconds);
     }
 
     void Shoot()
