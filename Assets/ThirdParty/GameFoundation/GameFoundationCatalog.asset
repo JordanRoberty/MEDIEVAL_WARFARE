@@ -12,8 +12,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9190a04da29ae24ab35e05133ebf087, type: 3}
   m_Name: _Catalog_Tags
   m_EditorClassIdentifier: 
-  m_Tags: []
+  m_Tags:
+  - {fileID: -1661276413531964997}
   m_CatalogAsset: {fileID: 11400000}
+--- !u!114 &-1661276413531964997
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4178f7fa125e7644ba2a2d0c6300db1, type: 3}
+  m_Name: Tag_weapon
+  m_EditorClassIdentifier: 
+  m_Key: weapon
+  m_Catalog: {fileID: -2219638020608787930}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29,7 +44,7 @@ MonoBehaviour:
   m_TagCatalog: {fileID: -2219638020608787930}
   m_Items:
   - {fileID: 1365637990896379994}
-  - {fileID: 3727456195917522221}
+  - {fileID: 8776560654724347506}
 --- !u!114 &1365637990896379994
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -48,7 +63,7 @@ MonoBehaviour:
   m_StaticPropertyKeys: []
   m_StaticPropertyValues: []
   m_StoreItems: []
---- !u!114 &3727456195917522221
+--- !u!114 &8776560654724347506
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -58,25 +73,36 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fcbd052539327467295d2009d33aa660, type: 3}
-  m_Name: Item_epee1
+  m_Name: Item_onehandSword
   m_EditorClassIdentifier: 
-  m_DisplayName: "\xC9p\xE9e de base"
-  m_Key: epee1
-  m_Tags: []
-  m_StaticPropertyKeys:
-  - damages
-  m_StaticPropertyValues:
-  - <type>k__BackingField: 0
-    m_ValueType:
-      longValue: 0
-    m_StringValue: 
+  m_DisplayName: Onehandsword
+  m_Key: onehandSword
+  m_Tags:
+  - {fileID: -1661276413531964997}
+  m_StaticPropertyKeys: []
+  m_StaticPropertyValues: []
   m_InitialAllocation: 0
   m_IsStackableFlag: 0
   m_InitialQuantityPerStack: 1
   m_MutablePropertyKeys:
+  - Damage
   - id
+  - Is_bought
+  - Is_equipped
   m_MutablePropertyDefaultValues:
   - <type>k__BackingField: 0
     m_ValueType:
+      longValue: 10
+    m_StringValue: 
+  - <type>k__BackingField: 0
+    m_ValueType:
       longValue: 0
+    m_StringValue: 
+  - <type>k__BackingField: 2
+    m_ValueType:
+      longValue: 0
+    m_StringValue: 
+  - <type>k__BackingField: 2
+    m_ValueType:
+      longValue: 1
     m_StringValue: 

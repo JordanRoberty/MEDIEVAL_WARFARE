@@ -7,6 +7,7 @@ public class weapon : MonoBehaviour
     public Transform firePoint;
     public GameObject bulletPrefab;
     [SerializeField] public float seconds;
+    [SerializeField] public bool Is_Equipped;
     // Update is called once per frame
     void Start()
     {   
