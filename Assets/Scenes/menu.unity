@@ -2123,6 +2123,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   root_canvas: {fileID: 409174408}
   initial_menu: {fileID: 1758055818}
+  level_selector: {fileID: 2112818560}
+  difficulty_selector: {fileID: 1953985215}
   _initial_state: 0
 --- !u!1 &574133592
 GameObject:

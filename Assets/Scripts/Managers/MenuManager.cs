@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using TMPro;
 
 [Serializable]
 public enum MenuState : ushort
@@ -20,6 +22,11 @@ public enum MenuState : ushort
 
 public class MenuManager : MenuController
 {
+    [SerializeField]
+    private TMP_Dropdown level_selector;
+    [SerializeField]
+    private TMP_Dropdown difficulty_selector;
+
     [SerializeField]
     private MenuState _initial_state;
 
@@ -101,8 +108,9 @@ public class MenuManager : MenuController
 
     private void handle_start_game()
     {
-        SceneManager.LoadSceneAsync("level_one");
-        set_state((ushort)MenuState.MAIN);        
+        string menu_selected = level_selector.options[level_selector.value].text;
+        SceneManager.LoadSceneAsync(menu_selected);
+        set_state((ushort)MenuState.MAIN);
     }
 
     private void handle_register()
