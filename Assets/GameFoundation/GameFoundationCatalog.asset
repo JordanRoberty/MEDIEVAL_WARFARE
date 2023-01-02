@@ -55,10 +55,30 @@ MonoBehaviour:
   m_InitialQuantityPerStack: 1
   m_MutablePropertyKeys:
   - equiped
+  - rune_slot_1
+  - rune_slot_3
+  - rune_slot_2
+  - damage
   m_MutablePropertyDefaultValues:
   - <type>k__BackingField: 2
     m_ValueType:
       longValue: 1
+    m_StringValue: 
+  - <type>k__BackingField: 5
+    m_ValueType:
+      longValue: 0
+    m_StringValue: 
+  - <type>k__BackingField: 5
+    m_ValueType:
+      longValue: 0
+    m_StringValue: 
+  - <type>k__BackingField: 4
+    m_ValueType:
+      longValue: 0
+    m_StringValue: 
+  - <type>k__BackingField: 0
+    m_ValueType:
+      longValue: 30
     m_StringValue: 
 --- !u!114 &-4865926856200218857
 MonoBehaviour:
@@ -82,6 +102,36 @@ MonoBehaviour:
     m_Enabled: 1
   - m_Transaction: {fileID: -3403908153950152048}
     m_Enabled: 1
+  - m_Transaction: {fileID: 1382960347241729137}
+    m_Enabled: 1
+--- !u!114 &-4543818305420260228
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 188049432bcf74f78b314dc2b03ee516, type: 3}
+  m_Name: VirtualTransaction_unlockEpeeBatardeminigun
+  m_EditorClassIdentifier: 
+  m_DisplayName: "D\xE9bloquer l'\xC9p\xE9e b\xE2tarde-minigun"
+  m_Key: unlockEpeeBatardeminigun
+  m_Tags: []
+  m_StaticPropertyKeys:
+  - icon
+  m_StaticPropertyValues:
+  - <type>k__BackingField: 4
+    m_ValueType:
+      longValue: 0
+    m_StringValue: 
+  m_Payout:
+    m_Exchanges:
+    - m_CatalogItem: {fileID: -2795855176514850220}
+      m_Amount: 1
+  m_Costs:
+    m_Exchanges: []
 --- !u!114 &-4171688192736633468
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -110,7 +160,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_DisplayName: Buy Vitesse rune
   m_Key: vitesseTransaction
-  m_Tags: []
+  m_Tags:
+  - {fileID: 8664523871116333478}
   m_StaticPropertyKeys: []
   m_StaticPropertyValues: []
   m_Payout:
@@ -121,6 +172,26 @@ MonoBehaviour:
     m_Exchanges:
     - m_CatalogItem: {fileID: -1022858674696969765}
       m_Amount: 10
+--- !u!114 &-3096199443859944768
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b81b157322addcd439104bd3c59b830b, type: 3}
+  m_Name: Store_armurerie
+  m_EditorClassIdentifier: 
+  m_DisplayName: Armurerie
+  m_Key: armurerie
+  m_Tags: []
+  m_StaticPropertyKeys: []
+  m_StaticPropertyValues: []
+  m_StoreItems:
+  - m_Transaction: {fileID: -4543818305420260228}
+    m_Enabled: 1
 --- !u!114 &-2795855176514850220
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -149,6 +220,20 @@ MonoBehaviour:
   m_InitialQuantityPerStack: 0
   m_MutablePropertyKeys: []
   m_MutablePropertyDefaultValues: []
+--- !u!114 &-1815871024028893470
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4178f7fa125e7644ba2a2d0c6300db1, type: 3}
+  m_Name: Tag_debug
+  m_EditorClassIdentifier: 
+  m_Key: debug
+  m_Catalog: {fileID: 5581390371180892742}
 --- !u!114 &-1022858674696969765
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -196,6 +281,38 @@ MonoBehaviour:
   - {fileID: 8985032036868252120}
   - {fileID: -9102103786533622041}
   - {fileID: -3403908153950152048}
+  - {fileID: 1382960347241729137}
+  - {fileID: -3096199443859944768}
+  - {fileID: -4543818305420260228}
+--- !u!114 &1382960347241729137
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 188049432bcf74f78b314dc2b03ee516, type: 3}
+  m_Name: VirtualTransaction_coins500
+  m_EditorClassIdentifier: 
+  m_DisplayName: '[DEBUG] Get 500 coins'
+  m_Key: coins500
+  m_Tags:
+  - {fileID: -1815871024028893470}
+  m_StaticPropertyKeys:
+  - icon
+  m_StaticPropertyValues:
+  - <type>k__BackingField: 4
+    m_ValueType:
+      longValue: 0
+    m_StringValue: Sprites/coin_pack_icon
+  m_Payout:
+    m_Exchanges:
+    - m_CatalogItem: {fileID: -1022858674696969765}
+      m_Amount: 500
+  m_Costs:
+    m_Exchanges: []
 --- !u!114 &5581390371180892742
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -211,6 +328,7 @@ MonoBehaviour:
   m_Tags:
   - {fileID: -4171688192736633468}
   - {fileID: 8664523871116333478}
+  - {fileID: -1815871024028893470}
   m_CatalogAsset: {fileID: 11400000}
 --- !u!114 &7422710132530501903
 MonoBehaviour:
@@ -263,14 +381,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_DisplayName: Buy Attaque rune
   m_Key: attaqueTransaction
-  m_Tags: []
+  m_Tags:
+  - {fileID: 8664523871116333478}
   m_StaticPropertyKeys:
   - icon
   m_StaticPropertyValues:
   - <type>k__BackingField: 4
     m_ValueType:
       longValue: 0
-    m_StringValue: Sprites/sword_hud_icon
+    m_StringValue: Sprites/sword_icon
   m_Payout:
     m_Exchanges:
     - m_CatalogItem: {fileID: 7422710132530501903}

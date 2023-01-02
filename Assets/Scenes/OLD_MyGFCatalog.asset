@@ -160,7 +160,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b6d6d794703b5406883240f543e5b084, type: 3}
-  m_Name: MyGFCatalog
+  m_Name: OLD_MyGFCatalog
   m_EditorClassIdentifier: 
   m_TagCatalog: {fileID: 5581390371180892742}
   m_Items:
