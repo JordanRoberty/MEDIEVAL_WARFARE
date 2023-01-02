@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
-public abstract class MenuController : PersistentSingleton<MenuController>
+public abstract class MenuManager : PersistentSingleton<MenuManager>
 {
     [SerializeField]
     protected Transform root_canvas;

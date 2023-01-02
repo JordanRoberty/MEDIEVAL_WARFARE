@@ -6,21 +6,8 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
 
-[Serializable]
-public enum MenuState : ushort
-{
-    TITLE = 0,
-    MAIN = 1,
-    SCORES = 2,
-    SHOP = 3,
-    GEARS = 4,
-    START_GAME = 5,
-    PAUSE = 6,
-    REGISTER = 7,
-    LEVEL = 8
-}
 
-public class MenuManager : MenuController
+public class MainMenuManager : MenuManager
 {
     [SerializeField]
     private TMP_Dropdown level_selector;
