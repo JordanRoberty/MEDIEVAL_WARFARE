@@ -6,7 +6,8 @@ public enum MenuState : ushort
     SHOP = 3,
     GEARS = 4,
     START_GAME = 5,
-    PAUSE = 6,
-    REGISTER = 7,
-    LEVEL = 8
+    GAME_OVERLAY = 6,
+    PAUSE_MENU = 7,
+    REGISTER = 8,
+    LEVEL = 9
 }

@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
-public abstract class MenuManager : PersistentSingleton<MenuManager>
+public abstract class MenuManager : Singleton<MenuManager>
 {
     [SerializeField]
     protected Transform root_canvas;
@@ -42,6 +42,9 @@ public abstract class MenuManager : PersistentSingleton<MenuManager>
 
         current_menu = new_menu;
         current_menu.gameObject.SetActive(true);
-        EventSystem.current.SetSelectedGameObject(current_menu.first_button_selected);
+        if(current_menu.first_button_selected != null)
+        {
+            EventSystem.current.SetSelectedGameObject(current_menu.first_button_selected);
+        }
     }
 }

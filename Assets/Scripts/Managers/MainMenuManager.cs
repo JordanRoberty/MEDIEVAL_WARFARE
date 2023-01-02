@@ -21,7 +21,7 @@ public class MainMenuManager : MenuManager
     private Dictionary<MenuState, Menu> _menus = new Dictionary<MenuState, Menu>();
 
     protected override void Awake()
-    {
+    {   
         base.Awake();
 
         /* Store all the specific menu for a specific state */
