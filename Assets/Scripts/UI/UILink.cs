@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(Button))]
-public class MenuLink : MonoBehaviour
+public class UILink : MonoBehaviour
 {
     [SerializeField]
     public MenuState target;
@@ -18,6 +18,6 @@ public class MenuLink : MonoBehaviour
     // Update is called once per frame
     private void handle_click()
     {
-        MenuManager.Instance.set_state((ushort)target);
+        MenuUIManager.Instance.set_state(target);
     }
 }
