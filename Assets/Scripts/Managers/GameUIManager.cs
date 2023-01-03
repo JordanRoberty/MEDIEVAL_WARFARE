@@ -4,25 +4,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class GameUIManager : UIManager
+public class GameUIManager : Singleton<GameUIManager>
 {
     private MenuState _state;
-    private Dictionary<MenuState, Menu> _menus = new Dictionary<MenuState, Menu>();
 
-    protected override void Awake()
+    public void set_state(MenuState new_state)
     {
-        base.Awake();
-
-        /* Store all the specific menu for a specific state */
-        foreach (Transform menu in root_canvas)
-        {
-            _menus.Add(menu.GetComponent<Menu>().id, menu.GetComponent<Menu>());
-        }
-    }
-
-    public override void set_state(ushort new_state)
-    {
-        switch ((MenuState)new_state)
+        switch (new_state)
         {
             case MenuState.GAME_OVERLAY:
                 handle_game_overlay();
@@ -37,13 +25,13 @@ public class GameUIManager : UIManager
 
     private void handle_game_overlay()
     {
-        set_current_menu(_menus[MenuState.GAME_OVERLAY]);
+        CanvasManager.Instance.set_current_menu(MenuState.GAME_OVERLAY);
         _state = MenuState.GAME_OVERLAY;
     }
 
     private void handle_pause_menu()
     {
-        set_current_menu(_menus[MenuState.PAUSE_MENU]);
+        CanvasManager.Instance.set_current_menu(MenuState.PAUSE_MENU);
         _state = MenuState.PAUSE_MENU;
     }
 }

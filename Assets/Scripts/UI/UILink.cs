@@ -18,6 +18,6 @@ public class UILink : MonoBehaviour
     // Update is called once per frame
     private void handle_click()
     {
-        UIManager.Instance.set_state((ushort)target);
+        MenuUIManager.Instance.set_state(target);
     }
 }

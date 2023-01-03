@@ -58,7 +58,7 @@ public class GameManager : Singleton<GameManager>
 
     private void handle_loading()
     {
-        GameUIManager.Instance.set_state((ushort)MenuState.GAME_OVERLAY);
+        GameUIManager.Instance.set_state(MenuState.GAME_OVERLAY);
         set_state(GameState.RUNNING);
     }
 
@@ -72,14 +72,14 @@ public class GameManager : Singleton<GameManager>
         /* Stops the game */
         Time.timeScale = 0.0f;
 
-        GameUIManager.Instance.set_state((ushort) MenuState.PAUSE_MENU);
+        GameUIManager.Instance.set_state(MenuState.PAUSE_MENU);
         _state = GameState.PAUSED;
     }
 
     private void handle_unpaused()
     {
         Time.timeScale = 1.0f;
-        GameUIManager.Instance.set_state((ushort)MenuState.GAME_OVERLAY);
+        GameUIManager.Instance.set_state(MenuState.GAME_OVERLAY);
         set_state(GameState.RUNNING);
     }
 

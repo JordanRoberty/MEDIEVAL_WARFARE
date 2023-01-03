@@ -5,13 +5,9 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
-public abstract class UIManager : Singleton<UIManager>
+public class CanvasManager : Singleton<CanvasManager>
 {
-    [SerializeField]
-    protected Transform root_canvas;
-    [SerializeField]
-    private Menu initial_menu;
-
+    private Dictionary<MenuState, Menu> _menus = new Dictionary<MenuState, Menu>();
     private Menu _current_menu;
 
     protected override void Awake()
@@ -19,16 +15,17 @@ public abstract class UIManager : Singleton<UIManager>
         base.Awake();
 
         /* Hide by default all the menus */
-        foreach (Transform menu in root_canvas)
+        foreach (Transform menu in transform)
         {
-            menu.gameObject.SetActive(false); ;
+            _menus.Add(menu.GetComponent<Menu>().id, menu.GetComponent<Menu>());
+            menu.gameObject.SetActive(false);
         }
     }
 
-    public abstract void set_state(ushort new_state);
-
-    public void set_current_menu(Menu new_menu)
+    public void set_current_menu(MenuState new_state)
     {
+        Menu new_menu = _menus[new_state];
+
         new_menu.enter();
 
         if (_current_menu != null)

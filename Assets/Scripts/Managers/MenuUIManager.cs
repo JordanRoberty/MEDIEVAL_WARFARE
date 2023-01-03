@@ -7,7 +7,7 @@ using UnityEngine.UI;
 using TMPro;
 
 
-public class MenuUIManager : UIManager
+public class MenuUIManager : Singleton<MenuUIManager>
 {
     [SerializeField]
     private TMP_Dropdown level_selector;
@@ -18,24 +18,12 @@ public class MenuUIManager : UIManager
     private MenuState _initial_state;
 
     private MenuState _state;
-    private Dictionary<MenuState, Menu> _menus = new Dictionary<MenuState, Menu>();
 
-    protected override void Awake()
-    {   
-        base.Awake();
+    private void Start() => set_state(_initial_state);
 
-        /* Store all the specific menu for a specific state */
-        foreach (Transform menu in root_canvas)
-        {
-            _menus.Add(menu.GetComponent<Menu>().id, menu.GetComponent<Menu>());
-        }
-    }
-
-    private void Start() => set_state((ushort)_initial_state);
-
-    public override void set_state(ushort new_state)
+    public void set_state(MenuState new_state)
     {
-        switch((MenuState)new_state)
+        switch(new_state)
         {
             case MenuState.TITLE:
                 handle_title();
@@ -65,31 +53,31 @@ public class MenuUIManager : UIManager
 
     private void handle_title()
     {
-        set_current_menu(_menus[MenuState.TITLE]);
+        CanvasManager.Instance.set_current_menu(MenuState.TITLE);
         _state = MenuState.TITLE;
     }
 
     private void handle_main()
     {
-        set_current_menu(_menus[MenuState.MAIN]);
+        CanvasManager.Instance.set_current_menu(MenuState.MAIN);
         _state = MenuState.MAIN;
     }
 
     private void handle_scores()
     {
-        set_current_menu(_menus[MenuState.SCORES]);
+        CanvasManager.Instance.set_current_menu(MenuState.SCORES);
         _state = MenuState.SCORES;
     }
 
     private void handle_shop()
     {
-        set_current_menu(_menus[MenuState.SHOP]);
+        CanvasManager.Instance.set_current_menu(MenuState.SHOP);
         _state = MenuState.SHOP;
     }
 
     private void handle_gears()
     {
-        set_current_menu(_menus[MenuState.GEARS]);
+        CanvasManager.Instance.set_current_menu(MenuState.GEARS);
         _state = MenuState.GEARS;
     }
 
@@ -97,12 +85,12 @@ public class MenuUIManager : UIManager
     {
         string menu_selected = level_selector.options[level_selector.value].text;
         SceneManager.LoadSceneAsync(menu_selected);
-        set_state((ushort)MenuState.MAIN);
+        set_state(MenuState.MAIN);
     }
 
     private void handle_register()
     {
-        set_current_menu(_menus[MenuState.REGISTER]);
+        CanvasManager.Instance.set_current_menu(MenuState.REGISTER);
         _state = MenuState.REGISTER;
     }
 }
