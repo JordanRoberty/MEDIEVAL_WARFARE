@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class GameMenuManager : MenuManager
+public class GameUIManager : UIManager
 {
     private MenuState _state;
     private Dictionary<MenuState, Menu> _menus = new Dictionary<MenuState, Menu>();
@@ -37,13 +37,13 @@ public class GameMenuManager : MenuManager
 
     private void handle_game_overlay()
     {
-        push_menu(_menus[MenuState.GAME_OVERLAY]);
+        set_current_menu(_menus[MenuState.GAME_OVERLAY]);
         _state = MenuState.GAME_OVERLAY;
     }
 
     private void handle_pause_menu()
     {
-        push_menu(_menus[MenuState.PAUSE_MENU]);
+        set_current_menu(_menus[MenuState.PAUSE_MENU]);
         _state = MenuState.PAUSE_MENU;
     }
 }

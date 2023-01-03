@@ -7,7 +7,7 @@ using UnityEngine.UI;
 using TMPro;
 
 
-public class MainMenuManager : MenuManager
+public class MenuUIManager : UIManager
 {
     [SerializeField]
     private TMP_Dropdown level_selector;
@@ -65,31 +65,31 @@ public class MainMenuManager : MenuManager
 
     private void handle_title()
     {
-        push_menu(_menus[MenuState.TITLE]);
+        set_current_menu(_menus[MenuState.TITLE]);
         _state = MenuState.TITLE;
     }
 
     private void handle_main()
     {
-        push_menu(_menus[MenuState.MAIN]);
+        set_current_menu(_menus[MenuState.MAIN]);
         _state = MenuState.MAIN;
     }
 
     private void handle_scores()
     {
-        push_menu(_menus[MenuState.SCORES]);
+        set_current_menu(_menus[MenuState.SCORES]);
         _state = MenuState.SCORES;
     }
 
     private void handle_shop()
     {
-        push_menu(_menus[MenuState.SHOP]);
+        set_current_menu(_menus[MenuState.SHOP]);
         _state = MenuState.SHOP;
     }
 
     private void handle_gears()
     {
-        push_menu(_menus[MenuState.GEARS]);
+        set_current_menu(_menus[MenuState.GEARS]);
         _state = MenuState.GEARS;
     }
 
@@ -102,7 +102,7 @@ public class MainMenuManager : MenuManager
 
     private void handle_register()
     {
-        push_menu(_menus[MenuState.REGISTER]);
+        set_current_menu(_menus[MenuState.REGISTER]);
         _state = MenuState.REGISTER;
     }
 }
