@@ -6,7 +6,7 @@ using UnityEngine.Events;
 public class Menu : MonoBehaviour
 {
     [SerializeField]
-    public MenuId id;
+    public MenuState id;
     [SerializeField]
     public bool is_modal = false;
     [SerializeField]
