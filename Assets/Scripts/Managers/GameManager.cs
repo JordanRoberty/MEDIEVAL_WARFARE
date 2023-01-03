@@ -59,6 +59,7 @@ public class GameManager : Singleton<GameManager>
     private void handle_loading()
     {
         GameUIManager.Instance.set_state(MenuState.GAME_OVERLAY);
+        Time.timeScale = 1.0f;
         set_state(GameState.RUNNING);
     }
 
