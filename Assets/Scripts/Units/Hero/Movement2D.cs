@@ -2,13 +2,38 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class Movement2D : MonoBehaviour
 {
+    [SerializeField] private PlayerData _player;
+
+    [Header("Movement Variables")]
+    [SerializeField] private float movement_acceleration = 50f;
+    [SerializeField] private float max_move_speed = 12f;
+    [SerializeField] private float ground_linear_drag = 10f; //a.k.a deceleration
+    private bool changing_direction;
+    private bool is_crouching = false;
+
+    [Header("jump Variables")]
+    [SerializeField] private float jump_force = 12f;
+    [SerializeField] private float air_linear_drag = 2.5f;
+    [SerializeField] private float fall_gravity = 8f;
+    [SerializeField] private float low_jump_fall_gravity = 5f;
+    [SerializeField] private int extra_jumps = 1;
+    [SerializeField] private float fastfall_gravity = 500f; 
+	[SerializeField] private float fastfall_max_speed = 50.0f;
+    private int extra_jumps_count = 0;
+    private bool can_jump = false;
+    private bool on_ground = true;
+
+    [Header("Ground Collision Variable")]
+    [SerializeField] private float ground_raycast_length = 0.8f;
+    [SerializeField] private Vector3 ground_raycast_offset = new Vector3(.3f, 0f, 0f);
+    [SerializeField] private LayerMask _ground_layer;
+
+
     private float _horizontal_direction;
     private float _vertical_direction;
-
-    [SerializeField] private LayerMask _ground_layer;
-    [SerializeField] private PlayerData _player;
 
    
     private void Start()
