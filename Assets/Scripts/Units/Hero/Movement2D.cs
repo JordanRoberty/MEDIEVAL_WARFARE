@@ -45,12 +45,8 @@ public class Movement2D : MonoBehaviour
         _horizontal_direction = get_input().x;
         _vertical_direction = get_input().y;
 
-        _player.changing_direction = (_player.rb.velocity.x > 0f && _horizontal_direction < 0f) || (_player.rb.velocity.x < 0f && _horizontal_direction > 0f);
-        _player.can_jump = Input.GetButtonDown("Jump") && (_player.on_ground || _player.extra_jumps_count > 0); 
-        
-        // I don't know why I had to put the jump() call here
-        // But if we move it into FixedUpdate it's not responsive 
-        if (_player.can_jump) jump();
+        changing_direction = (_player.rb.velocity.x > 0f && _horizontal_direction < 0f) || (_player.rb.velocity.x < 0f && _horizontal_direction > 0f);
+        can_jump |= Input.GetButtonDown("Jump"); 
     }
 
     private void FixedUpdate()
@@ -71,6 +67,8 @@ public class Movement2D : MonoBehaviour
             set_gravity();
         }
 
+        if (can_jump && extra_jumps_count > 0) jump();
+        can_jump = false;
     }
 
 ///Return a Vector 2 that contains the horizontal input and place it on the X value and the horizontal input and place it on the Y value
