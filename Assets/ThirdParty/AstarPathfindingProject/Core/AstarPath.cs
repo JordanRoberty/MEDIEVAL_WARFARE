@@ -224,7 +224,7 @@ public class AstarPath : VersionedMonoBehaviour
     /// See: <see cref="Scan"/>
     /// See: <see cref="ScanAsync"/>
     /// </summary>
-    public bool scanOnStartup = true;
+    public bool scanOnStartup = false;
 
     /// <summary>
     /// Do a full GetNearest search for all graphs.
