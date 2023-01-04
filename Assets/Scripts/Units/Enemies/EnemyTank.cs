@@ -13,7 +13,7 @@ public class EnemyTank : Enemy
     }
 
     [Header("Pathfinding")]
-    public Transform target;
+    private Transform target;
     public float activateDistance = 50f;
     public float pathUpdateSeconds = 0.5f;
 
@@ -36,6 +36,7 @@ public class EnemyTank : Enemy
 
     public void Start()
     {
+        target = GameObject.Find("Player").transform;
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
 
