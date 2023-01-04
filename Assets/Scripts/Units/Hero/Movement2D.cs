@@ -73,12 +73,13 @@ public class Movement2D : MonoBehaviour
 
     }
 
+///Return a Vector 2 that contains the horizontal input and place it on the X value and the horizontal input and place it on the Y value
     private Vector2 get_input()
     {
         return new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
     }
 
-    //Move the character on the horizontal direction
+    ///Move the character on the horizontal direction, if the character is faster than max_move_speed we clamp it at max speed
     private void move_character()
     {
         _player.rb.AddForce(new Vector2(_horizontal_direction, 0f) * _player.movement_acceleration);
@@ -89,7 +90,7 @@ public class Movement2D : MonoBehaviour
         }
     }
 
-    //Check is the player is crouching and change his collider's size if he is
+    ///Check is the player is crouching and change his collider size if he is
     private void crouch()
     {   
         if(_vertical_direction < 0)
@@ -105,7 +106,7 @@ public class Movement2D : MonoBehaviour
         
     }
 
-
+    ///Apply the ground linear drag to the character
     private void apply_ground_linear_drag()
     {
         if(Mathf.Abs(_horizontal_direction) < 0.4f || _player.changing_direction)
@@ -118,10 +119,15 @@ public class Movement2D : MonoBehaviour
         }
     }
 
+    ///Apply the air linear drag to the character
      private void apply_air_linear_drag()
     {
         _player.rb.drag = _player.air_linear_drag;
     }
+
+
+    ///It makes the character jump. If the character is not on ground, it retrieves him an extra jump
+    /// then if the player is crouching, the player jump a little bit higher (25% as we reduce his size by 50% (25% top side, 25% bot side))
 
     private void jump()
     {
@@ -144,6 +150,8 @@ public class Movement2D : MonoBehaviour
         
     }
 
+    ///This function set the value of the gravity.
+    ///The value depends of the player movement (jump cut, fast fall, jump)
     private void set_gravity()
     {    
         //jump Cut
@@ -175,11 +183,11 @@ public class Movement2D : MonoBehaviour
 
     }
 
+
+    /// To check the ground collision, we cast rays from the player to the ground.
+    /// One in front of the player and the other in his back to still detect the ground if the player is on the edge of the ground.
     private void check_ground_collision()
     {
-        // To check the ground collision, we cast rays from the player to the ground. One in front of the player
-        // And the other in his back to still detect the ground if the player is on the edge of the ground.
-        if(_player.is_crouching)
         {
             _player.on_ground = Physics2D.Raycast(transform.position + _player.ground_raycast_offset , Vector2.down, _player.ground_raycast_length * 0.5f, _ground_layer) ||
                     Physics2D.Raycast(transform.position - _player.ground_raycast_offset , Vector2.down, _player.ground_raycast_length * 0.5f, _ground_layer);
