@@ -5,39 +5,40 @@ using UnityEngine;
 
 public class Movement2D : MonoBehaviour
 {
-    [SerializeField] private PlayerData _player;
 
     [Header("Movement Variables")]
-    [SerializeField] private float movement_acceleration = 50f;
-    [SerializeField] private float max_move_speed = 12f;
-    [SerializeField] private float ground_linear_drag = 10f; //a.k.a deceleration
-    private bool changing_direction;
-    private bool is_crouching = false;
+    [SerializeField] private float _movement_acceleration = 50f;
+    [SerializeField] private float _max_move_speed = 12f;
+    [SerializeField] private float _ground_linear_drag = 10f; //a.k.a deceleration
+    private bool _changing_direction;
+    private bool _is_crouching = false;
 
     [Header("jump Variables")]
-    [SerializeField] private float jump_force = 12f;
-    [SerializeField] private float air_linear_drag = 2.5f;
-    [SerializeField] private float fall_gravity = 8f;
-    [SerializeField] private float low_jump_fall_gravity = 5f;
-    [SerializeField] private int extra_jumps = 1;
-    [SerializeField] private float fastfall_gravity = 500f; 
-	[SerializeField] private float fastfall_max_speed = 50.0f;
-    private int extra_jumps_count = 0;
-    private bool can_jump = false;
-    private bool on_ground = true;
+    [SerializeField] private float _jump_force = 12f;
+    [SerializeField] private float _air_linear_drag = 2.5f;
+    [SerializeField] private float _fall_gravity = 8f;
+    [SerializeField] private float _low_jump_fall_gravity = 5f;
+    [SerializeField] private int _extra_jumps = 1;
+    [SerializeField] private float _fast_fall_gravity = 500f; 
+	[SerializeField] private float _fastfall_max_speed = 50.0f;
+    private int _extra_jumps_count = 0;
+    private bool _can_jump = false;
+    private bool _on_ground = true;
 
     [Header("Ground Collision Variable")]
-    [SerializeField] private float ground_raycast_length = 0.8f;
-    [SerializeField] private Vector3 ground_raycast_offset = new Vector3(.3f, 0f, 0f);
+    [SerializeField] private float _ground_raycast_length = 0.8f;
+    [SerializeField] private Vector3 _ground_raycast_offset = new Vector3(.3f, 0f, 0f);
     [SerializeField] private LayerMask _ground_layer;
 
 
+    private PlayerData _player;
     private float _horizontal_direction;
     private float _vertical_direction;
 
    
     private void Start()
-    {   
+    { 
+        _player = gameObject.GetComponent(typeof(PlayerData)) as PlayerData;
     }
 
     private void Update()
@@ -45,8 +46,8 @@ public class Movement2D : MonoBehaviour
         _horizontal_direction = get_input().x;
         _vertical_direction = get_input().y;
 
-        changing_direction = (_player.rb.velocity.x > 0f && _horizontal_direction < 0f) || (_player.rb.velocity.x < 0f && _horizontal_direction > 0f);
-        can_jump |= Input.GetButtonDown("Jump"); 
+        _changing_direction = (_player.rb.velocity.x > 0f && _horizontal_direction < 0f) || (_player.rb.velocity.x < 0f && _horizontal_direction > 0f);
+        _can_jump |= Input.GetButtonDown("Jump"); 
     }
 
     private void FixedUpdate()
@@ -54,11 +55,11 @@ public class Movement2D : MonoBehaviour
         check_ground_collision();
         move_character();
         
-        if (on_ground)
+        if (_on_ground)
         {
             apply_ground_linear_drag();
             crouch();
-            extra_jumps_count = extra_jumps;
+            _extra_jumps_count = _extra_jumps;
             _player.rb.gravityScale = 1f;
         }
         else
@@ -67,8 +68,8 @@ public class Movement2D : MonoBehaviour
             set_gravity();
         }
 
-        if (can_jump && extra_jumps_count > 0) jump();
-        can_jump = false;
+        if (_can_jump && _extra_jumps_count > 0) jump();
+        _can_jump = false;
     }
 
 ///Return a Vector 2 that contains the horizontal input and place it on the X value and the horizontal input and place it on the Y value
@@ -77,14 +78,14 @@ public class Movement2D : MonoBehaviour
         return new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
     }
 
-    ///Move the character on the horizontal direction, if the character is faster than max_move_speed we clamp it at max speed
+    ///Move the character on the horizontal direction, if the character is faster than _max_move_speed we clamp it at max speed
     private void move_character()
     {
-        _player.rb.AddForce(new Vector2(_horizontal_direction, 0f) * movement_acceleration);
+        _player.rb.AddForce(new Vector2(_horizontal_direction, 0f) * _movement_acceleration);
 
-        if(Mathf.Abs(_player.rb.velocity.x) > max_move_speed)
+        if(Mathf.Abs(_player.rb.velocity.x) > _max_move_speed)
         {
-            _player.rb.velocity = new Vector2(Mathf.Sign(_player.rb.velocity.x) * max_move_speed, _player.rb.velocity.y);
+            _player.rb.velocity = new Vector2(Mathf.Sign(_player.rb.velocity.x) * _max_move_speed, _player.rb.velocity.y);
         }
     }
 
@@ -94,12 +95,12 @@ public class Movement2D : MonoBehaviour
         if(_vertical_direction < 0)
         {
             GetComponent<BoxCollider2D>().size = new Vector2(1f, 0.5f);
-            is_crouching = true;
+            _is_crouching = true;
         }
         else
         {
             GetComponent<BoxCollider2D>().size = new Vector2(1f, 1f);
-            is_crouching = false;
+            _is_crouching = false;
         }
         
     }
@@ -107,9 +108,9 @@ public class Movement2D : MonoBehaviour
     ///Apply the ground linear drag to the character
     private void apply_ground_linear_drag()
     {
-        if(Mathf.Abs(_horizontal_direction) < 0.4f || changing_direction)
+        if(Mathf.Abs(_horizontal_direction) < 0.4f || _changing_direction)
         {
-            _player.rb.drag = ground_linear_drag;
+            _player.rb.drag = _ground_linear_drag;
         }
         else
         {
@@ -120,7 +121,7 @@ public class Movement2D : MonoBehaviour
     ///Apply the air linear drag to the character
      private void apply_air_linear_drag()
     {
-        _player.rb.drag = air_linear_drag;
+        _player.rb.drag = _air_linear_drag;
     }
 
 
@@ -129,20 +130,20 @@ public class Movement2D : MonoBehaviour
 
     private void jump()
     {
-        if (!on_ground)
+        if (!_on_ground)
         {
-            extra_jumps_count--;
+            _extra_jumps_count--;
         }
 
-        if (is_crouching)
+        if (_is_crouching)
         {
             _player.rb.velocity = new Vector2(_player.rb.velocity.x, 0f);
-            _player.rb.AddForce(Vector2.up * 1.25f * jump_force, ForceMode2D.Impulse);
+            _player.rb.AddForce(Vector2.up * 1.25f * _jump_force, ForceMode2D.Impulse);
         }
         else
         {
             _player.rb.velocity = new Vector2(_player.rb.velocity.x, 0f);
-            _player.rb.AddForce(Vector2.up * jump_force, ForceMode2D.Impulse);
+            _player.rb.AddForce(Vector2.up * _jump_force, ForceMode2D.Impulse);
         }
         
     }
@@ -154,22 +155,22 @@ public class Movement2D : MonoBehaviour
         //jump Cut
         if ( _player.rb.velocity.y > 0 && !Input.GetButton("Jump"))
         {
-            _player.rb.gravityScale = low_jump_fall_gravity;
+            _player.rb.gravityScale = _low_jump_fall_gravity;
         }
         //fast fall
         else if(_player.rb.velocity.y < 0f && _vertical_direction <0)
         {
-             _player.rb.gravityScale = fastfall_gravity;
-            if(Mathf.Abs(_player.rb.velocity.y) > fastfall_max_speed)
+             _player.rb.gravityScale = _fast_fall_gravity;
+            if(Mathf.Abs(_player.rb.velocity.y) > _fastfall_max_speed)
             {
-                _player.rb.velocity = new Vector2(_player.rb.velocity.x, Mathf.Sign(_player.rb.velocity.y) * fastfall_max_speed);
+                _player.rb.velocity = new Vector2(_player.rb.velocity.x, Mathf.Sign(_player.rb.velocity.y) * _fastfall_max_speed);
                 
             }
         } 
         //jump
         else if(_player.rb.velocity.y < 0f)
         {
-            _player.rb.gravityScale = fall_gravity;
+            _player.rb.gravityScale = _fall_gravity;
         }   
         else
         {
@@ -185,15 +186,15 @@ public class Movement2D : MonoBehaviour
     /// One in front of the player and the other in his back to still detect the ground if the player is on the edge of the ground.
     private void check_ground_collision()
     {
-        if(is_crouching)
+        if(_is_crouching)
         {
-            on_ground = Physics2D.Raycast(transform.position + ground_raycast_offset , Vector2.down, ground_raycast_length * 0.5f, _ground_layer) ||
-                    Physics2D.Raycast(transform.position - ground_raycast_offset , Vector2.down, ground_raycast_length * 0.5f, _ground_layer);
+            _on_ground = Physics2D.Raycast(transform.position + _ground_raycast_offset , Vector2.down, _ground_raycast_length * 0.5f, _ground_layer) ||
+                    Physics2D.Raycast(transform.position - _ground_raycast_offset , Vector2.down, _ground_raycast_length * 0.5f, _ground_layer);
         }
         else
         {
-            on_ground = Physics2D.Raycast(transform.position + ground_raycast_offset , Vector2.down, ground_raycast_length, _ground_layer) ||
-                    Physics2D.Raycast(transform.position - ground_raycast_offset , Vector2.down, ground_raycast_length, _ground_layer);
+            _on_ground = Physics2D.Raycast(transform.position + _ground_raycast_offset , Vector2.down, _ground_raycast_length, _ground_layer) ||
+                    Physics2D.Raycast(transform.position - _ground_raycast_offset , Vector2.down, _ground_raycast_length, _ground_layer);
         }
         
     }
@@ -202,15 +203,15 @@ public class Movement2D : MonoBehaviour
     private void OnDrawGizmos() 
     {
         Gizmos.color = Color.green;
-        if(is_crouching)
+        if(_is_crouching)
         {
-            Gizmos.DrawLine(transform.position + ground_raycast_offset, transform.position + ground_raycast_offset + Vector3.down * ground_raycast_length * 0.5f);
-            Gizmos.DrawLine(transform.position - ground_raycast_offset, transform.position - ground_raycast_offset + Vector3.down * ground_raycast_length * 0.5f); 
+            Gizmos.DrawLine(transform.position + _ground_raycast_offset, transform.position + _ground_raycast_offset + Vector3.down * _ground_raycast_length * 0.5f);
+            Gizmos.DrawLine(transform.position - _ground_raycast_offset, transform.position - _ground_raycast_offset + Vector3.down * _ground_raycast_length * 0.5f); 
         }
         else
         {
-            Gizmos.DrawLine(transform.position + ground_raycast_offset, transform.position + ground_raycast_offset + Vector3.down * ground_raycast_length);
-            Gizmos.DrawLine(transform.position - ground_raycast_offset, transform.position - ground_raycast_offset + Vector3.down * ground_raycast_length); 
+            Gizmos.DrawLine(transform.position + _ground_raycast_offset, transform.position + _ground_raycast_offset + Vector3.down * _ground_raycast_length);
+            Gizmos.DrawLine(transform.position - _ground_raycast_offset, transform.position - _ground_raycast_offset + Vector3.down * _ground_raycast_length); 
         }
          
 
