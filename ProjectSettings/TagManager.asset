@@ -6,16 +6,18 @@ TagManager:
   tags:
   - Platform
   - Enemy
+  - Bullet
+  - Obstacle
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Bullet
   - Water
   - UI
   - Ground
-  - 
-  - 
+  - Obstacle
+  - Player
   - 
   - 
   - 

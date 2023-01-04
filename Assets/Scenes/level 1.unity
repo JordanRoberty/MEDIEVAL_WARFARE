@@ -3275,6 +3275,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e889e8720a3d8e428119ec4081f95bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pv: 1000
   target: {fileID: 2065636601}
   activateDistance: 50
   pathUpdateSeconds: 0.2
@@ -3431,6 +3432,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ade0c597c501714fa75b2ecef2196af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pv: 200
   player: {fileID: 2065636600}
   jump_force: 20000
   _ground_layer:
@@ -4101,7 +4103,7 @@ GameObject:
   - component: {fileID: 875804232}
   m_Layer: 6
   m_Name: Obstacle
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5243,13 +5245,13 @@ GameObject:
   m_Component:
   - component: {fileID: 1540150402}
   - component: {fileID: 1540150403}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: TwohandSword
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1540150402
 Transform:
   m_ObjectHideFlags: 0
@@ -6100,6 +6102,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78b6693cdc741694083e1c43a18db6a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pv: 100
   amplitude: 3.5
   frequency: 4
 --- !u!50 &2018580241
@@ -6252,7 +6255,6 @@ Transform:
   m_Children:
   - {fileID: 1587220763}
   - {fileID: 1540150402}
-  - {fileID: 1825802332}
   m_Father: {fileID: 1621335791}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
