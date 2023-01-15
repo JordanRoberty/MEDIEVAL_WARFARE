@@ -39,6 +39,9 @@ EditorBuildSettings:
     path: Assets/Scenes/victory_menu.unity
     guid: 3c32615ddea41c94cafddb8ebbdc9214
   - enabled: 1
+    path: Assets/Scenes/statistics_menu.unity
+    guid: b0c175d6b0b26cd42a0e8080ce8dd371
+  - enabled: 1
     path: Assets/Scenes/register_menu.unity
     guid: dcb7a41cc13e55846a20359c36952d5a
   m_configObjects:
