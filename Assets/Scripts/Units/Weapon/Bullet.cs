@@ -30,12 +30,4 @@ public class Bullet : MonoBehaviour
             enemy.take_damages(damage);
         }
     }
-    
-    void update()
-    {
-        if (Time.time > 2.0f)
-        {
-            Destroy(gameObject);
-        }
-    }
 }

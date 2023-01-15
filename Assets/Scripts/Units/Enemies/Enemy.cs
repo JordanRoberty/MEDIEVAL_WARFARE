@@ -18,14 +18,16 @@ public class Enemy : MonoBehaviour
         damage = new_damage;
     }
 
-    public void take_damage(int player_damage)
+    void OnTriggerEnter2D(Collider2D hitInfo)
     {
-        pv = pv - player_damage;
-
-        if (pv <= 0)
+        Bullet bullet = hitInfo.GetComponent<Bullet>();
+        if (bullet != null)
         {
-            Destroy(gameObject);
+            pv -= bullet.damage;
+            print("Aie");
+            if (pv <= 0){
+                Destroy(gameObject);
+            }
         }
     }
-
 }
