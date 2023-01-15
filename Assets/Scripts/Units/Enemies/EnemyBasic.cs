@@ -11,8 +11,8 @@ public class EnemyBasic : Enemy
         damage = 50.0f;
     }
 
-    public GameObject player;
     public float jump_force = 100.0f;
+    private GameObject player;
     private Rigidbody2D rigid_body;
 
     [Header("Ground Collision Variable")]
@@ -32,6 +32,7 @@ public class EnemyBasic : Enemy
 
     void Start()
     {
+        player = GameObject.Find("Player");
         rigid_body = GetComponent<Rigidbody2D>();
     }
 
