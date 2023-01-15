@@ -2013,7 +2013,6 @@ GameObject:
   - component: {fileID: 753813329}
   - component: {fileID: 753813328}
   - component: {fileID: 753813327}
-  - component: {fileID: 753813326}
   m_Layer: 5
   m_Name: Start  Button
   m_TagString: Untagged
@@ -2042,19 +2041,6 @@ RectTransform:
   m_AnchoredPosition: {x: 640.13, y: -140.8777}
   m_SizeDelta: {x: 400, y: 133}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &753813326
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 753813324}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d64fb6aed976a4f4b9bb03914022873e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: 5
 --- !u!114 &753813327
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2098,7 +2084,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 753813328}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &753813328
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2458,7 +2456,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 903730692}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d64fb6aed976a4f4b9bb03914022873e, type: 3}
+  m_Script: {fileID: 11500000, guid: 35a6cfadc94c2b345922bcfe05df4835, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   target: 0
@@ -2733,10 +2731,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 936387775}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d64fb6aed976a4f4b9bb03914022873e, type: 3}
+  m_Script: {fileID: 11500000, guid: 35a6cfadc94c2b345922bcfe05df4835, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: 2
+  target: 4
 --- !u!114 &936387778
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3184,10 +3182,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1129208089}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d64fb6aed976a4f4b9bb03914022873e, type: 3}
+  m_Script: {fileID: 11500000, guid: 35a6cfadc94c2b345922bcfe05df4835, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: 3
+  target: 2
 --- !u!114 &1129208092
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4392,10 +4390,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1603245425}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d64fb6aed976a4f4b9bb03914022873e, type: 3}
+  m_Script: {fileID: 11500000, guid: 35a6cfadc94c2b345922bcfe05df4835, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: 4
+  target: 3
 --- !u!222 &1603245429
 CanvasRenderer:
   m_ObjectHideFlags: 0

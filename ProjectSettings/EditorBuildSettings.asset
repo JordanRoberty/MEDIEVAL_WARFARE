@@ -21,7 +21,7 @@ EditorBuildSettings:
     path: Assets/Scenes/gears_menu.unity
     guid: 60d9114d53e2ab24aace50e7cfc16953
   - enabled: 1
-    path: Assets/Scenes/score_menu.unity
+    path: Assets/Scenes/scores_menu.unity
     guid: ca03c094e84af094cae06f6f4ec2ad83
   - enabled: 1
     path: Assets/Scenes/level_1.unity
@@ -44,5 +44,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/register_menu.unity
     guid: dcb7a41cc13e55846a20359c36952d5a
+  - enabled: 1
+    path: Assets/Scenes/loading_menu.unity
+    guid: 54a3d70db43279a46bedb77420dd0c5c
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: 0732f080adbf82c44b8564efb91e230b, type: 2}

@@ -6,14 +6,19 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : Singleton<GameManager>
 {
+    [SerializeField]
+    private GameState _initial_state;
     public GameState _state { get; private set; }
 
-    private void Start() => set_state(GameState.LOADING);
+    private void Start()
+    {
+        SceneController.Instance.load_scene(_initial_state);
+        _state = _initial_state;
+    }
         
-
     private void Update()
     {
-        if (Input.GetKeyDown("p") && _state == GameState.RUNNING)
+        if (_state == GameState.RUNNING && Input.GetKeyDown("p"))
         {
             set_state(GameState.PAUSED);
         }
@@ -75,32 +80,31 @@ public class GameManager : Singleton<GameManager>
 
     private void handle_title_menu()
     {
-
+        SceneController.Instance.set_current_scene(GameState.TITLE_MENU);
     }
 
     private void handle_main_menu()
     {
-
+        SceneController.Instance.set_current_scene(GameState.MAIN_MENU);
     }
 
     private void handle_shop_menu()
     {
-
+        SceneController.Instance.set_current_scene(GameState.SHOP_MENU);
     }
 
     private void handle_gears_menu()
     {
-
+        SceneController.Instance.set_current_scene(GameState.GEARS_MENU);
     }
 
     private void handle_scores_menu()
     {
-
+        SceneController.Instance.set_current_scene(GameState.SCORES_MENU);
     }
 
     private void handle_loading()
     {
-        GameUIManager.Instance.set_state(MenuState.GAME_OVERLAY);
         Time.timeScale = 1.0f;
         set_state(GameState.RUNNING);
     }
@@ -115,14 +119,12 @@ public class GameManager : Singleton<GameManager>
         /* Stops the game */
         Time.timeScale = 0.0f;
 
-        GameUIManager.Instance.set_state(MenuState.PAUSE_MENU);
         _state = GameState.PAUSED;
     }
 
     private void handle_unpaused()
     {
         Time.timeScale = 1.0f;
-        GameUIManager.Instance.set_state(MenuState.GAME_OVERLAY);
         set_state(GameState.RUNNING);
     }
 
@@ -134,26 +136,26 @@ public class GameManager : Singleton<GameManager>
 
     private void handle_quitting()
     {
-        SceneManager.LoadSceneAsync("menu");
+        SceneController.Instance.set_current_scene(GameState.MAIN_MENU);
     }
 
     private void handle_fail_menu()
     {
-
+        SceneController.Instance.set_current_scene(GameState.FAIL_MENU);
     }
 
     private void handle_victory_menu()
     {
-
+        SceneController.Instance.set_current_scene(GameState.VICTORY_MENU);
     }
 
     private void handle_stats_menu()
     {
-
+        SceneController.Instance.set_current_scene(GameState.STATS_MENU);
     }
 
     private void handle_register_menu()
     {
-
+        SceneController.Instance.set_current_scene(GameState.REGISTER_MENU);
     }
 }
