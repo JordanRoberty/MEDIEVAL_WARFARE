@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6965095639029914825}
   - component: {fileID: 6965095639029914824}
   - component: {fileID: 6965095639029914827}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: EnemyTank
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -147,7 +147,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e889e8720a3d8e428119ec4081f95bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
+  pv: 1000
   activateDistance: 50
   pathUpdateSeconds: 0.2
   nextWaypointDistance: 3
