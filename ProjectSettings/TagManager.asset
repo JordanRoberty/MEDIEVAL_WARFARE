@@ -18,8 +18,8 @@ TagManager:
   - Ground
   - Obstacle
   - Player
-  - 
-  - 
+  - Enemy
+  - Camera pusher
   - 
   - 
   - 
