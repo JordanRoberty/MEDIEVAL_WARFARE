@@ -8,7 +8,10 @@ public class PlayerData : MonoBehaviour
     [HideInInspector]public Rigidbody2D rb;
 
     [Header("Health & score")]
-    public int health = 100;
+    public float max_health = 100f;
+    public float health = 100f;
+     // Temps pendant lequel le personnage est invincible après avoir été touché (en secondes)
+    public float invincibleTime = 2.0f;
     public int score;
     public int nb_coins;
     //RUNES ??
