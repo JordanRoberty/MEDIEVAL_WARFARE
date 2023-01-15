@@ -68,4 +68,20 @@ public class EnemyBasic : Enemy
                 _ground_layer
             );
     }
+
+    private void OnCollisionEnter(Collision2D collision)
+    {
+        Bullet bullet = collision.gameObject.GetComponent<Bullet>();
+        if (bullet != null)
+        {
+            print("Je suis touché !");
+            pv -= bullet.damage;
+            print(pv);
+            if (pv <= 0)
+            {
+                //destroy enemy gameobject
+                Destroy(gameObject);
+            }
+        }
+    }
 }
