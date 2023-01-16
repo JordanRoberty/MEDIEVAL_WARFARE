@@ -6,9 +6,10 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : Singleton<GameManager>
 {
+    public GameState _state { get; private set; }
+
     [SerializeField]
     private GameState _initial_state;
-    public GameState _state { get; private set; }
 
     private void Start()
     {
