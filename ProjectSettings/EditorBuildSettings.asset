@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/core.unity
     guid: f808360a0bedfa741a80076eddc2dec5
   - enabled: 1
+    path: Assets/Scenes/home.unity
+    guid: 5842f2985d22874429799fdf68fb6163
+  - enabled: 1
     path: Assets/Scenes/title_menu.unity
     guid: ffef4dbd7b350d14e837243668d7c4f8
   - enabled: 1
@@ -26,9 +29,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/level_1.unity
     guid: d2b350bdff9f2ab41a700af6a473e8a2
-  - enabled: 1
-    path: Assets/Scenes/game_overlay.unity
-    guid: 3edac0bb1c470ac48b5bcc0a51932120
   - enabled: 1
     path: Assets/Scenes/pause_menu.unity
     guid: 9748bff1613c33f4dac834816477ff33

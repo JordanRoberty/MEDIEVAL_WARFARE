@@ -9,7 +9,6 @@ public enum GameState
     RUNNING,
     PAUSED,
     UNPAUSED,
-    RELOADING,
     QUITTING,
     FAIL_MENU,
     VICTORY_MENU,

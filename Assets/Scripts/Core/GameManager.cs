@@ -10,22 +10,21 @@ public class GameManager : Singleton<GameManager>
 
     [SerializeField]
     private GameState _initial_state;
+    [SerializeField]
+    private GameScene _initial_scene;
+    [SerializeField]
+    private GameMenu _initial_menu;
 
     private LevelManager level_manager;
     private DifficultyManager difficulty_manager;
 
-    protected override void Awake()
+    private void Start()
     {
-        base.Awake();
+        SceneController.Instance.init(_initial_scene, _initial_menu);
+        _state = _initial_state;
 
         level_manager = GetComponentInChildren<LevelManager>();
         difficulty_manager = GetComponentInChildren<DifficultyManager>();
-    }
-
-    private void Start()
-    {
-        SceneController.Instance.load_scene(_initial_state);
-        _state = _initial_state;
     }
         
     private void Update()
@@ -67,9 +66,6 @@ public class GameManager : Singleton<GameManager>
             case GameState.UNPAUSED:
                 handle_unpaused();
                 break;
-            case GameState.RELOADING:
-                handle_reloading();
-                break;
             case GameState.QUITTING:
                 handle_quitting();
                 break;
@@ -92,43 +88,61 @@ public class GameManager : Singleton<GameManager>
 
     private void handle_title_menu()
     {
-        SceneController.Instance.set_current_scene(GameState.TITLE_MENU);
+        SceneController.Instance.set_current_menu(GameMenu.TITLE);
     }
 
     private void handle_main_menu()
     {
-        SceneController.Instance.set_current_scene(GameState.MAIN_MENU);
+        SceneController.Instance.set_current_menu(GameMenu.MAIN);
     }
 
     private void handle_shop_menu()
     {
-        SceneController.Instance.set_current_scene(GameState.SHOP_MENU);
+        SceneController.Instance.set_current_menu(GameMenu.SHOP);
     }
 
     private void handle_gears_menu()
     {
-        SceneController.Instance.set_current_scene(GameState.GEARS_MENU);
+        SceneController.Instance.set_current_menu(GameMenu.GEARS);
     }
 
     private void handle_scores_menu()
     {
-        SceneController.Instance.set_current_scene(GameState.SCORES_MENU);
+        SceneController.Instance.set_current_menu(GameMenu.SCORES);
     }
 
     private void handle_loading()
     {
-        SceneController.Instance.load_level(level_manager.current_level, difficulty_manager.current_difficulty);
-        Time.timeScale = 1.0f;
+        GameScene level_to_load = GameScene.HOME;
+
+        switch(level_manager.current_level)
+        {
+            case 0:
+                level_to_load = GameScene.LEVEL_1;
+                break;
+            case 1:
+                level_to_load = GameScene.LEVEL_2;
+                break;
+            case 2:
+                level_to_load = GameScene.LEVEL_3;
+                break;
+            default:
+                throw new ArgumentOutOfRangeException(nameof(level_manager.current_level), level_manager.current_level, null);
+        }
+
+        SceneController.Instance.load_level(level_to_load);
         set_state(GameState.RUNNING);
     }
 
     private void handle_running()
     {
+        Time.timeScale = 1.0f;
         _state = GameState.RUNNING;
     }
 
     private void handle_paused()
     {
+        SceneController.Instance.set_current_menu(GameMenu.PAUSE);
         /* Stops the game */
         Time.timeScale = 0.0f;
 
@@ -137,38 +151,33 @@ public class GameManager : Singleton<GameManager>
 
     private void handle_unpaused()
     {
+        SceneController.Instance.set_current_menu(GameMenu.NONE);
         Time.timeScale = 1.0f;
         set_state(GameState.RUNNING);
     }
 
-    private void handle_reloading()
-    {
-        Scene scene = SceneManager.GetActiveScene();
-        SceneManager.LoadScene(scene.name);
-    }
-
     private void handle_quitting()
     {
-        SceneController.Instance.set_current_scene(GameState.MAIN_MENU);
+        SceneController.Instance.load_main_menu();
     }
 
     private void handle_fail_menu()
     {
-        SceneController.Instance.set_current_scene(GameState.FAIL_MENU);
+        SceneController.Instance.set_current_menu(GameMenu.FAIL);
     }
 
     private void handle_victory_menu()
     {
-        SceneController.Instance.set_current_scene(GameState.VICTORY_MENU);
+        SceneController.Instance.set_current_menu(GameMenu.VICTORY);
     }
 
     private void handle_stats_menu()
     {
-        SceneController.Instance.set_current_scene(GameState.STATS_MENU);
+        SceneController.Instance.set_current_menu(GameMenu.STATS);
     }
 
     private void handle_register_menu()
     {
-        SceneController.Instance.set_current_scene(GameState.REGISTER_MENU);
+        SceneController.Instance.set_current_menu(GameMenu.REGISTER);
     }
 }
