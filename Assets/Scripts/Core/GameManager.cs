@@ -11,6 +11,17 @@ public class GameManager : Singleton<GameManager>
     [SerializeField]
     private GameState _initial_state;
 
+    private LevelManager level_manager;
+    private DifficultyManager difficulty_manager;
+
+    protected override void Awake()
+    {
+        base.Awake();
+
+        level_manager = GetComponentInChildren<LevelManager>();
+        difficulty_manager = GetComponentInChildren<DifficultyManager>();
+    }
+
     private void Start()
     {
         SceneController.Instance.load_scene(_initial_state);
@@ -106,6 +117,7 @@ public class GameManager : Singleton<GameManager>
 
     private void handle_loading()
     {
+        SceneController.Instance.load_level(level_manager.current_level, difficulty_manager.current_difficulty);
         Time.timeScale = 1.0f;
         set_state(GameState.RUNNING);
     }
