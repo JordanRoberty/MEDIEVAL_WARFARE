@@ -3,19 +3,23 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Platform
+  - Enemy
+  - Bullet
+  - Obstacle
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Bullet
   - Water
   - UI
   - Ground
-  - 
-  - 
-  - 
-  - 
+  - Obstacle
+  - Player
+  - Enemy
+  - Camera pusher
   - 
   - 
   - 
@@ -38,6 +42,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Bullet
+    uniqueID: 1663226705
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
