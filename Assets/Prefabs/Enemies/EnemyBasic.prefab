@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2786779546960806301}
   - component: {fileID: 2786779546960806300}
   - component: {fileID: 2786779546960806303}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: EnemyBasic
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -146,7 +146,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ade0c597c501714fa75b2ecef2196af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  pv: 200
   jump_force: 20000
   _ground_layer:
     serializedVersion: 2
