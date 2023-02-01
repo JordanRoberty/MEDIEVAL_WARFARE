@@ -17,11 +17,19 @@ public class EnemyFlying : Enemy
     // Fréquence de la sinusoïde
     public float frequency = 5.0f;
 
+    public LayerMask _edge_layer;
+
     // Temps écoulé depuis le début du mouvement
     private float time = 0.0f;
 
     void Update()
     {
+        Collider2D collider = Physics2D.OverlapCircle(transform.position, 0.1f, _edge_layer);
+
+        if (collider != null)
+        {
+            Destroy(gameObject);
+        }
         // Déplacement du personnage sur le côté
         transform.position += Vector3.left * speed * Time.deltaTime;
 
