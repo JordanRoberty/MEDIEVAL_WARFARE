@@ -120,11 +120,13 @@ public class Movement2D : MonoBehaviour
         if(_vertical_direction < 0)
         {
             GetComponent<BoxCollider2D>().size = new Vector2(0.5f, 0.5f);
+            animator.SetBool("IsCrouching", true);
             _is_crouching = true;
         }
         else
         {
             GetComponent<BoxCollider2D>().size = new Vector2(1f, 0.97f);
+            animator.SetBool("IsCrouching", false);
             _is_crouching = false;
         }
         
