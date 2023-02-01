@@ -34,6 +34,8 @@ public class Movement2D : MonoBehaviour
     private PlayerData _player;
     private float _horizontal_direction;
     private float _vertical_direction;
+    public Animator animator;
+    bool facingRight = true;
 
    
     private void Start()
@@ -45,6 +47,25 @@ public class Movement2D : MonoBehaviour
     {
         _horizontal_direction = get_input().x;
         _vertical_direction = get_input().y;
+
+        
+        if (_horizontal_direction > 0 && !facingRight)
+        {
+            Flip();
+            FlipSword();
+            animator.SetBool("IsRunning",true);
+        }
+
+        if (_horizontal_direction == 0)
+        {
+            animator.SetBool("IsRunning", false);
+        }
+        if (_horizontal_direction < 0 && facingRight)
+        {
+            Flip();
+            FlipSword();
+            animator.SetBool("IsRunning", true);
+        }
 
         _changing_direction = (_player.rb.velocity.x > 0f && _horizontal_direction < 0f) || (_player.rb.velocity.x < 0f && _horizontal_direction > 0f);
         _can_jump |= Input.GetButtonDown("Jump"); 
@@ -61,11 +82,15 @@ public class Movement2D : MonoBehaviour
             crouch();
             _extra_jumps_count = _extra_jumps;
             _player.rb.gravityScale = 1f;
+            animator.SetBool("IsJumping", false);
+            animator.SetBool("IsAirborn", false);
         }
         else
         {
             apply_air_linear_drag();
             set_gravity();
+            animator.SetBool("IsJumping", true);
+            animator.SetBool("IsAirborn", true);
         }
 
         if (_can_jump && _extra_jumps_count > 0) jump();
@@ -94,12 +119,12 @@ public class Movement2D : MonoBehaviour
     {   
         if(_vertical_direction < 0)
         {
-            GetComponent<BoxCollider2D>().size = new Vector2(1f, 0.5f);
+            GetComponent<BoxCollider2D>().size = new Vector2(0.5f, 0.5f);
             _is_crouching = true;
         }
         else
         {
-            GetComponent<BoxCollider2D>().size = new Vector2(1f, 1f);
+            GetComponent<BoxCollider2D>().size = new Vector2(1f, 0.97f);
             _is_crouching = false;
         }
         
@@ -133,17 +158,22 @@ public class Movement2D : MonoBehaviour
         if (!_on_ground)
         {
             _extra_jumps_count--;
+            animator.SetBool("IsAirborn", true);
         }
 
         if (_is_crouching)
         {
             _player.rb.velocity = new Vector2(_player.rb.velocity.x, 0f);
             _player.rb.AddForce(Vector2.up * 1.25f * _jump_force, ForceMode2D.Impulse);
+            animator.SetBool("IsJumping", true);
+            animator.SetBool("IsAirborn", true);
         }
         else
         {
             _player.rb.velocity = new Vector2(_player.rb.velocity.x, 0f);
             _player.rb.AddForce(Vector2.up * _jump_force, ForceMode2D.Impulse);
+            animator.SetBool("IsJumping", true);
+            animator.SetBool("IsAirborn", true);
         }
         
     }
@@ -186,15 +216,19 @@ public class Movement2D : MonoBehaviour
     /// One in front of the player and the other in his back to still detect the ground if the player is on the edge of the ground.
     private void check_ground_collision()
     {
-        if(_is_crouching)
-        {
-            _on_ground = Physics2D.Raycast(transform.position + _ground_raycast_offset , Vector2.down, _ground_raycast_length * 0.5f, _ground_layer) ||
-                    Physics2D.Raycast(transform.position - _ground_raycast_offset , Vector2.down, _ground_raycast_length * 0.5f, _ground_layer);
-        }
-        else
+        //if(_is_crouching)
+        //{
+        //    _on_ground = Physics2D.Raycast(transform.position + _ground_raycast_offset , Vector2.down, _ground_raycast_length * 0.5f, _ground_layer) ||
+        //            Physics2D.Raycast(transform.position - _ground_raycast_offset , Vector2.down, _ground_raycast_length * 0.5f, _ground_layer);
+        //    animator.SetBool("IsAirborn", false);
+        //    animator.SetBool("IsJumping", false);
+        //}
+        //else
         {
             _on_ground = Physics2D.Raycast(transform.position + _ground_raycast_offset , Vector2.down, _ground_raycast_length, _ground_layer) ||
                     Physics2D.Raycast(transform.position - _ground_raycast_offset , Vector2.down, _ground_raycast_length, _ground_layer);
+            animator.SetBool("IsAirborn", false);
+            animator.SetBool("IsJumping", false);
         }
         
     }
@@ -206,14 +240,35 @@ public class Movement2D : MonoBehaviour
         if(_is_crouching)
         {
             Gizmos.DrawLine(transform.position + _ground_raycast_offset, transform.position + _ground_raycast_offset + Vector3.down * _ground_raycast_length * 0.5f);
-            Gizmos.DrawLine(transform.position - _ground_raycast_offset, transform.position - _ground_raycast_offset + Vector3.down * _ground_raycast_length * 0.5f); 
+            Gizmos.DrawLine(transform.position - _ground_raycast_offset, transform.position - _ground_raycast_offset + Vector3.down * _ground_raycast_length * 0.5f);
+            animator.SetBool("IsCrouching", true);
+
         }
         else
         {
             Gizmos.DrawLine(transform.position + _ground_raycast_offset, transform.position + _ground_raycast_offset + Vector3.down * _ground_raycast_length);
-            Gizmos.DrawLine(transform.position - _ground_raycast_offset, transform.position - _ground_raycast_offset + Vector3.down * _ground_raycast_length); 
+            Gizmos.DrawLine(transform.position - _ground_raycast_offset, transform.position - _ground_raycast_offset + Vector3.down * _ground_raycast_length);
+            animator.SetBool("IsCrouching", false);
         }
          
 
+    }
+
+    void Flip()
+    {
+        Vector3 currentScale = gameObject.transform.localScale;
+        currentScale.x *= -1;
+        gameObject.transform.localScale = currentScale;
+
+        facingRight = !facingRight;
+    }
+
+    void FlipSword()
+    {
+        GameObject child = gameObject.transform.GetChild(0).gameObject;
+
+        Vector3 currentScale = child.transform.localScale;
+        currentScale.x *= -1;
+        child.transform.localScale = currentScale;
     }
 }

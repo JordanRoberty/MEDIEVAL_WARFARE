@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: dbe3ac103089b684bb4e36d9e5ecf49f
+guid: 7b68884e4c5dfa748b8af4dd6faaf762
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -67,10 +67,10 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 1024
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 2
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -105,10 +105,52 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Animation_idle_0
+      name: "D\xE9but anim course deux bras_0"
       rect:
         serializedVersion: 2
-        x: 0
+        x: 3
+        y: 0
+        width: 42
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 77092727540ab6a4281fc68b6eb15b9e
+      internalID: -724687998
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "D\xE9but anim course deux bras_1"
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 0
+        width: 32
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c48938d34c36df43b30b38d6733dbc1
+      internalID: -1227237390
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "D\xE9but anim course deux bras_2"
+      rect:
+        serializedVersion: 2
+        x: 100
         y: 0
         width: 30
         height: 58
@@ -119,20 +161,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a7af4a8313e11a043bf11be34cca78c1
-      internalID: -197834304
+      spriteID: 3a74229714e0ab24d99d60046c71741b
+      internalID: -521601423
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Animation_idle_1
+      name: "D\xE9but anim course deux bras_3"
       rect:
         serializedVersion: 2
-        x: 30
-        y: 0
-        width: 30
-        height: 58
+        x: 149
+        y: 2
+        width: 31
+        height: 56
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -140,38 +182,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fb3b6ed61c23e0d41adbfdfaddd70de3
-      internalID: -1131308878
+      spriteID: 915bc052534a4a74280ec405a4d6b2c5
+      internalID: 2104340032
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Animation_idle_2
+      name: "D\xE9but anim course deux bras_4"
       rect:
         serializedVersion: 2
-        x: 60
-        y: 0
-        width: 30
-        height: 59
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 36b5bcd8e0711a147951bfb288a3e385
-      internalID: -140631310
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Animation_idle_3
-      rect:
-        serializedVersion: 2
-        x: 90
+        x: 196
         y: 0
         width: 30
         height: 59
@@ -182,82 +203,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a7c31ae56ecc41b4bb20638ec50a366f
-      internalID: 429224879
+      spriteID: d6ec3c46e21cf8c489548fb0776488d7
+      internalID: 476429680
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Animation_idle_4
+      name: "D\xE9but anim course deux bras_5"
       rect:
         serializedVersion: 2
-        x: 120
+        x: 243
         y: 0
-        width: 30
-        height: 60
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ab7499edf0d68d94e8b174b650d290fe
-      internalID: 118396910
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Animation_idle_5
-      rect:
-        serializedVersion: 2
-        x: 150
-        y: 0
-        width: 30
-        height: 60
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a6fdaf735e50f3e4c8559cd9237e35d0
-      internalID: 664675417
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Animation_idle_6
-      rect:
-        serializedVersion: 2
-        x: 180
-        y: 0
-        width: 30
-        height: 60
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4d03e96bef7d05841a6705c49075dd73
-      internalID: 2084066750
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Animation_idle_7
-      rect:
-        serializedVersion: 2
-        x: 210
-        y: 0
-        width: 30
+        width: 31
         height: 59
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -266,29 +224,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 22f75f6f91731ed48882420086443a61
-      internalID: 1268861675
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Animation_idle_8
-      rect:
-        serializedVersion: 2
-        x: 240
-        y: 0
-        width: 30
-        height: 58
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d3f9d3cffd0185347aed4a0ff127e42f
-      internalID: 604235914
+      spriteID: 1e0ee2c6830d14a4e9b452ef65e813a0
+      internalID: 593257557
       vertices: []
       indices: 
       edges: []
@@ -304,15 +241,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Animation_idle_0: -197834304
-      Animation_idle_5: 664675417
-      Animation_idle_7: 1268861675
-      Animation_idle_2: -140631310
-      Animation_idle_3: 429224879
-      Animation_idle_6: 2084066750
-      Animation_idle_1: -1131308878
-      Animation_idle_4: 118396910
-      Animation_idle_8: 604235914
+      "D\xE9but anim course deux bras_4": 476429680
+      "D\xE9but anim course deux bras_5": 593257557
+      "D\xE9but anim course deux bras_0": -724687998
+      "D\xE9but anim course deux bras_1": -1227237390
+      "D\xE9but anim course deux bras_3": 2104340032
+      "D\xE9but anim course deux bras_2": -521601423
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
