@@ -30,8 +30,8 @@ Transform:
   m_GameObject: {fileID: 2786779546960806302}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 7.34, y: -32.1, z: 0}
-  m_LocalScale: {x: 1.09, y: 1.09, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.98, y: 0.98, z: 0.89908254}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -152,7 +152,7 @@ MonoBehaviour:
   _ground_layer:
     serializedVersion: 2
     m_Bits: 64
-  _ground_raycast_length: 1
+  _ground_raycast_length: 1.1
   _ground_raycast_offset: {x: 0, y: 0, z: 0}
 --- !u!95 &6919040561116309989
 Animator:
