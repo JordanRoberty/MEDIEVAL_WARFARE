@@ -259,6 +259,23 @@ MonoBehaviour:
   m_InitialBalance: 0
   m_MaximumBalance: 9999
   m_Type: 0
+--- !u!114 &-585683739311942846
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc354e0620183417abdc77db8319c4cb, type: 3}
+  m_Name: GameParameter_maxLevel
+  m_EditorClassIdentifier: 
+  m_DisplayName: maxLevel
+  m_Key: maxLevel
+  m_Tags: []
+  m_StaticPropertyKeys: []
+  m_StaticPropertyValues: []
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -284,6 +301,7 @@ MonoBehaviour:
   - {fileID: 1382960347241729137}
   - {fileID: -3096199443859944768}
   - {fileID: -4543818305420260228}
+  - {fileID: -585683739311942846}
 --- !u!114 &1382960347241729137
 MonoBehaviour:
   m_ObjectHideFlags: 0
