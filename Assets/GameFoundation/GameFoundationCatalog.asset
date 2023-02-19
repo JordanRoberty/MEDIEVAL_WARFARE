@@ -20,8 +20,13 @@ MonoBehaviour:
   m_InitialAllocation: 0
   m_IsStackableFlag: 1
   m_InitialQuantityPerStack: 0
-  m_MutablePropertyKeys: []
-  m_MutablePropertyDefaultValues: []
+  m_MutablePropertyKeys:
+  - player_speed_increase
+  m_MutablePropertyDefaultValues:
+  - <type>k__BackingField: 1
+    m_ValueType:
+      longValue: 4587366580439587226
+    m_StringValue: 
 --- !u!114 &-5782917165785012656
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -369,8 +374,13 @@ MonoBehaviour:
   m_InitialAllocation: 0
   m_IsStackableFlag: 0
   m_InitialQuantityPerStack: 1
-  m_MutablePropertyKeys: []
-  m_MutablePropertyDefaultValues: []
+  m_MutablePropertyKeys:
+  - damage_increase
+  m_MutablePropertyDefaultValues:
+  - <type>k__BackingField: 1
+    m_ValueType:
+      longValue: 4587366580439587226
+    m_StringValue: 
 --- !u!114 &8664523871116333478
 MonoBehaviour:
   m_ObjectHideFlags: 0
