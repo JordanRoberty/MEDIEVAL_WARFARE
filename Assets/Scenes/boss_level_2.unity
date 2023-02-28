@@ -739,7 +739,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cefb8a76aeffe924ba4d04ffd2ae66f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cam: {fileID: 0}
+  cam: {fileID: 557702060}
   subject: {fileID: 396823808}
 --- !u!64 &618802049
 MeshCollider:
