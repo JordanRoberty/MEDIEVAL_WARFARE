@@ -47,5 +47,20 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/loading_menu.unity
     guid: 54a3d70db43279a46bedb77420dd0c5c
+  - enabled: 1
+    path: Assets/Scenes/boss_level_1.unity
+    guid: 868940d630f73604a854a0ae5641c4bd
+  - enabled: 1
+    path: Assets/Scenes/boss_level_2.unity
+    guid: 9fec5be065528dd43bda0d757d4e176d
+  - enabled: 1
+    path: Assets/Scenes/level_2.unity
+    guid: 325767f1b1c4f1d4b98d21a2b351d306
+  - enabled: 1
+    path: Assets/Scenes/level_3.unity
+    guid: 3f0b9454ebcaf8c44af76a830f2ad8a2
+  - enabled: 1
+    path: Assets/Scenes/boss_level_3.unity
+    guid: 909b19b6c6232a341a9156504707faf0
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: 0732f080adbf82c44b8564efb91e230b, type: 2}
