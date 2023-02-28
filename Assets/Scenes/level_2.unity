@@ -5488,7 +5488,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b7192871d776b34ca8c8966dc0f4fdb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  area_to_load: boss_level_1
+  area_to_load: boss_level_2
 --- !u!61 &1154084445
 BoxCollider2D:
   m_ObjectHideFlags: 0
