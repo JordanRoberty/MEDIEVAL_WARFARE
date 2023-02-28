@@ -8,6 +8,8 @@ TagManager:
   - Enemy
   - Bullet
   - Obstacle
+  - Gear Item
+  - Gear Display
   layers:
   - Default
   - TransparentFX

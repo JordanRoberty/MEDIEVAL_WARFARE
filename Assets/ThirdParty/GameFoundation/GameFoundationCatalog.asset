@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-2219638020608787930
+--- !u!114 &-9102103786533622041
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9,43 +9,83 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c9190a04da29ae24ab35e05133ebf087, type: 3}
-  m_Name: _Catalog_Tags
+  m_Script: {fileID: 11500000, guid: fcbd052539327467295d2009d33aa660, type: 3}
+  m_Name: Item_vitesse
   m_EditorClassIdentifier: 
+  m_DisplayName: Vitesse
+  m_Key: vitesse
+  m_Tags: []
+  m_StaticPropertyKeys: []
+  m_StaticPropertyValues: []
+  m_InitialAllocation: 0
+  m_IsStackableFlag: 1
+  m_InitialQuantityPerStack: 0
+  m_MutablePropertyKeys:
+  - player_speed_increase
+  m_MutablePropertyDefaultValues:
+  - <type>k__BackingField: 1
+    m_ValueType:
+      longValue: 4587366580439587226
+    m_StringValue: 
+--- !u!114 &-5782917165785012656
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcbd052539327467295d2009d33aa660, type: 3}
+  m_Name: Item_glaivemitrailletteMagique
+  m_EditorClassIdentifier: 
+  m_DisplayName: Glaive-mitraillette magique
+  m_Key: glaivemitrailletteMagique
   m_Tags:
-  - {fileID: -1661276413531964997}
-  m_CatalogAsset: {fileID: 11400000}
---- !u!114 &-1661276413531964997
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d4178f7fa125e7644ba2a2d0c6300db1, type: 3}
-  m_Name: Tag_weapon
-  m_EditorClassIdentifier: 
-  m_Key: weapon
-  m_Catalog: {fileID: -2219638020608787930}
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b6d6d794703b5406883240f543e5b084, type: 3}
-  m_Name: GameFoundationCatalog
-  m_EditorClassIdentifier: 
-  m_TagCatalog: {fileID: -2219638020608787930}
-  m_Items:
-  - {fileID: 1365637990896379994}
-  - {fileID: 8776560654724347506}
---- !u!114 &1365637990896379994
+  - {fileID: -4171688192736633468}
+  m_StaticPropertyKeys:
+  - description
+  - icon
+  m_StaticPropertyValues:
+  - <type>k__BackingField: 3
+    m_ValueType:
+      longValue: 0
+    m_StringValue: This is the default weapon you start with.
+  - <type>k__BackingField: 4
+    m_ValueType:
+      longValue: 0
+    m_StringValue: Sprites/sword_promotion_icon
+  m_InitialAllocation: 1
+  m_IsStackableFlag: 0
+  m_InitialQuantityPerStack: 1
+  m_MutablePropertyKeys:
+  - equiped
+  - rune_slot_1
+  - rune_slot_3
+  - rune_slot_2
+  - damage
+  m_MutablePropertyDefaultValues:
+  - <type>k__BackingField: 2
+    m_ValueType:
+      longValue: 1
+    m_StringValue: 
+  - <type>k__BackingField: 5
+    m_ValueType:
+      longValue: 0
+    m_StringValue: 
+  - <type>k__BackingField: 5
+    m_ValueType:
+      longValue: 0
+    m_StringValue: 
+  - <type>k__BackingField: 4
+    m_ValueType:
+      longValue: 0
+    m_StringValue: 
+  - <type>k__BackingField: 0
+    m_ValueType:
+      longValue: 30
+    m_StringValue: 
+--- !u!114 &-4865926856200218857
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -62,8 +102,102 @@ MonoBehaviour:
   m_Tags: []
   m_StaticPropertyKeys: []
   m_StaticPropertyValues: []
-  m_StoreItems: []
---- !u!114 &8776560654724347506
+  m_StoreItems:
+  - m_Transaction: {fileID: 8985032036868252120}
+    m_Enabled: 1
+  - m_Transaction: {fileID: -3403908153950152048}
+    m_Enabled: 1
+  - m_Transaction: {fileID: 1382960347241729137}
+    m_Enabled: 1
+--- !u!114 &-4543818305420260228
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 188049432bcf74f78b314dc2b03ee516, type: 3}
+  m_Name: VirtualTransaction_unlockEpeeBatardeminigun
+  m_EditorClassIdentifier: 
+  m_DisplayName: "D\xE9bloquer l'\xC9p\xE9e b\xE2tarde-minigun"
+  m_Key: unlockEpeeBatardeminigun
+  m_Tags: []
+  m_StaticPropertyKeys:
+  - icon
+  m_StaticPropertyValues:
+  - <type>k__BackingField: 4
+    m_ValueType:
+      longValue: 0
+    m_StringValue: 
+  m_Payout:
+    m_Exchanges:
+    - m_CatalogItem: {fileID: -2795855176514850220}
+      m_Amount: 1
+  m_Costs:
+    m_Exchanges: []
+--- !u!114 &-4171688192736633468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4178f7fa125e7644ba2a2d0c6300db1, type: 3}
+  m_Name: Tag_weapon
+  m_EditorClassIdentifier: 
+  m_Key: weapon
+  m_Catalog: {fileID: 5581390371180892742}
+--- !u!114 &-3403908153950152048
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 188049432bcf74f78b314dc2b03ee516, type: 3}
+  m_Name: VirtualTransaction_vitesseTransaction
+  m_EditorClassIdentifier: 
+  m_DisplayName: Buy Vitesse rune
+  m_Key: vitesseTransaction
+  m_Tags:
+  - {fileID: 8664523871116333478}
+  m_StaticPropertyKeys: []
+  m_StaticPropertyValues: []
+  m_Payout:
+    m_Exchanges:
+    - m_CatalogItem: {fileID: -9102103786533622041}
+      m_Amount: 0
+  m_Costs:
+    m_Exchanges:
+    - m_CatalogItem: {fileID: -1022858674696969765}
+      m_Amount: 10
+--- !u!114 &-3096199443859944768
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b81b157322addcd439104bd3c59b830b, type: 3}
+  m_Name: Store_armurerie
+  m_EditorClassIdentifier: 
+  m_DisplayName: Armurerie
+  m_Key: armurerie
+  m_Tags: []
+  m_StaticPropertyKeys: []
+  m_StaticPropertyValues: []
+  m_StoreItems:
+  - m_Transaction: {fileID: -4543818305420260228}
+    m_Enabled: 1
+--- !u!114 &-2795855176514850220
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -73,36 +207,222 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fcbd052539327467295d2009d33aa660, type: 3}
-  m_Name: Item_onehandSword
+  m_Name: Item_epeeBatardeminigun
   m_EditorClassIdentifier: 
-  m_DisplayName: Onehandsword
-  m_Key: onehandSword
+  m_DisplayName: "\xC9p\xE9e b\xE2tarde-minigun"
+  m_Key: epeeBatardeminigun
   m_Tags:
-  - {fileID: -1661276413531964997}
+  - {fileID: -4171688192736633468}
+  m_StaticPropertyKeys:
+  - price
+  m_StaticPropertyValues:
+  - <type>k__BackingField: 0
+    m_ValueType:
+      longValue: 0
+    m_StringValue: 
+  m_InitialAllocation: 0
+  m_IsStackableFlag: 1
+  m_InitialQuantityPerStack: 0
+  m_MutablePropertyKeys: []
+  m_MutablePropertyDefaultValues: []
+--- !u!114 &-1815871024028893470
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4178f7fa125e7644ba2a2d0c6300db1, type: 3}
+  m_Name: Tag_debug
+  m_EditorClassIdentifier: 
+  m_Key: debug
+  m_Catalog: {fileID: 5581390371180892742}
+--- !u!114 &-1022858674696969765
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6736b79f77dc474c8bc820c305c2c2e, type: 3}
+  m_Name: Currency_gold
+  m_EditorClassIdentifier: 
+  m_DisplayName: Gold
+  m_Key: gold
+  m_Tags: []
+  m_StaticPropertyKeys:
+  - icon
+  m_StaticPropertyValues:
+  - <type>k__BackingField: 4
+    m_ValueType:
+      longValue: 0
+    m_StringValue: Sprites/coin_promotion_icon
+  m_InitialBalance: 0
+  m_MaximumBalance: 9999
+  m_Type: 0
+--- !u!114 &-585683739311942846
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc354e0620183417abdc77db8319c4cb, type: 3}
+  m_Name: GameParameter_maxLevel
+  m_EditorClassIdentifier: 
+  m_DisplayName: maxLevel
+  m_Key: maxLevel
+  m_Tags: []
+  m_StaticPropertyKeys: []
+  m_StaticPropertyValues: []
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6d6d794703b5406883240f543e5b084, type: 3}
+  m_Name: GameFoundationCatalog
+  m_EditorClassIdentifier: 
+  m_TagCatalog: {fileID: 5581390371180892742}
+  m_Items:
+  - {fileID: -4865926856200218857}
+  - {fileID: -5782917165785012656}
+  - {fileID: 7422710132530501903}
+  - {fileID: -1022858674696969765}
+  - {fileID: -2795855176514850220}
+  - {fileID: 8985032036868252120}
+  - {fileID: -9102103786533622041}
+  - {fileID: -3403908153950152048}
+  - {fileID: 1382960347241729137}
+  - {fileID: -3096199443859944768}
+  - {fileID: -4543818305420260228}
+  - {fileID: -585683739311942846}
+--- !u!114 &1382960347241729137
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 188049432bcf74f78b314dc2b03ee516, type: 3}
+  m_Name: VirtualTransaction_coins500
+  m_EditorClassIdentifier: 
+  m_DisplayName: '[DEBUG] Get 500 coins'
+  m_Key: coins500
+  m_Tags:
+  - {fileID: -1815871024028893470}
+  m_StaticPropertyKeys:
+  - icon
+  m_StaticPropertyValues:
+  - <type>k__BackingField: 4
+    m_ValueType:
+      longValue: 0
+    m_StringValue: Sprites/coin_pack_icon
+  m_Payout:
+    m_Exchanges:
+    - m_CatalogItem: {fileID: -1022858674696969765}
+      m_Amount: 500
+  m_Costs:
+    m_Exchanges: []
+--- !u!114 &5581390371180892742
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9190a04da29ae24ab35e05133ebf087, type: 3}
+  m_Name: _Catalog_Tags
+  m_EditorClassIdentifier: 
+  m_Tags:
+  - {fileID: -4171688192736633468}
+  - {fileID: 8664523871116333478}
+  - {fileID: -1815871024028893470}
+  m_CatalogAsset: {fileID: 11400000}
+--- !u!114 &7422710132530501903
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcbd052539327467295d2009d33aa660, type: 3}
+  m_Name: Item_attaque
+  m_EditorClassIdentifier: 
+  m_DisplayName: Attaque
+  m_Key: attaque
+  m_Tags:
+  - {fileID: 8664523871116333478}
   m_StaticPropertyKeys: []
   m_StaticPropertyValues: []
   m_InitialAllocation: 0
   m_IsStackableFlag: 0
   m_InitialQuantityPerStack: 1
   m_MutablePropertyKeys:
-  - Damage
-  - id
-  - Is_bought
-  - Is_equipped
+  - damage_increase
   m_MutablePropertyDefaultValues:
-  - <type>k__BackingField: 0
+  - <type>k__BackingField: 1
     m_ValueType:
-      longValue: 10
+      longValue: 4587366580439587226
     m_StringValue: 
-  - <type>k__BackingField: 0
+--- !u!114 &8664523871116333478
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4178f7fa125e7644ba2a2d0c6300db1, type: 3}
+  m_Name: Tag_rune
+  m_EditorClassIdentifier: 
+  m_Key: rune
+  m_Catalog: {fileID: 5581390371180892742}
+--- !u!114 &8985032036868252120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 188049432bcf74f78b314dc2b03ee516, type: 3}
+  m_Name: VirtualTransaction_attaqueTransaction
+  m_EditorClassIdentifier: 
+  m_DisplayName: Buy Attaque rune
+  m_Key: attaqueTransaction
+  m_Tags:
+  - {fileID: 8664523871116333478}
+  m_StaticPropertyKeys:
+  - icon
+  m_StaticPropertyValues:
+  - <type>k__BackingField: 4
     m_ValueType:
       longValue: 0
-    m_StringValue: 
-  - <type>k__BackingField: 2
-    m_ValueType:
-      longValue: 0
-    m_StringValue: 
-  - <type>k__BackingField: 2
-    m_ValueType:
-      longValue: 1
-    m_StringValue: 
+    m_StringValue: Sprites/sword_icon
+  m_Payout:
+    m_Exchanges:
+    - m_CatalogItem: {fileID: 7422710132530501903}
+      m_Amount: 1
+  m_Costs:
+    m_Exchanges:
+    - m_CatalogItem: {fileID: -1022858674696969765}
+      m_Amount: 10
