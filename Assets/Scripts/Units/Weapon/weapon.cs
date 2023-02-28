@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class weapon : MonoBehaviour
+abstract class weapon : MonoBehaviour
 {
     public Transform firePoint;
     public GameObject bulletPrefab;
@@ -15,11 +15,5 @@ public class weapon : MonoBehaviour
         InvokeRepeating("Shoot",1.0f, seconds);
     }
 
-    void Shoot()
-    {
-        
-        Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-        //Instantiate(bulletPrefab, firePoint.position, firePoint.rotation * Quaternion.Euler(0, 0, 10));
-        //Instantiate(bulletPrefab, firePoint.position, firePoint.rotation * Quaternion.Euler(0, 0, -10));
-    }
+    public abstract void Shoot();
 }
