@@ -1,0 +1,821 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-2821708618296413419
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 188049432bcf74f78b314dc2b03ee516, type: 3}
+  m_Name: VirtualTransaction_premiumPack
+  m_EditorClassIdentifier: 
+  m_DisplayName: Premium Pack
+  m_Key: premiumPack
+  m_Tags:
+  - {fileID: -130273757602676008}
+  m_StaticPropertyKeys:
+  - transaction_icon
+  - promotion_badge
+  m_StaticPropertyValues:
+  - <type>k__BackingField: 4
+    m_ValueType:
+      longValue: 0
+    m_StringValue: Sprites/premium_pack_icon
+  - <type>k__BackingField: 3
+    m_ValueType:
+      longValue: 0
+    m_StringValue: Limited Time!
+  m_Payout:
+    m_Exchanges:
+    - m_CatalogItem: {fileID: 114769875761910900}
+      m_Amount: 250
+    - m_CatalogItem: {fileID: 114304868196528690}
+      m_Amount: 50
+    - m_CatalogItem: {fileID: 4201507424009620041}
+      m_Amount: 25
+    - m_CatalogItem: {fileID: 3976106503686216503}
+      m_Amount: 25
+    - m_CatalogItem: {fileID: 114939921191734144}
+      m_Amount: 1
+  m_Costs:
+    m_Exchanges: []
+--- !u!114 &-130273757602676008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4178f7fa125e7644ba2a2d0c6300db1, type: 3}
+  m_Name: Tag_featuredPacks
+  m_EditorClassIdentifier: 
+  m_Key: featuredPacks
+  m_Catalog: {fileID: 114519877347806676}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6d6d794703b5406883240f543e5b084, type: 3}
+  m_Name: PrefabSampleCatalog
+  m_EditorClassIdentifier: 
+  m_TagCatalog: {fileID: 114519877347806676}
+  m_Items:
+  - {fileID: 114081734430808402}
+  - {fileID: 114769875761910900}
+  - {fileID: 114304868196528690}
+  - {fileID: 114939921191734144}
+  - {fileID: 114842458848176238}
+  - {fileID: 114142603236808148}
+  - {fileID: 114190275102021092}
+  - {fileID: 114021969919793262}
+  - {fileID: 114439107565511120}
+  - {fileID: 114857676562501620}
+  - {fileID: 114538796159473210}
+  - {fileID: 114690919105903628}
+  - {fileID: 114497885565849934}
+  - {fileID: 114189549997032382}
+  - {fileID: 114107407549926166}
+  - {fileID: 114876626471576424}
+  - {fileID: 114261137478066106}
+  - {fileID: 4201507424009620041}
+  - {fileID: 3976106503686216503}
+  - {fileID: -2821708618296413419}
+--- !u!114 &114021969919793262
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 188049432bcf74f78b314dc2b03ee516, type: 3}
+  m_Name: VirtualTransaction_coinPack_250
+  m_EditorClassIdentifier: 
+  m_DisplayName: 250 Coin Pack
+  m_Key: coinPack_250
+  m_Tags:
+  - {fileID: 114399464041348172}
+  m_StaticPropertyKeys:
+  - transaction_icon
+  m_StaticPropertyValues:
+  - <type>k__BackingField: 4
+    m_ValueType:
+      longValue: 0
+    m_StringValue: Sprites/coin_pack_icon
+  m_Payout:
+    m_Exchanges:
+    - m_CatalogItem: {fileID: 114769875761910900}
+      m_Amount: 250
+  m_Costs:
+    m_Exchanges:
+    - m_CatalogItem: {fileID: 114304868196528690}
+      m_Amount: 10
+--- !u!114 &114081734430808402
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b81b157322addcd439104bd3c59b830b, type: 3}
+  m_Name: Store_main
+  m_EditorClassIdentifier: 
+  m_DisplayName: Main
+  m_Key: main
+  m_Tags: []
+  m_StaticPropertyKeys: []
+  m_StaticPropertyValues: []
+  m_StoreItems:
+  - m_Transaction: {fileID: -2821708618296413419}
+    m_Enabled: 1
+  - m_Transaction: {fileID: 114107407549926166}
+    m_Enabled: 1
+  - m_Transaction: {fileID: 114842458848176238}
+    m_Enabled: 1
+  - m_Transaction: {fileID: 114142603236808148}
+    m_Enabled: 1
+  - m_Transaction: {fileID: 114190275102021092}
+    m_Enabled: 1
+  - m_Transaction: {fileID: 114021969919793262}
+    m_Enabled: 1
+  - m_Transaction: {fileID: 114439107565511120}
+    m_Enabled: 1
+  - m_Transaction: {fileID: 114857676562501620}
+    m_Enabled: 1
+  - m_Transaction: {fileID: 114538796159473210}
+    m_Enabled: 1
+  - m_Transaction: {fileID: 114690919105903628}
+    m_Enabled: 1
+  - m_Transaction: {fileID: 114497885565849934}
+    m_Enabled: 1
+  - m_Transaction: {fileID: 114189549997032382}
+    m_Enabled: 1
+--- !u!114 &114107407549926166
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 188049432bcf74f78b314dc2b03ee516, type: 3}
+  m_Name: VirtualTransaction_starterPack
+  m_EditorClassIdentifier: 
+  m_DisplayName: Starter Pack
+  m_Key: starterPack
+  m_Tags:
+  - {fileID: 114621818604549042}
+  - {fileID: -130273757602676008}
+  m_StaticPropertyKeys:
+  - promotion_description
+  - promotion_badge
+  - transaction_icon
+  m_StaticPropertyValues:
+  - <type>k__BackingField: 3
+    m_ValueType:
+      longValue: 0
+    m_StringValue: Don't miss this awesome offer!
+  - <type>k__BackingField: 3
+    m_ValueType:
+      longValue: 0
+    m_StringValue: 20% off
+  - <type>k__BackingField: 4
+    m_ValueType:
+      longValue: 0
+    m_StringValue: Sprites/starter_pack_icon
+  m_Payout:
+    m_Exchanges:
+    - m_CatalogItem: {fileID: 114769875761910900}
+      m_Amount: 100
+    - m_CatalogItem: {fileID: 114304868196528690}
+      m_Amount: 20
+    - m_CatalogItem: {fileID: 114939921191734144}
+      m_Amount: 2
+  m_Costs:
+    m_Exchanges: []
+--- !u!114 &114142603236808148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 188049432bcf74f78b314dc2b03ee516, type: 3}
+  m_Name: VirtualTransaction_coinPack_10
+  m_EditorClassIdentifier: 
+  m_DisplayName: 10 Coin Pack
+  m_Key: coinPack_10
+  m_Tags:
+  - {fileID: 114399464041348172}
+  m_StaticPropertyKeys:
+  - transaction_icon
+  m_StaticPropertyValues:
+  - <type>k__BackingField: 4
+    m_ValueType:
+      longValue: 0
+    m_StringValue: Sprites/coin_pack_icon
+  m_Payout:
+    m_Exchanges:
+    - m_CatalogItem: {fileID: 114769875761910900}
+      m_Amount: 10
+  m_Costs:
+    m_Exchanges:
+    - m_CatalogItem: {fileID: 114304868196528690}
+      m_Amount: 1
+--- !u!114 &114189549997032382
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 188049432bcf74f78b314dc2b03ee516, type: 3}
+  m_Name: VirtualTransaction_gemPack_50
+  m_EditorClassIdentifier: 
+  m_DisplayName: 50 Gem Pack
+  m_Key: gemPack_50
+  m_Tags:
+  - {fileID: 114391688338853680}
+  m_StaticPropertyKeys:
+  - transaction_icon
+  m_StaticPropertyValues:
+  - <type>k__BackingField: 4
+    m_ValueType:
+      longValue: 0
+    m_StringValue: Sprites/gem_pack_icon
+  m_Payout:
+    m_Exchanges:
+    - m_CatalogItem: {fileID: 114304868196528690}
+      m_Amount: 50
+  m_Costs:
+    m_Exchanges:
+    - m_CatalogItem: {fileID: 114769875761910900}
+      m_Amount: 350
+--- !u!114 &114190275102021092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 188049432bcf74f78b314dc2b03ee516, type: 3}
+  m_Name: VirtualTransaction_coinPack_100
+  m_EditorClassIdentifier: 
+  m_DisplayName: 100 Coin Pack
+  m_Key: coinPack_100
+  m_Tags:
+  - {fileID: 114399464041348172}
+  - {fileID: -130273757602676008}
+  m_StaticPropertyKeys:
+  - transaction_icon
+  m_StaticPropertyValues:
+  - <type>k__BackingField: 4
+    m_ValueType:
+      longValue: 0
+    m_StringValue: Sprites/coin_pack_icon
+  m_Payout:
+    m_Exchanges:
+    - m_CatalogItem: {fileID: 114769875761910900}
+      m_Amount: 100
+  m_Costs:
+    m_Exchanges:
+    - m_CatalogItem: {fileID: 114304868196528690}
+      m_Amount: 5
+--- !u!114 &114261137478066106
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc354e0620183417abdc77db8319c4cb, type: 3}
+  m_Name: GameParameter_Is_Sample_Catalog
+  m_EditorClassIdentifier: 
+  m_DisplayName: Is_Sample_Catalog
+  m_Key: Is_Sample_Catalog
+  m_Tags: []
+  m_StaticPropertyKeys: []
+  m_StaticPropertyValues: []
+--- !u!114 &114304868196528690
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6736b79f77dc474c8bc820c305c2c2e, type: 3}
+  m_Name: Currency_gem
+  m_EditorClassIdentifier: 
+  m_DisplayName: Gem
+  m_Key: gem
+  m_Tags: []
+  m_StaticPropertyKeys:
+  - item_icon
+  - promotion_icon
+  - hud_icon
+  m_StaticPropertyValues:
+  - <type>k__BackingField: 4
+    m_ValueType:
+      longValue: 0
+    m_StringValue: Sprites/gem_icon
+  - <type>k__BackingField: 4
+    m_ValueType:
+      longValue: 0
+    m_StringValue: Sprites/gem_promotion_icon
+  - <type>k__BackingField: 4
+    m_ValueType:
+      longValue: 0
+    m_StringValue: Sprites/gem_hud_icon
+  m_InitialBalance: 50
+  m_MaximumBalance: 0
+  m_Type: 1
+--- !u!114 &114361043585890230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4178f7fa125e7644ba2a2d0c6300db1, type: 3}
+  m_Name: Tag_weapon
+  m_EditorClassIdentifier: 
+  m_Key: weapon
+  m_Catalog: {fileID: 114519877347806676}
+--- !u!114 &114391688338853680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4178f7fa125e7644ba2a2d0c6300db1, type: 3}
+  m_Name: Tag_gemPacks
+  m_EditorClassIdentifier: 
+  m_Key: gemPacks
+  m_Catalog: {fileID: 114519877347806676}
+--- !u!114 &114399464041348172
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4178f7fa125e7644ba2a2d0c6300db1, type: 3}
+  m_Name: Tag_coinPacks
+  m_EditorClassIdentifier: 
+  m_Key: coinPacks
+  m_Catalog: {fileID: 114519877347806676}
+--- !u!114 &114439107565511120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 188049432bcf74f78b314dc2b03ee516, type: 3}
+  m_Name: VirtualTransaction_coinPack_500
+  m_EditorClassIdentifier: 
+  m_DisplayName: 500 Coin Pack
+  m_Key: coinPack_500
+  m_Tags:
+  - {fileID: 114399464041348172}
+  m_StaticPropertyKeys:
+  - transaction_icon
+  m_StaticPropertyValues:
+  - <type>k__BackingField: 4
+    m_ValueType:
+      longValue: 0
+    m_StringValue: Sprites/coin_pack_icon
+  m_Payout:
+    m_Exchanges:
+    - m_CatalogItem: {fileID: 114769875761910900}
+      m_Amount: 500
+  m_Costs:
+    m_Exchanges:
+    - m_CatalogItem: {fileID: 114304868196528690}
+      m_Amount: 20
+--- !u!114 &114497885565849934
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 188049432bcf74f78b314dc2b03ee516, type: 3}
+  m_Name: VirtualTransaction_gemPack_25
+  m_EditorClassIdentifier: 
+  m_DisplayName: 25 Gem Pack
+  m_Key: gemPack_25
+  m_Tags:
+  - {fileID: 114391688338853680}
+  m_StaticPropertyKeys:
+  - transaction_icon
+  m_StaticPropertyValues:
+  - <type>k__BackingField: 4
+    m_ValueType:
+      longValue: 0
+    m_StringValue: Sprites/gem_pack_icon
+  m_Payout:
+    m_Exchanges:
+    - m_CatalogItem: {fileID: 114304868196528690}
+      m_Amount: 25
+  m_Costs:
+    m_Exchanges:
+    - m_CatalogItem: {fileID: 114769875761910900}
+      m_Amount: 200
+--- !u!114 &114519877347806676
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9190a04da29ae24ab35e05133ebf087, type: 3}
+  m_Name: SampleDatabase
+  m_EditorClassIdentifier: 
+  m_Tags:
+  - {fileID: 114399464041348172}
+  - {fileID: 114391688338853680}
+  - {fileID: 114361043585890230}
+  - {fileID: 114621818604549042}
+  - {fileID: -130273757602676008}
+  m_CatalogAsset: {fileID: 11400000}
+--- !u!114 &114538796159473210
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 188049432bcf74f78b314dc2b03ee516, type: 3}
+  m_Name: VirtualTransaction_gemPack_5
+  m_EditorClassIdentifier: 
+  m_DisplayName: 5 Gem Pack
+  m_Key: gemPack_5
+  m_Tags:
+  - {fileID: 114391688338853680}
+  m_StaticPropertyKeys:
+  - transaction_icon
+  m_StaticPropertyValues:
+  - <type>k__BackingField: 4
+    m_ValueType:
+      longValue: 0
+    m_StringValue: Sprites/gem_pack_icon
+  m_Payout:
+    m_Exchanges:
+    - m_CatalogItem: {fileID: 114304868196528690}
+      m_Amount: 5
+  m_Costs:
+    m_Exchanges:
+    - m_CatalogItem: {fileID: 114769875761910900}
+      m_Amount: 50
+--- !u!114 &114621818604549042
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4178f7fa125e7644ba2a2d0c6300db1, type: 3}
+  m_Name: Tag_starterPack
+  m_EditorClassIdentifier: 
+  m_Key: starterPack
+  m_Catalog: {fileID: 114519877347806676}
+--- !u!114 &114690919105903628
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 188049432bcf74f78b314dc2b03ee516, type: 3}
+  m_Name: VirtualTransaction_gemPack_10
+  m_EditorClassIdentifier: 
+  m_DisplayName: 10 Gem Pack
+  m_Key: gemPack_10
+  m_Tags:
+  - {fileID: 114391688338853680}
+  - {fileID: -130273757602676008}
+  m_StaticPropertyKeys:
+  - transaction_icon
+  m_StaticPropertyValues:
+  - <type>k__BackingField: 4
+    m_ValueType:
+      longValue: 0
+    m_StringValue: Sprites/gem_pack_icon
+  m_Payout:
+    m_Exchanges:
+    - m_CatalogItem: {fileID: 114304868196528690}
+      m_Amount: 10
+  m_Costs:
+    m_Exchanges:
+    - m_CatalogItem: {fileID: 114769875761910900}
+      m_Amount: 100
+--- !u!114 &114769875761910900
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6736b79f77dc474c8bc820c305c2c2e, type: 3}
+  m_Name: Currency_coin
+  m_EditorClassIdentifier: 
+  m_DisplayName: Coin
+  m_Key: coin
+  m_Tags: []
+  m_StaticPropertyKeys:
+  - item_icon
+  - promotion_icon
+  - hud_icon
+  m_StaticPropertyValues:
+  - <type>k__BackingField: 4
+    m_ValueType:
+      longValue: 0
+    m_StringValue: Sprites/coin_icon
+  - <type>k__BackingField: 4
+    m_ValueType:
+      longValue: 0
+    m_StringValue: Sprites/coin_promotion_icon
+  - <type>k__BackingField: 4
+    m_ValueType:
+      longValue: 0
+    m_StringValue: Sprites/coin_hud_icon
+  m_InitialBalance: 500
+  m_MaximumBalance: 0
+  m_Type: 0
+--- !u!114 &114842458848176238
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 188049432bcf74f78b314dc2b03ee516, type: 3}
+  m_Name: VirtualTransaction_coinPack_2
+  m_EditorClassIdentifier: 
+  m_DisplayName: 2 Coin Pack
+  m_Key: coinPack_2
+  m_Tags:
+  - {fileID: 114399464041348172}
+  m_StaticPropertyKeys:
+  - transaction_icon
+  - promotion_badge
+  m_StaticPropertyValues:
+  - <type>k__BackingField: 4
+    m_ValueType:
+      longValue: 0
+    m_StringValue: Sprites/coin_pack_icon
+  - <type>k__BackingField: 3
+    m_ValueType:
+      longValue: 0
+    m_StringValue: Bonus!
+  m_Payout:
+    m_Exchanges:
+    - m_CatalogItem: {fileID: 114769875761910900}
+      m_Amount: 2
+  m_Costs:
+    m_Exchanges: []
+--- !u!114 &114857676562501620
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 188049432bcf74f78b314dc2b03ee516, type: 3}
+  m_Name: VirtualTransaction_gemPack_2
+  m_EditorClassIdentifier: 
+  m_DisplayName: 2 Gem Pack
+  m_Key: gemPack_2
+  m_Tags:
+  - {fileID: 114391688338853680}
+  m_StaticPropertyKeys:
+  - transaction_icon
+  m_StaticPropertyValues:
+  - <type>k__BackingField: 4
+    m_ValueType:
+      longValue: 0
+    m_StringValue: Sprites/gem_pack_icon
+  m_Payout:
+    m_Exchanges:
+    - m_CatalogItem: {fileID: 114304868196528690}
+      m_Amount: 2
+  m_Costs:
+    m_Exchanges:
+    - m_CatalogItem: {fileID: 114769875761910900}
+      m_Amount: 20
+--- !u!114 &114876626471576424
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08c9c5456074d4a83b08e8cf93c38d19, type: 3}
+  m_Name: Reward_checkInReward
+  m_EditorClassIdentifier: 
+  m_DisplayName: Check In Reward
+  m_Key: checkInReward
+  m_Tags: []
+  m_StaticPropertyKeys:
+  - description
+  - reward_item_title
+  m_StaticPropertyValues:
+  - <type>k__BackingField: 3
+    m_ValueType:
+      longValue: 0
+    m_StringValue: Claim your reward for checking in!
+  - <type>k__BackingField: 3
+    m_ValueType:
+      longValue: 0
+    m_StringValue: Day {0}
+  m_CooldownSeconds: 60
+  m_CooldownDisplayUnits: 0
+  m_ExpirationSeconds: 30
+  m_ExpirationDisplayUnits: 0
+  m_ResetIfExpired: 1
+  m_RewardItems:
+  - <key>k__BackingField: 04317ea9-d164-4409-af4a-a75e08f10350
+    m_Payout:
+      m_Exchanges:
+      - m_CatalogItem: {fileID: 114769875761910900}
+        m_Amount: 10
+  - <key>k__BackingField: fde6058a-073b-4fbd-957f-80e3ebed7662
+    m_Payout:
+      m_Exchanges:
+      - m_CatalogItem: {fileID: 114769875761910900}
+        m_Amount: 20
+  - <key>k__BackingField: 22e55ed3-6e18-483e-a919-e35749edcb9d
+    m_Payout:
+      m_Exchanges:
+      - m_CatalogItem: {fileID: 114769875761910900}
+        m_Amount: 30
+  - <key>k__BackingField: a1c56684-3e07-47f1-9b8a-585150b5f36b
+    m_Payout:
+      m_Exchanges:
+      - m_CatalogItem: {fileID: 114769875761910900}
+        m_Amount: 40
+  - <key>k__BackingField: 677aaec6-e7bd-4954-8c8e-066f6201c20f
+    m_Payout:
+      m_Exchanges:
+      - m_CatalogItem: {fileID: 114769875761910900}
+        m_Amount: 60
+  - <key>k__BackingField: 11df3b49-3de7-44b4-a08f-8113de18e2c6
+    m_Payout:
+      m_Exchanges:
+      - m_CatalogItem: {fileID: 114769875761910900}
+        m_Amount: 70
+--- !u!114 &114939921191734144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcbd052539327467295d2009d33aa660, type: 3}
+  m_Name: Item_sword
+  m_EditorClassIdentifier: 
+  m_DisplayName: Sword
+  m_Key: sword
+  m_Tags:
+  - {fileID: 114361043585890230}
+  m_StaticPropertyKeys:
+  - item_icon
+  - promotion_icon
+  - hud_icon
+  m_StaticPropertyValues:
+  - <type>k__BackingField: 4
+    m_ValueType:
+      longValue: 0
+    m_StringValue: Sprites/sword_icon
+  - <type>k__BackingField: 4
+    m_ValueType:
+      longValue: 0
+    m_StringValue: Sprites/sword_promotion_icon
+  - <type>k__BackingField: 4
+    m_ValueType:
+      longValue: 0
+    m_StringValue: Sprites/sword_hud_icon
+  m_InitialAllocation: 0
+  m_IsStackableFlag: 0
+  m_InitialQuantityPerStack: 1
+  m_MutablePropertyKeys:
+  - damage
+  - quantity
+  - durability
+  m_MutablePropertyDefaultValues:
+  - <type>k__BackingField: 1
+    m_ValueType:
+      longValue: 4627730092099895296
+    m_StringValue: 
+  - <type>k__BackingField: 0
+    m_ValueType:
+      longValue: 5
+    m_StringValue: 
+  - <type>k__BackingField: 0
+    m_ValueType:
+      longValue: 3
+    m_StringValue: 
+--- !u!114 &3976106503686216503
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6736b79f77dc474c8bc820c305c2c2e, type: 3}
+  m_Name: Currency_emerald
+  m_EditorClassIdentifier: 
+  m_DisplayName: Emerald
+  m_Key: emerald
+  m_Tags: []
+  m_StaticPropertyKeys:
+  - item_icon
+  m_StaticPropertyValues:
+  - <type>k__BackingField: 4
+    m_ValueType:
+      longValue: 0
+    m_StringValue: Sprites/emerald_icon
+  m_InitialBalance: 0
+  m_MaximumBalance: 0
+  m_Type: 0
+--- !u!114 &4201507424009620041
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6736b79f77dc474c8bc820c305c2c2e, type: 3}
+  m_Name: Currency_sapphire
+  m_EditorClassIdentifier: 
+  m_DisplayName: Sapphire
+  m_Key: sapphire
+  m_Tags: []
+  m_StaticPropertyKeys:
+  - item_icon
+  m_StaticPropertyValues:
+  - <type>k__BackingField: 4
+    m_ValueType:
+      longValue: 0
+    m_StringValue: Sprites/sapphire_icon
+  m_InitialBalance: 0
+  m_MaximumBalance: 0
+  m_Type: 0
