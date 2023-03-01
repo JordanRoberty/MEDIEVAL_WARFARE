@@ -152,11 +152,14 @@ MonoBehaviour:
   pathUpdateSeconds: 0.2
   nextWaypointDistance: 3
   jumpNodeHeightRequirement: 0.8
-  jumpModifier: 1
+  jumpModifier: 1.1
   jumpCheckOffset: 0.001
   followEnabled: 1
   jumpEnabled: 1
   directionLookEnabled: 1
+  _edge_layer:
+    serializedVersion: 2
+    m_Bits: 1024
 --- !u!114 &6965095639029914827
 MonoBehaviour:
   m_ObjectHideFlags: 0

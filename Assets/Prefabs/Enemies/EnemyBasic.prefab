@@ -128,7 +128,7 @@ Rigidbody2D:
   m_Mass: 100
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 2
   m_Material: {fileID: 6200000, guid: a15a2957978d248779c7e8b578e72206, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -147,9 +147,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pv: 200
-  jump_force: 20000
+  jump_force: 30000
   _ground_layer:
     serializedVersion: 2
     m_Bits: 64
+  _edge_layer:
+    serializedVersion: 2
+    m_Bits: 1024
   _ground_raycast_length: 1
   _ground_raycast_offset: {x: 0, y: 0, z: 0}
+  raycastDistance: 1

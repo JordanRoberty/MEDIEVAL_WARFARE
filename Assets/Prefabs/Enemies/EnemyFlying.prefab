@@ -149,3 +149,6 @@ MonoBehaviour:
   pv: 100
   amplitude: 3.5
   frequency: 4
+  _edge_layer:
+    serializedVersion: 2
+    m_Bits: 1024
