@@ -3738,10 +3738,10 @@ MonoBehaviour:
   enemy_basic: {fileID: 2786779546960806302, guid: 5a99d504511ed74449d2b2c0e545863b, type: 3}
   enemy_tank: {fileID: 6965095639029914826, guid: c009de866ea48bf4ebb0a9b098575994, type: 3}
   enemy_flying: {fileID: 3766044448327004977, guid: ab6e57313eec1a54bb1f0133ff99e96d, type: 3}
-  spawn_rate: 2
-  enemy_basic_probability: 0
-  enemy_tank_probability: 0
-  enemy_flying_probability: 1
+  spawn_rate: 0.5
+  enemy_basic_probability: 0.5
+  enemy_tank_probability: 0.15
+  enemy_flying_probability: 0.35
   scroll_speed: 0.5
 --- !u!4 &772884825
 Transform:
