@@ -36,15 +36,20 @@ public class Movement2D : MonoBehaviour
     private float _vertical_direction;
     public Animator animator;
     bool facingRight = true;
+    private BoxCollider2D boxCollider;
 
-   
+
     private void Start()
     { 
         _player = gameObject.GetComponent(typeof(PlayerData)) as PlayerData;
+        boxCollider = GetComponent<BoxCollider2D>();
     }
 
     private void Update()
     {
+        boxCollider.size = new Vector2(0.39f, 0.97f);
+        boxCollider.offset = new Vector2(0.09f, -0.1f);
+
         _horizontal_direction = get_input().x;
         _vertical_direction = get_input().y;
 
@@ -241,14 +246,14 @@ public class Movement2D : MonoBehaviour
         Gizmos.color = Color.green;
         if(_is_crouching)
         {
-            Gizmos.DrawLine(transform.position + _ground_raycast_offset, transform.position + _ground_raycast_offset + Vector3.down * _ground_raycast_length * 0.5f);
+            Gizmos.DrawLine(transform.position + _ground_raycast_offset*2, transform.position + _ground_raycast_offset + Vector3.down * _ground_raycast_length * 0.5f);
             Gizmos.DrawLine(transform.position - _ground_raycast_offset, transform.position - _ground_raycast_offset + Vector3.down * _ground_raycast_length * 0.5f);
             animator.SetBool("IsCrouching", true);
 
         }
         else
         {
-            Gizmos.DrawLine(transform.position + _ground_raycast_offset, transform.position + _ground_raycast_offset + Vector3.down * _ground_raycast_length);
+            Gizmos.DrawLine(transform.position + _ground_raycast_offset*3, transform.position + _ground_raycast_offset*3 + Vector3.down * _ground_raycast_length);
             Gizmos.DrawLine(transform.position - _ground_raycast_offset, transform.position - _ground_raycast_offset + Vector3.down * _ground_raycast_length);
             animator.SetBool("IsCrouching", false);
         }
