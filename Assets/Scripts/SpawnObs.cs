@@ -16,7 +16,7 @@ public class SpawnObs : MonoBehaviour
 
         for (int index = 0; index < positions.Length; index++)
         {
-            positions[index] = new Vector3Int(Random.Range(6, 100), -5, 0);
+            positions[index] = new Vector3Int(Random.Range(0, 30), -5, 0);
             tileArray[index] = index % 2 == 0 ? tileA : tileB;
         }
 

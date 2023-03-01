@@ -27,6 +27,7 @@ public class EnemyTank : Enemy
     public bool followEnabled = true;
     public bool jumpEnabled = true;
     public bool directionLookEnabled = true;
+    public LayerMask _edge_layer;
 
     private Path path;
     private int currentWaypoint = 0;
@@ -45,6 +46,12 @@ public class EnemyTank : Enemy
 
     private void FixedUpdate()
     {
+        Collider2D collider = Physics2D.OverlapCircle(transform.position, 0.1f, _edge_layer);
+
+        if (collider != null)
+        {
+            Destroy(gameObject);
+        }
         if (TargetInDistance() && followEnabled)
         {
             PathFollow();

@@ -170,3 +170,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+  _edge_layer:
+    serializedVersion: 2
+    m_Bits: 1024
