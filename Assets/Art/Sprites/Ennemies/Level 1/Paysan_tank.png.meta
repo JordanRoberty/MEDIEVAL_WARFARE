@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: dbe3ac103089b684bb4e36d9e5ecf49f
+guid: b2f616d7ca2ab9046af83fcdd87bc80b
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -44,10 +44,10 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 0
+  spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 50
+  spritePixelsToUnits: 40
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -67,10 +67,10 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 1024
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 2
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -105,13 +105,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Animation_idle_0
+      name: Paysan_tank_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 30
-        height: 58
+        x: 17
+        y: 4
+        width: 27
+        height: 45
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -119,20 +119,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a7af4a8313e11a043bf11be34cca78c1
-      internalID: -197834304
+      spriteID: d9721caa36b5e244f80814c31deb4ce4
+      internalID: -1538759320
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Animation_idle_1
+      name: Paysan_tank_1
       rect:
         serializedVersion: 2
-        x: 30
-        y: 0
-        width: 30
-        height: 58
+        x: 77
+        y: 4
+        width: 27
+        height: 45
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -140,20 +140,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fb3b6ed61c23e0d41adbfdfaddd70de3
-      internalID: -1131308878
+      spriteID: d10645f052229b0408e7484f60320305
+      internalID: -1774749510
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Animation_idle_2
+      name: Paysan_tank_2
       rect:
         serializedVersion: 2
-        x: 60
-        y: 0
-        width: 30
-        height: 59
+        x: 137
+        y: 4
+        width: 27
+        height: 45
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -161,20 +161,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 36b5bcd8e0711a147951bfb288a3e385
-      internalID: -140631310
+      spriteID: 8c0305b015a9be9458958ef6aca114ab
+      internalID: 244788586
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Animation_idle_3
+      name: Paysan_tank_3
       rect:
         serializedVersion: 2
-        x: 90
-        y: 0
-        width: 30
-        height: 59
+        x: 197
+        y: 4
+        width: 27
+        height: 45
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -182,20 +182,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a7c31ae56ecc41b4bb20638ec50a366f
-      internalID: 429224879
+      spriteID: 21cdef69bbeb83a45933164896af0877
+      internalID: 302519041
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Animation_idle_4
+      name: Paysan_tank_4
       rect:
         serializedVersion: 2
-        x: 120
-        y: 0
-        width: 30
-        height: 60
+        x: 257
+        y: 4
+        width: 27
+        height: 45
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -203,20 +203,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ab7499edf0d68d94e8b174b650d290fe
-      internalID: 118396910
+      spriteID: d53930af44af149459c9df6fa5cdedfe
+      internalID: -1880088698
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Animation_idle_5
+      name: Paysan_tank_5
       rect:
         serializedVersion: 2
-        x: 150
-        y: 0
-        width: 30
-        height: 60
+        x: 317
+        y: 4
+        width: 27
+        height: 45
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -224,20 +224,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a6fdaf735e50f3e4c8559cd9237e35d0
-      internalID: 664675417
+      spriteID: 78e0099204dda1643a4c609e2586efd4
+      internalID: 1176296222
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Animation_idle_6
+      name: Paysan_tank_6
       rect:
         serializedVersion: 2
-        x: 180
-        y: 0
-        width: 30
-        height: 60
+        x: 377
+        y: 4
+        width: 27
+        height: 45
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -245,20 +245,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4d03e96bef7d05841a6705c49075dd73
-      internalID: 2084066750
+      spriteID: c5e9af55ed908e540ae60a7da9943b26
+      internalID: 1533736696
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Animation_idle_7
+      name: Paysan_tank_7
       rect:
         serializedVersion: 2
-        x: 210
-        y: 0
-        width: 30
-        height: 59
+        x: 437
+        y: 4
+        width: 27
+        height: 45
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -266,20 +266,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 22f75f6f91731ed48882420086443a61
-      internalID: 1268861675
+      spriteID: 8ac0030d16310d744884f795aa5d3a94
+      internalID: -1873921609
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Animation_idle_8
+      name: Paysan_tank_8
       rect:
         serializedVersion: 2
-        x: 240
-        y: 0
-        width: 30
-        height: 58
+        x: 497
+        y: 4
+        width: 27
+        height: 45
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -287,8 +287,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d3f9d3cffd0185347aed4a0ff127e42f
-      internalID: 604235914
+      spriteID: 5696fb6bc2430934786b60a7393aaf8e
+      internalID: -1075383355
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Paysan_tank_9
+      rect:
+        serializedVersion: 2
+        x: 557
+        y: 4
+        width: 27
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1350b1440ea7d4f4a9cb9eb35ce2456b
+      internalID: 814553410
       vertices: []
       indices: 
       edges: []
@@ -304,15 +325,16 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Animation_idle_0: -197834304
-      Animation_idle_5: 664675417
-      Animation_idle_7: 1268861675
-      Animation_idle_2: -140631310
-      Animation_idle_3: 429224879
-      Animation_idle_6: 2084066750
-      Animation_idle_1: -1131308878
-      Animation_idle_4: 118396910
-      Animation_idle_8: 604235914
+      Paysan_tank_4: -1880088698
+      Paysan_tank_1: -1774749510
+      Paysan_tank_2: 244788586
+      Paysan_tank_7: -1873921609
+      Paysan_tank_8: -1075383355
+      Paysan_tank_9: 814553410
+      Paysan_tank_5: 1176296222
+      Paysan_tank_6: 1533736696
+      Paysan_tank_0: -1538759320
+      Paysan_tank_3: 302519041
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
