@@ -3202,9 +3202,9 @@ MonoBehaviour:
   enemy_tank: {fileID: 6965095639029914826, guid: c009de866ea48bf4ebb0a9b098575994, type: 3}
   enemy_flying: {fileID: 3766044448327004977, guid: ab6e57313eec1a54bb1f0133ff99e96d, type: 3}
   spawn_rate: 2
-  enemy_basic_probability: 0
-  enemy_tank_probability: 1
-  enemy_flying_probability: 0
+  enemy_basic_probability: 0.5
+  enemy_tank_probability: 0.2
+  enemy_flying_probability: 0.3
   scroll_speed: 0.5
 --- !u!4 &772884825
 Transform:
@@ -3866,7 +3866,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1219701100
 Transform:
   m_ObjectHideFlags: 0
@@ -4045,7 +4045,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1582997451
 Transform:
   m_ObjectHideFlags: 0
@@ -4758,8 +4758,8 @@ MonoBehaviour:
   _extra_jumps: 1
   _fast_fall_gravity: 500
   _fastfall_max_speed: 50
-  _ground_raycast_length: 1.69
-  _ground_raycast_offset: {x: 0.32, y: 0, z: 0}
+  _ground_raycast_length: 1.52
+  _ground_raycast_offset: {x: 0.16, y: 0, z: 0}
   _ground_layer:
     serializedVersion: 2
     m_Bits: 64
@@ -4798,7 +4798,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.05, y: -0.1}
+  m_Offset: {x: 0.09, y: -0.1}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -4809,7 +4809,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.5, y: 0.97}
+  m_Size: {x: 0.41, y: 0.97}
   m_EdgeRadius: 0
 --- !u!212 &2065636606
 SpriteRenderer:
