@@ -35,7 +35,7 @@ public class Movement2D : MonoBehaviour
     private float _horizontal_direction;
     private float _vertical_direction;
     public Animator animator;
-    bool facingRight = true;
+    public bool facingRight = true;
     private BoxCollider2D boxCollider;
 
 
@@ -251,10 +251,17 @@ public class Movement2D : MonoBehaviour
             animator.SetBool("IsCrouching", true);
 
         }
-        else
+        else if (facingRight)
         {
             Gizmos.DrawLine(transform.position + _ground_raycast_offset*3, transform.position + _ground_raycast_offset*3 + Vector3.down * _ground_raycast_length);
             Gizmos.DrawLine(transform.position - _ground_raycast_offset, transform.position - _ground_raycast_offset + Vector3.down * _ground_raycast_length);
+            animator.SetBool("IsCrouching", false);
+        }
+
+        else if (!facingRight)
+        {
+            Gizmos.DrawLine(transform.position + _ground_raycast_offset, transform.position + _ground_raycast_offset+ Vector3.down * _ground_raycast_length);
+            Gizmos.DrawLine(transform.position - _ground_raycast_offset*3, transform.position - _ground_raycast_offset*3 + Vector3.down * _ground_raycast_length);
             animator.SetBool("IsCrouching", false);
         }
          

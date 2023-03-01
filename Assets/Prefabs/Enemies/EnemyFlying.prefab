@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 3766044448327004972}
   - component: {fileID: 3766044448327004975}
   - component: {fileID: 3766044448327004974}
-  - component: {fileID: 1784493796350818067}
   m_Layer: 9
   m_Name: EnemyFlying
   m_TagString: Enemy
@@ -29,9 +28,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3766044448327004977}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.348, y: -32.0862, z: 0}
-  m_LocalScale: {x: 3.6799998, y: 4.6373982, z: 3.107655}
-  m_ConstrainProportionsScale: 1
+  m_LocalPosition: {x: 7.34, y: -32.1, z: 0}
+  m_LocalScale: {x: 0.625, y: 1.3953124, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -77,8 +76,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1983635746, guid: d75bb440817b9c044a76eb7f6fe996f8, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Color: {r: 0, g: 1, b: 0.07326913, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -105,7 +104,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.66, y: 0.51}
+    oldSize: {x: 1, y: 1}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
