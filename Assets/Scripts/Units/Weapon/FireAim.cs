@@ -11,12 +11,9 @@ public class FireAim : MonoBehaviour
     void Start()
     {
         mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
-        GameObject Player = GameObject.Find("Player");
     }
     void Update()
     {
-        Vector3 Change_arm_pos = new Vector3(0.5f, 0, 3);
-        bool Facing_right = Player.GetComponent<Movement2D>().facingRight;
         /*if (Input.GetKeyDown("up"))
         {
             gameObject.transform.Translate(0.0f,0.5f,0,Space.Self);
@@ -36,7 +33,6 @@ public class FireAim : MonoBehaviour
         float rotZ = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg;
 
         transform.rotation = Quaternion.Euler(0, 0, rotZ);
-
 
     }
 }
