@@ -46,7 +46,7 @@ public class EnemyFlying : Enemy
     void OnCollisionEnter2D(Collision2D collision)
     {
         // Vérifier si l'objet en collision a le tag spécifié
-        if (collision.gameObject.CompareTag("Obstacle"))
+        if (collision.gameObject.CompareTag("Obstacle") || collision.gameObject.CompareTag("Enemy"))
         {
             // Désactiver la collision avec l'objet ayant le tag spécifié
             Physics2D.IgnoreCollision(GetComponent<BoxCollider2D>(), collision.collider, true);

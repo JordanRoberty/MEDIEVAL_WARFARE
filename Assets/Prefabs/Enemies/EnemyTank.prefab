@@ -97,7 +97,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 6965095639029914826}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: b747d4268b684f3479af08d635292f6d, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -126,7 +126,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 100
+  m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -150,9 +150,9 @@ MonoBehaviour:
   pv: 1000
   activateDistance: 50
   pathUpdateSeconds: 0.2
-  nextWaypointDistance: 3
-  jumpNodeHeightRequirement: 0.8
-  jumpModifier: 1.1
+  nextWaypointDistance: 50
+  jumpNodeHeightRequirement: 0.9
+  jumpModifier: 4
   jumpCheckOffset: 0.001
   followEnabled: 1
   jumpEnabled: 1
@@ -178,7 +178,7 @@ MonoBehaviour:
   startEndModifier:
     addPoints: 0
     exactStartPoint: 3
-    exactEndPoint: 3
+    exactEndPoint: 0
     useRaycasting: 0
     mask:
       serializedVersion: 2

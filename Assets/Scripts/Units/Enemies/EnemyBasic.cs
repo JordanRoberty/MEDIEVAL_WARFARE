@@ -69,7 +69,7 @@ public class EnemyBasic : Enemy
             rigid_body.AddForce(new Vector2(0f, jump_force));
             is_jumping = false;
         }
-        if (last_position == transform.position)
+        if (Vector3.Distance(last_position, transform.position) < 0.01f)
         {
             rigid_body.AddForce(new Vector2(0f, jump_force));
         }

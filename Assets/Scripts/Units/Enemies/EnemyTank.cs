@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using Pathfinding;
 
+// réduire sa vitesse pour le rendre plus lourd, fix les gigas sauts aléatoires (empêcher de cumuler les forces de saut (ne pas sauter pendant qu'il est en train de sauter))
+
 public class EnemyTank : Enemy
 {
     public EnemyTank()
     {
         pv = 1000.0f;
-        speed = 40000.0f; // speed is much higher than others bc it works differently due to pathfinding algorithm
+        speed = 100.0f;
         damage = 50.0f;
     }
 
@@ -34,6 +36,9 @@ public class EnemyTank : Enemy
     RaycastHit2D isGrounded;
     Seeker seeker;
     Rigidbody2D rb;
+    private Vector3 last_position;
+    private float timer = 1.0f;
+    private float jump_cooldown = 0.0f;
 
     public void Start()
     {
@@ -56,6 +61,25 @@ public class EnemyTank : Enemy
         {
             PathFollow();
         }
+        if (Vector3.Distance(last_position, transform.position) < 0.001f)
+        {
+            timer -= Time.deltaTime;
+            if (timer < 0.0f)
+            {
+                transform.position = new Vector3(
+                    transform.position.x - 0.5f,
+                    transform.position.y,
+                    transform.position.z
+                );
+                // rb.AddForce(new Vector2(500.0f, 0.0f));
+                timer = 1.0f;
+            }
+        }
+        else
+        {
+            timer = 1.0f;
+        }
+        last_position = transform.position;
     }
 
     private void UpdatePath()
@@ -89,17 +113,24 @@ public class EnemyTank : Enemy
         Vector2 direction = ((Vector2)path.vectorPath[currentWaypoint] - rb.position).normalized;
         Vector2 force = direction * speed * Time.deltaTime;
 
+        jump_cooldown -= Time.deltaTime;
+
         // Jump
-        if (jumpEnabled && isGrounded)
+        if (jumpEnabled && isGrounded && jump_cooldown <= 0.0f)
         {
             if (direction.y > jumpNodeHeightRequirement)
             {
-                rb.AddForce(Vector2.up * speed * jumpModifier);
+                Vector2 jump_force = Vector2.up * speed * jumpModifier;
+                rb.AddForce(jump_force);
+                jump_cooldown = 1.0f;
             }
         }
 
         // Movement
+        // force = new Vector2(force.x, 0.0f); // Mathf.Clamp(force.y, 0f, 10.0f)
+        // Debug.Log(force);
         rb.AddForce(force);
+        Debug.DrawRay(transform.position, force, Color.yellow);
 
         // Next Waypoint
         float distance = Vector2.Distance(rb.position, path.vectorPath[currentWaypoint]);
@@ -141,6 +172,16 @@ public class EnemyTank : Enemy
         {
             path = p;
             currentWaypoint = 0;
+        }
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        // Vérifier si l'objet en collision a le tag spécifié
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            // Désactiver la collision avec l'objet ayant le tag spécifié
+            Physics2D.IgnoreCollision(GetComponent<BoxCollider2D>(), collision.collider, true);
         }
     }
 }
