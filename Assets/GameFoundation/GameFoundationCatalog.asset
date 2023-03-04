@@ -15,6 +15,7 @@ MonoBehaviour:
   m_Tags:
   - {fileID: -3515854801978052291}
   - {fileID: -4591129078935206501}
+  - {fileID: -91263394165242140}
   m_CatalogAsset: {fileID: 11400000}
 --- !u!114 &-7909887311006620065
 MonoBehaviour:
@@ -122,6 +123,34 @@ MonoBehaviour:
   m_InitialQuantityPerStack: 1
   m_MutablePropertyKeys: []
   m_MutablePropertyDefaultValues: []
+--- !u!114 &-3734650512700470626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6736b79f77dc474c8bc820c305c2c2e, type: 3}
+  m_Name: Currency_goldCoin
+  m_EditorClassIdentifier: 
+  m_DisplayName: Gold Coin
+  m_Key: goldCoin
+  m_Tags:
+  - {fileID: -91263394165242140}
+  m_StaticPropertyKeys:
+  - description
+  m_StaticPropertyValues:
+  - <type>k__BackingField: 3
+    m_ValueType:
+      longValue: 0
+    m_StringValue: No pain, no gain. No gain, less pain for your enemies. You'll
+      need money to improve your stuff, and increase your damages. Earn it by killing
+      your enemies.
+  m_InitialBalance: 0
+  m_MaximumBalance: 1000
+  m_Type: 0
 --- !u!114 &-3515854801978052291
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -246,6 +275,20 @@ MonoBehaviour:
   m_InitialQuantityPerStack: 1
   m_MutablePropertyKeys: []
   m_MutablePropertyDefaultValues: []
+--- !u!114 &-91263394165242140
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4178f7fa125e7644ba2a2d0c6300db1, type: 3}
+  m_Name: Tag_MONEY
+  m_EditorClassIdentifier: 
+  m_Key: MONEY
+  m_Catalog: {fileID: -8483040674033979277}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -277,6 +320,7 @@ MonoBehaviour:
   - {fileID: 2068985542277497026}
   - {fileID: -2984950762858343375}
   - {fileID: -6689887291290582272}
+  - {fileID: -3734650512700470626}
 --- !u!114 &735911568368672614
 MonoBehaviour:
   m_ObjectHideFlags: 0
