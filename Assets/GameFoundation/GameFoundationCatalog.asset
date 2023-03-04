@@ -141,6 +141,7 @@ MonoBehaviour:
   - {fileID: -91263394165242140}
   m_StaticPropertyKeys:
   - description
+  - icon
   m_StaticPropertyValues:
   - <type>k__BackingField: 3
     m_ValueType:
@@ -148,6 +149,10 @@ MonoBehaviour:
     m_StringValue: No pain, no gain. No gain, less pain for your enemies. You'll
       need money to improve your stuff, and increase your damages. Earn it by killing
       your enemies.
+  - <type>k__BackingField: 4
+    m_ValueType:
+      longValue: 0
+    m_StringValue: Sprites/coin_icon
   m_InitialBalance: 0
   m_MaximumBalance: 1000
   m_Type: 0
