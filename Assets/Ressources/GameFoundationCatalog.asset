@@ -16,6 +16,9 @@ MonoBehaviour:
   - {fileID: -3515854801978052291}
   - {fileID: -4591129078935206501}
   - {fileID: -91263394165242140}
+  - {fileID: 5304819582551107541}
+  - {fileID: 1866476585823600963}
+  - {fileID: -1572546381581413961}
   m_CatalogAsset: {fileID: 11400000}
 --- !u!114 &-7909887311006620065
 MonoBehaviour:
@@ -33,8 +36,14 @@ MonoBehaviour:
   m_Key: heavyAmmo
   m_Tags:
   - {fileID: -4591129078935206501}
-  m_StaticPropertyKeys: []
-  m_StaticPropertyValues: []
+  - {fileID: 5304819582551107541}
+  m_StaticPropertyKeys:
+  - sprite
+  m_StaticPropertyValues:
+  - <type>k__BackingField: 5
+    m_ValueType:
+      longValue: 0
+    m_StringValue: 
   m_InitialAllocation: 0
   m_IsStackableFlag: 1
   m_InitialQuantityPerStack: 1
@@ -56,13 +65,50 @@ MonoBehaviour:
   m_Key: moneyBaby
   m_Tags:
   - {fileID: -4591129078935206501}
-  m_StaticPropertyKeys: []
-  m_StaticPropertyValues: []
+  - {fileID: 5304819582551107541}
+  m_StaticPropertyKeys:
+  - sprite
+  m_StaticPropertyValues:
+  - <type>k__BackingField: 5
+    m_ValueType:
+      longValue: 0
+    m_StringValue: 
   m_InitialAllocation: 0
   m_IsStackableFlag: 1
   m_InitialQuantityPerStack: 1
   m_MutablePropertyKeys: []
   m_MutablePropertyDefaultValues: []
+--- !u!114 &-6253300597294845572
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 188049432bcf74f78b314dc2b03ee516, type: 3}
+  m_Name: VirtualTransaction_buyDamageRune
+  m_EditorClassIdentifier: 
+  m_DisplayName: Buy Damage Rune
+  m_Key: buyDamageRune
+  m_Tags:
+  - {fileID: -4591129078935206501}
+  m_StaticPropertyKeys:
+  - sprite
+  m_StaticPropertyValues:
+  - <type>k__BackingField: 5
+    m_ValueType:
+      longValue: 0
+    m_StringValue: Assets/Art/Sprites/Runes/damage_rune.png
+  m_Payout:
+    m_Exchanges:
+    - m_CatalogItem: {fileID: -585936254739187637}
+      m_Amount: 1
+  m_Costs:
+    m_Exchanges:
+    - m_CatalogItem: {fileID: -3734650512700470626}
+      m_Amount: 150
 --- !u!114 &-5996210087264413938
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -79,6 +125,7 @@ MonoBehaviour:
   m_Key: firingRate
   m_Tags:
   - {fileID: -4591129078935206501}
+  - {fileID: 5304819582551107541}
   m_StaticPropertyKeys:
   - sprite
   m_StaticPropertyValues:
@@ -211,8 +258,14 @@ MonoBehaviour:
   m_Key: thirdJump
   m_Tags:
   - {fileID: -4591129078935206501}
-  m_StaticPropertyKeys: []
-  m_StaticPropertyValues: []
+  - {fileID: 1866476585823600963}
+  m_StaticPropertyKeys:
+  - sprite
+  m_StaticPropertyValues:
+  - <type>k__BackingField: 5
+    m_ValueType:
+      longValue: 0
+    m_StringValue: 
   m_InitialAllocation: 0
   m_IsStackableFlag: 0
   m_InitialQuantityPerStack: 1
@@ -277,13 +330,64 @@ MonoBehaviour:
   m_Key: bigJump
   m_Tags:
   - {fileID: -4591129078935206501}
-  m_StaticPropertyKeys: []
-  m_StaticPropertyValues: []
+  - {fileID: 1866476585823600963}
+  m_StaticPropertyKeys:
+  - sprite
+  m_StaticPropertyValues:
+  - <type>k__BackingField: 5
+    m_ValueType:
+      longValue: 0
+    m_StringValue: 
   m_InitialAllocation: 0
   m_IsStackableFlag: 1
   m_InitialQuantityPerStack: 1
   m_MutablePropertyKeys: []
   m_MutablePropertyDefaultValues: []
+--- !u!114 &-2654320277996299498
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 188049432bcf74f78b314dc2b03ee516, type: 3}
+  m_Name: VirtualTransaction_buySpeedRune
+  m_EditorClassIdentifier: 
+  m_DisplayName: Buy Speed Rune
+  m_Key: buySpeedRune
+  m_Tags:
+  - {fileID: -4591129078935206501}
+  m_StaticPropertyKeys:
+  - sprite
+  m_StaticPropertyValues:
+  - <type>k__BackingField: 5
+    m_ValueType:
+      longValue: 0
+    m_StringValue: Assets/Art/Sprites/Runes/speed_rune.png
+  m_Payout:
+    m_Exchanges:
+    - m_CatalogItem: {fileID: 4208517894698860899}
+      m_Amount: 1
+  m_Costs:
+    m_Exchanges:
+    - m_CatalogItem: {fileID: -3734650512700470626}
+      m_Amount: 100
+--- !u!114 &-1572546381581413961
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4178f7fa125e7644ba2a2d0c6300db1, type: 3}
+  m_Name: Tag_EQUIPED
+  m_EditorClassIdentifier: 
+  m_Key: EQUIPED
+  m_Catalog: {fileID: -8483040674033979277}
 --- !u!114 &-878349169074680699
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -318,6 +422,7 @@ MonoBehaviour:
   m_Key: damage
   m_Tags:
   - {fileID: -4591129078935206501}
+  - {fileID: 5304819582551107541}
   m_StaticPropertyKeys:
   - sprite
   m_StaticPropertyValues:
@@ -376,6 +481,8 @@ MonoBehaviour:
   - {fileID: -2984950762858343375}
   - {fileID: -6689887291290582272}
   - {fileID: -3734650512700470626}
+  - {fileID: -6253300597294845572}
+  - {fileID: -2654320277996299498}
 --- !u!114 &735911568368672614
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -419,6 +526,20 @@ MonoBehaviour:
     m_ValueType:
       longValue: 0
     m_StringValue: 
+--- !u!114 &1866476585823600963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4178f7fa125e7644ba2a2d0c6300db1, type: 3}
+  m_Name: Tag_CAPACITY_MODIFIER
+  m_EditorClassIdentifier: 
+  m_Key: CAPACITY_MODIFIER
+  m_Catalog: {fileID: -8483040674033979277}
 --- !u!114 &2068985542277497026
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -435,8 +556,14 @@ MonoBehaviour:
   m_Key: eyeOfTheSniper
   m_Tags:
   - {fileID: -4591129078935206501}
-  m_StaticPropertyKeys: []
-  m_StaticPropertyValues: []
+  - {fileID: 1866476585823600963}
+  m_StaticPropertyKeys:
+  - sprite
+  m_StaticPropertyValues:
+  - <type>k__BackingField: 5
+    m_ValueType:
+      longValue: 0
+    m_StringValue: 
   m_InitialAllocation: 0
   m_IsStackableFlag: 1
   m_InitialQuantityPerStack: 1
@@ -458,6 +585,7 @@ MonoBehaviour:
   m_Key: speed
   m_Tags:
   - {fileID: -4591129078935206501}
+  - {fileID: 5304819582551107541}
   m_StaticPropertyKeys:
   - sprite
   m_StaticPropertyValues:
@@ -486,8 +614,14 @@ MonoBehaviour:
   m_Key: health
   m_Tags:
   - {fileID: -4591129078935206501}
-  m_StaticPropertyKeys: []
-  m_StaticPropertyValues: []
+  - {fileID: 5304819582551107541}
+  m_StaticPropertyKeys:
+  - sprite
+  m_StaticPropertyValues:
+  - <type>k__BackingField: 5
+    m_ValueType:
+      longValue: 0
+    m_StringValue: 
   m_InitialAllocation: 0
   m_IsStackableFlag: 1
   m_InitialQuantityPerStack: 1
@@ -536,6 +670,20 @@ MonoBehaviour:
     m_ValueType:
       longValue: 0
     m_StringValue: 
+--- !u!114 &5304819582551107541
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4178f7fa125e7644ba2a2d0c6300db1, type: 3}
+  m_Name: Tag_STAT_MODIFIER
+  m_EditorClassIdentifier: 
+  m_Key: STAT_MODIFIER
+  m_Catalog: {fileID: -8483040674033979277}
 --- !u!114 &5640188668713925375
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -552,6 +700,7 @@ MonoBehaviour:
   m_Key: machineGunSword
   m_Tags:
   - {fileID: -3515854801978052291}
+  - {fileID: -1572546381581413961}
   m_StaticPropertyKeys:
   - sprite
   m_StaticPropertyValues:
@@ -638,8 +787,14 @@ MonoBehaviour:
   m_Key: shrapnelShot
   m_Tags:
   - {fileID: -4591129078935206501}
-  m_StaticPropertyKeys: []
-  m_StaticPropertyValues: []
+  - {fileID: 1866476585823600963}
+  m_StaticPropertyKeys:
+  - sprite
+  m_StaticPropertyValues:
+  - <type>k__BackingField: 5
+    m_ValueType:
+      longValue: 0
+    m_StringValue: 
   m_InitialAllocation: 0
   m_IsStackableFlag: 1
   m_InitialQuantityPerStack: 1
