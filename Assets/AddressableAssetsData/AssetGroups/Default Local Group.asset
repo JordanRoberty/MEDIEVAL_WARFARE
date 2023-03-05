@@ -16,7 +16,19 @@ MonoBehaviour:
   m_Data:
     m_SerializedData: []
   m_GUID: 3445a02ea53253c458385a0459bfe6c8
-  m_SerializeEntries: []
+  m_SerializeEntries:
+  - m_GUID: 96d504d0f74680942a28b52249735242
+    m_Address: Assets/Art/UI/Icons/gold_coin_icon.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: bb625eae703c68c488fd2f9f251ddcad
+    m_Address: Assets/GameFoundation/RuneCatalog.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 964a28ce24a8a864a96ba73a733c9038
+    m_Address: Assets/Art/Sprites/Weapons/Machine Gun Sword/machine_gun_sword.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: f606f661b833fe140b592507dad01fe1, type: 2}
   m_SchemaSet:
