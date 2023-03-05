@@ -1,19 +1,38 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 
-public class FireAime : MonoBehaviour
+public class FireAim : MonoBehaviour
 {
-    // Update is called once per frame
+    public GameObject Player;
+    private Vector3 mousePos;
+    private Camera mainCam;
+    void Start()
+    {
+        mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+    }
     void Update()
     {
-        if (Input.GetKey("up"))
+        /*if (Input.GetKeyDown("up"))
         {
-            gameObject.transform.Rotate(0.0f, 90.0f, 0.0f, Space.Self);
+            gameObject.transform.Translate(0.0f,0.5f,0,Space.Self);
+            gameObject.transform.Rotate(0.0f, 0.0f, 45.0f, Space.Self);
         }
-        if (Input.GetKey("up") && Input.GetKey("right"))
+
+        if (Input.GetKeyUp("up"))
         {
-            gameObject.transform.Rotate(0.0f, 45.0f, 0.0f, Space.Self);
-        }
+            gameObject.transform.Translate(0.0f, -0.5f, 0, Space.Self);
+            gameObject.transform.Rotate(0.0f, 0.0f, -45.0f, Space.Self);
+        }*/
+
+        mousePos = mainCam.ScreenToWorldPoint(Input.mousePosition);
+        Debug.Log(mousePos);
+
+        Vector3 aimDirection = mousePos - Player.transform.position;
+        float rotZ = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg;
+
+        transform.rotation = Quaternion.Euler(0, 0, rotZ);
+
     }
 }
