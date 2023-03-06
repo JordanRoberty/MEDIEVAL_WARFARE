@@ -318,6 +318,8 @@ GameObject:
   - component: {fileID: 254013057}
   - component: {fileID: 254013056}
   - component: {fileID: 254013055}
+  - component: {fileID: 254013059}
+  - component: {fileID: 254013058}
   m_Layer: 6
   m_Name: Ground
   m_TagString: Untagged
@@ -352,7 +354,7 @@ TilemapCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_UsedByComposite: 0
+  m_UsedByComposite: 1
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0.00001
@@ -3021,6 +3023,63 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!66 &254013058
+CompositeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 254013053}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_GeometryType: 0
+  m_GenerationType: 0
+  m_EdgeRadius: 0
+  m_ColliderPaths:
+  - m_Collider: {fileID: 254013055}
+    m_ColliderPaths:
+    - - X: -160000000
+        Y: -60000000
+      - X: 2390000128
+        Y: -60000000
+      - X: 2390000128
+        Y: -50000000
+      - X: -160000000
+        Y: -50000000
+  m_CompositePaths:
+    m_Paths:
+    - - {x: 238.99998, y: -6}
+      - {x: 238.99998, y: -5}
+      - {x: -16, y: -5.000029}
+      - {x: -15.999971, y: -6}
+  m_VertexDistance: 0.0005
+  m_OffsetDistance: 0.00005
+--- !u!50 &254013059
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 254013053}
+  m_BodyType: 2
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &276861218
 GameObject:
   m_ObjectHideFlags: 0
@@ -6595,6 +6654,7 @@ MonoBehaviour:
   _movement_acceleration: 50
   _max_move_speed: 12
   _ground_linear_drag: 10
+  _default_speed: 7
   _jump_force: 10
   _air_linear_drag: 2.5
   _fall_gravity: 8
@@ -6638,7 +6698,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 2065636600}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: 181b5c6ecc1eb4b00a47a0ec7693985b, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
