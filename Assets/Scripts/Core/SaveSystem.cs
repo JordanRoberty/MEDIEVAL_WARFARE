@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Text;
@@ -6,6 +6,7 @@ using UnityEngine;
 using UnityEngine.GameFoundation;
 using UnityEngine.GameFoundation.Components;
 using UnityEngine.GameFoundation.DefaultLayers;
+using UnityEngine.GameFoundation.DefaultLayers.Persistence;
 using UnityEngine.Promise;
 using UnityEngine.UI;
 
@@ -18,16 +19,6 @@ public class SaveSystem : Singleton<SaveSystem>
     /// Flag for whether the Inventory has changes in it that have not yet been updated in the UI.
     /// </summary>
     private bool _inventory_changed;
-
-    /// <summary>
-    /// Reference to a list of InventoryItems in the GameFoundationSdk.inventory.
-    /// </summary>
-    private readonly List<InventoryItem> _inventory_items = new List<InventoryItem>();
-
-    /// <summary>
-    /// Used to reduce times mainText.text is accessed.
-    /// </summary>
-    private readonly StringBuilder _display_text = new StringBuilder();
 
     /// <summary>
     /// Reference in the scene to the Game Foundation Init component.
@@ -131,35 +122,6 @@ public class SaveSystem : Singleton<SaveSystem>
             _inventory_changed = false;
         }
     }
-        
-    /// <summary>
-    /// Adds a new sword item to the GameFoundationSdk.inventory.
-    /// The sword Inventory Item first needs to be set up in the Inventory window.
-    /// </summary>
-    public void AddNewSword()
-    {
-        var sword = GameFoundationSdk.catalog.Find<InventoryItemDefinition>("sword");
-        GameFoundationSdk.inventory.CreateItem(sword);
-    }
-
-    /// <summary>
-    /// Adds a health potion item to the inventory manager.
-    /// The health potion Inventory Item first needs to be set up in the Inventory window.
-    /// </summary>
-    public void AddHealthPotion()
-    {
-        var healthPotion = GameFoundationSdk.catalog.Find<InventoryItemDefinition>("healthPotion");
-        GameFoundationSdk.inventory.CreateItem(healthPotion);
-    }
-
-    /// <summary>
-    /// Removes all Inventory Items from GameFoundationSdk.inventory.
-    /// </summary>
-    public void RemoveAllItems()
-    {
-        var deletedCount = GameFoundationSdk.inventory.DeleteAllItems();
-        Debug.Log(deletedCount + " inventory items removed");
-    }
 
     /// <summary>
     /// This will save game foundation's data as a JSON file on your machine.
@@ -204,30 +166,6 @@ public class SaveSystem : Singleton<SaveSystem>
         GF_init.Initialize();
     }
 
-    /// <summary>
-    /// This will fill out the main text box with information about the main inventory.
-    /// </summary>
-    /*private void RefreshUI()
-    {
-        // Display the main inventory's display name
-        _display_text.Clear();
-        _display_text.AppendLine("<b><i>Inventory:</i></b>");
-
-        // We'll use the version of GetItems that lets us pass in a collection to be filled to reduce allocations
-        GameFoundationSdk.inventory.GetItems(_inventory_items);
-
-        // Loop through every type of item within the inventory and display its name and quantity.
-        foreach (InventoryItem inventoryItem in _inventory_items)
-        {
-            // All InventoryItems have an associated InventoryItemDefinition which contains a display name.
-            string itemName = inventoryItem.definition.key;
-
-            _display_text.AppendLine(itemName);
-        }
-
-        mainText.text = _display_text.ToString();
-    }*/
-
     private static IEnumerator WaitForSaveCompletion(Deferred saveOperation)
     {
         // Wait for the operation to complete.
@@ -248,7 +186,19 @@ public class SaveSystem : Singleton<SaveSystem>
             Debug.LogError($"Save failed! Error: {saveOperation.error}");
         }
     }
+
+    public void Delete()
+    {
+        // Get the persistence data layer used during Game Foundation initialization.
+        if (!(GameFoundationSdk.dataLayer is PersistenceDataLayer dataLayer))
+            return;
+
         
+        LocalPersistence persistence = new LocalPersistence(GF_init.localPersistenceFilename, new JsonDataSerializer());
+        persistence.Delete();
+        Load();
+    }
+
     /// <summary>
     /// Listener for changes in GameFoundationSdk.inventory. Will get called whenever an item is added or removed.
     /// Because many items can get added or removed at a time, we will have the listener only set a flag
