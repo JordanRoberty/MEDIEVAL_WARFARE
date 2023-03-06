@@ -90,26 +90,45 @@ public class GameManager : Singleton<GameManager>
     private void handle_title_menu()
     {
         SceneController.Instance.set_current_menu(GameMenu.TITLE);
+        _state = GameState.TITLE_MENU;
     }
 
     private void handle_main_menu()
     {
+        // HANDLE QUIT
+        if(_state == GameState.SHOP_MENU)
+        {
+            SaveSystem.Instance.Save();
+        }
+
+        // HANDLE ENTER
         SceneController.Instance.set_current_menu(GameMenu.MAIN);
+        _state = GameState.MAIN_MENU;
     }
 
     private void handle_shop_menu()
     {
         SceneController.Instance.set_current_menu(GameMenu.SHOP);
+        _state = GameState.SHOP_MENU;
     }
 
     private void handle_gears_menu()
     {
+        // HANDLE QUIT
+        if (_state == GameState.SHOP_MENU)
+        {
+            SaveSystem.Instance.Save();
+        }
+
+        // HANDLE ENTER
         SceneController.Instance.set_current_menu(GameMenu.GEARS);
+        _state = GameState.GEARS_MENU;
     }
 
     private void handle_scores_menu()
     {
         SceneController.Instance.set_current_menu(GameMenu.SCORES);
+        _state = GameState.SCORES_MENU;
     }
 
     private void handle_loading()
@@ -160,25 +179,30 @@ public class GameManager : Singleton<GameManager>
     private void handle_quitting()
     {
         SceneController.Instance.load_main_menu();
+        set_state(GameState.MAIN_MENU);
     }
 
     private void handle_fail_menu()
     {
         SceneController.Instance.set_current_menu(GameMenu.FAIL);
+        _state = GameState.FAIL_MENU;
     }
 
     private void handle_victory_menu()
     {
         SceneController.Instance.set_current_menu(GameMenu.VICTORY);
+        _state = GameState.VICTORY_MENU;
     }
 
     private void handle_stats_menu()
     {
         SceneController.Instance.set_current_menu(GameMenu.STATS);
+        _state = GameState.STATS_MENU;
     }
 
     private void handle_register_menu()
     {
         SceneController.Instance.set_current_menu(GameMenu.REGISTER);
+        _state = GameState.REGISTER_MENU;
     }
 }
