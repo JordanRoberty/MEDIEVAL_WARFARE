@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 216797580}
   - component: {fileID: 216797579}
   m_Layer: 0
-  m_Name: Game Foundation
+  m_Name: Game Foundation Init
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
