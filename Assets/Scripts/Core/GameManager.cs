@@ -179,7 +179,7 @@ public class GameManager : Singleton<GameManager>
     private void handle_quitting()
     {
         SceneController.Instance.load_main_menu();
-        set_state(GameState.MAIN_MENU);
+        _state = GameState.MAIN_MENU;
     }
 
     private void handle_fail_menu()
