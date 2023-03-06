@@ -1116,7 +1116,7 @@ MonoBehaviour:
   m_CurrencyPayoutCountPrefix: x
   m_ShowHiddenItems: 0
   m_Interactable: 1
-  m_TransactionItemPrefab: {fileID: 3695897643410738140, guid: 8e2d59a355a014ce887f186c1211901a, type: 3}
+  m_TransactionItemPrefab: {fileID: 3695897643410738140, guid: 255da6bcba9d391408e118c4c2330ab5, type: 3}
   m_BundleItemPrefab: {fileID: 2536130330554385325, guid: bc03e4407c2ce46018708976c1524433, type: 3}
   m_FeaturedItemPrefab: {fileID: 0}
   m_FeaturedBundleItemPrefab: {fileID: 4710714771168731679, guid: cfcb9e006ddd544178ca6e62a7b02320, type: 3}
