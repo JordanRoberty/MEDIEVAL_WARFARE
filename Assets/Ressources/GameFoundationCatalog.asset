@@ -1,5 +1,19 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8923789779514231476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4178f7fa125e7644ba2a2d0c6300db1, type: 3}
+  m_Name: Tag_CURRENT_WEAPON
+  m_EditorClassIdentifier: 
+  m_Key: CURRENT_WEAPON
+  m_Catalog: {fileID: -8483040674033979277}
 --- !u!114 &-8483040674033979277
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17,9 +31,9 @@ MonoBehaviour:
   - {fileID: -4591129078935206501}
   - {fileID: -91263394165242140}
   - {fileID: 5304819582551107541}
-  - {fileID: -1572546381581413961}
   - {fileID: 5328996562115661337}
   - {fileID: 288077867421494364}
+  - {fileID: -8923789779514231476}
   m_CatalogAsset: {fileID: 11400000}
 --- !u!114 &-5810768112172382900
 MonoBehaviour:
@@ -241,20 +255,6 @@ MonoBehaviour:
     m_ValueType:
       longValue: 0
     m_StringValue: 
---- !u!114 &-1572546381581413961
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d4178f7fa125e7644ba2a2d0c6300db1, type: 3}
-  m_Name: Tag_EQUIPED
-  m_EditorClassIdentifier: 
-  m_Key: EQUIPED
-  m_Catalog: {fileID: -8483040674033979277}
 --- !u!114 &-878349169074680699
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -317,6 +317,7 @@ MonoBehaviour:
   - {fileID: 5424382003934826009}
   - {fileID: -5810768112172382900}
   - {fileID: 7021141422748496704}
+  - {fileID: 8378143005222299428}
 --- !u!114 &288077867421494364
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -501,7 +502,6 @@ MonoBehaviour:
   m_Key: machineGunSword
   m_Tags:
   - {fileID: -3515854801978052291}
-  - {fileID: -1572546381581413961}
   m_StaticPropertyKeys:
   - sprite
   m_StaticPropertyValues:
@@ -605,3 +605,31 @@ MonoBehaviour:
     m_ValueType:
       longValue: 0
     m_StringValue: 
+--- !u!114 &8378143005222299428
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcbd052539327467295d2009d33aa660, type: 3}
+  m_Name: Item_currentWeapon
+  m_EditorClassIdentifier: 
+  m_DisplayName: Current Weapon
+  m_Key: currentWeapon
+  m_Tags:
+  - {fileID: -8923789779514231476}
+  m_StaticPropertyKeys: []
+  m_StaticPropertyValues: []
+  m_InitialAllocation: 1
+  m_IsStackableFlag: 0
+  m_InitialQuantityPerStack: 1
+  m_MutablePropertyKeys:
+  - current_weapon_key
+  m_MutablePropertyDefaultValues:
+  - <type>k__BackingField: 3
+    m_ValueType:
+      longValue: 0
+    m_StringValue: machineGunSword
