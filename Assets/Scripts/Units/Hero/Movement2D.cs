@@ -10,6 +10,7 @@ public class Movement2D : MonoBehaviour
     [SerializeField] private float _movement_acceleration = 50f;
     [SerializeField] private float _max_move_speed = 12f;
     [SerializeField] private float _ground_linear_drag = 10f; //a.k.a deceleration
+    [SerializeField] private float _default_speed = 7f;
     private bool _changing_direction;
     private bool _is_crouching = false;
 
@@ -39,7 +40,7 @@ public class Movement2D : MonoBehaviour
     private BoxCollider2D boxCollider;
 
 
-    private void Start()
+    private void Awake()
     { 
         _player = gameObject.GetComponent(typeof(PlayerData)) as PlayerData;
         boxCollider = GetComponent<BoxCollider2D>();
@@ -111,8 +112,15 @@ public class Movement2D : MonoBehaviour
     ///Move the character on the horizontal direction, if the character is faster than _max_move_speed we clamp it at max speed
     private void move_character()
     {
-        _player.rb.AddForce(new Vector2(_horizontal_direction, 0f) * _movement_acceleration);
-
+        //Check if the player doesn't move, the character is moving by a default speed
+        if(_horizontal_direction == 0)
+        {
+            _player.rb.AddForce(new Vector2(1, 0f) * _default_speed);
+        }
+        else
+        {
+            _player.rb.AddForce(new Vector2(_horizontal_direction, 0f) * _movement_acceleration);
+        }
         if(Mathf.Abs(_player.rb.velocity.x) > _max_move_speed)
         {
             _player.rb.velocity = new Vector2(Mathf.Sign(_player.rb.velocity.x) * _max_move_speed, _player.rb.velocity.y);
