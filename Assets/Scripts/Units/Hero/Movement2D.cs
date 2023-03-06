@@ -57,19 +57,22 @@ public class Movement2D : MonoBehaviour
         
         if (_horizontal_direction > 0 && !facingRight)
         {
-            Flip();
-            FlipSword();
+            //Les "Flip" et "FlipSword" sont à enlever pour le niveau mais à garder pour le boss !
+            //Flip();
+            animator.speed = 2.0f;
             animator.SetBool("IsRunning",true);
         }
 
         if (_horizontal_direction == 0)
         {
             animator.SetBool("IsRunning", false);
+            animator.speed = 1.0f;
         }
         if (_horizontal_direction < 0 && facingRight)
         {
-            Flip();
-            FlipSword();
+            /*Flip();
+            FlipSword();*/
+            animator.speed = 0.5f;
             animator.SetBool("IsRunning", true);
         }
 
@@ -269,7 +272,7 @@ public class Movement2D : MonoBehaviour
 
     }
 
-    void Flip()
+    /*void Flip()
     {
         Vector3 currentScale = gameObject.transform.localScale;
         currentScale.x *= -1;
@@ -285,5 +288,5 @@ public class Movement2D : MonoBehaviour
         Vector3 currentScale = child.transform.localScale;
         currentScale.x *= -1;
         child.transform.localScale = currentScale;
-    }
+    }*/
 }
