@@ -20,9 +20,11 @@ public class PlayerData : MonoBehaviour
     //WEAPON???
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        rb = GetComponent<Rigidbody2D>();  
+        rb = GetComponent<Rigidbody2D>();
+        max_health *= Runes.health_rune;
+        health = max_health;  
         
     }
 

@@ -44,6 +44,8 @@ public class Movement2D : MonoBehaviour
     { 
         _player = gameObject.GetComponent(typeof(PlayerData)) as PlayerData;
         boxCollider = GetComponent<BoxCollider2D>();
+        _movement_acceleration *= Runes.speed_rune;
+        _jump_force *= Runes.high_jump_rune;
     }
 
     private void Update()
@@ -57,7 +59,7 @@ public class Movement2D : MonoBehaviour
         
         if (_horizontal_direction > 0 && !facingRight)
         {
-            //Les "Flip" et "FlipSword" sont à enlever pour le niveau mais à garder pour le boss !
+            //Les "Flip" et "FlipSword" sont ï¿½ enlever pour le niveau mais ï¿½ garder pour le boss !
             //Flip();
             animator.speed = 2.0f;
             animator.SetBool("IsRunning",true);

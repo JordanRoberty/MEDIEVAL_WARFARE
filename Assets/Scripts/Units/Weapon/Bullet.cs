@@ -6,11 +6,12 @@ public class Bullet : MonoBehaviour
 {
     public float speed = 20f;
     public Rigidbody2D rb;
-    public int damage = 2;
+    public float damage = 2f;
 
     // Start is called before the first frame update
     void Start()
     {
+        speed *= Runes.bullet_speed_rune;
         rb.velocity = transform.right * speed;
     }
 
