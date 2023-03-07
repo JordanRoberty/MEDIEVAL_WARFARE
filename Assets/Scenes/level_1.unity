@@ -5655,7 +5655,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   firePoint: {fileID: 1587220763}
   bulletPrefab: {fileID: 9093254217318279545, guid: 795628d3458967246bdc241810267c44, type: 3}
-  seconds: 0.5
+  shot_speed: 1
   Is_Equipped: 0
 --- !u!212 &1219701102
 SpriteRenderer:
@@ -6000,7 +6000,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   firePoint: {fileID: 1587220763}
   bulletPrefab: {fileID: 9093254217318279545, guid: 795628d3458967246bdc241810267c44, type: 3}
-  seconds: 0.1
+  shot_speed: 0.1
   Is_Equipped: 0
 --- !u!1 &1587220762
 GameObject:
