@@ -27,7 +27,7 @@ public class Bullet : MonoBehaviour
         Ennemy enemy = hitInfo.GetComponent<Ennemy>();
         if (enemy != null)
         {
-            enemy.take_damages(damage);
+            enemy.take_damages(damage * Runes.damage_rune);
         }
     }
 }

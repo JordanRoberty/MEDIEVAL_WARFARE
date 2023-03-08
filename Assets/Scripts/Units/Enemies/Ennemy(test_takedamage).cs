@@ -8,7 +8,7 @@ public class Ennemy : MonoBehaviour
     // Update is called once per frame
     public void take_damages(float damage)
     {
-        health = health - (damage * Runes.damage_rune);
+        health = health - (damage);
 
         if (health <= 0)
         {

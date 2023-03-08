@@ -45,6 +45,7 @@ public class Movement2D : MonoBehaviour
         _player = gameObject.GetComponent(typeof(PlayerData)) as PlayerData;
         boxCollider = GetComponent<BoxCollider2D>();
         _movement_acceleration *= Runes.speed_rune;
+        _max_move_speed *= Runes.speed_rune;
         _jump_force *= Runes.high_jump_rune;
     }
 
