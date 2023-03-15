@@ -8,6 +8,8 @@ public class Enemy : MonoBehaviour
     protected float speed;
     protected float damage;
 
+    public GameObject coinPrefab;
+
     public float get_damage()
     {
         return damage;
@@ -18,6 +20,15 @@ public class Enemy : MonoBehaviour
         damage = new_damage;
     }
 
+    private void die()
+    {
+        // Spawn the coin at the enemy's position
+        Instantiate(coinPrefab, transform.position, Quaternion.identity);
+
+        // Destroy the enemy
+        Destroy(gameObject);
+    }
+
     void OnTriggerEnter2D(Collider2D hitInfo)
     {
         Bullet bullet = hitInfo.GetComponent<Bullet>();
@@ -26,7 +37,7 @@ public class Enemy : MonoBehaviour
             pv -= bullet.damage;
             if (pv <= 0)
             {
-                Destroy(gameObject);
+                die();
             }
         }
     }

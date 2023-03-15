@@ -148,6 +148,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pv: 200
+  coinPrefab: {fileID: 8083888472559256018, guid: e4badc239d93919479e5d33088163925, type: 3}
   jump_force: 30000
   _ground_layer:
     serializedVersion: 2
@@ -158,8 +159,6 @@ MonoBehaviour:
   _ground_raycast_length: 1
   _ground_raycast_offset: {x: 0, y: 0, z: 0}
   raycastDistance: 1
-  _ground_raycast_length: 1.1
-  _ground_raycast_offset: {x: 0, y: 0, z: 0}
 --- !u!95 &6919040561116309989
 Animator:
   serializedVersion: 4

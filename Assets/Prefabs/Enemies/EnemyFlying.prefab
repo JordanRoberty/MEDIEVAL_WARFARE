@@ -105,7 +105,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.66, y: 0.51}
+    oldSize: {x: 0.94285715, y: 0.7285714}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -148,8 +148,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pv: 100
+  coinPrefab: {fileID: 8083888472559256018, guid: e4badc239d93919479e5d33088163925, type: 3}
   amplitude: 3.5
   frequency: 4
+  _edge_layer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!95 &1784493796350818067
 Animator:
   serializedVersion: 4
@@ -170,6 +174,3 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
-  _edge_layer:
-    serializedVersion: 2
-    m_Bits: 1024
