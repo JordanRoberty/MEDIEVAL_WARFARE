@@ -11,12 +11,23 @@ public class Flail : Enemy
         damage = 50.0f;
     }
 
+    private Boss boss;
+
+    private void Start()
+    {
+        boss = GameObject.Find("Boss").GetComponent<Boss>();
+    }
+
     void OnTriggerEnter2D(Collider2D hitInfo)
     {
         Bullet bullet = hitInfo.GetComponent<Bullet>();
         if (bullet != null)
         {
-            GameObject.Find("Boss").GetComponent<Boss>().pv -= bullet.damage;
+            boss.pv -= bullet.damage;
+            if (boss.pv <= 0)
+            {
+                Destroy(boss.gameObject);
+            }
         }
     }
 }
