@@ -24,7 +24,7 @@ public class CoinPickup : MonoBehaviour
             GameFoundationSdk.wallet.Add(m_CoinDefinition, find_quantity);
 
             // Destroy the Coin GameObject
-            Destroy(gameObject);
+            Destroy(transform.parent.gameObject);
         }
     }
 }
