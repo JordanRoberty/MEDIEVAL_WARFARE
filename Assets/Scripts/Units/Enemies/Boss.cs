@@ -17,6 +17,10 @@ public class Boss : Enemy
     public GameObject bottle_prefab;
     public float timer_before_action = 1.0f;
     public float time_in_air = 1.0f;
+    public LayerMask wall;
+    public LayerMask ground;
+    private bool is_facing = true;
+    private Vector3 look_at = Vector3.left;
 
     private void Start()
     {
@@ -27,45 +31,68 @@ public class Boss : Enemy
     {
         if (player != null)
         {
+            is_facing = transform.position.x > player.transform.position.x ? false : true;
+            transform.rotation = Quaternion.Euler(0f, is_facing ? 180f : 0f, 0f);
+            if (transform.rotation.eulerAngles.y == 180f)
+            {
+                look_at = Vector3.right;
+            }
+            else
+            {
+                look_at = Vector3.left;
+            }
+
             // on calcule la distance entre le boss et le joueur
             float distance_to_player = Vector3.Distance(
                 transform.position,
                 player.transform.position
             );
 
-            // on est assez proche pour attaquer, on commence l'attaque
-            if (distance_to_player <= flail_range)
+            if (timer_before_action > 0.0f)
             {
-                if (timer_before_action > 0.0f)
+                timer_before_action -= Time.deltaTime;
+            }
+
+            if (
+                Physics2D.Raycast(transform.position, look_at, 8f, wall)
+                && Physics2D.Raycast(transform.position, Vector3.down, 4f, ground)
+                && timer_before_action < 0.5f
+            )
+            {
+                timer_before_action = Random.Range(2f, 4f);
+
+                GetComponent<Rigidbody2D>()
+                    .AddForce(new Vector3(6000f * -look_at.x, 8000f, 0f), ForceMode2D.Impulse);
+            }
+
+            // on est assez proche pour attaquer, on commence l'attaque
+            if (distance_to_player <= flail_range && timer_before_action < 0.0f)
+            {
+                timer_before_action = Random.Range(2f, 4f);
+                if (Random.value < 0.5f)
                 {
-                    timer_before_action -= Time.deltaTime;
-                }
-                else
-                {
-                    timer_before_action = 3.0f;
+                    // TODO (Fabian) : Coup de massue ici
                     Invoke("start_flail_attack", 0.0f);
                 }
-            }
-            else if (distance_to_player <= bottle_range)
-            {
-                if (timer_before_action > 0.0f)
+                else
                 {
-                    timer_before_action -= Time.deltaTime;
+                    // TODO (Fabian) : Masse tendue vers l'avant
+                    Debug.Log("Lunging Strike");
+                }
+            }
+            else if (distance_to_player <= bottle_range && timer_before_action < 0.0f)
+            {
+                timer_before_action = Random.Range(2f, 4f);
+                if (Random.value < 0.5f)
+                {
+                    throw_bottle();
                 }
                 else
                 {
-                    timer_before_action = 3.0f;
-                    if (Random.value < 0.5f)
-                    {
-                        throw_bottle();
-                    }
-                    else
-                    {
-                        jump_on_player();
-                    }
+                    jump_on_player();
                 }
             }
-            else
+            else if (distance_to_player > bottle_range)
             {
                 // on n'est pas assez proche pour attaquer, on se déplace vers le joueur
                 Vector3 direction_to_player = (
@@ -73,6 +100,10 @@ public class Boss : Enemy
                 ).normalized;
                 direction_to_player = new Vector3(direction_to_player.x, 0.0f, 0.0f);
                 transform.position += direction_to_player * speed * Time.deltaTime;
+                if (Physics2D.Raycast(transform.position, Vector3.down, 2.5f, ground))
+                {
+                    GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+                }
             }
         }
     }
@@ -141,7 +172,7 @@ public class Boss : Enemy
 
         // On applique une force au rigidbody de la bouteille pour la lancer
         Rigidbody2D bottle_rigidbody = bottle.GetComponent<Rigidbody2D>();
-        bottle_rigidbody.AddForce(bottle_direction * 20.0f, ForceMode2D.Impulse);
+        bottle_rigidbody.AddForce(bottle_direction * 10f, ForceMode2D.Impulse);
     }
 
     void jump_on_player()
@@ -185,13 +216,26 @@ public class Boss : Enemy
 
         // la force nécessaire pour ajouter à votre personnage pour atterrir à la position cible
         Vector3 force = new Vector3(
-            horizontalSpeed * (targetPosition.x - currentPosition.x) / horizontalDistance,
+            2 * horizontalSpeed * (targetPosition.x - currentPosition.x) / horizontalDistance,
             jumpSpeed,
             0.0f
         );
 
         // appliquer la force à votre personnage
         rigidbody.AddForce(force, ForceMode2D.Impulse);
+
+        StartCoroutine(Squash(timeToReachMaxHeight / 1000f));
+    }
+
+    IEnumerator Squash(float timeToReachMaxHeight)
+    {
+        yield return new WaitForSeconds(timeToReachMaxHeight);
+        Rigidbody2D rb = GetComponent<Rigidbody2D>();
+        if (rb != null)
+        {
+            rb.velocity = Vector2.zero;
+            rb.AddForce(Vector2.down * 50000f, ForceMode2D.Impulse); // Ajouter une force vers le bas
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -213,17 +257,13 @@ public class Boss : Enemy
 
             // Application de la force de poussée
             Rigidbody2D playerRb = collision.gameObject.GetComponent<Rigidbody2D>();
-            if (collision.transform.position.x > -8f)
+            if (collision.transform.position.x > -8f && collision.transform.position.x < 3f)
             {
                 collision.transform.position += direction * 3f;
             }
             playerRb.AddForce(direction * 100f, ForceMode2D.Impulse);
-
-            Rigidbody2D rigidbody = GetComponent<Rigidbody2D>();
-            rigidbody.velocity = Vector2.zero;
         }
-
-        if (collision.gameObject.name == "Ground")
+        else if (collision.gameObject.name == "Ground")
         {
             GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         }

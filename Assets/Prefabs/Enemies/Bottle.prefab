@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1855848075262341919}
   - component: {fileID: 3875696490581138548}
   m_Layer: 9
-  m_Name: Circle
+  m_Name: Bottle
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -102,7 +102,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -120,7 +120,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6e120e6aa5cc3748a64485ab5486170, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pv: 3000
+  pv: 4000
   puddle: {fileID: 4706152124163653200, guid: c03497f96e1a6374f830cca19af1cda8, type: 3}
 --- !u!58 &3875696490581138548
 CircleCollider2D:
@@ -132,7 +132,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}

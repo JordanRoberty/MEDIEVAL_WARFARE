@@ -12,13 +12,31 @@ public class Bottle : Enemy
     }
 
     public GameObject puddle;
+    private float life_time = 3f;
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if (collision.gameObject.name == "Ground")
+        if (
+            other.gameObject.name == "Ground"
+            || other.gameObject.name.Contains("Puddle")
+            || other.gameObject.name == "Player"
+        )
         {
-            Instantiate(puddle, new Vector3(transform.position.x, -4f, 0f), Quaternion.identity);
             Destroy(gameObject);
         }
+    }
+
+    private void Update()
+    {
+        life_time -= Time.deltaTime;
+        if (life_time < 0f)
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    private void OnDestroy()
+    {
+        Instantiate(puddle, new Vector3(transform.position.x, -4f, 0f), Quaternion.identity);
     }
 }
