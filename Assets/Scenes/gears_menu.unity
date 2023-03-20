@@ -198,7 +198,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13893d666fd41724ea8f5995d91a4b12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _current_weapon_view: {fileID: 4225333575240835294}
+  _current_weapon_viewer: {fileID: 4225333575240835294}
 --- !u!1 &118708613
 GameObject:
   m_ObjectHideFlags: 0
@@ -1472,7 +1472,7 @@ GameObject:
   - component: {fileID: 1339491178580628661}
   - component: {fileID: 4225333575240835294}
   m_Layer: 0
-  m_Name: Item View
+  m_Name: Weapon View
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1498,7 +1498,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -262, y: -90}
   m_SizeDelta: {x: 400, y: 500}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &4225333575240835294
