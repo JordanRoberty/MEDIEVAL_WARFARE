@@ -255,6 +255,33 @@ MonoBehaviour:
     m_ValueType:
       longValue: 0
     m_StringValue: 
+--- !u!114 &-1662389633896481707
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcbd052539327467295d2009d33aa660, type: 3}
+  m_Name: Item_equipedWeapon
+  m_EditorClassIdentifier: 
+  m_DisplayName: Equiped Weapon
+  m_Key: equipedWeapon
+  m_Tags: []
+  m_StaticPropertyKeys: []
+  m_StaticPropertyValues: []
+  m_InitialAllocation: 1
+  m_IsStackableFlag: 0
+  m_InitialQuantityPerStack: 1
+  m_MutablePropertyKeys:
+  - equiped_weapon_id
+  m_MutablePropertyDefaultValues:
+  - <type>k__BackingField: 3
+    m_ValueType:
+      longValue: 0
+    m_StringValue: 
 --- !u!114 &-878349169074680699
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -317,7 +344,7 @@ MonoBehaviour:
   - {fileID: 5424382003934826009}
   - {fileID: -5810768112172382900}
   - {fileID: 7021141422748496704}
-  - {fileID: 8378143005222299428}
+  - {fileID: -1662389633896481707}
 --- !u!114 &288077867421494364
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -509,7 +536,7 @@ MonoBehaviour:
     m_ValueType:
       longValue: 0
     m_StringValue: Assets/Art/Sprites/Weapons/Machine Gun Sword/sword_icon.png
-  m_InitialAllocation: 1
+  m_InitialAllocation: 0
   m_IsStackableFlag: 0
   m_InitialQuantityPerStack: 1
   m_MutablePropertyKeys:
@@ -605,31 +632,3 @@ MonoBehaviour:
     m_ValueType:
       longValue: 0
     m_StringValue: 
---- !u!114 &8378143005222299428
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fcbd052539327467295d2009d33aa660, type: 3}
-  m_Name: Item_currentWeapon
-  m_EditorClassIdentifier: 
-  m_DisplayName: Current Weapon
-  m_Key: currentWeapon
-  m_Tags:
-  - {fileID: -8923789779514231476}
-  m_StaticPropertyKeys: []
-  m_StaticPropertyValues: []
-  m_InitialAllocation: 1
-  m_IsStackableFlag: 0
-  m_InitialQuantityPerStack: 1
-  m_MutablePropertyKeys:
-  - current_weapon_key
-  m_MutablePropertyDefaultValues:
-  - <type>k__BackingField: 3
-    m_ValueType:
-      longValue: 0
-    m_StringValue: machineGunSword

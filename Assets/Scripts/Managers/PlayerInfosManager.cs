@@ -2,73 +2,68 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.GameFoundation;
-using UnityEngine.GameFoundation.Components;
-using UnityEngine.ResourceManagement.AsyncOperations;
+using UnityEngine.Assertions;
+using static GameFoundationUtils;
 
 public class PlayerInfosManager : Singleton<PlayerInfosManager>
 {
     /*===== PUBLIC =====*/
-    public InventoryItem current_weapon;
+    public InventoryItem equiped_weapon;
 
     /*===== PRIVATE =====*/
-    private InventoryItem _current_weapon_definition_key;
+    private InventoryItem _equiped_weapon_tracker;
 
     private void Start()
     {
-        load_current_weapon();
+        load_equiped_weapon();
     }
 
-    private void load_current_weapon()
+    private void load_equiped_weapon()
     {
-        // Get the "current weapon" item that contains the current weapon definition key 
-        List<InventoryItem> current_weapon_list = new List<InventoryItem>();
-        Tag tag = GameFoundationSdk.tags.Find("CURRENT_WEAPON");
-        GameFoundationSdk.inventory.FindItems(tag, current_weapon_list);
+        // Get the "current weapon" item that contains the current weapon definition key
+        const string definition_key = "equipedWeapon";
+        InventoryItemDefinition definition = GameFoundationSdk.catalog.Find<InventoryItemDefinition>(definition_key);
+        List<InventoryItem> equiped_weapon_container = new List<InventoryItem>();
+        GameFoundationSdk.inventory.FindItems(definition, equiped_weapon_container);
 
-        if (current_weapon_list.Count < 0)
-        {
-            return;
-        }
+        Assert.IsTrue(equiped_weapon_container.Count == 1);
 
-        _current_weapon_definition_key = current_weapon_list[0];
+        _equiped_weapon_tracker = equiped_weapon_container[0];
 
-        string definition_key = _current_weapon_definition_key.GetMutableProperty("current_weapon_key");
+        string equiped_weapon_id = _equiped_weapon_tracker.GetMutableProperty("equiped_weapon_id");
 
-        set_current_weapon(definition_key);
+        set_equiped_weapon(equiped_weapon_id);
         set_current_runes();
     }
 
-    private void set_current_weapon(string current_weapon_definition_key)
+    private void set_equiped_weapon(string new_weapon_id)
     {
-        if (current_weapon_definition_key is null)
+        if (new_weapon_id.Length == 0)
         {
-            Debug.Log("Error: current weapon definition is null");
-            return;
+            InventoryItem item = create_inventory_item("machineGunSword");
+            
+
+            new_weapon_id = item.id;
         }
 
-        // Store current weapon key for future load
-        _current_weapon_definition_key.SetMutableProperty("current_weapon_key", current_weapon_definition_key);
-        InventoryItemDefinition current_weapon_definition = GameFoundationSdk.catalog.Find<InventoryItemDefinition>(current_weapon_definition_key);
-
-        List<InventoryItem> current_weapon_list = new List<InventoryItem>();
-        GameFoundationSdk.inventory.FindItems(current_weapon_definition, current_weapon_list);
-
-        current_weapon = current_weapon_list[0];
+        // Store current weapon id for future load
+        _equiped_weapon_tracker.SetMutableProperty("equiped_weapon_id", new_weapon_id);
+        equiped_weapon = GameFoundationSdk.inventory.FindItem(new_weapon_id);
     }
 
     private void set_current_runes()
     {
+        Assert.IsNotNull(equiped_weapon);
+
         // Use the key you've used in the previous tutorial.
         const string definition_key = "speedRune";
 
         // Finding a definition takes a non-null string parameter.
         InventoryItemDefinition definition = GameFoundationSdk.catalog.Find<InventoryItemDefinition>(definition_key);
 
-        Debug.Log(definition);
-
         InventoryItem item = GameFoundationSdk.inventory.CreateItem(definition);
 
-        current_weapon.SetMutableProperty("rune_key_0", item.id);
-        Debug.Log(current_weapon.GetMutableProperty("rune_key_0"));
+        equiped_weapon.SetMutableProperty("rune_key_0", item.id);
+        Debug.Log(equiped_weapon.GetMutableProperty("rune_key_0"));
     }
 }

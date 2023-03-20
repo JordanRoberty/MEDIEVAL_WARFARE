@@ -18,7 +18,7 @@ public class GearsManager : Singleton<GearsManager>
 
     void display_current_weapon()
     {
-        InventoryItem current_weapon = PlayerInfosManager.Instance.current_weapon;
+        InventoryItem current_weapon = PlayerInfosManager.Instance.equiped_weapon;
 
         Debug.Log("Current weapon : " + current_weapon.definition.displayName);
 
