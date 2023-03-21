@@ -33,7 +33,7 @@ public class GearsManager : Singleton<GearsManager>
     [SerializeField] private Transform _available_runes_container;
 
     /*===== PRIVATE =====*/
-    private InventoryItemIdentifier rune_to_exchange;
+    private InventoryItemIdentifier _rune_to_exchange_id;
 
     private void Start()
     {
@@ -87,7 +87,7 @@ public class GearsManager : Singleton<GearsManager>
 
     public void start_rune_exchange(InventoryItemIdentifier rune_to_exchange_id)
     {
-        rune_to_exchange = rune_to_exchange_id;
+        _rune_to_exchange_id = rune_to_exchange_id;
         List<InventoryItem> runes = get_inventory_items_from_tag("RUNE");
 
         _available_runes_container.destroy_children();
@@ -114,7 +114,10 @@ public class GearsManager : Singleton<GearsManager>
 
     public void exchange_rune(InventoryItemIdentifier rune_to_exhange_with_id)
     {
-        InventoryItem rune_to_exchange_with = GameFoundationSdk.inventory.FindItem(rune_to_exhange_with_id.id);
-        Debug.Log($"{rune_to_exchange_with.definition.displayName}");
+        PlayerInfosManager.Instance.exchange_equiped_rune(_rune_to_exchange_id, rune_to_exhange_with_id);
+
+        _rune_to_exchange_id = null;
+        display_equiped_gear();
+        _runes_menu.SetActive(false);
     }
 }

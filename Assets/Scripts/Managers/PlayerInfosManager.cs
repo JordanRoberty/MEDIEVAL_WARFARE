@@ -80,9 +80,25 @@ public class PlayerInfosManager : Singleton<PlayerInfosManager>
         Debug.Log(equiped_runes.Count);
     }
 
-    public void exchange_equiped_rune(InventoryItemIdentifier rune_to_exchange, InventoryItemIdentifier rune_to_exchange_with)
+    public void exchange_equiped_rune(InventoryItemIdentifier rune_to_exchange_id, InventoryItemIdentifier rune_to_exchange_with_id)
     {
+        int nb_rune_slots = equiped_weapon.GetMutableProperty("nb_rune_slots");
+        Assert.IsTrue(rune_to_exchange_id.slot >= 0 && rune_to_exchange_id.slot < nb_rune_slots);
 
+        Debug.Log("rune_id_" + rune_to_exchange_id.slot);
+        equiped_weapon.SetMutableProperty("rune_id_" + rune_to_exchange_id.slot, rune_to_exchange_with_id.id);
+
+        // Update the rune to remove only if there's one
+        if (rune_to_exchange_id.id.Length != 0)
+        {
+            InventoryItem rune_to_exchange = GameFoundationSdk.inventory.FindItem(rune_to_exchange_id.id);
+            rune_to_exchange.SetMutableProperty("equiped", false);
+        }
+
+        // Update the rune to add
+        InventoryItem rune_to_exchange_with = GameFoundationSdk.inventory.FindItem(rune_to_exchange_with_id.id);
+        rune_to_exchange_with.SetMutableProperty("equiped", true);
+        equiped_runes[rune_to_exchange_id.slot] = rune_to_exchange_with;
     }
 
     private void DEBUG_add_runes_to_weapon()
