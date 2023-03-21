@@ -9,7 +9,7 @@ using UnityEngine.Assertions;
 /// </summary>
 public static class GameFoundationUtils
 {
-    public static InventoryItem create_inventory_item(string definition_key)
+    public static InventoryItem create_new_inventory_item(string definition_key)
     {
         InventoryItemDefinition definition = GameFoundationSdk.catalog.Find<InventoryItemDefinition>(definition_key);
         InventoryItem item = GameFoundationSdk.inventory.CreateItem(definition);
