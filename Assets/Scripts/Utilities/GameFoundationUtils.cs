@@ -7,7 +7,7 @@ using UnityEngine.GameFoundation.Components;
 using UnityEngine.ResourceManagement.AsyncOperations;
 
 /// <summary>
-/// A static class for general helpful methods
+/// A static class for GameFoundation helpful methods
 /// </summary>
 public static class GameFoundationUtils
 {
@@ -33,6 +33,13 @@ public static class GameFoundationUtils
                 viewer.SetIcon(sprite);
             }
         };
+    }
+
+    public static void display_item_in_viewer(InventoryItem item, ItemView viewer)
+    {
+        viewer.SetDisplayName(item.definition.displayName);
+        display_item_icon_in_viewer(item, viewer);
+        viewer.SetDescription("");
     }
 }
 
