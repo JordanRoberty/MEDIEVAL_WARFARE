@@ -80,6 +80,11 @@ public class PlayerInfosManager : Singleton<PlayerInfosManager>
         Debug.Log(equiped_runes.Count);
     }
 
+    public void exchange_equiped_rune(InventoryItemIdentifier rune_to_exchange, InventoryItemIdentifier rune_to_exchange_with)
+    {
+
+    }
+
     private void DEBUG_add_runes_to_weapon()
     {
         // Create two new runes

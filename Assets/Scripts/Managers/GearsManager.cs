@@ -11,24 +11,29 @@ using static GameFoundationUtils;
 public class GearsManager : Singleton<GearsManager>
 {
     /*===== PRIVATE UI =====*/
+    [Header("GEARS MENU")]
     [Header("UI prefabs")]
-    [SerializeField] private GameObject rune_viewer_prefab;
-    [SerializeField] private GameObject empty_rune_viewer_prefab;
+    [SerializeField] private GameObject _rune_viewer_prefab;
+    [SerializeField] private GameObject _empty_rune_viewer_prefab;
 
     [Space(10)]
 
     [Header("Gears menu elements")]
     [SerializeField] private ItemView _equiped_weapon_viewer;
-    [SerializeField] private Transform _equiped_runes_viewer;
+    [SerializeField] private Transform _equiped_runes_container;
 
     [Space(10)]
 
-    [Header("Rune menu")]
+    [Header("RUNES MENU")]
+    [Header("UI prefabs")]
+    [SerializeField] private ItemView _available_rune_prefab;
+
+    [Header("Runes menu elements")]
     [SerializeField] private GameObject _runes_menu;
-    [SerializeField] private Transform _available_runes_viewer;
+    [SerializeField] private Transform _available_runes_container;
 
     /*===== PRIVATE =====*/
-    private InventoryItemIdentifier rune_to_change;
+    private InventoryItemIdentifier rune_to_exchange;
 
     private void Start()
     {
@@ -47,7 +52,7 @@ public class GearsManager : Singleton<GearsManager>
         List <InventoryItem> equiped_runes = PlayerInfosManager.Instance.equiped_runes;
 
         // Clear viewer
-        _equiped_runes_viewer.destroy_children();
+        _equiped_runes_container.destroy_children();
 
         // Display rune slots and equiped runes
         for (int rune_slot=0; rune_slot < nb_rune_slots; rune_slot++)
@@ -55,10 +60,10 @@ public class GearsManager : Singleton<GearsManager>
             if(equiped_runes[rune_slot] != null)
             {
                 ItemView rune_viewer = Instantiate(
-                    rune_viewer_prefab,
+                    _rune_viewer_prefab,
                     Vector3.zero,
                     Quaternion.identity,
-                    _equiped_runes_viewer
+                    _equiped_runes_container
                 ).GetComponent<ItemView>();
 
                 InventoryItemIdentifier identifier = rune_viewer.transform.GetComponent<InventoryItemIdentifier>();
@@ -69,10 +74,10 @@ public class GearsManager : Singleton<GearsManager>
             else
             {
                 InventoryItemIdentifier empty_rune_slot = Instantiate(
-                    empty_rune_viewer_prefab,
+                    _empty_rune_viewer_prefab,
                     Vector3.zero,
                     Quaternion.identity,
-                    _equiped_runes_viewer
+                    _equiped_runes_container
                 ).GetComponent<InventoryItemIdentifier>();
 
                 empty_rune_slot.slot = rune_slot;
@@ -80,20 +85,36 @@ public class GearsManager : Singleton<GearsManager>
         }
     }
 
-    public void open_runes_menu(InventoryItemIdentifier identifier)
+    public void start_rune_exchange(InventoryItemIdentifier rune_to_exchange_id)
     {
-        rune_to_change = identifier;
-
+        rune_to_exchange = rune_to_exchange_id;
         List<InventoryItem> runes = get_inventory_items_from_tag("RUNE");
+
+        _available_runes_container.destroy_children();
 
         foreach (InventoryItem rune in runes)
         {
             if(rune.GetMutableProperty("equiped") == false)
             {
-                Debug.Log($"{rune.definition.displayName}");
+                ItemView rune_viewer = Instantiate(
+                    _available_rune_prefab,
+                    Vector3.zero,
+                    Quaternion.identity,
+                    _available_runes_container
+                ).GetComponent<ItemView>();
+
+                InventoryItemIdentifier identifier = rune_viewer.transform.GetComponent<InventoryItemIdentifier>();
+                identifier.id = rune.id;
+                display_item_in_viewer(rune, rune_viewer);
             }
         }
 
         _runes_menu.SetActive(true);
+    }
+
+    public void exchange_rune(InventoryItemIdentifier rune_to_exhange_with_id)
+    {
+        InventoryItem rune_to_exchange_with = GameFoundationSdk.inventory.FindItem(rune_to_exhange_with_id.id);
+        Debug.Log($"{rune_to_exchange_with.definition.displayName}");
     }
 }
