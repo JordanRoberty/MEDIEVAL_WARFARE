@@ -43,6 +43,8 @@ public class PlayerInfosManager : Singleton<PlayerInfosManager>
         {
             InventoryItem item = create_new_inventory_item("machineGunSword");
             new_weapon_id = item.id;
+
+            DEBUG_add_runes_to_weapon();
         }
 
         // Store current weapon id for future load
@@ -68,6 +70,10 @@ public class PlayerInfosManager : Singleton<PlayerInfosManager>
             if (rune_id.Length != 0)
             {
                 equiped_runes.Add(GameFoundationSdk.inventory.FindItem(rune_id));
+            }
+            else
+            {
+                equiped_runes.Add(null);
             }
         }
 
