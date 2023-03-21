@@ -49,13 +49,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_DisplayName: Speed Rune (Common)
   m_Key: buyCommonSpeedRune
-  m_Tags: []
-  m_StaticPropertyKeys: []
-  m_StaticPropertyValues: []
+  m_Tags:
+  - {fileID: -4591129078935206501}
+  m_StaticPropertyKeys:
+  - transaction_icon
+  m_StaticPropertyValues:
+  - <type>k__BackingField: 5
+    m_ValueType:
+      longValue: 0
+    m_StringValue: Assets/Art/Sprites/Runes/speed_rune.png
   m_Payout:
-    m_Exchanges: []
+    m_Exchanges:
+    - m_CatalogItem: {fileID: 53582825380334229}
+      m_Amount: 1
   m_Costs:
-    m_Exchanges: []
+    m_Exchanges:
+    - m_CatalogItem: {fileID: -3734650512700470626}
+      m_Amount: 100
 --- !u!114 &-4591129078935206501
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -147,6 +157,7 @@ MonoBehaviour:
   - rune_id_0
   - rune_id_1
   - rune_id_2
+  - nb_rune_slots
   m_MutablePropertyDefaultValues:
   - <type>k__BackingField: 3
     m_ValueType:
@@ -159,6 +170,10 @@ MonoBehaviour:
   - <type>k__BackingField: 3
     m_ValueType:
       longValue: 0
+    m_StringValue: 
+  - <type>k__BackingField: 0
+    m_ValueType:
+      longValue: 3
     m_StringValue: 
 --- !u!114 &-1662389633896481707
 MonoBehaviour:
@@ -205,7 +220,9 @@ MonoBehaviour:
   m_Tags: []
   m_StaticPropertyKeys: []
   m_StaticPropertyValues: []
-  m_StoreItems: []
+  m_StoreItems:
+  - m_Transaction: {fileID: -6944496135251920086}
+    m_Enabled: 1
 --- !u!114 &-91263394165242140
 MonoBehaviour:
   m_ObjectHideFlags: 0

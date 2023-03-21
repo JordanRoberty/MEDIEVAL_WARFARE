@@ -5,31 +5,26 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.GameFoundation;
 using UnityEngine.GameFoundation.Components;
-using UnityEngine.ResourceManagement.AsyncOperations;
+using static GameFoundationUtils;
 
 public class GearsManager : Singleton<GearsManager>
 {
-    [SerializeField] private ItemView _current_weapon_viewer;
+    [SerializeField] private ItemView _equiped_weapon_viewer;
 
     void Start()
     {
-        display_current_weapon();
+        display_equiped_weapon();
+        //display_equiped_runes();
     }
 
-    void display_current_weapon()
+    void display_equiped_weapon()
     {
-        InventoryItem current_weapon = PlayerInfosManager.Instance.equiped_weapon;
+        InventoryItem equiped_weapon = PlayerInfosManager.Instance.equiped_weapon;
 
-        Debug.Log("Current weapon : " + current_weapon.definition.displayName);
+        Debug.Log("Current weapon : " + equiped_weapon.definition.displayName);
 
-        AsyncOperationHandle<Sprite> load_sprite = current_weapon.definition.GetStaticProperty("item_icon").AsAddressable<Sprite>();
-        load_sprite.Completed += (AsyncOperationHandle<Sprite> handle) =>
-        {
-            if (handle.Status == AsyncOperationStatus.Succeeded)
-            {
-                Sprite sprite = handle.Result;
-                _current_weapon_viewer.SetItemView(sprite, current_weapon.definition.displayName, "");
-            }
-        };
+        _equiped_weapon_viewer.SetDisplayName(equiped_weapon.definition.displayName);
+        display_item_icon_in_viewer(equiped_weapon, _equiped_weapon_viewer);
+        _equiped_weapon_viewer.SetDescription("");
     }
 }
