@@ -13,6 +13,7 @@ public class GearsManager : Singleton<GearsManager>
     [Header("UI prefabs")]
     [SerializeField]
     private GameObject rune_viewer_prefab;
+    private GameObject empty_rune_viewer_prefab;
 
     [Header("Gears menu elements")]
     [SerializeField] private ItemView _equiped_weapon_viewer;
