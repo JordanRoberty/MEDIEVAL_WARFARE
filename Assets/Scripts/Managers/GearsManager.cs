@@ -15,12 +15,19 @@ public class GearsManager : Singleton<GearsManager>
     [SerializeField] private GameObject rune_viewer_prefab;
     [SerializeField] private GameObject empty_rune_viewer_prefab;
 
+    [Space(10)]
+
     [Header("Gears menu elements")]
     [SerializeField] private ItemView _equiped_weapon_viewer;
     [SerializeField] private Transform _equiped_runes_viewer;
 
+    [Space(10)]
+
+    [Header("Rune menu")]
+    [SerializeField] private GameObject _runes_menu;
+
     /*===== PRIVATE =====*/
-    private InventoryItem rune_to_change;
+    private InventoryItemIdentifier rune_to_change;
 
     private void Start()
     {
@@ -53,22 +60,28 @@ public class GearsManager : Singleton<GearsManager>
                     _equiped_runes_viewer
                 ).GetComponent<ItemView>();
 
+                InventoryItemIdentifier identifier = rune_viewer.transform.GetComponent<InventoryItemIdentifier>();
+                identifier.id = equiped_runes[rune_slot].id;
+                identifier.slot = rune_slot;
                 display_item_in_viewer(equiped_runes[rune_slot], rune_viewer);
             }
             else
             {
-                Instantiate(
+                InventoryItemIdentifier empty_rune_slot = Instantiate(
                     empty_rune_viewer_prefab,
                     Vector3.zero,
                     Quaternion.identity,
                     _equiped_runes_viewer
-                );
+                ).GetComponent<InventoryItemIdentifier>();
+
+                empty_rune_slot.slot = rune_slot;
             }
         }
     }
 
-    public void open_runes_menu()
+    public void open_runes_menu(InventoryItemIdentifier identifier)
     {
-
+        rune_to_change = identifier;
+        _runes_menu.SetActive(true);
     }
 }
