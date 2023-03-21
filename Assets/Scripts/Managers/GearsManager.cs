@@ -25,6 +25,7 @@ public class GearsManager : Singleton<GearsManager>
 
     [Header("Rune menu")]
     [SerializeField] private GameObject _runes_menu;
+    [SerializeField] private Transform _available_runes_viewer;
 
     /*===== PRIVATE =====*/
     private InventoryItemIdentifier rune_to_change;
@@ -82,6 +83,17 @@ public class GearsManager : Singleton<GearsManager>
     public void open_runes_menu(InventoryItemIdentifier identifier)
     {
         rune_to_change = identifier;
+
+        List<InventoryItem> runes = get_inventory_items_from_tag("RUNE");
+
+        foreach (InventoryItem rune in runes)
+        {
+            if(rune.GetMutableProperty("equiped") == false)
+            {
+                Debug.Log($"{rune.definition.displayName}");
+            }
+        }
+
         _runes_menu.SetActive(true);
     }
 }

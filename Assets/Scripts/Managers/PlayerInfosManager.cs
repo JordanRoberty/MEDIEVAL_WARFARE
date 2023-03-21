@@ -43,14 +43,14 @@ public class PlayerInfosManager : Singleton<PlayerInfosManager>
         {
             InventoryItem item = create_new_inventory_item("machineGunSword");
             new_weapon_id = item.id;
-
-            DEBUG_add_runes_to_weapon();
         }
 
         // Store current weapon id for future load
         _equiped_weapon_tracker.SetMutableProperty("equiped_weapon_id", new_weapon_id);
         equiped_weapon = GameFoundationSdk.inventory.FindItem(new_weapon_id);
-        
+
+        DEBUG_add_runes_to_weapon();
+
         // Update currently equiped runes
         set_equiped_runes();
     }
@@ -85,9 +85,13 @@ public class PlayerInfosManager : Singleton<PlayerInfosManager>
         // Create two new runes
         InventoryItem rune_0 = create_new_inventory_item("commonSpeedRune");
         InventoryItem rune_1 = create_new_inventory_item("commonSpeedRune");
+        InventoryItem rune_2 = create_new_inventory_item("commonSpeedRune");
 
         equiped_weapon.SetMutableProperty("rune_id_0", rune_0.id);
+        rune_0.SetMutableProperty("equiped", true);
+
         equiped_weapon.SetMutableProperty("rune_id_1", rune_1.id);
+        rune_1.SetMutableProperty("equiped", true);
 
         Debug.Log(
             $"Equiped weapon : {equiped_weapon.definition.displayName}"
