@@ -40,6 +40,11 @@ public class GearsManager : Singleton<GearsManager>
 
     private void Start()
     {
+        update_gear_menu();
+    }
+
+    public void update_gear_menu()
+    {
         display_available_weapons();
         display_equiped_gear();
     }

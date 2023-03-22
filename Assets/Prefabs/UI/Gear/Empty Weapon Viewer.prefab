@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 3833392399211795238}
   - component: {fileID: 3833392399211795233}
   - component: {fileID: 3833392399211795232}
-  - component: {fileID: 3833392399211795235}
   m_Layer: 0
   m_Name: Select Button
   m_TagString: Untagged
@@ -163,18 +162,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &3833392399211795235
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3833392399211795229}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6d681a1506621844facc42a63fdbadf4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &3833392399582444355
 GameObject:
   m_ObjectHideFlags: 0
@@ -674,7 +661,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c5c126580ce3714397f7ade7f2c76bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  select_button: {fileID: 3833392399211795232}
 --- !u!1 &3833392400331357614
 GameObject:
   m_ObjectHideFlags: 0

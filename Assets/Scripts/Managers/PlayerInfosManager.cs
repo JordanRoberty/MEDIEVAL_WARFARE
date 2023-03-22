@@ -43,7 +43,7 @@ public class PlayerInfosManager : Singleton<PlayerInfosManager>
         set_equiped_weapon(equiped_weapon_id);
     }
 
-    private void set_equiped_weapon(string new_weapon_id)
+    public void set_equiped_weapon(string new_weapon_id)
     {
         // Update previous equiped weapon
         if(equiped_weapon != null) equiped_weapon.SetMutableProperty("equiped", false);
@@ -122,6 +122,7 @@ public class PlayerInfosManager : Singleton<PlayerInfosManager>
     private void DEBUG_add_runes_to_weapon(string new_weapon_id)
     {
         InventoryItem weapon = GameFoundationSdk.inventory.FindItem(new_weapon_id);
+        create_new_inventory_item("shotgunFlail");
 
         // Create three new runes
         InventoryItem rune_0 = create_new_inventory_item("commonSpeedRune");

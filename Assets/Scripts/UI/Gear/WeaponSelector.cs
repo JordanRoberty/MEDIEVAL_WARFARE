@@ -10,9 +10,9 @@ public class WeaponSelector : MonoBehaviour
 {
     /*====== PUBLIC ======*/
     public string id { get; private set; }
+    private Button select_button;
 
     /*====== PRIVATE UI ======*/
-    [SerializeField] private Button select_button;
 
     /*====== PRIVATE ======*/
     private ItemView item_viewer;
@@ -21,6 +21,11 @@ public class WeaponSelector : MonoBehaviour
     private void Awake()
     {
         item_viewer = GetComponent<ItemView>();
+        select_button = GetComponentInChildren<Button>();
+        select_button.onClick.AddListener(() => {
+            PlayerInfosManager.Instance.set_equiped_weapon(id);
+            GearsManager.Instance.update_gear_menu();
+        });
     }
 
     public void init(InventoryItem weapon)
