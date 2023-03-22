@@ -26,7 +26,7 @@ public class GearsManager : Singleton<GearsManager>
 
     [Header("RUNES MENU")]
     [Header("UI prefabs")]
-    [SerializeField] private ItemView _available_rune_prefab;
+    [SerializeField] private ItemView _available_rune_viewer_prefab;
 
     [Header("Runes menu elements")]
     [SerializeField] private GameObject _runes_menu;
@@ -42,22 +42,31 @@ public class GearsManager : Singleton<GearsManager>
 
     private void display_equiped_gear()
     {
-        // DISPLAY WEAPON
+        display_equiped_weapon();
+        display_equiped_runes();
+    }
+
+    private void display_equiped_weapon()
+    {
+        // Get currently equiped weapon
         InventoryItem equiped_weapon = PlayerInfosManager.Instance.equiped_weapon;
 
+        // Display currently equiped weapon in gear equiped weapon viewer
         display_item_in_viewer(equiped_weapon, _equiped_weapon_viewer);
+    }
 
-        // DISPLAY RUNES
-        int nb_rune_slots = equiped_weapon.GetMutableProperty("nb_rune_slots");
-        List <InventoryItem> equiped_runes = PlayerInfosManager.Instance.equiped_runes;
+    public void display_equiped_runes()
+    {
+        int nb_rune_slots = PlayerInfosManager.Instance.equiped_weapon.GetMutableProperty("nb_rune_slots");
+        List<InventoryItem> equiped_runes = PlayerInfosManager.Instance.get_equiped_runes();
 
         // Clear viewer
         _equiped_runes_container.destroy_children();
 
         // Display rune slots and equiped runes
-        for (int rune_slot=0; rune_slot < nb_rune_slots; rune_slot++)
+        for (int rune_slot = 0; rune_slot < nb_rune_slots; rune_slot++)
         {
-            if(equiped_runes[rune_slot] != null)
+            if (equiped_runes[rune_slot] != null)
             {
                 ItemView rune_viewer = Instantiate(
                     _rune_viewer_prefab,
@@ -96,13 +105,15 @@ public class GearsManager : Singleton<GearsManager>
         {
             if(rune.GetMutableProperty("equiped") == false)
             {
+                // Create a new InventoryItem (rune here) viewer
                 ItemView rune_viewer = Instantiate(
-                    _available_rune_prefab,
+                    _available_rune_viewer_prefab,
                     Vector3.zero,
                     Quaternion.identity,
                     _available_runes_container
                 ).GetComponent<ItemView>();
 
+                // Link the viewer to the InventoryItem it is displaying
                 InventoryItemIdentifier identifier = rune_viewer.transform.GetComponent<InventoryItemIdentifier>();
                 identifier.id = rune.id;
                 display_item_in_viewer(rune, rune_viewer);
@@ -117,7 +128,8 @@ public class GearsManager : Singleton<GearsManager>
         PlayerInfosManager.Instance.exchange_equiped_rune(_rune_to_exchange_id, rune_to_exhange_with_id);
 
         _rune_to_exchange_id = null;
-        display_equiped_gear();
+        display_equiped_runes();
+
         _runes_menu.SetActive(false);
     }
 }

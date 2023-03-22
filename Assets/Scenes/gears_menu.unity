@@ -202,7 +202,7 @@ MonoBehaviour:
   _empty_rune_viewer_prefab: {fileID: 8854265926017995575, guid: d7f564a605a593d459e74f37e0d7bf3a, type: 3}
   _equiped_weapon_viewer: {fileID: 4225333575240835294}
   _equiped_runes_container: {fileID: 1570020722}
-  _available_rune_prefab: {fileID: 3192569288145953305, guid: 78b3c4314c0f3604d907e3452e18dbbb, type: 3}
+  _available_rune_viewer_prefab: {fileID: 3192569288145953305, guid: 78b3c4314c0f3604d907e3452e18dbbb, type: 3}
   _runes_menu: {fileID: 1956120140}
   _available_runes_container: {fileID: 499843537}
 --- !u!1 &118708613
