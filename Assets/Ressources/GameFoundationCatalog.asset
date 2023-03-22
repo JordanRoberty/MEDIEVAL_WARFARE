@@ -78,14 +78,40 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_DisplayName: Speed Rune (common)
   m_Key: commonSpeedRune
-  m_Tags: []
-  m_StaticPropertyKeys: []
-  m_StaticPropertyValues: []
+  m_Tags:
+  - {fileID: -4591129078935206501}
+  m_StaticPropertyKeys:
+  - item_icon
+  m_StaticPropertyValues:
+  - <type>k__BackingField: 5
+    m_ValueType:
+      longValue: 0
+    m_StringValue: Assets/Art/Sprites/Runes/speed_rune.png
   m_InitialAllocation: 0
   m_IsStackableFlag: 1
   m_InitialQuantityPerStack: 1
-  m_MutablePropertyKeys: []
-  m_MutablePropertyDefaultValues: []
+  m_MutablePropertyKeys:
+  - rarity
+  - type
+  - modifier
+  - equiped
+  m_MutablePropertyDefaultValues:
+  - <type>k__BackingField: 3
+    m_ValueType:
+      longValue: 0
+    m_StringValue: common
+  - <type>k__BackingField: 3
+    m_ValueType:
+      longValue: 0
+    m_StringValue: statistics
+  - <type>k__BackingField: 1
+    m_ValueType:
+      longValue: 4607632778762754458
+    m_StringValue: 
+  - <type>k__BackingField: 2
+    m_ValueType:
+      longValue: 0
+    m_StringValue: 
 --- !u!114 &-4591129078935206501
 MonoBehaviour:
   m_ObjectHideFlags: 0
