@@ -21,6 +21,16 @@ public static class GameFoundationUtils
         return item;
     }
 
+    public static List<InventoryItem> get_inventory_items_from_tag(string tag_key)
+    {
+        Tag tag = GameFoundationSdk.tags.Find(tag_key);
+        List<InventoryItem> items = new List<InventoryItem>();
+        
+        GameFoundationSdk.inventory.FindItems(tag, items);
+
+        return items;
+    }
+
     public static void display_item_icon_in_viewer(InventoryItem item, ItemView viewer)
     {
         AsyncOperationHandle<Sprite> load_sprite = item.definition.GetStaticProperty("item_icon").AsAddressable<Sprite>();

@@ -2,10 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraBehavior : MonoBehaviour
+public class DesactivateGravity : MonoBehaviour
 {
-    public float cameraSpeed = 0.01f;
-    float offset;
     // Start is called before the first frame update
     void Start()
     {
@@ -13,8 +11,8 @@ public class CameraBehavior : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
-        transform.position += new Vector3(cameraSpeed,0f,0f);
+        
     }
 }
