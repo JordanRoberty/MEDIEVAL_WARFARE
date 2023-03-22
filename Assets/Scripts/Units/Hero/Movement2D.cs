@@ -63,12 +63,13 @@ public class Movement2D : MonoBehaviour
     private BoxCollider2D boxCollider;
     private bool is_boss_scene = false;
 
-    private void Awake()
+
+    public void Init()
     {
-        _player = gameObject.GetComponent(typeof(PlayerData)) as PlayerData;
+         _player = gameObject.GetComponent(typeof(PlayerData)) as PlayerData;
         boxCollider = GetComponent<BoxCollider2D>();
-        _max_move_speed *= RuneManager.Instance.speed_rune;
-        _jump_force *= RuneManager.Instance.high_jump_rune;
+        _max_move_speed *= transform.GetComponent<RuneManager>().speed_rune;
+        _jump_force *= transform.GetComponent<RuneManager>().high_jump_rune;
         string sceneName = SceneManager.GetActiveScene().name;
         if (sceneName.Contains("boss_level_"))
         {

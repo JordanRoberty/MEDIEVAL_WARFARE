@@ -23,7 +23,7 @@ public class PlayerData : MonoBehaviour
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-        max_health *= RuneManager.Instance.health_rune;
+        max_health *= transform.GetComponent<RuneManager>().health_rune;
         health = max_health;  
         
     }
