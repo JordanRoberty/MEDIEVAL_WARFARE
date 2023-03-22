@@ -5,72 +5,143 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.GameFoundation;
 using UnityEngine.GameFoundation.Components;
-using UnityEngine.ResourceManagement.AsyncOperations;
+using static GameObjectUtils;
+using static GameFoundationUtils;
 
 public class GearsManager : Singleton<GearsManager>
 {
-    [SerializeField] private ItemView _current_weapon_view;
+    /*===== PRIVATE UI =====*/
+    [Header("GEARS MENU")]
+    [Header("UI prefabs")]
+    [SerializeField] private GameObject _rune_viewer_prefab;
+    [SerializeField] private GameObject _empty_rune_viewer_prefab;
 
-    private InventoryItem _current_weapon_definition_key;
-    private InventoryItem _current_weapon;
+    [Space(10)]
 
-    void Start()
+    [Header("Gears menu elements")]
+    [SerializeField] private ItemView _equiped_weapon_viewer;
+    [SerializeField] private Transform _equiped_runes_container;
+
+    [Space(10)]
+
+    [Header("RUNES MENU")]
+    [Header("UI prefabs")]
+    [SerializeField] private ItemView _available_rune_viewer_prefab;
+
+    [Header("Runes menu elements")]
+    [SerializeField] private GameObject _runes_menu;
+    [SerializeField] private Transform _available_runes_container;
+
+    /*===== PRIVATE =====*/
+    private InventoryItemIdentifier _rune_to_exchange_id;
+
+    private void Start()
     {
-        // Get the "current weapon" item that contains the current weapon definition key 
-        List<InventoryItem> current_weapon_list = new List<InventoryItem>();
-        Tag tag = GameFoundationSdk.tags.Find("CURRENT_WEAPON");
-        GameFoundationSdk.inventory.FindItems(tag, current_weapon_list);
-        
-        if(current_weapon_list.Count < 0)
-        {
-            return;
-        }
-
-        _current_weapon_definition_key = current_weapon_list[0];
-
-        string definition_key = _current_weapon_definition_key.GetMutableProperty("current_weapon_key");
-
-        set_current_weapon(definition_key);
-        display_current_weapon();
+        display_equiped_gear();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void display_equiped_gear()
     {
-        
+        display_equiped_weapon();
+        display_equiped_runes();
     }
 
-    private void set_current_weapon(string current_weapon_definition_key)
+    private void display_equiped_weapon()
     {
-        if (current_weapon_definition_key is null)
-        {
-            Debug.Log("Error: current weapon definition is null");
-            return;
-        }
+        // Get currently equiped weapon
+        InventoryItem equiped_weapon = PlayerInfosManager.Instance.equiped_weapon;
 
-        _current_weapon_definition_key.SetMutableProperty("current_weapon_key", current_weapon_definition_key);
-        
-        InventoryItemDefinition current_weapon_definition = GameFoundationSdk.catalog.Find<InventoryItemDefinition>(current_weapon_definition_key);
-
-        List<InventoryItem> current_weapon_list = new List<InventoryItem>();
-        GameFoundationSdk.inventory.FindItems(current_weapon_definition, current_weapon_list);
-
-        _current_weapon = current_weapon_list[0];
+        // Display currently equiped weapon in gear equiped weapon viewer
+        display_item_in_viewer(equiped_weapon, _equiped_weapon_viewer);
     }
 
-    void display_current_weapon()
+    public void display_equiped_runes()
     {
-        Debug.Log("Current weapon : " + _current_weapon.definition.displayName);
+        int nb_rune_slots = PlayerInfosManager.Instance.equiped_weapon.GetMutableProperty("nb_rune_slots");
+        List<InventoryItem> equiped_runes = PlayerInfosManager.Instance.get_equiped_runes();
 
-        AsyncOperationHandle<Sprite> load_sprite = _current_weapon.definition.GetStaticProperty("item_icon").AsAddressable<Sprite>();
-        load_sprite.Completed += (AsyncOperationHandle<Sprite> handle) =>
+        // Clear viewer
+        _equiped_runes_container.destroy_children();
+
+        // Display rune slots and equiped runes
+        for (int rune_slot = 0; rune_slot < nb_rune_slots; rune_slot++)
         {
-            if (handle.Status == AsyncOperationStatus.Succeeded)
+            if (equiped_runes[rune_slot] != null)
             {
-                Sprite sprite = handle.Result;
-                _current_weapon_view.SetItemView(sprite, _current_weapon.definition.displayName, "");
+                ItemView rune_viewer = Instantiate(
+                    _rune_viewer_prefab,
+                    Vector3.zero,
+                    Quaternion.identity,
+                    _equiped_runes_container
+                ).GetComponent<ItemView>();
+
+                InventoryItemIdentifier identifier = rune_viewer.transform.GetComponentInChildren<InventoryItemIdentifier>();
+                identifier.id = equiped_runes[rune_slot].id;
+                identifier.slot = rune_slot;
+                display_item_in_viewer(equiped_runes[rune_slot], rune_viewer);
             }
-            
-        };
+            else
+            {
+                InventoryItemIdentifier empty_rune_slot = Instantiate(
+                    _empty_rune_viewer_prefab,
+                    Vector3.zero,
+                    Quaternion.identity,
+                    _equiped_runes_container
+                ).GetComponent<InventoryItemIdentifier>();
+
+                empty_rune_slot.slot = rune_slot;
+            }
+        }
+    }
+
+    public void start_rune_exchange(InventoryItemIdentifier rune_to_exchange_id)
+    {
+        _rune_to_exchange_id = rune_to_exchange_id;
+        List<InventoryItem> runes = get_inventory_items_from_tag("RUNE");
+
+        _available_runes_container.destroy_children();
+
+        foreach (InventoryItem rune in runes)
+        {
+            if(rune.GetMutableProperty("equiped") == false)
+            {
+                // Create a new InventoryItem (rune here) viewer
+                ItemView rune_viewer = Instantiate(
+                    _available_rune_viewer_prefab,
+                    Vector3.zero,
+                    Quaternion.identity,
+                    _available_runes_container
+                ).GetComponent<ItemView>();
+
+                // Link the viewer to the InventoryItem it is displaying
+                InventoryItemIdentifier identifier = rune_viewer.transform.GetComponent<InventoryItemIdentifier>();
+                identifier.id = rune.id;
+                display_item_in_viewer(rune, rune_viewer);
+            }
+        }
+
+        _runes_menu.SetActive(true);
+    }
+
+    public void cancel_exchange()
+    {
+        _rune_to_exchange_id = null;
+        _runes_menu.SetActive(false);
+    }
+
+    public void exchange_rune(InventoryItemIdentifier rune_to_exhange_with_id)
+    {
+        PlayerInfosManager.Instance.exchange_equiped_rune(_rune_to_exchange_id, rune_to_exhange_with_id);
+
+        _rune_to_exchange_id = null;
+        display_equiped_runes();
+
+        _runes_menu.SetActive(false);
+    }
+
+    public void remove_rune(InventoryItemIdentifier rune_to_remove)
+    {
+        PlayerInfosManager.Instance.remove_equiped_rune(rune_to_remove);
+        display_equiped_runes();
     }
 }
