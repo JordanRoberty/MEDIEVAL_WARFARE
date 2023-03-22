@@ -14,6 +14,7 @@ public class PlayerData : MonoBehaviour
     public float invincibleTime = 2.0f;
     public int score;
     public int nb_coins;
+    private bool dead = false;
     //RUNES ??
 
     //[Header("Weapon")]
@@ -29,9 +30,10 @@ public class PlayerData : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (health <= 0)
+        if (health <= 0 && dead == false)
         {
             GameManager.Instance.set_state(GameState.FAIL_MENU);
+            dead = true;
         }
     }
 }
