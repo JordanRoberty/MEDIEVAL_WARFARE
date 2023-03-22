@@ -7,7 +7,6 @@ using UnityEngine.GameFoundation;
 using UnityEngine.GameFoundation.Components;
 using static GameObjectUtils;
 using static GameFoundationUtils;
-using TMPro;
 
 public class GearsManager : Singleton<GearsManager>
 {
@@ -56,33 +55,25 @@ public class GearsManager : Singleton<GearsManager>
         {
             if (i < player_weapons.Count)
             {
-                ItemView weapon_viewer = Instantiate(
+                WeaponSelector weapon_selector = Instantiate(
                     _weapon_viewer_prefab,
                     Vector3.zero,
                     Quaternion.identity,
                     _available_weapons_container
-                ).GetComponent<ItemView>();
+                ).GetComponent<WeaponSelector>();
 
-                InventoryItemIdentifier identifier = weapon_viewer.transform.GetComponent<InventoryItemIdentifier>();
-                identifier.id = player_weapons[i].id;
-                identifier.slot = i;
-                display_item_in_viewer(player_weapons[i], weapon_viewer);
-
-                if(player_weapons[i].GetMutableProperty("equiped") == true)
-                {
-                    weapon_viewer.transform.GetComponentInChildren<Button>().interactable = false;
-                }
+                weapon_selector.init(player_weapons[i]);
             }
             else
             {
-                InventoryItemIdentifier empty_weapon_viewer = Instantiate(
+                WeaponSelector empty_weapon_viewer = Instantiate(
                     _empty_weapon_viewer_prefab,
                     Vector3.zero,
                     Quaternion.identity,
                     _available_weapons_container
-                ).GetComponent<InventoryItemIdentifier>();
+                ).GetComponent<WeaponSelector>();
 
-                empty_weapon_viewer.slot = i;
+                empty_weapon_viewer.init(all_weapons[i]);
             }
         }
     }
