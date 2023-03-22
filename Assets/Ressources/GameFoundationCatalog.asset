@@ -59,13 +59,33 @@ MonoBehaviour:
       longValue: 0
     m_StringValue: Assets/Art/Sprites/Runes/speed_rune.png
   m_Payout:
-    m_Exchanges:
-    - m_CatalogItem: {fileID: 53582825380334229}
-      m_Amount: 1
+    m_Exchanges: []
   m_Costs:
     m_Exchanges:
     - m_CatalogItem: {fileID: -3734650512700470626}
       m_Amount: 100
+--- !u!114 &-4656125569732803317
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcbd052539327467295d2009d33aa660, type: 3}
+  m_Name: Item_commonSpeedRune
+  m_EditorClassIdentifier: 
+  m_DisplayName: Speed Rune (common)
+  m_Key: commonSpeedRune
+  m_Tags: []
+  m_StaticPropertyKeys: []
+  m_StaticPropertyValues: []
+  m_InitialAllocation: 0
+  m_IsStackableFlag: 1
+  m_InitialQuantityPerStack: 1
+  m_MutablePropertyKeys: []
+  m_MutablePropertyDefaultValues: []
 --- !u!114 &-4591129078935206501
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -158,6 +178,7 @@ MonoBehaviour:
   - rune_id_1
   - rune_id_2
   - nb_rune_slots
+  - equiped
   m_MutablePropertyDefaultValues:
   - <type>k__BackingField: 3
     m_ValueType:
@@ -175,31 +196,7 @@ MonoBehaviour:
     m_ValueType:
       longValue: 3
     m_StringValue: 
---- !u!114 &-1662389633896481707
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fcbd052539327467295d2009d33aa660, type: 3}
-  m_Name: Item_equipedWeapon
-  m_EditorClassIdentifier: 
-  m_DisplayName: Equiped Weapon
-  m_Key: equipedWeapon
-  m_Tags:
-  - {fileID: -8923789779514231476}
-  m_StaticPropertyKeys: []
-  m_StaticPropertyValues: []
-  m_InitialAllocation: 1
-  m_IsStackableFlag: 0
-  m_InitialQuantityPerStack: 1
-  m_MutablePropertyKeys:
-  - equiped_weapon_id
-  m_MutablePropertyDefaultValues:
-  - <type>k__BackingField: 3
+  - <type>k__BackingField: 2
     m_ValueType:
       longValue: 0
     m_StringValue: 
@@ -253,59 +250,9 @@ MonoBehaviour:
   m_Items:
   - {fileID: -878349169074680699}
   - {fileID: -3734650512700470626}
-  - {fileID: -1662389633896481707}
   - {fileID: -2313346778315101392}
-  - {fileID: 53582825380334229}
   - {fileID: -6944496135251920086}
---- !u!114 &53582825380334229
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fcbd052539327467295d2009d33aa660, type: 3}
-  m_Name: Item_commonSpeedRune
-  m_EditorClassIdentifier: 
-  m_DisplayName: Speed Rune (Common)
-  m_Key: commonSpeedRune
-  m_Tags:
-  - {fileID: -4591129078935206501}
-  - {fileID: 5304819582551107541}
-  m_StaticPropertyKeys:
-  - item_icon
-  m_StaticPropertyValues:
-  - <type>k__BackingField: 5
-    m_ValueType:
-      longValue: 0
-    m_StringValue: Assets/Art/Sprites/Runes/speed_rune.png
-  m_InitialAllocation: 0
-  m_IsStackableFlag: 1
-  m_InitialQuantityPerStack: 1
-  m_MutablePropertyKeys:
-  - type
-  - rarity
-  - modifier
-  - equiped
-  m_MutablePropertyDefaultValues:
-  - <type>k__BackingField: 3
-    m_ValueType:
-      longValue: 0
-    m_StringValue: statistics
-  - <type>k__BackingField: 3
-    m_ValueType:
-      longValue: 0
-    m_StringValue: common
-  - <type>k__BackingField: 1
-    m_ValueType:
-      longValue: 4607632778762754458
-    m_StringValue: 
-  - <type>k__BackingField: 2
-    m_ValueType:
-      longValue: 0
-    m_StringValue: 
+  - {fileID: -4656125569732803317}
 --- !u!114 &288077867421494364
 MonoBehaviour:
   m_ObjectHideFlags: 0
