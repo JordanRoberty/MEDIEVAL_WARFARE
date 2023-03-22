@@ -76,9 +76,6 @@ public class Movement2D : MonoBehaviour
 
     private void Update()
     {
-        boxCollider.size = new Vector2(0.39f, 0.97f);
-        boxCollider.offset = new Vector2(0.09f, -0.1f);
-
         _horizontal_direction = get_input().x;
         _vertical_direction = get_input().y;
 
@@ -183,7 +180,7 @@ public class Movement2D : MonoBehaviour
         }
         else
         {
-            GetComponent<BoxCollider2D>().size = new Vector2(1f, 0.97f);
+            GetComponent<BoxCollider2D>().size = new Vector2(0.37f, 0.85f);
             animator.SetBool("IsCrouching", false);
             _is_crouching = false;
         }
