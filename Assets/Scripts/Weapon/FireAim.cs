@@ -38,13 +38,13 @@ public class FireAim : MonoBehaviour
 
     void Update()
     {
+        Cursor.visible = false;
         mousePos = mainCam.ScreenToWorldPoint(Input.mousePosition);
 
         Vector3 aimDirection = mousePos - Player.transform.position;
         float rotZ = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg;
 
         transform.rotation = Quaternion.Euler(0, 0, rotZ);
-        Instantiate(current_weapon.bulletPrefab, transform.position, transform.rotation);
     }
 
     IEnumerator Shoot()
