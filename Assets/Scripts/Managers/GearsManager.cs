@@ -5,72 +5,70 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.GameFoundation;
 using UnityEngine.GameFoundation.Components;
-using UnityEngine.ResourceManagement.AsyncOperations;
+using static GameObjectUtils;
+using static GameFoundationUtils;
 
 public class GearsManager : Singleton<GearsManager>
 {
-    [SerializeField] private ItemView _current_weapon_view;
+    /*===== PRIVATE UI =====*/
+    [Header("UI prefabs")]
+    [SerializeField] private GameObject rune_viewer_prefab;
+    [SerializeField] private GameObject empty_rune_viewer_prefab;
 
-    private InventoryItem _current_weapon_definition_key;
-    private InventoryItem _current_weapon;
+    [Header("Gears menu elements")]
+    [SerializeField] private ItemView _equiped_weapon_viewer;
+    [SerializeField] private Transform _equiped_runes_viewer;
 
-    void Start()
+    /*===== PRIVATE =====*/
+    private InventoryItem rune_to_change;
+
+    private void Start()
     {
-        // Get the "current weapon" item that contains the current weapon definition key 
-        List<InventoryItem> current_weapon_list = new List<InventoryItem>();
-        Tag tag = GameFoundationSdk.tags.Find("CURRENT_WEAPON");
-        GameFoundationSdk.inventory.FindItems(tag, current_weapon_list);
-        
-        if(current_weapon_list.Count < 0)
-        {
-            return;
-        }
-
-        _current_weapon_definition_key = current_weapon_list[0];
-
-        string definition_key = _current_weapon_definition_key.GetMutableProperty("current_weapon_key");
-
-        set_current_weapon(definition_key);
-        display_current_weapon();
+        display_equiped_gear();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void display_equiped_gear()
     {
-        
-    }
+        // DISPLAY WEAPON
+        InventoryItem equiped_weapon = PlayerInfosManager.Instance.equiped_weapon;
 
-    private void set_current_weapon(string current_weapon_definition_key)
-    {
-        if (current_weapon_definition_key is null)
+        display_item_in_viewer(equiped_weapon, _equiped_weapon_viewer);
+
+        // DISPLAY RUNES
+        int nb_rune_slots = equiped_weapon.GetMutableProperty("nb_rune_slots");
+        List <InventoryItem> equiped_runes = PlayerInfosManager.Instance.equiped_runes;
+
+        // Clear viewer
+        _equiped_runes_viewer.destroy_children();
+
+        // Display rune slots and equiped runes
+        for (int rune_slot=0; rune_slot < nb_rune_slots; rune_slot++)
         {
-            Debug.Log("Error: current weapon definition is null");
-            return;
-        }
-
-        _current_weapon_definition_key.SetMutableProperty("current_weapon_key", current_weapon_definition_key);
-        
-        InventoryItemDefinition current_weapon_definition = GameFoundationSdk.catalog.Find<InventoryItemDefinition>(current_weapon_definition_key);
-
-        List<InventoryItem> current_weapon_list = new List<InventoryItem>();
-        GameFoundationSdk.inventory.FindItems(current_weapon_definition, current_weapon_list);
-
-        _current_weapon = current_weapon_list[0];
-    }
-
-    void display_current_weapon()
-    {
-        Debug.Log("Current weapon : " + _current_weapon.definition.displayName);
-
-        AsyncOperationHandle<Sprite> load_sprite = _current_weapon.definition.GetStaticProperty("item_icon").AsAddressable<Sprite>();
-        load_sprite.Completed += (AsyncOperationHandle<Sprite> handle) =>
-        {
-            if (handle.Status == AsyncOperationStatus.Succeeded)
+            if(equiped_runes[rune_slot] != null)
             {
-                Sprite sprite = handle.Result;
-                _current_weapon_view.SetItemView(sprite, _current_weapon.definition.displayName, "");
+                ItemView rune_viewer = Instantiate(
+                    rune_viewer_prefab,
+                    Vector3.zero,
+                    Quaternion.identity,
+                    _equiped_runes_viewer
+                ).GetComponent<ItemView>();
+
+                display_item_in_viewer(equiped_runes[rune_slot], rune_viewer);
             }
-            
-        };
+            else
+            {
+                Instantiate(
+                    empty_rune_viewer_prefab,
+                    Vector3.zero,
+                    Quaternion.identity,
+                    _equiped_runes_viewer
+                );
+            }
+        }
+    }
+
+    public void open_runes_menu()
+    {
+
     }
 }
