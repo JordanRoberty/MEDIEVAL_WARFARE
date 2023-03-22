@@ -280,7 +280,7 @@ MonoBehaviour:
   - <type>k__BackingField: 5
     m_ValueType:
       longValue: 0
-    m_StringValue: Assets/Art/Sprites/Runes/speed_rune.png
+    m_StringValue: Assets/Art/Sprites/Runes/damage_rune.png
   m_InitialAllocation: 0
   m_IsStackableFlag: 1
   m_InitialQuantityPerStack: 1

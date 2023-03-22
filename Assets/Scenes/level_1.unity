@@ -6612,7 +6612,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b7192871d776b34ca8c8966dc0f4fdb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  area_to_load: 
+  area_to_load: boss_level_1
 --- !u!1 &2065636600
 GameObject:
   m_ObjectHideFlags: 0
@@ -6671,6 +6671,7 @@ MonoBehaviour:
   invincibleTime: 2
   score: 0
   nb_coins: 0
+  _state: 0
 --- !u!114 &2065636603
 MonoBehaviour:
   m_ObjectHideFlags: 0
