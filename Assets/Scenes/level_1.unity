@@ -11393,6 +11393,7 @@ MonoBehaviour:
   invincibleTime: 2
   score: 0
   nb_coins: 0
+  gameManager: {fileID: 0}
 --- !u!114 &2065636603
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -19,13 +19,6 @@ public class GameManager : Singleton<GameManager>
     private LevelManager level_manager;
     private DifficultyManager difficulty_manager;
 
-    private bool player_alive = true;
-
-    public void set_player_status(bool status){
-        Debug.Log(status);
-        player_alive = status;
-    }
-
     private void Start()
     {
         SceneController.Instance.init(_initial_scene, _initial_menu);
@@ -42,10 +35,8 @@ public class GameManager : Singleton<GameManager>
             set_state(GameState.PAUSED);
         }
 
-        if(!player_alive)
-        {
-            Debug.Log("DEAD");
-            set_state(GameState.FAIL_MENU);
+        if (_state == GameState.FAIL_MENU){
+            
         }
     }
 
@@ -198,6 +189,7 @@ public class GameManager : Singleton<GameManager>
     private void handle_fail_menu()
     {
         SceneController.Instance.set_current_menu(GameMenu.FAIL);
+        Time.timeScale = 0.0f;
         _state = GameState.FAIL_MENU;
     }
 

@@ -31,9 +31,7 @@ public class PlayerData : MonoBehaviour
     {
         if (health <= 0)
         {
-            //Destroy(gameObject);
-            Debug.Log("DEAD 2");
-            GameManager.Instance.set_player_status(false);
+            GameManager.Instance.set_state(GameState.FAIL_MENU);
         }
     }
 }

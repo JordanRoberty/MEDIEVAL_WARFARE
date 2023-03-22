@@ -47,7 +47,7 @@ public class SceneController : Singleton<SceneController>
         { GameMenu.GEARS,       "gears_menu"    },
         { GameMenu.SCORES,      "scores_menu"   },
         { GameMenu.PAUSE,       "pause_menu"    },
-        { GameMenu.FAIL,        "shop_menu"     },
+        { GameMenu.FAIL,        "fail_menu"     },
         { GameMenu.VICTORY,     "victory_menu"  },
         { GameMenu.STATS,       "stats_menu"    },
         { GameMenu.REGISTER,    "register_menu" },
