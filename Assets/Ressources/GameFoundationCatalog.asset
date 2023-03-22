@@ -191,11 +191,26 @@ MonoBehaviour:
   - {fileID: -3515854801978052291}
   m_StaticPropertyKeys:
   - item_icon
+  - sprite
+  - shot_freq
+  - bullet_prefab
   m_StaticPropertyValues:
   - <type>k__BackingField: 5
     m_ValueType:
       longValue: 0
     m_StringValue: Assets/Art/Sprites/Weapons/Machine Gun Sword/sword_icon.png
+  - <type>k__BackingField: 5
+    m_ValueType:
+      longValue: 0
+    m_StringValue: Assets/Art/Sprites/Weapons/Petite_epee.png
+  - <type>k__BackingField: 1
+    m_ValueType:
+      longValue: 4591870180066957722
+    m_StringValue: 
+  - <type>k__BackingField: 5
+    m_ValueType:
+      longValue: 0
+    m_StringValue: Assets/Art/Sprites/Projectile/Bullet.prefab
   m_InitialAllocation: 0
   m_IsStackableFlag: 0
   m_InitialQuantityPerStack: 1

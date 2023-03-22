@@ -33,6 +33,14 @@ MonoBehaviour:
     m_Address: Assets/Art/Sprites/Runes/speed_rune.png
     m_ReadOnly: 0
     m_SerializedLabels: []
+  - m_GUID: 11344a7205276f3489a4080631f69dcc
+    m_Address: Assets/Art/Sprites/Weapons/Petite_epee.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 795628d3458967246bdc241810267c44
+    m_Address: Assets/Art/Sprites/Projectile/Bullet.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: f606f661b833fe140b592507dad01fe1, type: 2}
   m_SchemaSet:
