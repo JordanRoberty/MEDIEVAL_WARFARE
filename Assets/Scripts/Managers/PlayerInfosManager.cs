@@ -86,36 +86,39 @@ public class PlayerInfosManager : Singleton<PlayerInfosManager>
         return equiped_runes;
     }
 
-    public void remove_equiped_rune(InventoryItemIdentifier rune_to_remove_id)
+    public void remove_equiped_rune(int rune_to_remove_slot)
     {
         int nb_rune_slots = equiped_weapon.GetMutableProperty("nb_rune_slots");
-        Assert.IsTrue(rune_to_remove_id.slot >= 0 && rune_to_remove_id.slot < nb_rune_slots);
-
-        // Update the weapon slot
-        equiped_weapon.SetMutableProperty("rune_id_" + rune_to_remove_id.slot, "");
+        Assert.IsTrue(rune_to_remove_slot >= 0 && rune_to_remove_slot < nb_rune_slots);
 
         // Update the added rune
-        InventoryItem rune_to_remove = GameFoundationSdk.inventory.FindItem(rune_to_remove_id.id);
+        string rune_to_remove_id = equiped_weapon.GetMutableProperty("rune_id_" + rune_to_remove_slot);
+        Assert.IsFalse(rune_to_remove_id.Length == 0);
+        InventoryItem rune_to_remove = GameFoundationSdk.inventory.FindItem(rune_to_remove_id);
         rune_to_remove.SetMutableProperty("equiped", false);
-    }
-
-    public void exchange_equiped_rune(InventoryItemIdentifier rune_to_exchange_id, InventoryItemIdentifier rune_to_exchange_with_id)
-    {
-        int nb_rune_slots = equiped_weapon.GetMutableProperty("nb_rune_slots");
-        Assert.IsTrue(rune_to_exchange_id.slot >= 0 && rune_to_exchange_id.slot < nb_rune_slots);
 
         // Update the weapon slot
-        equiped_weapon.SetMutableProperty("rune_id_" + rune_to_exchange_id.slot, rune_to_exchange_with_id.id);
+        equiped_weapon.SetMutableProperty("rune_id_" + rune_to_remove_slot, "");
+    }
+
+    public void exchange_equiped_rune(int rune_to_exchange_slot, string new_rune_id)
+    {
+        int nb_rune_slots = equiped_weapon.GetMutableProperty("nb_rune_slots");
+        Assert.IsTrue(rune_to_exchange_slot >= 0 && rune_to_exchange_slot < nb_rune_slots);
 
         // Update the removed rune only if the slot wasn't empty
-        if (rune_to_exchange_id.id.Length != 0)
+        string previous_rune_id = equiped_weapon.GetMutableProperty("rune_id_" + rune_to_exchange_slot);
+        if (previous_rune_id.Length != 0)
         {
-            InventoryItem rune_to_exchange = GameFoundationSdk.inventory.FindItem(rune_to_exchange_id.id);
+            InventoryItem rune_to_exchange = GameFoundationSdk.inventory.FindItem(previous_rune_id);
             rune_to_exchange.SetMutableProperty("equiped", false);
         }
 
+        // Update the weapon slot
+        equiped_weapon.SetMutableProperty("rune_id_" + rune_to_exchange_slot, new_rune_id);
+
         // Update the added rune
-        InventoryItem rune_to_exchange_with = GameFoundationSdk.inventory.FindItem(rune_to_exchange_with_id.id);
+        InventoryItem rune_to_exchange_with = GameFoundationSdk.inventory.FindItem(new_rune_id);
         rune_to_exchange_with.SetMutableProperty("equiped", true);
     }
 

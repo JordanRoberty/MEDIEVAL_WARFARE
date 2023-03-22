@@ -29,17 +29,18 @@ public class GearsManager : Singleton<GearsManager>
 
     [Header("RUNES MENU")]
     [Header("UI prefabs")]
-    [SerializeField] private ItemView _available_rune_viewer_prefab;
+    [SerializeField] private GameObject _available_rune_viewer_prefab;
 
     [Header("Runes menu elements")]
     [SerializeField] private GameObject _runes_menu;
     [SerializeField] private Transform _available_runes_container;
 
     /*===== PRIVATE =====*/
-    private InventoryItemIdentifier _rune_to_exchange_id;
+    private int _rune_to_exchange_slot;
 
     private void Start()
     {
+        _rune_to_exchange_slot = -1;
         update_gear_menu();
     }
 
@@ -60,23 +61,23 @@ public class GearsManager : Singleton<GearsManager>
         {
             if (i < player_weapons.Count)
             {
-                WeaponSelector weapon_selector = Instantiate(
+                AvailableWeaponViewer available_weapon_viewer = Instantiate(
                     _weapon_viewer_prefab,
                     Vector3.zero,
                     Quaternion.identity,
                     _available_weapons_container
-                ).GetComponent<WeaponSelector>();
+                ).GetComponent<AvailableWeaponViewer>();
 
-                weapon_selector.init(player_weapons[i]);
+                available_weapon_viewer.init(player_weapons[i]);
             }
             else
             {
-                WeaponSelector empty_weapon_viewer = Instantiate(
+                AvailableWeaponViewer empty_weapon_viewer = Instantiate(
                     _empty_weapon_viewer_prefab,
                     Vector3.zero,
                     Quaternion.identity,
                     _available_weapons_container
-                ).GetComponent<WeaponSelector>();
+                ).GetComponent<AvailableWeaponViewer>();
 
                 empty_weapon_viewer.init(all_weapons[i]);
             }
@@ -111,36 +112,43 @@ public class GearsManager : Singleton<GearsManager>
         {
             if (equiped_runes[rune_slot] != null)
             {
-                ItemView rune_viewer = Instantiate(
+                EquipedRuneViewer equiped_rune_viewer = Instantiate(
                     _rune_viewer_prefab,
                     Vector3.zero,
                     Quaternion.identity,
                     _equiped_runes_container
-                ).GetComponent<ItemView>();
+                ).GetComponent<EquipedRuneViewer>();
 
-                InventoryItemIdentifier identifier = rune_viewer.transform.GetComponent<InventoryItemIdentifier>();
-                identifier.id = equiped_runes[rune_slot].id;
-                identifier.slot = rune_slot;
-                display_item_in_viewer(equiped_runes[rune_slot], rune_viewer);
+                equiped_rune_viewer.init(equiped_runes[rune_slot], rune_slot);
             }
             else
             {
-                InventoryItemIdentifier empty_rune_slot = Instantiate(
+                EmptyRuneSlotViewer empty_rune_slot_viewer = Instantiate(
                     _empty_rune_viewer_prefab,
                     Vector3.zero,
                     Quaternion.identity,
                     _equiped_runes_container
-                ).GetComponent<InventoryItemIdentifier>();
+                ).GetComponent<EmptyRuneSlotViewer>();
 
-                empty_rune_slot.slot = rune_slot;
+                empty_rune_slot_viewer.init(rune_slot);
             }
         }
     }
 
-    public void start_rune_exchange(InventoryItemIdentifier rune_to_exchange_id)
+    public void exchange_weapon(string new_weapon_id)
     {
-        _rune_to_exchange_id = rune_to_exchange_id;
+        PlayerInfosManager.Instance.set_equiped_weapon(new_weapon_id);
+        update_gear_menu();
+    }
+
+    public void start_rune_exchange(int rune_to_exchange_slot)
+    {
+        _rune_to_exchange_slot = rune_to_exchange_slot;
         List<InventoryItem> runes = get_inventory_items_from_tag("RUNE");
+
+        // Display rune menu before displaying available runes
+        // to be able to manipulate active GameObjects
+        _runes_menu.SetActive(true);
 
         _available_runes_container.destroy_children();
 
@@ -149,42 +157,38 @@ public class GearsManager : Singleton<GearsManager>
             if(rune.GetMutableProperty("equiped") == false)
             {
                 // Create a new InventoryItem (rune here) viewer
-                ItemView rune_viewer = Instantiate(
+                AvailableRuneViewer available_rune_viewer = Instantiate(
                     _available_rune_viewer_prefab,
                     Vector3.zero,
                     Quaternion.identity,
                     _available_runes_container
-                ).GetComponent<ItemView>();
+                ).GetComponent<AvailableRuneViewer>();
 
                 // Link the viewer to the InventoryItem it is displaying
-                InventoryItemIdentifier identifier = rune_viewer.transform.GetComponent<InventoryItemIdentifier>();
-                identifier.id = rune.id;
-                display_item_in_viewer(rune, rune_viewer);
+                available_rune_viewer.init(rune);
             }
         }
-
-        _runes_menu.SetActive(true);
     }
 
     public void cancel_exchange()
     {
-        _rune_to_exchange_id = null;
+        _rune_to_exchange_slot = -1;
         _runes_menu.SetActive(false);
     }
 
-    public void exchange_rune(InventoryItemIdentifier rune_to_exhange_with_id)
+    public void exchange_rune(string new_rune_id)
     {
-        PlayerInfosManager.Instance.exchange_equiped_rune(_rune_to_exchange_id, rune_to_exhange_with_id);
+        PlayerInfosManager.Instance.exchange_equiped_rune(_rune_to_exchange_slot, new_rune_id);
 
-        _rune_to_exchange_id = null;
+        _rune_to_exchange_slot = -1;
         display_equiped_runes();
 
         _runes_menu.SetActive(false);
     }
 
-    public void remove_rune(InventoryItemIdentifier rune_to_remove)
+    public void remove_rune(int rune_to_remove_slot)
     {
-        PlayerInfosManager.Instance.remove_equiped_rune(rune_to_remove);
+        PlayerInfosManager.Instance.remove_equiped_rune(rune_to_remove_slot);
         display_equiped_runes();
     }
 }

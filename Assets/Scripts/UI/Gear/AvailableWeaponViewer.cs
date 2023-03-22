@@ -6,26 +6,19 @@ using static GameFoundationUtils;
 using TMPro;
 
 [RequireComponent(typeof(ItemView))]
-public class WeaponSelector : MonoBehaviour
+public class AvailableWeaponViewer : MonoBehaviour
 {
-    /*====== PUBLIC ======*/
-    public string id { get; private set; }
-    private Button select_button;
-
-    /*====== PRIVATE UI ======*/
-
     /*====== PRIVATE ======*/
+    private string id;
     private ItemView item_viewer;
+    private Button select_button;
 
     // Start is called before the first frame update
     private void Awake()
     {
         item_viewer = GetComponent<ItemView>();
         select_button = GetComponentInChildren<Button>();
-        select_button.onClick.AddListener(() => {
-            PlayerInfosManager.Instance.set_equiped_weapon(id);
-            GearsManager.Instance.update_gear_menu();
-        });
+        select_button.onClick.AddListener(() => { GearsManager.Instance.exchange_weapon(id); });
     }
 
     public void init(InventoryItem weapon)

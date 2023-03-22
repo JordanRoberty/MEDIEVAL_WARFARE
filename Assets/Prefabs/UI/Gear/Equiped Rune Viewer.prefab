@@ -382,9 +382,8 @@ GameObject:
   - component: {fileID: 2218615557293474953}
   - component: {fileID: 2218615557293474954}
   - component: {fileID: 2218615557293474955}
-  - component: {fileID: 2218615557293474964}
   m_Layer: 0
-  m_Name: Change Button
+  m_Name: exchange Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -531,18 +530,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &2218615557293474964
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2218615557293474966}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 27629679060dc8d49b84ebe989555758, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2218615557316883696
 GameObject:
   m_ObjectHideFlags: 0
@@ -691,9 +678,9 @@ GameObject:
   - component: {fileID: 5158174200690383590}
   - component: {fileID: 5158174200690383591}
   - component: {fileID: 5158174200690383584}
-  - component: {fileID: 5158174200690383585}
+  - component: {fileID: 4686202420343913230}
   m_Layer: 0
-  m_Name: Rune Viewer
+  m_Name: Equiped Rune Viewer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -798,7 +785,7 @@ MonoBehaviour:
   m_ImageField: {fileID: 2218615556924472765}
   m_DisplayNameTextField: {fileID: 2218615557316883702}
   m_DescriptionTextField: {fileID: 2218615557089531986}
---- !u!114 &5158174200690383585
+--- !u!114 &4686202420343913230
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -807,11 +794,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 2218615557629105056}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5118c6167f37d74cbee41dd5c61100b, type: 3}
+  m_Script: {fileID: 11500000, guid: 181ebc00208b17644af53793cfdd28f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 
-  slot: -1
+  exchange_button: {fileID: 2218615557293474955}
+  remove_button: {fileID: 2218615558269848316}
 --- !u!1 &2218615557983810164
 GameObject:
   m_ObjectHideFlags: 0
@@ -963,7 +950,6 @@ GameObject:
   - component: {fileID: 2218615558269848306}
   - component: {fileID: 2218615558269848307}
   - component: {fileID: 2218615558269848316}
-  - component: {fileID: 2218615558269848317}
   m_Layer: 0
   m_Name: Delete Button
   m_TagString: Untagged
@@ -1112,15 +1098,3 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &2218615558269848317
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2218615558269848319}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 12cfb753ade57124d99e5fd5cea1d640, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
