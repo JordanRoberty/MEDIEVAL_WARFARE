@@ -13,7 +13,7 @@ abstract class weapon : MonoBehaviour
     void Start()
     {
         firePoint.position = firePoint.position + new Vector3(2, 0, 0);
-        shot_speed *= Runes.firing_rate_rune;
+        shot_speed *= RuneManager.Instance.firing_rate_rune;
         InvokeRepeating("Shoot",0f, shot_speed);
     }
 

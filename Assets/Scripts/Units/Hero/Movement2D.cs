@@ -67,6 +67,8 @@ public class Movement2D : MonoBehaviour
     {
         _player = gameObject.GetComponent(typeof(PlayerData)) as PlayerData;
         boxCollider = GetComponent<BoxCollider2D>();
+        _max_move_speed *= RuneManager.Instance.speed_rune;
+        _jump_force *= RuneManager.Instance.high_jump_rune;
         string sceneName = SceneManager.GetActiveScene().name;
         if (sceneName.Contains("boss_level_"))
         {

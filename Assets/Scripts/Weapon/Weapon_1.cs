@@ -9,6 +9,6 @@ class Weapon_1 : weapon
     override public void Shoot()
     {
         bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-        bullet.transform.localScale =  bullet.transform.localScale *  Runes.projectile_size_rune;
+        bullet.transform.localScale =  bullet.transform.localScale *  RuneManager.Instance.projectile_size_rune;
     }
 }

@@ -7,11 +7,12 @@ public class Bullet : MonoBehaviour
     public float speed = 20f;
     public Rigidbody2D rb;
     public float damage = 2f;
+    //public float bullet_size = 1f;
 
     // Start is called before the first frame update
     void Start()
     {
-        speed *= Runes.bullet_speed_rune;
+        speed *= RuneManager.Instance.bullet_speed_rune;
         rb.velocity = transform.right * speed;
     }
 
@@ -27,7 +28,7 @@ public class Bullet : MonoBehaviour
         Ennemy enemy = hitInfo.GetComponent<Ennemy>();
         if (enemy != null)
         {
-            enemy.take_damages(damage * Runes.damage_rune);
+            enemy.take_damages(damage * RuneManager.Instance.damage_rune);
         }
     }
 }

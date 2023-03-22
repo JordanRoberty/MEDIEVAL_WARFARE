@@ -6626,6 +6626,7 @@ GameObject:
   - component: {fileID: 2065636605}
   - component: {fileID: 2065636604}
   - component: {fileID: 2065636603}
+  - component: {fileID: 2065636610}
   - component: {fileID: 2065636602}
   - component: {fileID: 2065636607}
   - component: {fileID: 2065636608}
@@ -6843,3 +6844,23 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &2065636610
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2065636600}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5156aec957ee5478a9c4cf74ebe3cc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage_rune: 1
+  speed_rune: 1
+  firing_rate_rune: 1
+  health_rune: 2
+  projectile_size_rune: 2
+  high_jump_rune: 1
+  money_drop_rate_rune: 1
+  bullet_speed_rune: 1
