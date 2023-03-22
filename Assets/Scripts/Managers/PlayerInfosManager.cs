@@ -55,6 +55,11 @@ public class PlayerInfosManager : Singleton<PlayerInfosManager>
         equiped_weapon.SetMutableProperty("equiped", true);
     }
 
+    public List<InventoryItem> get_player_weapons()
+    {
+        return get_inventory_items_from_tag("WEAPON");
+    }
+
     public List<InventoryItem> get_equiped_runes()
     {
         Assert.IsNotNull(equiped_weapon);

@@ -7,12 +7,15 @@ using UnityEngine.GameFoundation;
 using UnityEngine.GameFoundation.Components;
 using static GameObjectUtils;
 using static GameFoundationUtils;
+using TMPro;
 
 public class GearsManager : Singleton<GearsManager>
 {
     /*===== PRIVATE UI =====*/
     [Header("GEARS MENU")]
     [Header("UI prefabs")]
+    [SerializeField] private GameObject _weapon_viewer_prefab;
+    [SerializeField] private GameObject _empty_weapon_viewer_prefab;
     [SerializeField] private GameObject _rune_viewer_prefab;
     [SerializeField] private GameObject _empty_rune_viewer_prefab;
 
@@ -21,6 +24,7 @@ public class GearsManager : Singleton<GearsManager>
     [Header("Gears menu elements")]
     [SerializeField] private ItemView _equiped_weapon_viewer;
     [SerializeField] private Transform _equiped_runes_container;
+    [SerializeField] private Transform _available_weapons_container;
 
     [Space(10)]
 
@@ -37,7 +41,50 @@ public class GearsManager : Singleton<GearsManager>
 
     private void Start()
     {
+        display_available_weapons();
         display_equiped_gear();
+    }
+
+    private void display_available_weapons()
+    {
+        List<InventoryItemDefinition> all_weapons = get_inventory_item_definitions_from_tag("WEAPON");
+        List<InventoryItem> player_weapons = PlayerInfosManager.Instance.get_player_weapons();
+
+        _available_weapons_container.destroy_children();
+
+        for (int i = 0; i < all_weapons.Count; ++i)
+        {
+            if (i < player_weapons.Count)
+            {
+                ItemView weapon_viewer = Instantiate(
+                    _weapon_viewer_prefab,
+                    Vector3.zero,
+                    Quaternion.identity,
+                    _available_weapons_container
+                ).GetComponent<ItemView>();
+
+                InventoryItemIdentifier identifier = weapon_viewer.transform.GetComponent<InventoryItemIdentifier>();
+                identifier.id = player_weapons[i].id;
+                identifier.slot = i;
+                display_item_in_viewer(player_weapons[i], weapon_viewer);
+
+                if(player_weapons[i].GetMutableProperty("equiped") == true)
+                {
+                    weapon_viewer.transform.GetComponentInChildren<Button>().interactable = false;
+                }
+            }
+            else
+            {
+                InventoryItemIdentifier empty_weapon_viewer = Instantiate(
+                    _empty_weapon_viewer_prefab,
+                    Vector3.zero,
+                    Quaternion.identity,
+                    _available_weapons_container
+                ).GetComponent<InventoryItemIdentifier>();
+
+                empty_weapon_viewer.slot = i;
+            }
+        }
     }
 
     private void display_equiped_gear()
@@ -75,7 +122,7 @@ public class GearsManager : Singleton<GearsManager>
                     _equiped_runes_container
                 ).GetComponent<ItemView>();
 
-                InventoryItemIdentifier identifier = rune_viewer.transform.GetComponentInChildren<InventoryItemIdentifier>();
+                InventoryItemIdentifier identifier = rune_viewer.transform.GetComponent<InventoryItemIdentifier>();
                 identifier.id = equiped_runes[rune_slot].id;
                 identifier.slot = rune_slot;
                 display_item_in_viewer(equiped_runes[rune_slot], rune_viewer);
