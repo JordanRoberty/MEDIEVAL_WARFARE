@@ -1,0 +1,345 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8923789779514231476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4178f7fa125e7644ba2a2d0c6300db1, type: 3}
+  m_Name: Tag_CURRENT_WEAPON
+  m_EditorClassIdentifier: 
+  m_Key: CURRENT_WEAPON
+  m_Catalog: {fileID: -8483040674033979277}
+--- !u!114 &-8483040674033979277
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9190a04da29ae24ab35e05133ebf087, type: 3}
+  m_Name: _Catalog_Tags
+  m_EditorClassIdentifier: 
+  m_Tags:
+  - {fileID: -3515854801978052291}
+  - {fileID: -4591129078935206501}
+  - {fileID: -91263394165242140}
+  - {fileID: 5304819582551107541}
+  - {fileID: 5328996562115661337}
+  - {fileID: 288077867421494364}
+  - {fileID: -8923789779514231476}
+  m_CatalogAsset: {fileID: 11400000}
+--- !u!114 &-6944496135251920086
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 188049432bcf74f78b314dc2b03ee516, type: 3}
+  m_Name: VirtualTransaction_buyCommonSpeedRune
+  m_EditorClassIdentifier: 
+  m_DisplayName: Speed Rune (Common)
+  m_Key: buyCommonSpeedRune
+  m_Tags:
+  - {fileID: -4591129078935206501}
+  m_StaticPropertyKeys:
+  - transaction_icon
+  m_StaticPropertyValues:
+  - <type>k__BackingField: 5
+    m_ValueType:
+      longValue: 0
+    m_StringValue: Assets/Art/Sprites/Runes/speed_rune.png
+  m_Payout:
+    m_Exchanges:
+    - m_CatalogItem: {fileID: 53582825380334229}
+      m_Amount: 1
+  m_Costs:
+    m_Exchanges:
+    - m_CatalogItem: {fileID: -3734650512700470626}
+      m_Amount: 100
+--- !u!114 &-4591129078935206501
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4178f7fa125e7644ba2a2d0c6300db1, type: 3}
+  m_Name: Tag_RUNE
+  m_EditorClassIdentifier: 
+  m_Key: RUNE
+  m_Catalog: {fileID: -8483040674033979277}
+--- !u!114 &-3734650512700470626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6736b79f77dc474c8bc820c305c2c2e, type: 3}
+  m_Name: Currency_goldCoin
+  m_EditorClassIdentifier: 
+  m_DisplayName: Gold Coin
+  m_Key: goldCoin
+  m_Tags:
+  - {fileID: -91263394165242140}
+  m_StaticPropertyKeys:
+  - description
+  - icon
+  m_StaticPropertyValues:
+  - <type>k__BackingField: 3
+    m_ValueType:
+      longValue: 0
+    m_StringValue: No pain, no gain. No gain, less pain for your enemies. You'll
+      need money to improve your stuff, and increase your damages. Earn it by killing
+      your enemies.
+  - <type>k__BackingField: 5
+    m_ValueType:
+      longValue: 0
+    m_StringValue: Assets/Art/UI/Icons/gold_coin_icon.png
+  m_InitialBalance: 0
+  m_MaximumBalance: 1000000
+  m_Type: 0
+--- !u!114 &-3515854801978052291
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4178f7fa125e7644ba2a2d0c6300db1, type: 3}
+  m_Name: Tag_WEAPON
+  m_EditorClassIdentifier: 
+  m_Key: WEAPON
+  m_Catalog: {fileID: -8483040674033979277}
+--- !u!114 &-2313346778315101392
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcbd052539327467295d2009d33aa660, type: 3}
+  m_Name: Item_machineGunSword
+  m_EditorClassIdentifier: 
+  m_DisplayName: Machine Gun Sword
+  m_Key: machineGunSword
+  m_Tags:
+  - {fileID: -3515854801978052291}
+  m_StaticPropertyKeys:
+  - item_icon
+  m_StaticPropertyValues:
+  - <type>k__BackingField: 5
+    m_ValueType:
+      longValue: 0
+    m_StringValue: Assets/Art/Sprites/Weapons/Machine Gun Sword/sword_icon.png
+  m_InitialAllocation: 0
+  m_IsStackableFlag: 0
+  m_InitialQuantityPerStack: 1
+  m_MutablePropertyKeys:
+  - rune_id_0
+  - rune_id_1
+  - rune_id_2
+  - nb_rune_slots
+  m_MutablePropertyDefaultValues:
+  - <type>k__BackingField: 3
+    m_ValueType:
+      longValue: 0
+    m_StringValue: 
+  - <type>k__BackingField: 3
+    m_ValueType:
+      longValue: 0
+    m_StringValue: 
+  - <type>k__BackingField: 3
+    m_ValueType:
+      longValue: 0
+    m_StringValue: 
+  - <type>k__BackingField: 0
+    m_ValueType:
+      longValue: 3
+    m_StringValue: 
+--- !u!114 &-1662389633896481707
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcbd052539327467295d2009d33aa660, type: 3}
+  m_Name: Item_equipedWeapon
+  m_EditorClassIdentifier: 
+  m_DisplayName: Equiped Weapon
+  m_Key: equipedWeapon
+  m_Tags:
+  - {fileID: -8923789779514231476}
+  m_StaticPropertyKeys: []
+  m_StaticPropertyValues: []
+  m_InitialAllocation: 1
+  m_IsStackableFlag: 0
+  m_InitialQuantityPerStack: 1
+  m_MutablePropertyKeys:
+  - equiped_weapon_id
+  m_MutablePropertyDefaultValues:
+  - <type>k__BackingField: 3
+    m_ValueType:
+      longValue: 0
+    m_StringValue: 
+--- !u!114 &-878349169074680699
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b81b157322addcd439104bd3c59b830b, type: 3}
+  m_Name: Store_main
+  m_EditorClassIdentifier: 
+  m_DisplayName: Shop
+  m_Key: main
+  m_Tags: []
+  m_StaticPropertyKeys: []
+  m_StaticPropertyValues: []
+  m_StoreItems:
+  - m_Transaction: {fileID: -6944496135251920086}
+    m_Enabled: 1
+--- !u!114 &-91263394165242140
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4178f7fa125e7644ba2a2d0c6300db1, type: 3}
+  m_Name: Tag_MONEY
+  m_EditorClassIdentifier: 
+  m_Key: MONEY
+  m_Catalog: {fileID: -8483040674033979277}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6d6d794703b5406883240f543e5b084, type: 3}
+  m_Name: GameFoundationCatalog
+  m_EditorClassIdentifier: 
+  m_TagCatalog: {fileID: -8483040674033979277}
+  m_Items:
+  - {fileID: -878349169074680699}
+  - {fileID: -3734650512700470626}
+  - {fileID: -1662389633896481707}
+  - {fileID: -2313346778315101392}
+  - {fileID: 53582825380334229}
+  - {fileID: -6944496135251920086}
+--- !u!114 &53582825380334229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcbd052539327467295d2009d33aa660, type: 3}
+  m_Name: Item_commonSpeedRune
+  m_EditorClassIdentifier: 
+  m_DisplayName: Speed Rune (Common)
+  m_Key: commonSpeedRune
+  m_Tags:
+  - {fileID: -4591129078935206501}
+  - {fileID: 5304819582551107541}
+  m_StaticPropertyKeys:
+  - item_icon
+  m_StaticPropertyValues:
+  - <type>k__BackingField: 5
+    m_ValueType:
+      longValue: 0
+    m_StringValue: Assets/Art/Sprites/Runes/speed_rune.png
+  m_InitialAllocation: 0
+  m_IsStackableFlag: 1
+  m_InitialQuantityPerStack: 1
+  m_MutablePropertyKeys:
+  - type
+  - rarity
+  - modifier
+  m_MutablePropertyDefaultValues:
+  - <type>k__BackingField: 3
+    m_ValueType:
+      longValue: 0
+    m_StringValue: statistics
+  - <type>k__BackingField: 3
+    m_ValueType:
+      longValue: 0
+    m_StringValue: common
+  - <type>k__BackingField: 1
+    m_ValueType:
+      longValue: 4607632778762754458
+    m_StringValue: 
+--- !u!114 &288077867421494364
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4178f7fa125e7644ba2a2d0c6300db1, type: 3}
+  m_Name: Tag_COMMON
+  m_EditorClassIdentifier: 
+  m_Key: COMMON
+  m_Catalog: {fileID: -8483040674033979277}
+--- !u!114 &5304819582551107541
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4178f7fa125e7644ba2a2d0c6300db1, type: 3}
+  m_Name: Tag_STAT_MODIFIER
+  m_EditorClassIdentifier: 
+  m_Key: STAT_MODIFIER
+  m_Catalog: {fileID: -8483040674033979277}
+--- !u!114 &5328996562115661337
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4178f7fa125e7644ba2a2d0c6300db1, type: 3}
+  m_Name: Tag_FUNC_MODIFIER
+  m_EditorClassIdentifier: 
+  m_Key: FUNC_MODIFIER
+  m_Catalog: {fileID: -8483040674033979277}

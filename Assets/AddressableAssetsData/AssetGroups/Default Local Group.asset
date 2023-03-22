@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Default Local Group
+  m_EditorClassIdentifier: 
+  m_GroupName: Default Local Group
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 3445a02ea53253c458385a0459bfe6c8
+  m_SerializeEntries:
+  - m_GUID: 96d504d0f74680942a28b52249735242
+    m_Address: Assets/Art/UI/Icons/gold_coin_icon.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: f46db3c19f107d141ab92f5d0d84f2e5
+    m_Address: Assets/Art/Sprites/Weapons/Machine Gun Sword/sword_icon.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 40cd8bfd47584df478063e609b94fe04
+    m_Address: Assets/Art/Sprites/Runes/damage_rune.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 4489113b98165b349a42993f433f07a7
+    m_Address: Assets/Art/Sprites/Runes/speed_rune.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: f606f661b833fe140b592507dad01fe1, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: a30ae1d125f57064ea46a228f2d010b3, type: 2}
+    - {fileID: 11400000, guid: b2be8dadcd4786e4b87e92511d557cca, type: 2}

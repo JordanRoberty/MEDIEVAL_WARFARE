@@ -24,8 +24,8 @@ public class Enemy : MonoBehaviour
         if (bullet != null)
         {
             pv -= bullet.damage;
-            print("Aie");
-            if (pv <= 0){
+            if (pv <= 0)
+            {
                 Destroy(gameObject);
             }
         }
