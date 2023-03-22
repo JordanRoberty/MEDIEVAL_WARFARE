@@ -22,6 +22,7 @@ public class GameManager : Singleton<GameManager>
     private bool player_alive = true;
 
     public void set_player_status(bool status){
+        Debug.Log(status);
         player_alive = status;
     }
 

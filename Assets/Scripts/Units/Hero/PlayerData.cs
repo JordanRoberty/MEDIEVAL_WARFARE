@@ -14,7 +14,6 @@ public class PlayerData : MonoBehaviour
     public float invincibleTime = 2.0f;
     public int score;
     public int nb_coins;
-    [SerializeField] private GameState _state;
     //RUNES ??
 
     //[Header("Weapon")]
@@ -32,7 +31,7 @@ public class PlayerData : MonoBehaviour
     {
         if (health <= 0)
         {
-            Destroy(gameObject);
+            //Destroy(gameObject);
             Debug.Log("DEAD 2");
             GameManager.Instance.set_player_status(false);
         }
