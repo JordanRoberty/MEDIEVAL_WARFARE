@@ -12,6 +12,7 @@ public class PlayerInfosManager : Singleton<PlayerInfosManager>
 
     private void Start()
     {
+        // Load saved equipment
         load_player_equipment();
     }
 
