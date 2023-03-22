@@ -288,6 +288,7 @@ MonoBehaviour:
   - type
   - rarity
   - modifier
+  - equiped
   m_MutablePropertyDefaultValues:
   - <type>k__BackingField: 3
     m_ValueType:
@@ -300,6 +301,10 @@ MonoBehaviour:
   - <type>k__BackingField: 1
     m_ValueType:
       longValue: 4607632778762754458
+    m_StringValue: 
+  - <type>k__BackingField: 2
+    m_ValueType:
+      longValue: 0
     m_StringValue: 
 --- !u!114 &288077867421494364
 MonoBehaviour:
