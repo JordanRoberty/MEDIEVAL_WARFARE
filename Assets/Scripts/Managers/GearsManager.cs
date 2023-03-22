@@ -75,7 +75,7 @@ public class GearsManager : Singleton<GearsManager>
                     _equiped_runes_container
                 ).GetComponent<ItemView>();
 
-                InventoryItemIdentifier identifier = rune_viewer.transform.GetComponent<InventoryItemIdentifier>();
+                InventoryItemIdentifier identifier = rune_viewer.transform.GetComponentInChildren<InventoryItemIdentifier>();
                 identifier.id = equiped_runes[rune_slot].id;
                 identifier.slot = rune_slot;
                 display_item_in_viewer(equiped_runes[rune_slot], rune_viewer);
@@ -123,6 +123,12 @@ public class GearsManager : Singleton<GearsManager>
         _runes_menu.SetActive(true);
     }
 
+    public void cancel_exchange()
+    {
+        _rune_to_exchange_id = null;
+        _runes_menu.SetActive(false);
+    }
+
     public void exchange_rune(InventoryItemIdentifier rune_to_exhange_with_id)
     {
         PlayerInfosManager.Instance.exchange_equiped_rune(_rune_to_exchange_id, rune_to_exhange_with_id);
@@ -131,5 +137,11 @@ public class GearsManager : Singleton<GearsManager>
         display_equiped_runes();
 
         _runes_menu.SetActive(false);
+    }
+
+    public void remove_rune(InventoryItemIdentifier rune_to_remove)
+    {
+        PlayerInfosManager.Instance.remove_equiped_rune(rune_to_remove);
+        display_equiped_runes();
     }
 }

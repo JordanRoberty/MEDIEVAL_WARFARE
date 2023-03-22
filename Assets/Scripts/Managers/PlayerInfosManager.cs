@@ -10,9 +10,6 @@ public class PlayerInfosManager : Singleton<PlayerInfosManager>
     /*===== PUBLIC =====*/
     public InventoryItem equiped_weapon { get; private set; }
 
-    /*===== PRIVATE =====*/
-    private InventoryItem _equiped_weapon_tracker;
-
     private void Start()
     {
         load_player_equipment();
@@ -21,33 +18,41 @@ public class PlayerInfosManager : Singleton<PlayerInfosManager>
     private void load_player_equipment()
     {
         // Get the "current weapon" item that contains the current weapon definition key
-        const string definition_key = "equipedWeapon";
-        InventoryItemDefinition definition = GameFoundationSdk.catalog.Find<InventoryItemDefinition>(definition_key);
-        List<InventoryItem> equiped_weapon_container = new List<InventoryItem>();
-        GameFoundationSdk.inventory.FindItems(definition, equiped_weapon_container);
+        List<InventoryItem> weapons = get_inventory_items_from_tag("WEAPON");
 
-        Assert.IsTrue(equiped_weapon_container.Count == 1);
+        string equiped_weapon_id = "";
+        if (weapons.Count > 0)
+        {
+            
+            for (int i = 0; equiped_weapon_id.Length == 0; ++i)
+            {
+                if (weapons[i].GetMutableProperty("equiped") == true) equiped_weapon_id = weapons[i].id;
+            }
+        }
+        else
+        {
+            InventoryItem item = create_new_inventory_item("machineGunSword");
+            item.SetMutableProperty("equiped", true);
+            equiped_weapon_id = item.id;
 
-        _equiped_weapon_tracker = equiped_weapon_container[0];
+            DEBUG_add_runes_to_weapon(equiped_weapon_id);
+        }
 
-        string equiped_weapon_id = _equiped_weapon_tracker.GetMutableProperty("equiped_weapon_id");
+        Assert.IsFalse(equiped_weapon_id.Length == 0);
 
         set_equiped_weapon(equiped_weapon_id);
     }
 
     private void set_equiped_weapon(string new_weapon_id)
     {
-        if (new_weapon_id.Length == 0)
-        {
-            InventoryItem item = create_new_inventory_item("machineGunSword");
-            new_weapon_id = item.id;
-        }
+        // Update previous equiped weapon
+        if(equiped_weapon != null) equiped_weapon.SetMutableProperty("equiped", false);
 
-        // Store current weapon id for future load
-        _equiped_weapon_tracker.SetMutableProperty("equiped_weapon_id", new_weapon_id);
+        // Get new equiped weapon
         equiped_weapon = GameFoundationSdk.inventory.FindItem(new_weapon_id);
-
-        DEBUG_add_runes_to_weapon();
+        
+        // Update new equiped weapon
+        equiped_weapon.SetMutableProperty("equiped", true);
     }
 
     public List<InventoryItem> get_equiped_runes()
@@ -76,13 +81,25 @@ public class PlayerInfosManager : Singleton<PlayerInfosManager>
         return equiped_runes;
     }
 
+    public void remove_equiped_rune(InventoryItemIdentifier rune_to_remove_id)
+    {
+        int nb_rune_slots = equiped_weapon.GetMutableProperty("nb_rune_slots");
+        Assert.IsTrue(rune_to_remove_id.slot >= 0 && rune_to_remove_id.slot < nb_rune_slots);
+
+        // Update the weapon slot
+        equiped_weapon.SetMutableProperty("rune_id_" + rune_to_remove_id.slot, "");
+
+        // Update the added rune
+        InventoryItem rune_to_remove = GameFoundationSdk.inventory.FindItem(rune_to_remove_id.id);
+        rune_to_remove.SetMutableProperty("equiped", false);
+    }
+
     public void exchange_equiped_rune(InventoryItemIdentifier rune_to_exchange_id, InventoryItemIdentifier rune_to_exchange_with_id)
     {
         int nb_rune_slots = equiped_weapon.GetMutableProperty("nb_rune_slots");
         Assert.IsTrue(rune_to_exchange_id.slot >= 0 && rune_to_exchange_id.slot < nb_rune_slots);
 
         // Update the weapon slot
-        Debug.Log("rune_id_" + rune_to_exchange_id.slot);
         equiped_weapon.SetMutableProperty("rune_id_" + rune_to_exchange_id.slot, rune_to_exchange_with_id.id);
 
         // Update the removed rune only if the slot wasn't empty
@@ -97,24 +114,26 @@ public class PlayerInfosManager : Singleton<PlayerInfosManager>
         rune_to_exchange_with.SetMutableProperty("equiped", true);
     }
 
-    private void DEBUG_add_runes_to_weapon()
+    private void DEBUG_add_runes_to_weapon(string new_weapon_id)
     {
-        // Create two new runes
+        InventoryItem weapon = GameFoundationSdk.inventory.FindItem(new_weapon_id);
+
+        // Create three new runes
         InventoryItem rune_0 = create_new_inventory_item("commonSpeedRune");
         InventoryItem rune_1 = create_new_inventory_item("commonSpeedRune");
         InventoryItem rune_2 = create_new_inventory_item("commonSpeedRune");
 
-        equiped_weapon.SetMutableProperty("rune_id_0", rune_0.id);
+        weapon.SetMutableProperty("rune_id_0", rune_0.id);
         rune_0.SetMutableProperty("equiped", true);
 
-        equiped_weapon.SetMutableProperty("rune_id_1", rune_1.id);
+        weapon.SetMutableProperty("rune_id_1", rune_1.id);
         rune_1.SetMutableProperty("equiped", true);
 
         Debug.Log(
-            $"Equiped weapon : {equiped_weapon.definition.displayName}"
-            + "\n-Rune 0 : " + equiped_weapon.GetMutableProperty("rune_id_0")
-            + "\n-Rune 1 : " + equiped_weapon.GetMutableProperty("rune_id_1")
-            + "\n-Rune 2 : " + equiped_weapon.GetMutableProperty("rune_id_2")
+            $"Equiped weapon : {weapon.definition.displayName}"
+            + "\n-Rune 0 : " + weapon.GetMutableProperty("rune_id_0")
+            + "\n-Rune 1 : " + weapon.GetMutableProperty("rune_id_1")
+            + "\n-Rune 2 : " + weapon.GetMutableProperty("rune_id_2")
         );
     }
 }
