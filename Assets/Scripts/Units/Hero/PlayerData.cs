@@ -8,6 +8,7 @@ public class PlayerData : MonoBehaviour
     [HideInInspector]public Rigidbody2D rb;
 
     [Header("Health & score")]
+    public float shield = 0f;
     public float max_health = 100f;
     public float health = 100f;
      // Temps pendant lequel le personnage est invincible après avoir été touché (en secondes)
@@ -20,11 +21,14 @@ public class PlayerData : MonoBehaviour
     //[Header("Weapon")]
     //WEAPON???
 
-    // Start is called before the first frame update
-    void Start()
+    public void Init()
     {
-        rb = GetComponent<Rigidbody2D>();  
-        
+        rb = GetComponent<Rigidbody2D>();
+
+        //RUNES MODIFIER
+        max_health *= transform.GetComponent<RuneManager>().health_rune;
+        health = max_health;  
+        shield = transform.GetComponent<RuneManager>().shield_rune;
     }
 
     // Update is called once per frame

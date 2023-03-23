@@ -23,6 +23,11 @@ public class Enemy : MonoBehaviour
         Bullet bullet = hitInfo.GetComponent<Bullet>();
         if (bullet != null)
         {
+            //critical hit
+            if(Random.Range(0,100) < RuneManager.Instance.critial_hit_rune){
+                bullet.damage *= 2f;
+            }
+            
             pv -= bullet.damage;
             if (pv <= 0)
             {

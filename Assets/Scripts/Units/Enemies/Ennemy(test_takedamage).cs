@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class Ennemy : MonoBehaviour
 {
-    public int health = 10;
+    public float health = 10f;
     // Update is called once per frame
-    public void take_damages(int damage)
+    public void take_damages(float damage)
     {
-        health = health - damage;
+        health = health - (damage);
 
         if (health <= 0)
         {
