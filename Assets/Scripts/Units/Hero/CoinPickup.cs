@@ -7,12 +7,14 @@ public class CoinPickup : MonoBehaviour
 {
     private Currency m_CoinDefinition;
     
-    public const int find_quantity = 1; // Quantity of coins to add when the Player moves onto a dropped Coin
+    public int find_quantity; // Quantity of coins to add when the Player moves onto a dropped Coin
 
     void Start()
     {
         // Get the Currency definition for the Coin
         m_CoinDefinition = GameFoundationSdk.catalog.Find<Currency>("goldCoin");
+
+        find_quantity = 1;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

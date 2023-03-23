@@ -29,11 +29,7 @@ public class FireAim : MonoBehaviour
         }*/
 
         mousePos = mainCam.ScreenToWorldPoint(Input.mousePosition);
-<<<<<<< HEAD:Assets/Scripts/Units/Weapon/FireAim.cs
-        //Debug.Log(mousePos);
-=======
         // Debug.Log(mousePos);
->>>>>>> main:Assets/Scripts/Weapon/FireAim.cs
 
         Vector3 aimDirection = mousePos - Player.transform.position;
         float rotZ = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg;
