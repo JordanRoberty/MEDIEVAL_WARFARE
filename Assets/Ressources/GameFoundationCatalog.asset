@@ -14,6 +14,59 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Key: CURRENT_WEAPON
   m_Catalog: {fileID: -8483040674033979277}
+--- !u!114 &-8717788907291719258
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcbd052539327467295d2009d33aa660, type: 3}
+  m_Name: Item_laserMagicianStaff
+  m_EditorClassIdentifier: 
+  m_DisplayName: Laser Magician Staff
+  m_Key: laserMagicianStaff
+  m_Tags:
+  - {fileID: -3515854801978052291}
+  m_StaticPropertyKeys:
+  - item_icon
+  m_StaticPropertyValues:
+  - <type>k__BackingField: 5
+    m_ValueType:
+      longValue: 0
+    m_StringValue: Assets/Art/Sprites/Weapons/Machine Gun Sword/sword_icon.png
+  m_InitialAllocation: 0
+  m_IsStackableFlag: 0
+  m_InitialQuantityPerStack: 1
+  m_MutablePropertyKeys:
+  - rune_id_0
+  - rune_id_1
+  - rune_id_2
+  - nb_rune_slots
+  - equiped
+  m_MutablePropertyDefaultValues:
+  - <type>k__BackingField: 3
+    m_ValueType:
+      longValue: 0
+    m_StringValue: 
+  - <type>k__BackingField: 3
+    m_ValueType:
+      longValue: 0
+    m_StringValue: 
+  - <type>k__BackingField: 3
+    m_ValueType:
+      longValue: 0
+    m_StringValue: 
+  - <type>k__BackingField: 0
+    m_ValueType:
+      longValue: 3
+    m_StringValue: 
+  - <type>k__BackingField: 2
+    m_ValueType:
+      longValue: 0
+    m_StringValue: 
 --- !u!114 &-8483040674033979277
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35,6 +88,38 @@ MonoBehaviour:
   - {fileID: 288077867421494364}
   - {fileID: -8923789779514231476}
   m_CatalogAsset: {fileID: 11400000}
+--- !u!114 &-7956877604992377369
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 188049432bcf74f78b314dc2b03ee516, type: 3}
+  m_Name: VirtualTransaction_buyCommonDamageRune
+  m_EditorClassIdentifier: 
+  m_DisplayName: Damage Rune (Common)
+  m_Key: buyCommonDamageRune
+  m_Tags:
+  - {fileID: -4591129078935206501}
+  - {fileID: 5304819582551107541}
+  m_StaticPropertyKeys:
+  - transaction_icon
+  m_StaticPropertyValues:
+  - <type>k__BackingField: 5
+    m_ValueType:
+      longValue: 0
+    m_StringValue: Assets/Art/Sprites/Runes/damage_rune.png
+  m_Payout:
+    m_Exchanges:
+    - m_CatalogItem: {fileID: -6467457379744284901}
+      m_Amount: 1
+  m_Costs:
+    m_Exchanges:
+    - m_CatalogItem: {fileID: -3734650512700470626}
+      m_Amount: 150
 --- !u!114 &-6944496135251920086
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -51,6 +136,7 @@ MonoBehaviour:
   m_Key: buyCommonSpeedRune
   m_Tags:
   - {fileID: -4591129078935206501}
+  - {fileID: 5304819582551107541}
   m_StaticPropertyKeys:
   - transaction_icon
   m_StaticPropertyValues:
@@ -59,12 +145,14 @@ MonoBehaviour:
       longValue: 0
     m_StringValue: Assets/Art/Sprites/Runes/speed_rune.png
   m_Payout:
-    m_Exchanges: []
+    m_Exchanges:
+    - m_CatalogItem: {fileID: 4545930279128530339}
+      m_Amount: 1
   m_Costs:
     m_Exchanges:
     - m_CatalogItem: {fileID: -3734650512700470626}
       m_Amount: 100
---- !u!114 &-4656125569732803317
+--- !u!114 &-6467457379744284901
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -74,36 +162,37 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fcbd052539327467295d2009d33aa660, type: 3}
-  m_Name: Item_commonSpeedRune
+  m_Name: Item_commonDamageRune
   m_EditorClassIdentifier: 
-  m_DisplayName: Speed Rune (common)
-  m_Key: commonSpeedRune
+  m_DisplayName: Damage Rune (Common)
+  m_Key: commonDamageRune
   m_Tags:
   - {fileID: -4591129078935206501}
+  - {fileID: 5304819582551107541}
   m_StaticPropertyKeys:
   - item_icon
   m_StaticPropertyValues:
   - <type>k__BackingField: 5
     m_ValueType:
       longValue: 0
-    m_StringValue: Assets/Art/Sprites/Runes/speed_rune.png
+    m_StringValue: Assets/Art/Sprites/Runes/damage_rune.png
   m_InitialAllocation: 0
   m_IsStackableFlag: 1
   m_InitialQuantityPerStack: 1
   m_MutablePropertyKeys:
-  - rarity
   - type
+  - rarity
   - modifier
   - equiped
   m_MutablePropertyDefaultValues:
   - <type>k__BackingField: 3
     m_ValueType:
       longValue: 0
-    m_StringValue: common
+    m_StringValue: statistics
   - <type>k__BackingField: 3
     m_ValueType:
       longValue: 0
-    m_StringValue: statistics
+    m_StringValue: common
   - <type>k__BackingField: 1
     m_ValueType:
       longValue: 4607632778762754458
@@ -173,6 +262,59 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Key: WEAPON
   m_Catalog: {fileID: -8483040674033979277}
+--- !u!114 &-3365036208853847017
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcbd052539327467295d2009d33aa660, type: 3}
+  m_Name: Item_shotgunFlail
+  m_EditorClassIdentifier: 
+  m_DisplayName: Shotgun Flail
+  m_Key: shotgunFlail
+  m_Tags:
+  - {fileID: -3515854801978052291}
+  m_StaticPropertyKeys:
+  - item_icon
+  m_StaticPropertyValues:
+  - <type>k__BackingField: 5
+    m_ValueType:
+      longValue: 0
+    m_StringValue: Assets/Art/Sprites/Weapons/Machine Gun Sword/sword_icon.png
+  m_InitialAllocation: 0
+  m_IsStackableFlag: 0
+  m_InitialQuantityPerStack: 1
+  m_MutablePropertyKeys:
+  - rune_id_0
+  - rune_id_1
+  - rune_id_2
+  - nb_rune_slots
+  - equiped
+  m_MutablePropertyDefaultValues:
+  - <type>k__BackingField: 3
+    m_ValueType:
+      longValue: 0
+    m_StringValue: 
+  - <type>k__BackingField: 3
+    m_ValueType:
+      longValue: 0
+    m_StringValue: 
+  - <type>k__BackingField: 3
+    m_ValueType:
+      longValue: 0
+    m_StringValue: 
+  - <type>k__BackingField: 0
+    m_ValueType:
+      longValue: 3
+    m_StringValue: 
+  - <type>k__BackingField: 2
+    m_ValueType:
+      longValue: 0
+    m_StringValue: 
 --- !u!114 &-2313346778315101392
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -261,6 +403,61 @@ MonoBehaviour:
   m_StoreItems:
   - m_Transaction: {fileID: -6944496135251920086}
     m_Enabled: 1
+  - m_Transaction: {fileID: -7956877604992377369}
+    m_Enabled: 1
+--- !u!114 &-374458136420537696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcbd052539327467295d2009d33aa660, type: 3}
+  m_Name: Item_minigunBatardSword
+  m_EditorClassIdentifier: 
+  m_DisplayName: Minigun Batard Sword
+  m_Key: minigunBatardSword
+  m_Tags:
+  - {fileID: -3515854801978052291}
+  m_StaticPropertyKeys:
+  - item_icon
+  m_StaticPropertyValues:
+  - <type>k__BackingField: 5
+    m_ValueType:
+      longValue: 0
+    m_StringValue: Assets/Art/Sprites/Weapons/Machine Gun Sword/sword_icon.png
+  m_InitialAllocation: 0
+  m_IsStackableFlag: 0
+  m_InitialQuantityPerStack: 1
+  m_MutablePropertyKeys:
+  - rune_id_0
+  - rune_id_1
+  - rune_id_2
+  - nb_rune_slots
+  - equiped
+  m_MutablePropertyDefaultValues:
+  - <type>k__BackingField: 3
+    m_ValueType:
+      longValue: 0
+    m_StringValue: 
+  - <type>k__BackingField: 3
+    m_ValueType:
+      longValue: 0
+    m_StringValue: 
+  - <type>k__BackingField: 3
+    m_ValueType:
+      longValue: 0
+    m_StringValue: 
+  - <type>k__BackingField: 0
+    m_ValueType:
+      longValue: 3
+    m_StringValue: 
+  - <type>k__BackingField: 2
+    m_ValueType:
+      longValue: 0
+    m_StringValue: 
 --- !u!114 &-91263394165242140
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -293,7 +490,14 @@ MonoBehaviour:
   - {fileID: -3734650512700470626}
   - {fileID: -2313346778315101392}
   - {fileID: -6944496135251920086}
-  - {fileID: -4656125569732803317}
+  - {fileID: -3365036208853847017}
+  - {fileID: 2462236893667508694}
+  - {fileID: -374458136420537696}
+  - {fileID: 8285172246896152485}
+  - {fileID: -8717788907291719258}
+  - {fileID: 4545930279128530339}
+  - {fileID: -6467457379744284901}
+  - {fileID: -7956877604992377369}
 --- !u!114 &288077867421494364
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -308,6 +512,108 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Key: COMMON
   m_Catalog: {fileID: -8483040674033979277}
+--- !u!114 &2462236893667508694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcbd052539327467295d2009d33aa660, type: 3}
+  m_Name: Item_crossbow
+  m_EditorClassIdentifier: 
+  m_DisplayName: Crossbow
+  m_Key: crossbow
+  m_Tags:
+  - {fileID: -3515854801978052291}
+  m_StaticPropertyKeys:
+  - item_icon
+  m_StaticPropertyValues:
+  - <type>k__BackingField: 5
+    m_ValueType:
+      longValue: 0
+    m_StringValue: Assets/Art/Sprites/Weapons/Machine Gun Sword/sword_icon.png
+  m_InitialAllocation: 0
+  m_IsStackableFlag: 0
+  m_InitialQuantityPerStack: 1
+  m_MutablePropertyKeys:
+  - rune_id_0
+  - rune_id_1
+  - rune_id_2
+  - nb_rune_slots
+  - equiped
+  m_MutablePropertyDefaultValues:
+  - <type>k__BackingField: 3
+    m_ValueType:
+      longValue: 0
+    m_StringValue: 
+  - <type>k__BackingField: 3
+    m_ValueType:
+      longValue: 0
+    m_StringValue: 
+  - <type>k__BackingField: 3
+    m_ValueType:
+      longValue: 0
+    m_StringValue: 
+  - <type>k__BackingField: 0
+    m_ValueType:
+      longValue: 3
+    m_StringValue: 
+  - <type>k__BackingField: 2
+    m_ValueType:
+      longValue: 0
+    m_StringValue: 
+--- !u!114 &4545930279128530339
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcbd052539327467295d2009d33aa660, type: 3}
+  m_Name: Item_commonSpeedRune
+  m_EditorClassIdentifier: 
+  m_DisplayName: Speed Rune (Common)
+  m_Key: commonSpeedRune
+  m_Tags:
+  - {fileID: -4591129078935206501}
+  - {fileID: 5304819582551107541}
+  m_StaticPropertyKeys:
+  - item_icon
+  m_StaticPropertyValues:
+  - <type>k__BackingField: 5
+    m_ValueType:
+      longValue: 0
+    m_StringValue: Assets/Art/Sprites/Runes/speed_rune.png
+  m_InitialAllocation: 0
+  m_IsStackableFlag: 1
+  m_InitialQuantityPerStack: 1
+  m_MutablePropertyKeys:
+  - type
+  - rarity
+  - modifier
+  - equiped
+  m_MutablePropertyDefaultValues:
+  - <type>k__BackingField: 3
+    m_ValueType:
+      longValue: 0
+    m_StringValue: statistics
+  - <type>k__BackingField: 3
+    m_ValueType:
+      longValue: 0
+    m_StringValue: common
+  - <type>k__BackingField: 1
+    m_ValueType:
+      longValue: 4607632778762754458
+    m_StringValue: 
+  - <type>k__BackingField: 2
+    m_ValueType:
+      longValue: 0
+    m_StringValue: 
 --- !u!114 &5304819582551107541
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -336,3 +642,56 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Key: FUNC_MODIFIER
   m_Catalog: {fileID: -8483040674033979277}
+--- !u!114 &8285172246896152485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcbd052539327467295d2009d33aa660, type: 3}
+  m_Name: Item_rocketLauncherCanon
+  m_EditorClassIdentifier: 
+  m_DisplayName: Rocket Launcher Canon
+  m_Key: rocketLauncherCanon
+  m_Tags:
+  - {fileID: -3515854801978052291}
+  m_StaticPropertyKeys:
+  - item_icon
+  m_StaticPropertyValues:
+  - <type>k__BackingField: 5
+    m_ValueType:
+      longValue: 0
+    m_StringValue: Assets/Art/Sprites/Weapons/Machine Gun Sword/sword_icon.png
+  m_InitialAllocation: 0
+  m_IsStackableFlag: 0
+  m_InitialQuantityPerStack: 1
+  m_MutablePropertyKeys:
+  - rune_id_0
+  - rune_id_1
+  - rune_id_2
+  - nb_rune_slots
+  - equiped
+  m_MutablePropertyDefaultValues:
+  - <type>k__BackingField: 3
+    m_ValueType:
+      longValue: 0
+    m_StringValue: 
+  - <type>k__BackingField: 3
+    m_ValueType:
+      longValue: 0
+    m_StringValue: 
+  - <type>k__BackingField: 3
+    m_ValueType:
+      longValue: 0
+    m_StringValue: 
+  - <type>k__BackingField: 0
+    m_ValueType:
+      longValue: 3
+    m_StringValue: 
+  - <type>k__BackingField: 2
+    m_ValueType:
+      longValue: 0
+    m_StringValue: 
