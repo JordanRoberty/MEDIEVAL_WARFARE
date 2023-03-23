@@ -12,6 +12,7 @@ public class Bullet : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        damage *= RuneManager.Instance.damage_rune;
         speed *= RuneManager.Instance.bullet_speed_rune;
         rb.velocity = transform.right * speed;
     }
@@ -23,17 +24,6 @@ public class Bullet : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D hitInfo)
     {
-        // Debug.Log(hitInfo.name);
         Destroy(gameObject);
-        Ennemy enemy = hitInfo.GetComponent<Ennemy>();
-        if (enemy != null)
-        {
-            damage *= RuneManager.Instance.damage_rune;
-            if(Random.Range(0, 100) < RuneManager.Instance.critial_hit_rune){
-                damage *= 2f;
-                Debug.Log("Critical hit " + damage);
-            }
-            enemy.take_damages(damage);
-        }
     }
 }
