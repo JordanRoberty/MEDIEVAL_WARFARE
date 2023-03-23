@@ -12,7 +12,7 @@ public class Movement2D : MonoBehaviour
     private float _move_speed = 12f;
 
     [SerializeField]
-    private bool _changing_direction;
+    private bool _changing_direction= false;
     private bool _is_crouching = false;
 
     [Header("jump Variables")]
@@ -60,7 +60,6 @@ public class Movement2D : MonoBehaviour
     {
          _player = gameObject.GetComponent(typeof(PlayerData)) as PlayerData;
         boxCollider = GetComponent<BoxCollider2D>();
-        _default_speed = camera.GetComponent<CameraBehavior>().speed;
 
         //RUNE MODIFIER
         _move_speed *= transform.GetComponent<RuneManager>().speed_rune;
@@ -75,6 +74,9 @@ public class Movement2D : MonoBehaviour
         if (sceneName.Contains("boss_level_"))
         {
             is_boss_scene = true;
+        }else{
+        _default_speed = camera.GetComponent<CameraBehavior>().speed;
+
         }
     }
 
@@ -156,6 +158,10 @@ public class Movement2D : MonoBehaviour
             {
                 _player.rb.velocity = new Vector2(
                         _default_speed,
+                        _player.rb.velocity.y);
+            }else{
+                _player.rb.velocity = new Vector2(
+                        0f,
                         _player.rb.velocity.y);
             }
         }
