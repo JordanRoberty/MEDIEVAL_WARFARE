@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
     public GameObject enemy_basic;
-    public GameObject enemy_tank;
+    public GameObject enemy_tank; 
     public GameObject enemy_flying;
 
     public float spawn_rate = 1.0f; // taux de spawn en secondes
