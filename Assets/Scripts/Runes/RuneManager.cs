@@ -66,10 +66,10 @@ public class RuneManager : Singleton<RuneManager>
             if(rune != null){
                 switch (rune.definition.key)
                 {
-                    case "commonDamageRune": // or "rareDamageRune" or "legendaryDamageRune"
+                    case "commonDamageRune" or "rareDamageRune" or "legendaryDamageRune":
                         damage_rune *= rune.GetMutableProperty("modifier");
                         break;
-                    case "commonSpeedRune": // or "rareSpeedRune" or "legendarySpeedRune"
+                    case "commonSpeedRune" or "rareSpeedRune" or "legendarySpeedRune":
                         speed_rune *= rune.GetMutableProperty("modifier");
                         break;
                     case "commonFiringRateRune": // or "rareFiringRateRune" or "legendaryFiringRateRune"
