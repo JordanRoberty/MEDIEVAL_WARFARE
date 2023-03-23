@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CrushPlayer : MonoBehaviour
 {
-    [SerializeField] private PlayerData player;
+    [SerializeField] private PlayerManager _player;
     [SerializeField] private float _raycast_length = 0.3f;
     [SerializeField] private LayerMask _player_layer;
     
@@ -14,20 +14,20 @@ public class CrushPlayer : MonoBehaviour
         
         if(is_crushed())
         {
-            player.health = 0;
+            _player.health = 0;
         }
     }
 
 
     private bool is_crushed()
     {
-        return Physics2D.Raycast(new Vector3(transform.position.x, player.transform.position.y, transform.position.z), -Vector2.left, _raycast_length , _player_layer);
+        return Physics2D.Raycast(new Vector3(transform.position.x, _player.transform.position.y, transform.position.z), -Vector2.left, _raycast_length , _player_layer);
     }
 
     private void OnDrawGizmos() 
     {
         Gizmos.color = Color.red;
-        Vector3 position = new Vector3(transform.position.x, player.transform.position.y, transform.position.z);
+        Vector3 position = new Vector3(transform.position.x, _player.transform.position.y, transform.position.z);
         {
             Gizmos.DrawLine(position, position  - Vector3.left * _raycast_length);
         }

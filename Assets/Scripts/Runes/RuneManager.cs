@@ -56,7 +56,7 @@ public class RuneManager : Singleton<RuneManager>
         getRuneModifier();
 
         transform.GetComponent<Movement2D>().Init();
-        transform.GetComponent<PlayerData>().Init();
+        transform.GetComponent<PlayerManager>().Init(health_rune, shield_rune);
 
     }
 

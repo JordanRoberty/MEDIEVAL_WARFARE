@@ -12046,7 +12046,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ec6932ebbff24b6f92ce3dcbed79244, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 2065636602}
+  _player: {fileID: 2065636607}
   _raycast_length: 0.34
   _player_layer:
     serializedVersion: 2
@@ -13099,11 +13099,9 @@ GameObject:
   - component: {fileID: 2065636606}
   - component: {fileID: 2065636605}
   - component: {fileID: 2065636604}
+  - component: {fileID: 2065636607}
   - component: {fileID: 2065636603}
   - component: {fileID: 2065636610}
-  - component: {fileID: 2065636602}
-  - component: {fileID: 2065636607}
-  - component: {fileID: 2065636608}
   - component: {fileID: 2065636609}
   m_Layer: 8
   m_Name: Player
@@ -13128,25 +13126,6 @@ Transform:
   m_Father: {fileID: 1621335791}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2065636602
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2065636600}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b83ea49e3242240ea8c781dd8213f23e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rb: {fileID: 0}
-  shield: 0
-  max_health: 100
-  health: 100
-  invincibleTime: 2
-  score: 0
-  nb_coins: 0
 --- !u!114 &2065636603
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13284,18 +13263,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ef200027641645a89dcb6ff12f0b70b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &2065636608
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2065636600}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 88368bac459414ebb97b3c9636148cbc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  shield: 0
+  max_health: 500
+  health: 100
+  invulnerability_time: 2
+  score: 0
+  nb_coins: 0
 --- !u!95 &2065636609
 Animator:
   serializedVersion: 4
