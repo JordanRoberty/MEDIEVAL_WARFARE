@@ -290,7 +290,6 @@ Transform:
   - {fileID: 1876652830}
   - {fileID: 903049378}
   - {fileID: 292214173}
-  - {fileID: 859823855}
   - {fileID: 875804231}
   - {fileID: 254013054}
   m_Father: {fileID: 1621335791}
@@ -342,7 +341,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 95501550}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!19719996 &254013055
 TilemapCollider2D:
@@ -8359,6 +8358,37 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &463831532
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 463831533}
+  m_Layer: 0
+  m_Name: Enemies
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &463831533
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 463831532}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 10.7, y: -1.34, z: 0.14653735}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1621335791}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &511895747
 GameObject:
   m_ObjectHideFlags: 0
@@ -8709,9 +8739,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aad03853e12dc0f4bb316c94eae3ba6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy_basic: {fileID: 2786779546960806302, guid: 5a99d504511ed74449d2b2c0e545863b, type: 3}
-  enemy_tank: {fileID: 6965095639029914826, guid: c009de866ea48bf4ebb0a9b098575994, type: 3}
-  enemy_flying: {fileID: 3766044448327004977, guid: ab6e57313eec1a54bb1f0133ff99e96d, type: 3}
+  enemy_basic: {fileID: 7099596964292940128, guid: f6bc5da3c92848042b580348812e93be, type: 3}
+  enemy_tank: {fileID: 4219102503762189901, guid: ec826f028de11c54b9c36814c0b90163, type: 3}
+  enemy_flying: {fileID: 5282204435665205213, guid: 6a035e6be2c2538459223dcef5b10eed, type: 3}
+  _enemies_container: {fileID: 463831533}
   spawn_rate: 0.5
   enemy_basic_probability: 0.5
   enemy_tank_probability: 0.15
@@ -9007,7 +9038,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 95501550}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!19719996 &875804233
 TilemapCollider2D:
@@ -12522,6 +12553,7 @@ Transform:
   - {fileID: 2065636601}
   - {fileID: 1840058208}
   - {fileID: 772884825}
+  - {fileID: 463831533}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

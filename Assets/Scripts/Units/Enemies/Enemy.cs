@@ -18,6 +18,16 @@ public class Enemy : MonoBehaviour
         damage = new_damage;
     }
 
+    public void take_damages(float damage)
+    {
+        pv -= (damage);
+
+        if (pv <= 0)
+        {
+            transform.destroy();
+        }
+    }
+
     void OnTriggerEnter2D(Collider2D hitInfo)
     {
         Bullet bullet = hitInfo.GetComponent<Bullet>();

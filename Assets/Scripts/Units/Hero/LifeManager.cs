@@ -14,10 +14,6 @@ public class LifeManager : MonoBehaviour
         Debug.Log("Start !");
     }
 
-    void Update()
-    {
-    }
-
     void OnCollisionEnter2D(Collision2D collision)
     {
         Debug.Log("Collision !");
@@ -29,9 +25,13 @@ public class LifeManager : MonoBehaviour
             invincible.get_invulnerable();
             if(player_data.shield == 0){
                 player_data.health -= collision.gameObject.GetComponent<Enemy>().get_damage();
-                return;
+
+                if (player_data.health <= 0 && GameManager.Instance._state == GameState.RUNNING) GameManager.Instance.set_state(GameState.FAIL_MENU);
             }
-                player_data.shield --;
+            else
+            {
+                player_data.shield--;
+            }
         }
     }
 }

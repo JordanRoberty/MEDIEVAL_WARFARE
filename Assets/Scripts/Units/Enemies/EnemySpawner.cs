@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    public GameObject enemy_basic;
-    public GameObject enemy_tank; 
-    public GameObject enemy_flying;
+    [SerializeField] private GameObject enemy_basic;
+    [SerializeField] private GameObject enemy_tank;
+    [SerializeField] private GameObject enemy_flying;
+    [SerializeField] private Transform _enemies_container;
 
     public float spawn_rate = 1.0f; // taux de spawn en secondes
     public float enemy_basic_probability = 0.5f; // probabilité d'apparition de enemy_basic
@@ -17,6 +18,7 @@ public class EnemySpawner : MonoBehaviour
 
     private void Start()
     {
+        _enemies_container.destroy_children();
         InvokeRepeating("SpawnEnemy", 0.0f, spawn_rate); // lancement du spawn toutes les "spawn_rate" secondes
     }
 
@@ -32,16 +34,16 @@ public class EnemySpawner : MonoBehaviour
         if (random_number < enemy_basic_probability) // si le nombre tiré est inférieur à la probabilité d'apparition de enemy_basic
         {
             // on fait spawn enemy_basic
-            Instantiate(enemy_basic, transform.position, Quaternion.identity);
+            Instantiate(enemy_basic, transform.position, Quaternion.identity, _enemies_container);
         }
         else if (random_number < enemy_basic_probability + enemy_tank_probability) // si le nombre tiré est entre la probabilité d'apparition de enemy_basic et celle de enemy_basic + enemy_tank
         {
             // on fait spawn enemy_tank
-            Instantiate(enemy_tank, transform.position, Quaternion.identity);
+            Instantiate(enemy_tank, transform.position, Quaternion.identity, _enemies_container);
         }
         else // sinon, cela signifie que le nombre tiré est supérieur à la probabilité d'apparition de enemy_basic + enemy_tank, donc on fait spawn enemy_flying
         {
-            Instantiate(enemy_flying, transform.position, Quaternion.identity);
+            Instantiate(enemy_flying, transform.position, Quaternion.identity, _enemies_container);
         }
     }
 }
