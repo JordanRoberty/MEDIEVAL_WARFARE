@@ -8387,7 +8387,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1621335791}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &511895747
 GameObject:
@@ -8399,7 +8399,7 @@ GameObject:
   m_Component:
   - component: {fileID: 511895748}
   m_Layer: 0
-  m_Name: Subject
+  m_Name: Parallax Cross Mark
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8563,6 +8563,7 @@ Transform:
   m_Children:
   - {fileID: 842469917}
   - {fileID: 1917711138}
+  - {fileID: 1840058208}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -8721,7 +8722,7 @@ GameObject:
   - component: {fileID: 772884825}
   - component: {fileID: 772884824}
   m_Layer: 0
-  m_Name: SpawnPoint
+  m_Name: Enemies Spawn Point
   m_TagString: Untagged
   m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -8761,7 +8762,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1621335791}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &801125225
 GameObject:
@@ -12551,7 +12552,6 @@ Transform:
   - {fileID: 320331720}
   - {fileID: 95501550}
   - {fileID: 2065636601}
-  - {fileID: 1840058208}
   - {fileID: 772884825}
   - {fileID: 463831533}
   m_Father: {fileID: 0}
@@ -12704,7 +12704,7 @@ GameObject:
   - component: {fileID: 1840058207}
   - component: {fileID: 1840058209}
   m_Layer: 0
-  m_Name: Astar
+  m_Name: Astar Pathfinding Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12809,8 +12809,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1621335791}
-  m_RootOrder: 3
+  m_Father: {fileID: 521946843}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1840058209
 MonoBehaviour:
@@ -13027,7 +13027,7 @@ GameObject:
   - component: {fileID: 1917711139}
   - component: {fileID: 1917711140}
   m_Layer: 0
-  m_Name: GoToBoss
+  m_Name: Boss Area Enter Trigger
   m_TagString: Untagged
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
