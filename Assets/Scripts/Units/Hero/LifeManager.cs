@@ -21,12 +21,18 @@ public class LifeManager : MonoBehaviour
         // Si le collider en contact est l'ennemi
         if (collision.gameObject.tag == "Enemy")
         {
-            // Invincibility for 2 seconds
-            invincible.get_invulnerable();
+            
             if(player_data.shield == 0){
                 player_data.health -= collision.gameObject.GetComponent<Enemy>().get_damage();
 
-                if (player_data.health <= 0 && GameManager.Instance._state == GameState.RUNNING) GameManager.Instance.set_state(GameState.FAIL_MENU);
+                if (player_data.health <= 0 && GameManager.Instance._state == GameState.RUNNING)
+                {
+                    GameManager.Instance.set_state(GameState.FAIL_MENU);
+                    return;
+                }
+
+                // Invincibility for 2 seconds
+                invincible.get_invulnerable();
             }
             else
             {

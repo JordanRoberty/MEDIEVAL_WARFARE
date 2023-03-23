@@ -7,7 +7,6 @@ public class Invincibility : MonoBehaviour
     private float _invincibleTime;
     private Renderer _renderer;
     private Color _color;
-
     // Start is called before the first frame update
     void Start()
     {

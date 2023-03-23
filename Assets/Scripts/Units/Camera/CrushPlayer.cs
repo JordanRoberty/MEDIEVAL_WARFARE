@@ -30,7 +30,6 @@ public class CrushPlayer : MonoBehaviour
         Vector3 position = new Vector3(transform.position.x, player.transform.position.y, transform.position.z);
         {
             Gizmos.DrawLine(position, position  - Vector3.left * _raycast_length);
- 
         }
     }
 }
