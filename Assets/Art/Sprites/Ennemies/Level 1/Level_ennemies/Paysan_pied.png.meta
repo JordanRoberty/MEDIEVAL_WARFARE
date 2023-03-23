@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: b2f616d7ca2ab9046af83fcdd87bc80b
+guid: edc8f84ca4bf8d4489c0d59f4151836d
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 35
+  spritePixelsToUnits: 20
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -101,17 +101,29 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Paysan_tank_0
+      name: Paysan_pied_0
       rect:
         serializedVersion: 2
-        x: 17
-        y: 4
-        width: 27
-        height: 45
+        x: 0
+        y: 5
+        width: 33
+        height: 41
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -119,20 +131,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d9721caa36b5e244f80814c31deb4ce4
-      internalID: -1538759320
+      spriteID: 237d51b05b3aa7c41b2f728ee1464c97
+      internalID: -1126340348
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Paysan_tank_1
+      name: Paysan_pied_1
       rect:
         serializedVersion: 2
-        x: 77
-        y: 4
-        width: 27
-        height: 45
+        x: 60
+        y: 5
+        width: 33
+        height: 41
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -140,20 +152,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d10645f052229b0408e7484f60320305
-      internalID: -1774749510
+      spriteID: 4f67270bf8f86aa4bb71622d87e39acc
+      internalID: 801707708
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Paysan_tank_2
+      name: Paysan_pied_2
       rect:
         serializedVersion: 2
-        x: 137
-        y: 4
-        width: 27
-        height: 45
+        x: 120
+        y: 5
+        width: 33
+        height: 41
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -161,20 +173,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8c0305b015a9be9458958ef6aca114ab
-      internalID: 244788586
+      spriteID: f2ed4a45938dd804e88b295330d7b879
+      internalID: 1102128367
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Paysan_tank_3
+      name: Paysan_pied_3
       rect:
         serializedVersion: 2
-        x: 197
-        y: 4
-        width: 27
-        height: 45
+        x: 180
+        y: 5
+        width: 33
+        height: 41
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -182,20 +194,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 21cdef69bbeb83a45933164896af0877
-      internalID: 302519041
+      spriteID: 9a915b7c3da22d147a7a73eb0b73fdbe
+      internalID: 165828261
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Paysan_tank_4
+      name: Paysan_pied_4
       rect:
         serializedVersion: 2
-        x: 257
-        y: 4
-        width: 27
-        height: 45
+        x: 240
+        y: 5
+        width: 33
+        height: 41
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -203,20 +215,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d53930af44af149459c9df6fa5cdedfe
-      internalID: -1880088698
+      spriteID: 711ff84a5e8c58445b4107b06956f7d6
+      internalID: 1361022577
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Paysan_tank_5
+      name: Paysan_pied_5
       rect:
         serializedVersion: 2
-        x: 317
-        y: 4
-        width: 27
-        height: 45
+        x: 300
+        y: 5
+        width: 33
+        height: 41
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -224,20 +236,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 78e0099204dda1643a4c609e2586efd4
-      internalID: 1176296222
+      spriteID: c39b6452b9854154e875568abcf0bd69
+      internalID: 1649336618
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Paysan_tank_6
+      name: Paysan_pied_6
       rect:
         serializedVersion: 2
-        x: 377
-        y: 4
-        width: 27
-        height: 45
+        x: 360
+        y: 5
+        width: 33
+        height: 41
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -245,20 +257,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c5e9af55ed908e540ae60a7da9943b26
-      internalID: 1533736696
+      spriteID: da378702675ecd74380c9ae5df0c4f40
+      internalID: 719859085
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Paysan_tank_7
+      name: Paysan_pied_7
       rect:
         serializedVersion: 2
-        x: 437
-        y: 4
-        width: 27
-        height: 45
+        x: 420
+        y: 5
+        width: 33
+        height: 41
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -266,50 +278,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8ac0030d16310d744884f795aa5d3a94
-      internalID: -1873921609
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Paysan_tank_8
-      rect:
-        serializedVersion: 2
-        x: 497
-        y: 4
-        width: 27
-        height: 45
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5696fb6bc2430934786b60a7393aaf8e
-      internalID: -1075383355
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Paysan_tank_9
-      rect:
-        serializedVersion: 2
-        x: 557
-        y: 4
-        width: 27
-        height: 45
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1350b1440ea7d4f4a9cb9eb35ce2456b
-      internalID: 814553410
+      spriteID: 49da4d5076bb9ce4dbba29db21964645
+      internalID: -1002874016
       vertices: []
       indices: 
       edges: []
@@ -325,16 +295,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Paysan_tank_4: -1880088698
-      Paysan_tank_1: -1774749510
-      Paysan_tank_2: 244788586
-      Paysan_tank_7: -1873921609
-      Paysan_tank_8: -1075383355
-      Paysan_tank_9: 814553410
-      Paysan_tank_5: 1176296222
-      Paysan_tank_6: 1533736696
-      Paysan_tank_0: -1538759320
-      Paysan_tank_3: 302519041
+      Paysan_pied_4: 1361022577
+      Paysan_pied_7: -1002874016
+      Paysan_pied_0: -1126340348
+      Paysan_pied_5: 1649336618
+      Paysan_pied_1: 801707708
+      Paysan_pied_3: 165828261
+      Paysan_pied_2: 1102128367
+      Paysan_pied_6: 719859085
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

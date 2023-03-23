@@ -8,10 +8,12 @@ public class FireAim : MonoBehaviour
     public GameObject Player;
     private Vector3 mousePos;
     private Camera mainCam;
+
     void Start()
     {
         mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
     }
+
     void Update()
     {
         /*if (Input.GetKeyDown("up"))
@@ -27,12 +29,15 @@ public class FireAim : MonoBehaviour
         }*/
 
         mousePos = mainCam.ScreenToWorldPoint(Input.mousePosition);
+<<<<<<< HEAD:Assets/Scripts/Units/Weapon/FireAim.cs
         //Debug.Log(mousePos);
+=======
+        // Debug.Log(mousePos);
+>>>>>>> main:Assets/Scripts/Weapon/FireAim.cs
 
         Vector3 aimDirection = mousePos - Player.transform.position;
         float rotZ = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg;
 
         transform.rotation = Quaternion.Euler(0, 0, rotZ);
-
     }
 }

@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class CameraBehavior : MonoBehaviour
 {
-    [Range(0.01f,0.05f)]
     public float cameraSpeed = 0.01f;
     float offset;
     // Start is called before the first frame update

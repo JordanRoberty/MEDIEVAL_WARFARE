@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: d75bb440817b9c044a76eb7f6fe996f8
+guid: e90fc047f21a1d446aec77d6bd43bd21
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -47,9 +47,9 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 70
+  spritePixelsToUnits: 20
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spriteGenerateFallbackPhysicsShape: 1
+  spriteGenerateFallbackPhysicsShape: 0
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
@@ -67,7 +67,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 16384
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -105,13 +105,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Paysan_volant_0
+      name: Paysan_boss_marche_idle_0
       rect:
         serializedVersion: 2
-        x: 3
+        x: 0
         y: 0
-        width: 66
-        height: 51
+        width: 78
+        height: 99
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -119,20 +119,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6c64bb113363735419c4d598a4c8b955
-      internalID: 1983635746
+      spriteID: d7e7764b000c65a4d91d69df414dc7cc
+      internalID: -7249108
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Paysan_volant_1
+      name: Paysan_boss_marche_idle_1
       rect:
         serializedVersion: 2
-        x: 73
+        x: 79
         y: 0
-        width: 66
-        height: 51
+        width: 78
+        height: 99
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -140,20 +140,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 246b402834213704585d137314e57cec
-      internalID: 1198243329
+      spriteID: 16914e19592dc044d83e60dcb8664d95
+      internalID: 1900304410
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Paysan_volant_2
+      name: Paysan_boss_marche_idle_2
       rect:
         serializedVersion: 2
-        x: 143
+        x: 158
         y: 0
-        width: 66
-        height: 51
+        width: 78
+        height: 99
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -161,20 +161,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dc7fc7cc68d77b8428bb9fa22381223a
-      internalID: 2034581407
+      spriteID: 5e8cd473b88fd0c4d93c95065edad907
+      internalID: 323581782
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Paysan_volant_3
+      name: Paysan_boss_marche_idle_3
       rect:
         serializedVersion: 2
-        x: 213
+        x: 237
         y: 0
-        width: 66
-        height: 51
+        width: 78
+        height: 99
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -182,20 +182,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 462861eb65760954fb6e377c9bc0eae7
-      internalID: -924684904
+      spriteID: 8ad7ae4d96839994ca09c60fb6637060
+      internalID: -1119102042
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Paysan_volant_4
+      name: Paysan_boss_marche_idle_4
       rect:
         serializedVersion: 2
-        x: 283
+        x: 316
         y: 0
-        width: 66
-        height: 51
+        width: 78
+        height: 99
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -203,20 +203,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 13a70f17297476648b783e09bfa45d19
-      internalID: -191889500
+      spriteID: 90a31c05bfc766e4aa977eac5fbe08b3
+      internalID: 2137507737
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Paysan_volant_5
+      name: Paysan_boss_marche_idle_5
       rect:
         serializedVersion: 2
-        x: 353
+        x: 395
         y: 0
-        width: 66
-        height: 51
+        width: 78
+        height: 99
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -224,29 +224,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 86378ea91618e4e44b5924df06d0ddff
-      internalID: -1435140787
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Paysan_volant_6
-      rect:
-        serializedVersion: 2
-        x: 423
-        y: 0
-        width: 66
-        height: 51
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a9ff70e613eccf24f9032ea357236023
-      internalID: -115019571
+      spriteID: 7bd1dbc5ab388154eb61de1115bceebc
+      internalID: -215749514
       vertices: []
       indices: 
       edges: []
@@ -262,13 +241,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Paysan_volant_0: 1983635746
-      Paysan_volant_5: -1435140787
-      Paysan_volant_6: -115019571
-      Paysan_volant_3: -924684904
-      Paysan_volant_2: 2034581407
-      Paysan_volant_1: 1198243329
-      Paysan_volant_4: -191889500
+      Paysan_boss_marche_idle_0: -7249108
+      Paysan_boss_marche_idle_1: 1900304410
+      Paysan_boss_marche_idle_2: 323581782
+      Paysan_boss_marche_idle_5: -215749514
+      Paysan_boss_marche_idle_3: -1119102042
+      Paysan_boss_marche_idle_4: 2137507737
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

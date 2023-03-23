@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: edc8f84ca4bf8d4489c0d59f4151836d
+guid: d75bb440817b9c044a76eb7f6fe996f8
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 20
+  spritePixelsToUnits: 70
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -101,17 +101,29 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Paysan_pied_0
+      name: Paysan_volant_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 5
-        width: 33
-        height: 41
+        x: 3
+        y: 0
+        width: 66
+        height: 51
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -119,20 +131,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 237d51b05b3aa7c41b2f728ee1464c97
-      internalID: -1126340348
+      spriteID: 6c64bb113363735419c4d598a4c8b955
+      internalID: 1983635746
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Paysan_pied_1
+      name: Paysan_volant_1
       rect:
         serializedVersion: 2
-        x: 60
-        y: 5
-        width: 33
-        height: 41
+        x: 73
+        y: 0
+        width: 66
+        height: 51
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -140,20 +152,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4f67270bf8f86aa4bb71622d87e39acc
-      internalID: 801707708
+      spriteID: 246b402834213704585d137314e57cec
+      internalID: 1198243329
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Paysan_pied_2
+      name: Paysan_volant_2
       rect:
         serializedVersion: 2
-        x: 120
-        y: 5
-        width: 33
-        height: 41
+        x: 143
+        y: 0
+        width: 66
+        height: 51
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -161,20 +173,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f2ed4a45938dd804e88b295330d7b879
-      internalID: 1102128367
+      spriteID: dc7fc7cc68d77b8428bb9fa22381223a
+      internalID: 2034581407
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Paysan_pied_3
+      name: Paysan_volant_3
       rect:
         serializedVersion: 2
-        x: 180
-        y: 5
-        width: 33
-        height: 41
+        x: 213
+        y: 0
+        width: 66
+        height: 51
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -182,20 +194,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9a915b7c3da22d147a7a73eb0b73fdbe
-      internalID: 165828261
+      spriteID: 462861eb65760954fb6e377c9bc0eae7
+      internalID: -924684904
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Paysan_pied_4
+      name: Paysan_volant_4
       rect:
         serializedVersion: 2
-        x: 240
-        y: 5
-        width: 33
-        height: 41
+        x: 283
+        y: 0
+        width: 66
+        height: 51
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -203,20 +215,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 711ff84a5e8c58445b4107b06956f7d6
-      internalID: 1361022577
+      spriteID: 13a70f17297476648b783e09bfa45d19
+      internalID: -191889500
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Paysan_pied_5
+      name: Paysan_volant_5
       rect:
         serializedVersion: 2
-        x: 300
-        y: 5
-        width: 33
-        height: 41
+        x: 353
+        y: 0
+        width: 66
+        height: 51
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -224,20 +236,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c39b6452b9854154e875568abcf0bd69
-      internalID: 1649336618
+      spriteID: 86378ea91618e4e44b5924df06d0ddff
+      internalID: -1435140787
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Paysan_pied_6
+      name: Paysan_volant_6
       rect:
         serializedVersion: 2
-        x: 360
-        y: 5
-        width: 33
-        height: 41
+        x: 423
+        y: 0
+        width: 66
+        height: 51
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -245,29 +257,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: da378702675ecd74380c9ae5df0c4f40
-      internalID: 719859085
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Paysan_pied_7
-      rect:
-        serializedVersion: 2
-        x: 420
-        y: 5
-        width: 33
-        height: 41
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 49da4d5076bb9ce4dbba29db21964645
-      internalID: -1002874016
+      spriteID: a9ff70e613eccf24f9032ea357236023
+      internalID: -115019571
       vertices: []
       indices: 
       edges: []
@@ -283,14 +274,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Paysan_pied_4: 1361022577
-      Paysan_pied_7: -1002874016
-      Paysan_pied_0: -1126340348
-      Paysan_pied_5: 1649336618
-      Paysan_pied_1: 801707708
-      Paysan_pied_3: 165828261
-      Paysan_pied_2: 1102128367
-      Paysan_pied_6: 719859085
+      Paysan_volant_0: 1983635746
+      Paysan_volant_5: -1435140787
+      Paysan_volant_6: -115019571
+      Paysan_volant_3: -924684904
+      Paysan_volant_2: 2034581407
+      Paysan_volant_1: 1198243329
+      Paysan_volant_4: -191889500
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
