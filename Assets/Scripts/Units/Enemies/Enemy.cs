@@ -18,31 +18,22 @@ public class Enemy : MonoBehaviour
         damage = new_damage;
     }
 
-    public void take_damages(float damage)
+    void OnTriggerEnter2D(Collider2D collision)
     {
-        pv -= (damage);
-
-        if (pv <= 0)
-        {
-            transform.destroy();
-        }
-    }
-
-    void OnTriggerEnter2D(Collider2D hitInfo)
-    {
-        Bullet bullet = hitInfo.GetComponent<Bullet>();
-        if (bullet != null)
+        if(collision.gameObject.TryGetComponent(out Bullet bullet))
         {
             //critical hit
-            if(Random.Range(0,100) < RuneManager.Instance.critial_hit_rune){
+            if (Random.Range(0, 100) < RuneManager.Instance.critial_hit_rune)
+            {
                 bullet.damage *= 2f;
             }
-            
-            pv -= bullet.damage;
-            if (pv <= 0)
+
+            if ((pv -= bullet.damage) <= 0)
             {
-                Destroy(gameObject);
+                transform.destroy();
             }
+
+            bullet.transform.destroy();
         }
     }
 }
