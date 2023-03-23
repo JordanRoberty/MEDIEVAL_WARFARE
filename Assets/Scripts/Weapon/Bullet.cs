@@ -28,7 +28,12 @@ public class Bullet : MonoBehaviour
         Ennemy enemy = hitInfo.GetComponent<Ennemy>();
         if (enemy != null)
         {
-            enemy.take_damages(damage * RuneManager.Instance.damage_rune);
+            damage *= RuneManager.Instance.damage_rune;
+            if(Random.Range(0, 100) < RuneManager.Instance.critial_hit_rune){
+                damage *= 2f;
+                Debug.Log("Critical hit " + damage);
+            }
+            enemy.take_damages(damage);
         }
     }
 }

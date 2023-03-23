@@ -5,28 +5,37 @@ using UnityEngine;
 
 public class RuneManager : Singleton<RuneManager>
 {
-    public float damage_rune;
-    public float speed_rune;
-    public float firing_rate_rune; // 0 is shooting fast and 1 is normal shot speed
-    public float health_rune;
-    public float projectile_size_rune; 
-    public float high_jump_rune;
-    public float money_drop_rate_rune; // ??
-    public float bullet_speed_rune;
+    //Stats
+    [HideInInspector]
+    public float damage_rune;// { get; private set; }
+    [HideInInspector]
+    public float speed_rune;// { get; private set; }
+    [HideInInspector]
+    public float firing_rate_rune;// {get; private set;} // 0 is shooting fast and 1 is normal shot speed
+    [HideInInspector]
+    public float health_rune;//{get; private set;}
+    [HideInInspector]
+    public float projectile_size_rune;//{get; private set;} 
+    [HideInInspector]
+    public float high_jump_rune;//{get; private set;}
+    [HideInInspector]
+    public float money_drop_rate_rune;//{get; private set;} // ??
+    [HideInInspector]
+    public float bullet_speed_rune;//{get; private set;}
+
+    //Functionnality
+    [HideInInspector]
+    public int shield_rune;// {get; private set;}
+    [HideInInspector]
+    public int critial_hit_rune;// {get; private set;}
+    [HideInInspector]
+    public bool triple_jump_rune;// {get; private set;}
 
     private List<InventoryItem> _equiped_runes = new List<InventoryItem>();
 
-    //  return a projectile ??
-    //  player is smaller ??
     //  thornmail
-    //  shield ??
-    //  boucing shot ??
     //  repulse shot ??
     //  money magnet ??
-    //  fastfall damage ??
-    //  fly ???
-    //  triple shot ???
-    //  critial hit ???
     //  multiple shot ???
 
     // Start is called before the first frame update
@@ -40,10 +49,14 @@ public class RuneManager : Singleton<RuneManager>
         high_jump_rune = 1f;
         money_drop_rate_rune = 1f; // ??
         bullet_speed_rune = 1f;
+        shield_rune = 0;
+        critial_hit_rune = 0;
+        triple_jump_rune = false;
         _equiped_runes = PlayerInfosManager.Instance.get_equiped_runes();
         getRuneModifier();
 
         transform.GetComponent<Movement2D>().Init();
+        transform.GetComponent<PlayerData>().Init();
 
     }
 
@@ -53,40 +66,43 @@ public class RuneManager : Singleton<RuneManager>
             if(rune != null){
                 switch (rune.definition.key)
                 {
-                    case "damageRune":
-                    // damage_rune = rune.GetMutableProperty("modifier");
+                    case "commonDamageRune": // or "rareDamageRune" or "legendaryDamageRune"
+                        damage_rune *= rune.GetMutableProperty("modifier");
                         break;
-                    case "commonSpeedRune":
+                    case "commonSpeedRune": // or "rareSpeedRune" or "legendarySpeedRune"
                         speed_rune *= rune.GetMutableProperty("modifier");
                         break;
-                    case "firingRateRune":
-                        //firing_rate_rune = rune.GetMutableProperty("modifier");
+                    case "commonFiringRateRune": // or "rareFiringRateRune" or "legendaryFiringRateRune"
+                        firing_rate_rune = rune.GetMutableProperty("modifier");
                         break;
-                    case "healthRune":
-                    // health_rune = rune.GetMutableProperty("modifier");
+                    case "commonHealthRune": // or "rareHealthRune" or "legendaryHealthRune"
+                        health_rune *= rune.GetMutableProperty("modifier");
                         break;
-                    case "projectileSizeRune":
-                    // projectile_size_rune = rune.GetMutableProperty("modifier");
+                    case "commonProjectileSizeRune": // or "rareProjectileSizeRune" or "legendaryProjectileSizeRune"
+                        projectile_size_rune *= rune.GetMutableProperty("modifier");
                         break;
-                    case "highJumpRune":
-                    // high_jump_rune = rune.GetMutableProperty("modifier");
+                    case "commonHighJumpRune": // or "rareHighJumpRune" or "legendaryHighJumpRune
+                        high_jump_rune *= rune.GetMutableProperty("modifier");
                         break;
-                    case "moneyDropRateRune":
-                    // money_drop_rate_rune = rune.GetMutableProperty("modifier");
+                    case "commonMoneyDropRateRune": // or "rareMoneyDropRateRune" or "legendaryMoneyDropRateRune
+                        money_drop_rate_rune *= rune.GetMutableProperty("modifier");
                         break;
-                    case "bulletSpeedRune":
-                    // bullet_speed_rune = rune.GetMutableProperty("modifier");
+                    case "commonBulletSpeedRune": // or "rareBulletSpeedRune" or "legendaryBulletSpeedRune
+                        bullet_speed_rune *= rune.GetMutableProperty("modifier");
+                        break;
+                    case "commonShieldRune": // or "rareShieldRune" or "legendaryShieldRune
+                        shield_rune += rune.GetMutableProperty("modifier");
+                        break;
+                    case "commonCriticalHitRune": // or "rareCriticalHitRune" or "legendaryCriticalHitRune
+                        critial_hit_rune += rune.GetMutableProperty("modifier");
+                        break;
+                    case "commonTripleJumpRune": // or "rareTripleJumpRune" or "legendaryTripleJumpRune
+                        triple_jump_rune = true;
                         break;
                     default:
                         break;
                 }
             }
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

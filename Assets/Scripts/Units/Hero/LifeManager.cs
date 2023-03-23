@@ -22,9 +22,13 @@ public class LifeManager : MonoBehaviour
         // Si le collider en contact est l'ennemi
         if (collision.gameObject.tag == "Enemy")
         {
-            // Réduction de la vie du personnage et rendu invincible pendant 2 secondes
-            player_data.health -= collision.gameObject.GetComponent<Enemy>().get_damage();
+            // Invincibility for 2 seconds
             invincible.get_invulnerable();
+            if(player_data.shield == 0){
+                player_data.health -= collision.gameObject.GetComponent<Enemy>().get_damage();
+                return;
+            }
+                player_data.shield --;
         }
     }
 }

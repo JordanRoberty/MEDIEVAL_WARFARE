@@ -3963,6 +3963,7 @@ GameObject:
   - component: {fileID: 842469917}
   - component: {fileID: 842469916}
   - component: {fileID: 842469918}
+  - component: {fileID: 842469919}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -4042,7 +4043,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56cb61aa569c74a4c85639f2625525a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraSpeed: 0.1
+  speed: 5
+--- !u!54 &842469919
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 842469914}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &875804230
 GameObject:
   m_ObjectHideFlags: 0
@@ -6667,6 +6684,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 0}
+  shield: 0
   max_health: 100
   health: 100
   invincibleTime: 2
@@ -6684,14 +6702,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db3801e00d0db434e828f6fe41b2af0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _movement_acceleration: 50
-  _max_move_speed: 40
-  _ground_linear_drag: 2.5
-  _default_speed: 15
-  _jump_force: 20
-  _air_linear_drag: 2.5
-  _fall_gravity: 16
-  _low_jump_fall_gravity: 5
+  camera: {fileID: 842469914}
+  _move_speed: 12
+  _changing_direction: 0
+  _jump_force: 40
+  _fall_gravity: 20
   _extra_jumps: 1
   _fast_fall_gravity: 500
   _fastfall_max_speed: 20
@@ -6864,3 +6879,6 @@ MonoBehaviour:
   high_jump_rune: 1
   money_drop_rate_rune: 1
   bullet_speed_rune: 1
+  shield_rune: 0
+  critial_hit_rune: 0
+  triple_jump_rune: 0
