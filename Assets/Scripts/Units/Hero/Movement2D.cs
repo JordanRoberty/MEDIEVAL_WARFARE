@@ -46,7 +46,7 @@ public class Movement2D : MonoBehaviour
     [SerializeField]
     private LayerMask _ground_layer;
 
-    private PlayerData _player;
+    private Rigidbody2D _rigid_body;
     private float _horizontal_direction;
     private float _vertical_direction;
     public Animator animator;
@@ -58,7 +58,7 @@ public class Movement2D : MonoBehaviour
 
     public void Init()
     {
-         _player = gameObject.GetComponent(typeof(PlayerData)) as PlayerData;
+        _rigid_body = GetComponent<Rigidbody2D>();
         boxCollider = GetComponent<BoxCollider2D>();
         _default_speed = camera.GetComponent<CameraBehavior>().speed;
 
@@ -111,8 +111,8 @@ public class Movement2D : MonoBehaviour
         }
 
         _changing_direction =
-            (_player.rb.velocity.x > 0f && _horizontal_direction < 0f)
-            || (_player.rb.velocity.x < 0f && _horizontal_direction > 0f);
+            (_rigid_body.velocity.x > 0f && _horizontal_direction < 0f)
+            || (_rigid_body.velocity.x < 0f && _horizontal_direction > 0f);
         _can_jump |= Input.GetButtonDown("Jump");
     }
 
@@ -124,7 +124,7 @@ public class Movement2D : MonoBehaviour
         {
             crouch();
             _extra_jumps_count = _extra_jumps;
-            _player.rb.gravityScale = 1f;
+            _rigid_body.gravityScale = 1f;
             animator.SetBool("IsJumping", false);
             animator.SetBool("IsAirborn", false);
         }
@@ -154,16 +154,16 @@ public class Movement2D : MonoBehaviour
         {
             if (!is_boss_scene)
             {
-                _player.rb.velocity = new Vector2(
+                _rigid_body.velocity = new Vector2(
                         _default_speed,
-                        _player.rb.velocity.y);
+                        _rigid_body.velocity.y);
             }
         }
         else
         {
-            _player.rb.velocity = new Vector2(
+            _rigid_body.velocity = new Vector2(
                 _horizontal_direction * _move_speed,
-                _player.rb.velocity.y
+                _rigid_body.velocity.y
             );
         }
     }
@@ -198,15 +198,15 @@ public class Movement2D : MonoBehaviour
 
         if (_is_crouching)
         {
-            _player.rb.velocity = new Vector2(_player.rb.velocity.x, 0f);
-            _player.rb.AddForce(Vector2.up * 1.25f * _jump_force, ForceMode2D.Impulse);
+            _rigid_body.velocity = new Vector2(_rigid_body.velocity.x, 0f);
+            _rigid_body.AddForce(Vector2.up * 1.25f * _jump_force, ForceMode2D.Impulse);
             animator.SetBool("IsJumping", true);
             animator.SetBool("IsAirborn", true);
         }
         else
         {
-            _player.rb.velocity = new Vector2(_player.rb.velocity.x, 0f);
-            _player.rb.AddForce(Vector2.up * _jump_force, ForceMode2D.Impulse);
+            _rigid_body.velocity = new Vector2(_rigid_body.velocity.x, 0f);
+            _rigid_body.AddForce(Vector2.up * _jump_force, ForceMode2D.Impulse);
             animator.SetBool("IsJumping", true);
             animator.SetBool("IsAirborn", true);
         }
@@ -218,21 +218,21 @@ public class Movement2D : MonoBehaviour
     {
         if(!_can_jump)
         {
-            _player.rb.gravityScale = _fall_gravity;
+            _rigid_body.gravityScale = _fall_gravity;
         }else
         {
-            _player.rb.gravityScale = 1f;
+            _rigid_body.gravityScale = 1f;
         }
 
         //fast fall
         if(_vertical_direction < 0)
         {
-            _player.rb.gravityScale = _fast_fall_gravity;
-            if (Mathf.Abs(_player.rb.velocity.y) > _fastfall_max_speed)
+            _rigid_body.gravityScale = _fast_fall_gravity;
+            if (Mathf.Abs(_rigid_body.velocity.y) > _fastfall_max_speed)
             {
-                _player.rb.velocity = new Vector2(
-                    _player.rb.velocity.x,
-                    Mathf.Sign(_player.rb.velocity.y) * _fastfall_max_speed
+                _rigid_body.velocity = new Vector2(
+                    _rigid_body.velocity.x,
+                    Mathf.Sign(_rigid_body.velocity.y) * _fastfall_max_speed
                 );
             }
         }
