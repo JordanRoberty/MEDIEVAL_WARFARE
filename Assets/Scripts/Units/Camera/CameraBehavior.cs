@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class CameraBehavior : MonoBehaviour
@@ -10,6 +11,10 @@ public class CameraBehavior : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        string sceneName = SceneManager.GetActiveScene().name;
+         if (sceneName.Contains("boss_level_")){
+            speed = 0f;
+         }
     }
 
     // Update is called once per frame
