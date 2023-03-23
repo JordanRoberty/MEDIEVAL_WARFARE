@@ -1696,16 +1696,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _movement_acceleration: 50
-  _max_move_speed: 12
-  _ground_linear_drag: 10
-  _default_speed: 7
-  _jump_force: 10
+  _max_move_speed: 40
+  _ground_linear_drag: 2.5
+  _default_speed: 15
+  _jump_force: 20
   _air_linear_drag: 2.5
-  _fall_gravity: 8
+  _fall_gravity: 16
   _low_jump_fall_gravity: 5
   _extra_jumps: 1
   _fast_fall_gravity: 500
-  _fastfall_max_speed: 50
+  _fastfall_max_speed: 20
   _ground_raycast_length: 1.52
   _ground_raycast_offset: {x: 0.16, y: 0, z: 0}
   _ground_layer:

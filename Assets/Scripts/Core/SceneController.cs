@@ -47,7 +47,7 @@ public class SceneController : Singleton<SceneController>
         { GameMenu.GEARS,       "gears_menu"    },
         { GameMenu.SCORES,      "scores_menu"   },
         { GameMenu.PAUSE,       "pause_menu"    },
-        { GameMenu.FAIL,        "shop_menu"     },
+        { GameMenu.FAIL,        "fail_menu"     },
         { GameMenu.VICTORY,     "victory_menu"  },
         { GameMenu.STATS,       "stats_menu"    },
         { GameMenu.REGISTER,    "register_menu" },
@@ -103,7 +103,6 @@ public class SceneController : Singleton<SceneController>
         load_level.completed += (AsyncOperation result) =>
         {
             _current_scene = level;
-            SceneManager.SetActiveScene(SceneManager.GetSceneByName(_scenes[_current_scene]));
 
             // Manage Menu
             if (_current_menu != GameMenu.NONE)  SceneManager.UnloadSceneAsync(_menus[_current_menu]);
@@ -122,7 +121,6 @@ public class SceneController : Singleton<SceneController>
         load_scene.completed += (AsyncOperation result) =>
         {
             _current_scene = GameScene.HOME;
-            SceneManager.SetActiveScene(SceneManager.GetSceneByName(_scenes[_current_scene]));
 
             // Manage Menu
             if (_current_menu != GameMenu.NONE) SceneManager.UnloadSceneAsync(_menus[_current_menu]);

@@ -33,6 +33,10 @@ MonoBehaviour:
     m_Address: Assets/Art/Sprites/Runes/speed_rune.png
     m_ReadOnly: 0
     m_SerializedLabels: []
+  - m_GUID: 693317b8e8aeffe47b6e065342962b4d
+    m_Address: Assets/Art/Sprites/Runes/runes.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: f606f661b833fe140b592507dad01fe1, type: 2}
   m_SchemaSet:

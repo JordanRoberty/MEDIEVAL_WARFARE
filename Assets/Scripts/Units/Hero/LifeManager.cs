@@ -11,24 +11,33 @@ public class LifeManager : MonoBehaviour
     {
         player_data = GetComponent<PlayerData>();
         invincible = GetComponent<Invincibility>();
-    }
-
-    void Update()
-    {
+        Debug.Log("Start !");
     }
 
     void OnCollisionEnter2D(Collision2D collision)
     {
+        Debug.Log("Collision !");
+        Debug.Log(collision.gameObject.tag);
         // Si le collider en contact est l'ennemi
         if (collision.gameObject.tag == "Enemy")
         {
-            // Invincibility for 2 seconds
-            invincible.get_invulnerable();
+            
             if(player_data.shield == 0){
                 player_data.health -= collision.gameObject.GetComponent<Enemy>().get_damage();
-                return;
+
+                if (player_data.health <= 0 && GameManager.Instance._state == GameState.RUNNING)
+                {
+                    GameManager.Instance.set_state(GameState.FAIL_MENU);
+                    return;
+                }
+
+                // Invincibility for 2 seconds
+                invincible.get_invulnerable();
             }
-                player_data.shield --;
+            else
+            {
+                player_data.shield--;
+            }
         }
     }
 }
