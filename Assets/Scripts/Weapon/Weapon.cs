@@ -9,6 +9,7 @@ using UnityEngine.ResourceManagement.AsyncOperations;
 public class Weapon : MonoBehaviour
 {
     public GameObject Player;
+    public Transform bullet_parent;
     private Vector3 mousePos;
     private Camera mainCam;
     private float shot_freq;
@@ -60,6 +61,6 @@ public class Weapon : MonoBehaviour
 
     void Shoot()
     {
-        Instantiate(bullet_prefab, gameObject.transform.position, gameObject.transform.rotation);
+        Instantiate(bullet_prefab, gameObject.transform.position, gameObject.transform.rotation, bullet_parent);
     }
 }

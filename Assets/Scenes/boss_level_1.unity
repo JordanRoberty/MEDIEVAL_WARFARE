@@ -483,6 +483,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pv: 100
+  coinPrefab: {fileID: 0}
 --- !u!114 &144846922
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -496,6 +497,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pv: 100
+  coinPrefab: {fileID: 0}
 --- !u!1 &155273978
 GameObject:
   m_ObjectHideFlags: 0
@@ -659,6 +661,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pv: 100
+  coinPrefab: {fileID: 0}
 --- !u!114 &155273985
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -672,6 +675,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pv: 100
+  coinPrefab: {fileID: 0}
 --- !u!1 &156996515
 GameObject:
   m_ObjectHideFlags: 0
@@ -917,6 +921,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pv: 100
+  coinPrefab: {fileID: 0}
 --- !u!1 &366072906
 GameObject:
   m_ObjectHideFlags: 0
@@ -1063,6 +1068,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 842757451}
+  bullet_parent: {fileID: 2050842228}
 --- !u!1 &444896395
 GameObject:
   m_ObjectHideFlags: 0
@@ -1226,6 +1232,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pv: 100
+  coinPrefab: {fileID: 0}
 --- !u!114 &444896402
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1239,6 +1246,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pv: 100
+  coinPrefab: {fileID: 0}
 --- !u!1 &526619706
 GameObject:
   m_ObjectHideFlags: 0
@@ -1272,6 +1280,7 @@ Transform:
   - {fileID: 842757452}
   - {fileID: 2106461031}
   - {fileID: 1339546953}
+  - {fileID: 2050842228}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1670,9 +1679,7 @@ MonoBehaviour:
   max_health: 500
   health: 100
   invulnerability_time: 2
-  score: 0
   nb_coins: 0
-  score_text: {fileID: 2135315393}
   health_text: {fileID: 1863109713}
   coins_text: {fileID: 1238766743}
 --- !u!114 &842757456
@@ -1887,6 +1894,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 842757451}
+  bullet_parent: {fileID: 0}
 --- !u!1 &915176239
 GameObject:
   m_ObjectHideFlags: 0
@@ -1933,6 +1941,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pv: 100
+  coinPrefab: {fileID: 0}
 --- !u!1 &931407366
 GameObject:
   m_ObjectHideFlags: 0
@@ -2152,6 +2161,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pv: 100
+  coinPrefab: {fileID: 0}
 --- !u!114 &937408413
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2165,6 +2175,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pv: 100
+  coinPrefab: {fileID: 0}
 --- !u!1 &946495503
 GameObject:
   m_ObjectHideFlags: 0
@@ -2328,6 +2339,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pv: 100
+  coinPrefab: {fileID: 0}
 --- !u!114 &946495510
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2341,6 +2353,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pv: 100
+  coinPrefab: {fileID: 0}
 --- !u!1 &1038751192
 GameObject:
   m_ObjectHideFlags: 0
@@ -2866,6 +2879,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pv: 100
+  coinPrefab: {fileID: 0}
 --- !u!114 &1236280939
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2879,6 +2893,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pv: 100
+  coinPrefab: {fileID: 0}
 --- !u!1 &1238766741
 GameObject:
   m_ObjectHideFlags: 0
@@ -3284,6 +3299,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pv: 10000000
+  coinPrefab: {fileID: 0}
   bottle_prefab: {fileID: 3506568146192781204, guid: c23836c4970ed094db7ce3176a1da81b, type: 3}
   timer_before_action: 3
   time_in_air: 1
@@ -4090,6 +4106,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pv: 100
+  coinPrefab: {fileID: 0}
 --- !u!114 &1435673715
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4103,6 +4120,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pv: 100
+  coinPrefab: {fileID: 0}
 --- !u!1 &1454231643
 GameObject:
   m_ObjectHideFlags: 0
@@ -4553,6 +4571,37 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1978344196}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &2050842227
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2050842228}
+  m_Layer: 0
+  m_Name: Bullets
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2050842228
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2050842227}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 526619707}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2106461030
 GameObject:
   m_ObjectHideFlags: 0
