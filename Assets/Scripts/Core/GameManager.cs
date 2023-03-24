@@ -163,7 +163,6 @@ public class GameManager : Singleton<GameManager>
         }
 
         SceneController.Instance.load_level(level_to_load);
-        set_state(GameState.RUNNING);
     }
 
     private void handle_running()
