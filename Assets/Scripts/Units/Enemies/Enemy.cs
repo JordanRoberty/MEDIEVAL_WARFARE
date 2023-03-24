@@ -11,6 +11,13 @@ public class Enemy : MonoBehaviour
     protected int max_droppable_quantity; // The maximum quantity of coins that can be dropped by an enemy
     public GameObject coinPrefab;
 
+    private void Update() {
+        if (pv <= 0)
+        {
+            die();
+        }
+    }
+
     public float get_damage()
     {
         return damage;
@@ -19,6 +26,16 @@ public class Enemy : MonoBehaviour
     public void set_damage(float new_damage)
     {
         damage = new_damage;
+    }
+
+    public float getpv()
+    {
+        return pv;
+    }
+
+    public void setpv(float new_pv)
+    {
+        pv = new_pv;
     }
 
     public int get_max_droppable_quantity()
@@ -40,22 +57,5 @@ public class Enemy : MonoBehaviour
         transform.destroy();
     }
 
-    void OnTriggerEnter2D(Collider2D collision)
-    {
-        if(collision.gameObject.TryGetComponent(out Bullet bullet))
-        {
-            //critical hit
-            if (Random.Range(0, 100) < RuneManager.Instance.critial_hit_rune)
-            {
-                bullet.damage *= 2f;
-            }
-
-            if ((pv -= bullet.damage) <= 0)
-            {
-                die();
-            }
-
-            bullet.transform.destroy();
-        }
-    }
+    
 }
