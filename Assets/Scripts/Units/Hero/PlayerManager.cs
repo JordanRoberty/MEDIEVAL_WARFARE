@@ -28,16 +28,6 @@ public class PlayerManager : MonoBehaviour
         Debug.Log("Start !");
     }
 
-    private void Update()
-    {
-        if (is_dead() && GameManager.Instance._state == GameState.RUNNING)
-        {
-            Debug.Log("Player died");
-            StopCoroutine("invulnerability");
-            GameManager.Instance.set_state(GameState.FAIL_MENU);
-        }
-    }
-
     public void Init(float rune_health, float rune_shield)
     {
         // Update Player stats according to equiped runes
@@ -71,6 +61,9 @@ public class PlayerManager : MonoBehaviour
     public void die()
     {
         health = 0.0F;
+        Debug.Log("Player died");
+        StopCoroutine("invulnerability");
+        GameManager.Instance.set_state(GameState.FAIL_MENU);
     }
 
     public void take_damages(float damages)
@@ -78,9 +71,18 @@ public class PlayerManager : MonoBehaviour
         if (shield == 0)
         {
             // Invincibility for 2 seconds
-            StartCoroutine("invulnerability");
+            
             health = Mathf.Clamp(health - damages, 0, max_health);
             health_text.SetText("HEALTH : " + health);
+
+            if(is_dead() && GameManager.Instance._state == GameState.RUNNING)
+            {
+                die();
+            }
+            else
+            {
+                StartCoroutine("invulnerability");
+            }
         }
         else
         {
