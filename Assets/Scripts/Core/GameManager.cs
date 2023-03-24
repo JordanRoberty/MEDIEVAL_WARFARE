@@ -51,6 +51,10 @@ public class GameManager : Singleton<GameManager>
             case GameState.GEARS_MENU:
                 SaveSystem.Instance.Save();
                 break;
+            case GameState.RUNNING:
+                Cursor.visible = true;
+                break;
+
             default:
                 break;
         }
@@ -167,6 +171,7 @@ public class GameManager : Singleton<GameManager>
 
     private void handle_running()
     {
+        Cursor.visible = false;
         Time.timeScale = 1.0f;
         _state = GameState.RUNNING;
     }

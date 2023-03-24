@@ -6,7 +6,7 @@ using UnityEngine.Assertions;
 using UnityEngine.GameFoundation.Components;
 using UnityEngine.ResourceManagement.AsyncOperations;
 
-public class FireAim : MonoBehaviour
+public class Weapon : MonoBehaviour
 {
     public GameObject Player;
     private Vector3 mousePos;
@@ -50,7 +50,6 @@ public class FireAim : MonoBehaviour
 
     void Update()
     {
-        Cursor.visible = false;
         mousePos = mainCam.ScreenToWorldPoint(Input.mousePosition);
 
         Vector3 aimDirection = mousePos - Player.transform.position;
