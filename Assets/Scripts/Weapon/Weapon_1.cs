@@ -4,8 +4,11 @@ using UnityEngine;
 
 class Weapon_1 : weapon
 {    // Update is called once per frame
+    GameObject bullet;
+
     override public void Shoot()
     {
-        Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+        bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+        bullet.transform.localScale =  bullet.transform.localScale *  RuneManager.Instance.projectile_size_rune;
     }
 }

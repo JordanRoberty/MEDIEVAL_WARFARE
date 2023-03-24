@@ -34,6 +34,10 @@ public class GameManager : Singleton<GameManager>
         {
             set_state(GameState.PAUSED);
         }
+
+        if (_state == GameState.FAIL_MENU){
+            
+        }
     }
 
     public void set_state(GameState new_state)
@@ -193,6 +197,7 @@ public class GameManager : Singleton<GameManager>
     private void handle_fail_menu()
     {
         SceneController.Instance.set_current_menu(GameMenu.FAIL);
+        Time.timeScale = 0.0f;
         _state = GameState.FAIL_MENU;
     }
 
