@@ -23,7 +23,7 @@ TagManager:
   - Player
   - Enemy
   - Camera pusher
-  - 
+  - Coin
   - 
   - 
   - 
@@ -45,9 +45,15 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Coin
+    uniqueID: 3163682249
+    locked: 0
   - name: Bullet
     uniqueID: 1663226705
     locked: 0
-  - name: Default
-    uniqueID: 0
+  - name: Enemy
+    uniqueID: 2774744975
     locked: 0

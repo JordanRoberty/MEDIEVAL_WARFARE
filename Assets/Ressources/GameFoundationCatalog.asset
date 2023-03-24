@@ -1,19 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-8923789779514231476
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d4178f7fa125e7644ba2a2d0c6300db1, type: 3}
-  m_Name: Tag_CURRENT_WEAPON
-  m_EditorClassIdentifier: 
-  m_Key: CURRENT_WEAPON
-  m_Catalog: {fileID: -8483040674033979277}
 --- !u!114 &-8717788907291719258
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -85,41 +71,8 @@ MonoBehaviour:
   - {fileID: -91263394165242140}
   - {fileID: 5304819582551107541}
   - {fileID: 5328996562115661337}
-  - {fileID: 288077867421494364}
-  - {fileID: -8923789779514231476}
+  - {fileID: 3756805002680557395}
   m_CatalogAsset: {fileID: 11400000}
---- !u!114 &-7956877604992377369
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 188049432bcf74f78b314dc2b03ee516, type: 3}
-  m_Name: VirtualTransaction_buyCommonDamageRune
-  m_EditorClassIdentifier: 
-  m_DisplayName: Damage Rune (Common)
-  m_Key: buyCommonDamageRune
-  m_Tags:
-  - {fileID: -4591129078935206501}
-  - {fileID: 5304819582551107541}
-  m_StaticPropertyKeys:
-  - transaction_icon
-  m_StaticPropertyValues:
-  - <type>k__BackingField: 5
-    m_ValueType:
-      longValue: 0
-    m_StringValue: Assets/Art/Sprites/Runes/damage_rune.png
-  m_Payout:
-    m_Exchanges:
-    - m_CatalogItem: {fileID: -6467457379744284901}
-      m_Amount: 1
-  m_Costs:
-    m_Exchanges:
-    - m_CatalogItem: {fileID: -3734650512700470626}
-      m_Amount: 150
 --- !u!114 &-6944496135251920086
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -136,7 +89,6 @@ MonoBehaviour:
   m_Key: buyCommonSpeedRune
   m_Tags:
   - {fileID: -4591129078935206501}
-  - {fileID: 5304819582551107541}
   m_StaticPropertyKeys:
   - transaction_icon
   m_StaticPropertyValues:
@@ -145,62 +97,11 @@ MonoBehaviour:
       longValue: 0
     m_StringValue: Assets/Art/Sprites/Runes/speed_rune.png
   m_Payout:
-    m_Exchanges:
-    - m_CatalogItem: {fileID: 4545930279128530339}
-      m_Amount: 1
+    m_Exchanges: []
   m_Costs:
     m_Exchanges:
     - m_CatalogItem: {fileID: -3734650512700470626}
       m_Amount: 100
---- !u!114 &-6467457379744284901
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fcbd052539327467295d2009d33aa660, type: 3}
-  m_Name: Item_commonDamageRune
-  m_EditorClassIdentifier: 
-  m_DisplayName: Damage Rune (Common)
-  m_Key: commonDamageRune
-  m_Tags:
-  - {fileID: -4591129078935206501}
-  - {fileID: 5304819582551107541}
-  m_StaticPropertyKeys:
-  - item_icon
-  m_StaticPropertyValues:
-  - <type>k__BackingField: 5
-    m_ValueType:
-      longValue: 0
-    m_StringValue: Assets/Art/Sprites/Runes/damage_rune.png
-  m_InitialAllocation: 0
-  m_IsStackableFlag: 1
-  m_InitialQuantityPerStack: 1
-  m_MutablePropertyKeys:
-  - type
-  - rarity
-  - modifier
-  - equiped
-  m_MutablePropertyDefaultValues:
-  - <type>k__BackingField: 3
-    m_ValueType:
-      longValue: 0
-    m_StringValue: statistics
-  - <type>k__BackingField: 3
-    m_ValueType:
-      longValue: 0
-    m_StringValue: common
-  - <type>k__BackingField: 1
-    m_ValueType:
-      longValue: 4607632778762754458
-    m_StringValue: 
-  - <type>k__BackingField: 2
-    m_ValueType:
-      longValue: 0
-    m_StringValue: 
 --- !u!114 &-6262116807889100938
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -254,6 +155,54 @@ MonoBehaviour:
     m_Exchanges:
     - m_CatalogItem: {fileID: -3734650512700470626}
       m_Amount: 500
+--- !u!114 &-4656125569732803317
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcbd052539327467295d2009d33aa660, type: 3}
+  m_Name: Item_commonSpeedRune
+  m_EditorClassIdentifier: 
+  m_DisplayName: Speed Rune (common)
+  m_Key: commonSpeedRune
+  m_Tags:
+  - {fileID: -4591129078935206501}
+  m_StaticPropertyKeys:
+  - item_icon
+  m_StaticPropertyValues:
+  - <type>k__BackingField: 5
+    m_ValueType:
+      longValue: 0
+    m_StringValue: Assets/Art/Sprites/Runes/speed_rune.png
+  m_InitialAllocation: 0
+  m_IsStackableFlag: 1
+  m_InitialQuantityPerStack: 1
+  m_MutablePropertyKeys:
+  - rarity
+  - type
+  - modifier
+  - equiped
+  m_MutablePropertyDefaultValues:
+  - <type>k__BackingField: 3
+    m_ValueType:
+      longValue: 0
+    m_StringValue: common
+  - <type>k__BackingField: 3
+    m_ValueType:
+      longValue: 0
+    m_StringValue: statistics
+  - <type>k__BackingField: 1
+    m_ValueType:
+      longValue: 4607632778762754458
+    m_StringValue: 
+  - <type>k__BackingField: 2
+    m_ValueType:
+      longValue: 0
+    m_StringValue: 
 --- !u!114 &-4591129078935206501
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -268,6 +217,59 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Key: RUNE
   m_Catalog: {fileID: -8483040674033979277}
+--- !u!114 &-3933102931115007623
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcbd052539327467295d2009d33aa660, type: 3}
+  m_Name: Item_level3Scores
+  m_EditorClassIdentifier: 
+  m_DisplayName: Level 3 Scores
+  m_Key: level3Scores
+  m_Tags:
+  - {fileID: 3756805002680557395}
+  m_StaticPropertyKeys: []
+  m_StaticPropertyValues: []
+  m_InitialAllocation: 1
+  m_IsStackableFlag: 0
+  m_InitialQuantityPerStack: 1
+  m_MutablePropertyKeys:
+  - score_0
+  - score_1
+  - name_0
+  - name_1
+  - score_2
+  - name_2
+  m_MutablePropertyDefaultValues:
+  - <type>k__BackingField: 1
+    m_ValueType:
+      longValue: 0
+    m_StringValue: 
+  - <type>k__BackingField: 1
+    m_ValueType:
+      longValue: 0
+    m_StringValue: 
+  - <type>k__BackingField: 3
+    m_ValueType:
+      longValue: 0
+    m_StringValue: unk
+  - <type>k__BackingField: 3
+    m_ValueType:
+      longValue: 0
+    m_StringValue: unk
+  - <type>k__BackingField: 1
+    m_ValueType:
+      longValue: 0
+    m_StringValue: 
+  - <type>k__BackingField: 3
+    m_ValueType:
+      longValue: 0
+    m_StringValue: unk
 --- !u!114 &-3734650512700470626
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -368,6 +370,59 @@ MonoBehaviour:
     m_ValueType:
       longValue: 0
     m_StringValue: 
+--- !u!114 &-3055818415502069623
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcbd052539327467295d2009d33aa660, type: 3}
+  m_Name: Item_level1Scores
+  m_EditorClassIdentifier: 
+  m_DisplayName: Level 1 Scores
+  m_Key: level1Scores
+  m_Tags:
+  - {fileID: 3756805002680557395}
+  m_StaticPropertyKeys: []
+  m_StaticPropertyValues: []
+  m_InitialAllocation: 1
+  m_IsStackableFlag: 0
+  m_InitialQuantityPerStack: 1
+  m_MutablePropertyKeys:
+  - score_0
+  - score_1
+  - name_0
+  - name_1
+  - score_2
+  - name_2
+  m_MutablePropertyDefaultValues:
+  - <type>k__BackingField: 1
+    m_ValueType:
+      longValue: 0
+    m_StringValue: 
+  - <type>k__BackingField: 1
+    m_ValueType:
+      longValue: 0
+    m_StringValue: 
+  - <type>k__BackingField: 3
+    m_ValueType:
+      longValue: 0
+    m_StringValue: unk
+  - <type>k__BackingField: 3
+    m_ValueType:
+      longValue: 0
+    m_StringValue: unk
+  - <type>k__BackingField: 1
+    m_ValueType:
+      longValue: 0
+    m_StringValue: 
+  - <type>k__BackingField: 3
+    m_ValueType:
+      longValue: 0
+    m_StringValue: unk
 --- !u!114 &-2313346778315101392
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -386,11 +441,26 @@ MonoBehaviour:
   - {fileID: -3515854801978052291}
   m_StaticPropertyKeys:
   - item_icon
+  - sprite
+  - shot_freq
+  - bullet_prefab
   m_StaticPropertyValues:
   - <type>k__BackingField: 5
     m_ValueType:
       longValue: 0
     m_StringValue: Assets/Art/Sprites/Weapons/Machine Gun Sword/sword_icon.png
+  - <type>k__BackingField: 5
+    m_ValueType:
+      longValue: 0
+    m_StringValue: Assets/Art/Sprites/Weapons/Petite_epee.png
+  - <type>k__BackingField: 1
+    m_ValueType:
+      longValue: 4591870180066957722
+    m_StringValue: 
+  - <type>k__BackingField: 5
+    m_ValueType:
+      longValue: 0
+    m_StringValue: Assets/Prefabs/Projectile/Bullet.prefab
   m_InitialAllocation: 0
   m_IsStackableFlag: 0
   m_InitialQuantityPerStack: 1
@@ -490,7 +560,7 @@ MonoBehaviour:
   m_StoreItems:
   - m_Transaction: {fileID: -6944496135251920086}
     m_Enabled: 1
-  - m_Transaction: {fileID: -7956877604992377369}
+  - m_Transaction: {fileID: 0}
     m_Enabled: 1
   - m_Transaction: {fileID: 4163861199392035224}
     m_Enabled: 1
@@ -587,8 +657,6 @@ MonoBehaviour:
   - {fileID: 8285172246896152485}
   - {fileID: -8717788907291719258}
   - {fileID: 4545930279128530339}
-  - {fileID: -6467457379744284901}
-  - {fileID: -7956877604992377369}
   - {fileID: 6418715324225482414}
   - {fileID: 8676002907350652864}
   - {fileID: 4163861199392035224}
@@ -597,20 +665,9 @@ MonoBehaviour:
   - {fileID: -1655170713121715388}
   - {fileID: -4784950706083842624}
   - {fileID: -6262116807889100938}
---- !u!114 &288077867421494364
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d4178f7fa125e7644ba2a2d0c6300db1, type: 3}
-  m_Name: Tag_COMMON
-  m_EditorClassIdentifier: 
-  m_Key: COMMON
-  m_Catalog: {fileID: -8483040674033979277}
+  - {fileID: -3055818415502069623}
+  - {fileID: 5692329279478025112}
+  - {fileID: -3933102931115007623}
 --- !u!114 &2191732088584772111
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -745,6 +802,20 @@ MonoBehaviour:
     m_Exchanges:
     - m_CatalogItem: {fileID: -3734650512700470626}
       m_Amount: 1000
+--- !u!114 &3756805002680557395
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4178f7fa125e7644ba2a2d0c6300db1, type: 3}
+  m_Name: Tag_SCORE
+  m_EditorClassIdentifier: 
+  m_Key: SCORE
+  m_Catalog: {fileID: -8483040674033979277}
 --- !u!114 &4163861199392035224
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -854,6 +925,59 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Key: FUNC_MODIFIER
   m_Catalog: {fileID: -8483040674033979277}
+--- !u!114 &5692329279478025112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcbd052539327467295d2009d33aa660, type: 3}
+  m_Name: Item_level2Scores
+  m_EditorClassIdentifier: 
+  m_DisplayName: Level 2 Scores
+  m_Key: level2Scores
+  m_Tags:
+  - {fileID: 3756805002680557395}
+  m_StaticPropertyKeys: []
+  m_StaticPropertyValues: []
+  m_InitialAllocation: 1
+  m_IsStackableFlag: 0
+  m_InitialQuantityPerStack: 1
+  m_MutablePropertyKeys:
+  - score_0
+  - score_1
+  - name_0
+  - name_1
+  - score_2
+  - name_2
+  m_MutablePropertyDefaultValues:
+  - <type>k__BackingField: 1
+    m_ValueType:
+      longValue: 0
+    m_StringValue: 
+  - <type>k__BackingField: 1
+    m_ValueType:
+      longValue: 0
+    m_StringValue: 
+  - <type>k__BackingField: 3
+    m_ValueType:
+      longValue: 0
+    m_StringValue: unk
+  - <type>k__BackingField: 3
+    m_ValueType:
+      longValue: 0
+    m_StringValue: unk
+  - <type>k__BackingField: 1
+    m_ValueType:
+      longValue: 0
+    m_StringValue: 
+  - <type>k__BackingField: 3
+    m_ValueType:
+      longValue: 0
+    m_StringValue: unk
 --- !u!114 &6418715324225482414
 MonoBehaviour:
   m_ObjectHideFlags: 0
