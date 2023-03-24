@@ -16,4 +16,9 @@ public class Bullet : MonoBehaviour
         speed *= RuneManager.Instance.bullet_speed_rune;
         rb.velocity = transform.right * speed;
     }
+
+    private void OnBecameInvisible()
+    {
+        Destroy(gameObject);
+    }
 }

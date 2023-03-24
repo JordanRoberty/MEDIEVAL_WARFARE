@@ -14,9 +14,11 @@ public class FireAim : MonoBehaviour
     private float shot_freq;
     private GameObject bullet_prefab;
     private SpriteRenderer renderer;
+    private GameObject bulletContainer;
 
     void Start()
     {
+        bulletContainer = new GameObject("BulletContainer");
         renderer = gameObject.GetComponent<SpriteRenderer>();
         mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         InventoryItem weapon = PlayerInfosManager.Instance.equiped_weapon;
@@ -61,6 +63,7 @@ public class FireAim : MonoBehaviour
 
     void Shoot()
     {
-        Instantiate(bullet_prefab, gameObject.transform.position, gameObject.transform.rotation);
+        GameObject bulletInstance = Instantiate(bullet_prefab, gameObject.transform.position, gameObject.transform.rotation);
+        bulletInstance.transform.parent = bulletContainer.transform;
     }
 }
