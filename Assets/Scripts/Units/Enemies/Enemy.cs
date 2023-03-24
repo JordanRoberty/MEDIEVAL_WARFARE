@@ -41,7 +41,8 @@ public class Enemy : MonoBehaviour
         UIManager.Instance.update_score(1);
 
         // Spawn the coin at the enemy's position
-        GameObject coin = Instantiate(coinPrefab, transform.position, Quaternion.identity);
+        Transform coin_parent = GameObject.Find("Coins").transform;
+        GameObject coin = Instantiate(coinPrefab, transform.position, Quaternion.identity, coin_parent.transform);
 
         // Pass the max_quantity value to the CoinPickup script and initialize the coin value
         CoinPickup coinPickup = coin.GetComponentInChildren<CoinPickup>();
