@@ -11,7 +11,7 @@ public class PlayerManager : MonoBehaviour
     public float shield = 0f;
     public float max_health = 500f;
     public float health = 100f;
-    // Temps pendant lequel le personnage est invincible après avoir été touché (en secondes)
+    // Time during which the character is invincible after being hit (in seconds)
     public float invulnerability_time = 2.0f;
     
     public int score;
@@ -51,7 +51,7 @@ public class PlayerManager : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        // Si le collider en contact est l'ennemi
+        // if the collision is with an enemy
         if (collision.transform.TryGetComponent<Enemy>(out Enemy enemy))
         {
             if(shield == 0){
