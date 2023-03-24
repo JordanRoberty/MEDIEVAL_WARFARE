@@ -9,12 +9,13 @@ public class CrushPlayer : MonoBehaviour
     [SerializeField] private LayerMask _player_layer;
     
 
-    void Update()
+    void FixedUpdate()
     {
         
         if(is_crushed())
         {
             _player.health = 0;
+            GameManager.Instance.set_state(GameState.FAIL_MENU);
         }
     }
 
