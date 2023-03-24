@@ -40,16 +40,22 @@ public class Enemy : MonoBehaviour
         Destroy(gameObject);
     }
 
-    void OnTriggerEnter2D(Collider2D hitInfo)
+    void OnTriggerEnter2D(Collider2D collision)
     {
-        Bullet bullet = hitInfo.GetComponent<Bullet>();
-        if (bullet != null)
+        if(collision.gameObject.TryGetComponent(out Bullet bullet))
         {
-            pv -= bullet.damage;
-            if (pv <= 0)
+            //critical hit
+            if (Random.Range(0, 100) < RuneManager.Instance.critial_hit_rune)
             {
-                die();
+                bullet.damage *= 2f;
             }
+
+            if ((pv -= bullet.damage) <= 0)
+            {
+                transform.destroy();
+            }
+
+            bullet.transform.destroy();
         }
     }
 }

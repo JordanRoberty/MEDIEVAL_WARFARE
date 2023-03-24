@@ -24,23 +24,11 @@ public static class GameFoundationUtils
     public static List<InventoryItem> get_inventory_items_from_tag(string tag_key)
     {
         Tag tag = GameFoundationSdk.tags.Find(tag_key);
-        Assert.IsNotNull(tag);
         List<InventoryItem> items = new List<InventoryItem>();
         
         GameFoundationSdk.inventory.FindItems(tag, items);
 
         return items;
-    }
-
-    public static List<InventoryItemDefinition> get_inventory_item_definitions_from_tag(string tag_key)
-    {
-        Tag tag = GameFoundationSdk.tags.Find(tag_key);
-        Assert.IsNotNull(tag);
-        List<InventoryItemDefinition> item_definitions = new List<InventoryItemDefinition>();
-
-        GameFoundationSdk.catalog.FindItems(tag, item_definitions);
-
-        return item_definitions;
     }
 
     public static void display_item_icon_in_viewer(InventoryItem item, ItemView viewer)
