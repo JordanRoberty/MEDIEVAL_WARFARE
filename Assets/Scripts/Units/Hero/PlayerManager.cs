@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class PlayerManager : MonoBehaviour
 {
@@ -11,11 +12,14 @@ public class PlayerManager : MonoBehaviour
     public float shield = 0f;
     public float max_health = 500f;
     public float health = 100f;
-    // Temps pendant lequel le personnage est invincible après avoir été touché (en secondes)
+    // Temps pendant lequel le personnage est invincible aprï¿½s avoir ï¿½tï¿½ touchï¿½ (en secondes)
     public float invulnerability_time = 2.0f;
     
-    public int score;
-    public int nb_coins;
+    public int score = 0;
+    public int nb_coins = 0;
+    [SerializeField] private TextMeshProUGUI score_text;
+    [SerializeField] private TextMeshProUGUI health_text;
+    [SerializeField] private TextMeshProUGUI coins_text;
     
 
     void Start()
@@ -23,6 +27,15 @@ public class PlayerManager : MonoBehaviour
         _renderer = GetComponent<Renderer>();
         _rune_manager = GetComponent<RuneManager>();
         Debug.Log("Start !");
+        score_text.SetText("SCORE : " + score);
+        health_text.SetText("HEALTH : " + health);
+        coins_text.SetText("MONEY : " + nb_coins);
+    }
+
+    void Update()
+    {
+        score++;
+        score_text.SetText("SCORE : " + score);
     }
 
     public void Init(float rune_health, float rune_shield)
@@ -56,10 +69,11 @@ public class PlayerManager : MonoBehaviour
         {
             if(shield == 0){
                 health -= enemy.get_damage();
-
+                health_text.SetText("HEALTH : " + health);
                 if (health <= 0 && GameManager.Instance._state == GameState.RUNNING)
                 {
                     StopCoroutine("invulnerability");
+                    health_text.SetText("HEALTH : " + 0);
                     GameManager.Instance.set_state(GameState.FAIL_MENU);
                 }
                 else

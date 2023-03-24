@@ -13269,6 +13269,9 @@ MonoBehaviour:
   invulnerability_time: 2
   score: 0
   nb_coins: 0
+  score_text: {fileID: 801125227}
+  health_text: {fileID: 1705439175}
+  coins_text: {fileID: 71765458}
 --- !u!95 &2065636609
 Animator:
   serializedVersion: 4
