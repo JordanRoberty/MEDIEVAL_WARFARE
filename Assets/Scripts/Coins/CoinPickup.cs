@@ -19,7 +19,12 @@ public class CoinPickup : MonoBehaviour
         // If the Player moves onto the Coin
         if (collision.CompareTag("Player"))
         {
+<<<<<<< HEAD:Assets/Scripts/Coins/CoinPickup.cs
             GameFoundationSdk.wallet.Add(m_CoinDefinition, coin_value); // Add the coin to the Player's wallet
+=======
+            GameFoundationSdk.wallet.Add(m_CoinDefinition, find_quantity); // Add the coin to the Player's wallet
+            //Debug.Log("Gold earned: " + find_quantity); // DEBUG
+>>>>>>> main:Assets/Scripts/Units/Hero/CoinPickup.cs
             Destroy(transform.parent.gameObject); // Destroy the Coin GameObject
         }
     }

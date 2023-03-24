@@ -2216,6 +2216,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdb4ebe6a0253fd4f9e4d125a38e814f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Player: {fileID: 0}
 --- !u!1 &1642094410
 GameObject:
   m_ObjectHideFlags: 0
@@ -2280,6 +2281,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ef200027641645a89dcb6ff12f0b70b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shield: 0
+  max_health: 500
+  health: 100
+  invulnerability_time: 2
+  score: 0
+  nb_coins: 0
+  score_text: {fileID: 137008923}
+  health_text: {fileID: 484985308}
+  coins_text: {fileID: 996046791}
 --- !u!114 &1642094414
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2310,13 +2320,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db3801e00d0db434e828f6fe41b2af0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _movement_acceleration: 50
-  _max_move_speed: 12
-  _ground_linear_drag: 10
+  camera: {fileID: 0}
+  _move_speed: 12
+  _changing_direction: 0
   _jump_force: 12
-  _air_linear_drag: 2.5
   _fall_gravity: 8
-  _low_jump_fall_gravity: 5
   _extra_jumps: 1
   _fast_fall_gravity: 500
   _fastfall_max_speed: 50
@@ -2325,6 +2333,7 @@ MonoBehaviour:
   _ground_layer:
     serializedVersion: 2
     m_Bits: 64
+  animator: {fileID: 0}
 --- !u!50 &1642094416
 Rigidbody2D:
   serializedVersion: 4
