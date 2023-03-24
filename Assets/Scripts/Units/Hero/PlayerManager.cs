@@ -10,7 +10,7 @@ public class PlayerManager : MonoBehaviour
 
     [Header("Health & score")]
     public float shield = 0f;
-    public float max_health = 500f;
+    public float max_health = 100f;
     public float health = 100f;
     // Temps pendant lequel le personnage est invincible apr�s avoir �t� touch� (en secondes)
     public float invulnerability_time = 2.0f;
@@ -20,25 +20,32 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI coins_text;
     
 
-    void Start()
+    void Awake()
     {
         _renderer = GetComponent<Renderer>();
         _rune_manager = GetComponent<RuneManager>();
+        health = max_health;
         Debug.Log("Start !");
-        health_text.SetText("HEALTH : " + health);
-        coins_text.SetText("MONEY : " + nb_coins);
     }
 
-    void Update()
+    private void Update()
     {
+        if (is_dead() && GameManager.Instance._state == GameState.RUNNING)
+        {
+            Debug.Log("Player died");
+            StopCoroutine("invulnerability");
+            GameManager.Instance.set_state(GameState.FAIL_MENU);
+        }
     }
 
     public void Init(float rune_health, float rune_shield)
     {
-        //RUNES MODIFIER
+        // Update Player stats according to equiped runes
         max_health *= rune_health;
-        //health = max_health;
+        health = max_health;
         shield = rune_shield;
+        health_text.SetText("HEALTH : " + health);
+        coins_text.SetText("MONEY : " + nb_coins);
     }
 
     //The layer 8 is the player, the 9th is the enemy
@@ -54,7 +61,31 @@ public class PlayerManager : MonoBehaviour
         Physics2D.IgnoreLayerCollision(8, 9, false);
         player_sprite_color.a = 1.0F;
         _renderer.material.color = player_sprite_color;
+    }
 
+    public bool is_dead()
+    {
+        return health <= 0;
+    }
+
+    public void die()
+    {
+        health = 0.0F;
+    }
+
+    public void take_damages(float damages)
+    {
+        if (shield == 0)
+        {
+            // Invincibility for 2 seconds
+            StartCoroutine("invulnerability");
+            health = Mathf.Clamp(health - damages, 0, max_health);
+            health_text.SetText("HEALTH : " + health);
+        }
+        else
+        {
+            shield--;
+        }
     }
 
     void OnCollisionEnter2D(Collision2D collision)
@@ -62,25 +93,7 @@ public class PlayerManager : MonoBehaviour
         // Si le collider en contact est l'ennemi
         if (collision.transform.TryGetComponent<Enemy>(out Enemy enemy))
         {
-            if(shield == 0){
-                health -= enemy.get_damage();
-                health_text.SetText("HEALTH : " + health);
-                if (health <= 0 && GameManager.Instance._state == GameState.RUNNING)
-                {
-                    StopCoroutine("invulnerability");
-                    health_text.SetText("HEALTH : " + 0);
-                    GameManager.Instance.set_state(GameState.FAIL_MENU);
-                }
-                else
-                {
-                    // Invincibility for 2 seconds
-                    StartCoroutine("invulnerability");
-                }
-            }
-            else
-            {
-                shield--;
-            }
+            take_damages(enemy.get_damage());
         }
     }
 }

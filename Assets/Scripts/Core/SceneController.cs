@@ -108,6 +108,7 @@ public class SceneController : Singleton<SceneController>
             if (_current_menu != GameMenu.NONE)  SceneManager.UnloadSceneAsync(_menus[_current_menu]);
             _current_menu = GameMenu.NONE;
             SceneManager.UnloadSceneAsync("loading_menu");
+            GameManager.Instance.set_state(GameState.RUNNING);
         };
     }
 
