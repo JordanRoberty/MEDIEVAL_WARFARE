@@ -70,8 +70,6 @@ public class PlayerManager : MonoBehaviour
     {
         if (shield == 0)
         {
-            // Invincibility for 2 seconds
-            
             health = Mathf.Clamp(health - damages, 0, max_health);
             health_text.SetText("HEALTH : " + health);
 
@@ -81,6 +79,7 @@ public class PlayerManager : MonoBehaviour
             }
             else
             {
+                // Invincibility for 2 seconds
                 StartCoroutine("invulnerability");
             }
         }
