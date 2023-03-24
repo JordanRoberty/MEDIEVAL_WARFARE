@@ -15,11 +15,9 @@ public class Weapon : MonoBehaviour
     private float shot_freq;
     private GameObject bullet_prefab;
     private SpriteRenderer renderer;
-    private GameObject bulletContainer;
 
     void Start()
     {
-        bulletContainer = new GameObject("BulletContainer");
         renderer = gameObject.GetComponent<SpriteRenderer>();
         mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         InventoryItem weapon = PlayerInfosManager.Instance.equiped_weapon;
