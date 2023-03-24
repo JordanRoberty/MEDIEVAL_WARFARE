@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Movement2D : MonoBehaviour
 {
-    public GameObject camera;
+    public Camera camera;
 
     [Header("Movement Variables")]
     [SerializeField]
@@ -55,11 +55,18 @@ public class Movement2D : MonoBehaviour
     private bool is_boss_scene = false;
     private bool is_jumping = false;
 
+    private Vector2 screenBounds;
+    private float objectWidth;
+    private float objectHeight;
+
+
 
     public void Init()
     {
         _rigid_body = GetComponent<Rigidbody2D>();
         boxCollider = GetComponent<BoxCollider2D>();
+        objectWidth = transform.GetComponent<SpriteRenderer>().bounds.extents.x; //extents = size of width / 2
+        objectHeight = transform.GetComponent<SpriteRenderer>().bounds.extents.y; //extents = size of height / 2
 
         //RUNE MODIFIER
         _move_speed *= transform.GetComponent<RuneManager>().speed_rune;
@@ -118,6 +125,15 @@ public class Movement2D : MonoBehaviour
         _can_jump |= Input.GetButtonDown("Jump");
     }
 
+
+     void LateUpdate()
+    {
+        screenBounds = camera.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
+        Vector3 viewPos = transform.position;
+        //clamp the x position to the screen bounds
+        viewPos.x = Mathf.Clamp(viewPos.x, screenBounds.x *-1 + objectWidth, screenBounds.x  - objectWidth);
+        transform.position = viewPos;
+    }
     private void FixedUpdate()
     {
         check_ground_collision();
