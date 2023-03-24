@@ -73,12 +73,15 @@ public class WeaponManager : MonoBehaviour
 
     void Update()
     {
-        mouse_position = _main_cam.ScreenToWorldPoint(Input.mousePosition);
+        if(GameManager.Instance._state == GameState.RUNNING)
+        {
+            mouse_position = _main_cam.ScreenToWorldPoint(Input.mousePosition);
 
-        Vector3 aim_direction = mouse_position - transform.position;
-        float shoulder_rotation = Mathf.Atan2(aim_direction.y, aim_direction.x) * Mathf.Rad2Deg;
+            Vector3 aim_direction = mouse_position - transform.position;
+            float shoulder_rotation = Mathf.Atan2(aim_direction.y, aim_direction.x) * Mathf.Rad2Deg;
 
-        transform.rotation = Quaternion.Euler(0, 0, shoulder_rotation);
+            transform.rotation = Quaternion.Euler(0, 0, shoulder_rotation);
+        }
     }
 
     void Shoot()
