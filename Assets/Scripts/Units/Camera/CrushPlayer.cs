@@ -15,6 +15,7 @@ public class CrushPlayer : MonoBehaviour
         if(is_crushed())
         {
             _player.health = 0;
+            GameManager.Instance.set_state(GameState.FAIL_MENU);
         }
     }
 
