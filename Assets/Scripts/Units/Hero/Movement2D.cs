@@ -5,19 +5,14 @@ using UnityEngine;
 
 public class Movement2D : MonoBehaviour
 {
+    public GameObject camera;
+
     [Header("Movement Variables")]
     [SerializeField]
-    private float _movement_acceleration = 50f;
+    private float _move_speed = 12f;
 
     [SerializeField]
-    private float _max_move_speed = 12f;
-
-    [SerializeField]
-    private float _ground_linear_drag = 10f; //a.k.a deceleration
-
-    [SerializeField]
-    private float _default_speed = 7f;
-    private bool _changing_direction;
+    private bool _changing_direction= false;
     private bool _is_crouching = false;
 
     [Header("jump Variables")]
@@ -25,13 +20,7 @@ public class Movement2D : MonoBehaviour
     private float _jump_force = 12f;
 
     [SerializeField]
-    private float _air_linear_drag = 2.5f;
-
-    [SerializeField]
     private float _fall_gravity = 8f;
-
-    [SerializeField]
-    private float _low_jump_fall_gravity = 5f;
 
     [SerializeField]
     private int _extra_jumps = 1;
@@ -44,6 +33,8 @@ public class Movement2D : MonoBehaviour
     private int _extra_jumps_count = 0;
     private bool _can_jump = false;
     private bool _on_ground = true;
+    private float _default_speed;
+
 
     [Header("Ground Collision Variable")]
     [SerializeField]
@@ -55,22 +46,37 @@ public class Movement2D : MonoBehaviour
     [SerializeField]
     private LayerMask _ground_layer;
 
-    private PlayerData _player;
+    private Rigidbody2D _rigid_body;
     private float _horizontal_direction;
     private float _vertical_direction;
     public Animator animator;
     bool facingRight = true;
     private BoxCollider2D boxCollider;
     private bool is_boss_scene = false;
+    private bool is_jumping = false;
 
-    private void Awake()
+
+    public void Init()
     {
-        _player = gameObject.GetComponent(typeof(PlayerData)) as PlayerData;
+        _rigid_body = GetComponent<Rigidbody2D>();
         boxCollider = GetComponent<BoxCollider2D>();
+
+        //RUNE MODIFIER
+        _move_speed *= transform.GetComponent<RuneManager>().speed_rune;
+        _jump_force *= transform.GetComponent<RuneManager>().high_jump_rune;
+        if(transform.GetComponent<RuneManager>().triple_jump_rune)
+        {
+            _extra_jumps = 2;
+        }
+
+        //BOSS SCENE
         string sceneName = SceneManager.GetActiveScene().name;
         if (sceneName.Contains("boss_level_"))
         {
             is_boss_scene = true;
+        }else{
+        _default_speed = camera.GetComponent<CameraBehavior>().speed;
+
         }
     }
 
@@ -107,8 +113,8 @@ public class Movement2D : MonoBehaviour
         }
 
         _changing_direction =
-            (_player.rb.velocity.x > 0f && _horizontal_direction < 0f)
-            || (_player.rb.velocity.x < 0f && _horizontal_direction > 0f);
+            (_rigid_body.velocity.x > 0f && _horizontal_direction < 0f)
+            || (_rigid_body.velocity.x < 0f && _horizontal_direction > 0f);
         _can_jump |= Input.GetButtonDown("Jump");
     }
 
@@ -116,19 +122,16 @@ public class Movement2D : MonoBehaviour
     {
         check_ground_collision();
         move_character();
-
         if (_on_ground)
         {
-            apply_ground_linear_drag();
             crouch();
             _extra_jumps_count = _extra_jumps;
-            _player.rb.gravityScale = 1f;
+            _rigid_body.gravityScale = 1f;
             animator.SetBool("IsJumping", false);
             animator.SetBool("IsAirborn", false);
         }
         else
         {
-            apply_air_linear_drag();
             set_gravity();
             animator.SetBool("IsJumping", true);
             animator.SetBool("IsAirborn", true);
@@ -145,7 +148,7 @@ public class Movement2D : MonoBehaviour
         return new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
     }
 
-    ///Move the character on the horizontal direction, if the character is faster than _max_move_speed we clamp it at max speed
+    ///Move the character on the horizontal direction, if the character is faster than _move_speed we clamp it at max speed
     private void move_character()
     {
         //Check if the player doesn't move, the character is moving by a default speed
@@ -153,18 +156,20 @@ public class Movement2D : MonoBehaviour
         {
             if (!is_boss_scene)
             {
-                _player.rb.AddForce(new Vector2(1, 0f) * _default_speed);
+                _rigid_body.velocity = new Vector2(
+                        _default_speed,
+                        _rigid_body.velocity.y);
+            }else{
+                _rigid_body.velocity = new Vector2(
+                        0f,
+                        _rigid_body.velocity.y);
             }
         }
         else
         {
-            _player.rb.AddForce(new Vector2(_horizontal_direction, 0f) * _movement_acceleration);
-        }
-        if (Mathf.Abs(_player.rb.velocity.x) > _max_move_speed)
-        {
-            _player.rb.velocity = new Vector2(
-                Mathf.Sign(_player.rb.velocity.x) * _max_move_speed,
-                _player.rb.velocity.y
+            _rigid_body.velocity = new Vector2(
+                _horizontal_direction * _move_speed,
+                _rigid_body.velocity.y
             );
         }
     }
@@ -186,25 +191,6 @@ public class Movement2D : MonoBehaviour
         }
     }
 
-    ///Apply the ground linear drag to the character
-    private void apply_ground_linear_drag()
-    {
-        if (Mathf.Abs(_horizontal_direction) < 0.4f || _changing_direction)
-        {
-            _player.rb.drag = _ground_linear_drag;
-        }
-        else
-        {
-            _player.rb.drag = 0f;
-        }
-    }
-
-    ///Apply the air linear drag to the character
-    private void apply_air_linear_drag()
-    {
-        _player.rb.drag = _air_linear_drag;
-    }
-
     ///It makes the character jump. If the character is not on ground, it retrieves him an extra jump
     /// then if the player is crouching, the player jump a little bit higher (25% as we reduce his size by 50% (25% top side, 25% bot side))
 
@@ -218,15 +204,15 @@ public class Movement2D : MonoBehaviour
 
         if (_is_crouching)
         {
-            _player.rb.velocity = new Vector2(_player.rb.velocity.x, 0f);
-            _player.rb.AddForce(Vector2.up * 1.25f * _jump_force, ForceMode2D.Impulse);
+            _rigid_body.velocity = new Vector2(_rigid_body.velocity.x, 0f);
+            _rigid_body.AddForce(Vector2.up * 1.25f * _jump_force, ForceMode2D.Impulse);
             animator.SetBool("IsJumping", true);
             animator.SetBool("IsAirborn", true);
         }
         else
         {
-            _player.rb.velocity = new Vector2(_player.rb.velocity.x, 0f);
-            _player.rb.AddForce(Vector2.up * _jump_force, ForceMode2D.Impulse);
+            _rigid_body.velocity = new Vector2(_rigid_body.velocity.x, 0f);
+            _rigid_body.AddForce(Vector2.up * _jump_force, ForceMode2D.Impulse);
             animator.SetBool("IsJumping", true);
             animator.SetBool("IsAirborn", true);
         }
@@ -236,32 +222,27 @@ public class Movement2D : MonoBehaviour
     ///The value depends of the player movement (jump cut, fast fall, jump)
     private void set_gravity()
     {
-        //jump Cut
-        if (_player.rb.velocity.y > 0 && !Input.GetButton("Jump"))
+        if(!_can_jump)
         {
-            _player.rb.gravityScale = _low_jump_fall_gravity;
+            _rigid_body.gravityScale = _fall_gravity;
+        }else
+        {
+            _rigid_body.gravityScale = 1f;
         }
+
         //fast fall
-        else if (_player.rb.velocity.y < 0f && _vertical_direction < 0)
+        if(_vertical_direction < 0)
         {
-            _player.rb.gravityScale = _fast_fall_gravity;
-            if (Mathf.Abs(_player.rb.velocity.y) > _fastfall_max_speed)
+            _rigid_body.gravityScale = _fast_fall_gravity;
+            if (Mathf.Abs(_rigid_body.velocity.y) > _fastfall_max_speed)
             {
-                _player.rb.velocity = new Vector2(
-                    _player.rb.velocity.x,
-                    Mathf.Sign(_player.rb.velocity.y) * _fastfall_max_speed
+                _rigid_body.velocity = new Vector2(
+                    _rigid_body.velocity.x,
+                    Mathf.Sign(_rigid_body.velocity.y) * _fastfall_max_speed
                 );
             }
         }
-        //jump
-        else if (_player.rb.velocity.y < 0f)
-        {
-            _player.rb.gravityScale = _fall_gravity;
-        }
-        else
-        {
-            _player.rb.gravityScale = 1f;
-        }
+        
     }
 
     /// To check the ground collision, we cast rays from the player to the ground.

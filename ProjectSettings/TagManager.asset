@@ -10,6 +10,7 @@ TagManager:
   - Obstacle
   - Gear Item
   - Gear Display
+  - Menu Camera
   layers:
   - Default
   - TransparentFX

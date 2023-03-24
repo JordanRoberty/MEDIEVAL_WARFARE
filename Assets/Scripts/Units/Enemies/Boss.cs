@@ -261,7 +261,7 @@ public class Boss : Enemy
             {
                 collision.transform.position += direction * 3f;
             }
-            playerRb.AddForce(direction * 100f, ForceMode2D.Impulse);
+            playerRb.AddForce(direction * 2f , ForceMode2D.Impulse);
         }
         else if (collision.gameObject.name == "Ground")
         {

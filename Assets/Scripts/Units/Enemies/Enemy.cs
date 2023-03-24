@@ -37,19 +37,25 @@ public class Enemy : MonoBehaviour
         coinPickup.initialize_coin_value();
 
         // Destroy the enemy
-        Destroy(gameObject);
+        transform.destroy();
     }
 
-    void OnTriggerEnter2D(Collider2D hitInfo)
+    void OnTriggerEnter2D(Collider2D collision)
     {
-        Bullet bullet = hitInfo.GetComponent<Bullet>();
-        if (bullet != null)
+        if(collision.gameObject.TryGetComponent(out Bullet bullet))
         {
-            pv -= bullet.damage;
-            if (pv <= 0)
+            //critical hit
+            if (Random.Range(0, 100) < RuneManager.Instance.critial_hit_rune)
+            {
+                bullet.damage *= 2f;
+            }
+
+            if ((pv -= bullet.damage) <= 0)
             {
                 die();
             }
+
+            bullet.transform.destroy();
         }
     }
 }
