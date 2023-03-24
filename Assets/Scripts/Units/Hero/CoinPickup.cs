@@ -39,7 +39,7 @@ public class CoinPickup : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             GameFoundationSdk.wallet.Add(m_CoinDefinition, find_quantity); // Add the coin to the Player's wallet
-            Debug.Log("Gold earned: " + find_quantity); // DEBUG
+            //Debug.Log("Gold earned: " + find_quantity); // DEBUG
             Destroy(transform.parent.gameObject); // Destroy the Coin GameObject
         }
     }

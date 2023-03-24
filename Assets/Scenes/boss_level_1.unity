@@ -1666,6 +1666,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ef200027641645a89dcb6ff12f0b70b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shield: 0
+  max_health: 500
+  health: 100
+  invulnerability_time: 2
+  score: 0
+  nb_coins: 0
+  score_text: {fileID: 2135315393}
+  health_text: {fileID: 1863109713}
+  coins_text: {fileID: 1238766743}
 --- !u!114 &842757456
 MonoBehaviour:
   m_ObjectHideFlags: 0

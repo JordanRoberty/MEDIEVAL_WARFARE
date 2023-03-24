@@ -52,6 +52,8 @@ public class Enemy : MonoBehaviour
 
             if ((pv -= bullet.damage) <= 0)
             {
+                transform.destroy();
+                UIManager.Instance.update_score(1);
                 die();
             }
 

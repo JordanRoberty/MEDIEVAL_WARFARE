@@ -345,6 +345,7 @@ MonoBehaviour:
   enemy_basic: {fileID: 2786779546960806302, guid: 5a99d504511ed74449d2b2c0e545863b, type: 3}
   enemy_tank: {fileID: 6965095639029914826, guid: c009de866ea48bf4ebb0a9b098575994, type: 3}
   enemy_flying: {fileID: 3766044448327004977, guid: ab6e57313eec1a54bb1f0133ff99e96d, type: 3}
+  _enemies_container: {fileID: 0}
   spawn_rate: 2
   enemy_basic_probability: 0.5
   enemy_tank_probability: 0.2
@@ -581,7 +582,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56cb61aa569c74a4c85639f2625525a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraSpeed: 0.01
+  speed: 5
 --- !u!81 &817216461
 AudioListener:
   m_ObjectHideFlags: 0
@@ -2537,8 +2538,12 @@ MonoBehaviour:
   _ground_layer:
     serializedVersion: 2
     m_Bits: 64
+  _edge_layer:
+    serializedVersion: 2
+    m_Bits: 0
   _ground_raycast_length: 1
   _ground_raycast_offset: {x: 0, y: 0, z: 0}
+  raycastDistance: 2
 --- !u!50 &1180475183
 Rigidbody2D:
   serializedVersion: 4
@@ -2702,6 +2707,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ef200027641645a89dcb6ff12f0b70b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shield: 0
+  max_health: 500
+  health: 100
+  invulnerability_time: 2
+  score: 0
+  nb_coins: 0
+  score_text: {fileID: 1671078068}
+  health_text: {fileID: 731080261}
+  coins_text: {fileID: 2029875038}
 --- !u!114 &1204332026
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2732,13 +2746,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db3801e00d0db434e828f6fe41b2af0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _movement_acceleration: 50
-  _max_move_speed: 12
-  _ground_linear_drag: 10
+  camera: {fileID: 0}
+  _move_speed: 12
+  _changing_direction: 0
   _jump_force: 12
-  _air_linear_drag: 2.5
   _fall_gravity: 8
-  _low_jump_fall_gravity: 5
   _extra_jumps: 1
   _fast_fall_gravity: 500
   _fastfall_max_speed: 50
@@ -2747,6 +2759,7 @@ MonoBehaviour:
   _ground_layer:
     serializedVersion: 2
     m_Bits: 64
+  animator: {fileID: 0}
 --- !u!50 &1204332028
 Rigidbody2D:
   serializedVersion: 4
@@ -3063,6 +3076,9 @@ MonoBehaviour:
   followEnabled: 1
   jumpEnabled: 1
   directionLookEnabled: 1
+  _edge_layer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!50 &1609738613
 Rigidbody2D:
   serializedVersion: 4
@@ -6092,6 +6108,9 @@ MonoBehaviour:
   pv: 100
   amplitude: 3.5
   frequency: 4
+  _edge_layer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!50 &1882992569
 Rigidbody2D:
   serializedVersion: 4
@@ -6237,7 +6256,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ec6932ebbff24b6f92ce3dcbed79244, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1204332026}
+  _player: {fileID: 0}
   _raycast_length: 0.34
   _player_layer:
     serializedVersion: 2
@@ -6364,6 +6383,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdb4ebe6a0253fd4f9e4d125a38e814f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Player: {fileID: 0}
 --- !u!1 &2017260574
 GameObject:
   m_ObjectHideFlags: 0
