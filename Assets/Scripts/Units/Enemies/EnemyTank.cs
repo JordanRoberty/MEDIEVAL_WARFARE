@@ -12,6 +12,7 @@ public class EnemyTank : Enemy
         pv = 1000.0f;
         speed = 100.0f;
         damage = 50.0f;
+        max_droppable_quantity = 10;
     }
 
     [Header("Pathfinding")]
