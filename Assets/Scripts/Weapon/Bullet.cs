@@ -17,8 +17,22 @@ public class Bullet : MonoBehaviour
         rb.velocity = transform.right * speed;
     }
 
-    private void OnBecameInvisible()
+    void OnTriggerEnter2D(Collider2D collision)
     {
-        Destroy(gameObject);
+        if(collision.gameObject.TryGetComponent(out Enemy enemy))
+        {
+            //critical hit
+            if (Random.Range(0, 100) < RuneManager.Instance.critial_hit_rune)
+            {
+                damage *= 2f;
+            }
+
+            enemy.setpv(enemy.getpv() - damage);
+            if (enemy.getpv() <= 0)
+            {
+                enemy.die();
+            }
+            transform.destroy();
+        }
     }
 }

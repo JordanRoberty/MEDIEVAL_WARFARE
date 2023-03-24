@@ -6,9 +6,10 @@ using UnityEngine.Assertions;
 using UnityEngine.GameFoundation.Components;
 using UnityEngine.ResourceManagement.AsyncOperations;
 
-public class FireAim : MonoBehaviour
+public class Weapon : MonoBehaviour
 {
     public GameObject Player;
+    public Transform bullet_parent;
     private Vector3 mousePos;
     private Camera mainCam;
     private float shot_freq;
@@ -52,7 +53,6 @@ public class FireAim : MonoBehaviour
 
     void Update()
     {
-        Cursor.visible = false;
         mousePos = mainCam.ScreenToWorldPoint(Input.mousePosition);
 
         Vector3 aimDirection = mousePos - Player.transform.position;
@@ -63,7 +63,6 @@ public class FireAim : MonoBehaviour
 
     void Shoot()
     {
-        GameObject bulletInstance = Instantiate(bullet_prefab, gameObject.transform.position, gameObject.transform.rotation);
-        bulletInstance.transform.parent = bulletContainer.transform;
+        Instantiate(bullet_prefab, gameObject.transform.position, gameObject.transform.rotation, bullet_parent);
     }
 }
