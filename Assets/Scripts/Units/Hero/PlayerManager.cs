@@ -15,9 +15,7 @@ public class PlayerManager : MonoBehaviour
     // Temps pendant lequel le personnage est invincible apr�s avoir �t� touch� (en secondes)
     public float invulnerability_time = 2.0f;
     
-    public int score = 0;
     public int nb_coins = 0;
-    [SerializeField] private TextMeshProUGUI score_text;
     [SerializeField] private TextMeshProUGUI health_text;
     [SerializeField] private TextMeshProUGUI coins_text;
     
@@ -27,22 +25,19 @@ public class PlayerManager : MonoBehaviour
         _renderer = GetComponent<Renderer>();
         _rune_manager = GetComponent<RuneManager>();
         Debug.Log("Start !");
-        score_text.SetText("SCORE : " + score);
         health_text.SetText("HEALTH : " + health);
         coins_text.SetText("MONEY : " + nb_coins);
     }
 
     void Update()
     {
-        score++;
-        score_text.SetText("SCORE : " + score);
     }
 
     public void Init(float rune_health, float rune_shield)
     {
         //RUNES MODIFIER
         max_health *= rune_health;
-        health = max_health;
+        //health = max_health;
         shield = rune_shield;
     }
 
