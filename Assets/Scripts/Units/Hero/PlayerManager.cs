@@ -63,7 +63,9 @@ public class PlayerManager : MonoBehaviour
         health = 0.0F;
         Debug.Log("Player died");
         StopCoroutine("invulnerability");
+
         GameManager.Instance.set_state(GameState.FAIL_MENU);
+        
     }
 
     public void take_damages(float damages)

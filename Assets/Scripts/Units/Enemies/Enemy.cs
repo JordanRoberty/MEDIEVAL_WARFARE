@@ -21,15 +21,28 @@ public class Enemy : MonoBehaviour
         damage = new_damage;
     }
 
+    public float getpv()
+    {
+        return pv;
+    }
+
+    public void setpv(float new_pv)
+    {
+        pv = new_pv;
+    }
+
     public int get_max_droppable_quantity()
     {
         return max_droppable_quantity;
     }
 
-    private void die()
+    public void die()
     {
+        UIManager.Instance.update_score(1);
+
         // Spawn the coin at the enemy's position
-        GameObject coin = Instantiate(coinPrefab, transform.position, Quaternion.identity);
+        Transform coin_parent = GameObject.Find("/Environment/Coins").transform;
+        GameObject coin = Instantiate(coinPrefab, transform.position, Quaternion.identity, coin_parent.transform);
 
         // Pass the max_quantity value to the CoinPickup script and initialize the coin value
         CoinPickup coinPickup = coin.GetComponentInChildren<CoinPickup>();
@@ -40,24 +53,5 @@ public class Enemy : MonoBehaviour
         transform.destroy();
     }
 
-    void OnTriggerEnter2D(Collider2D collision)
-    {
-        if(collision.gameObject.TryGetComponent(out Bullet bullet))
-        {
-            //critical hit
-            if (Random.Range(0, 100) < RuneManager.Instance.critial_hit_rune)
-            {
-                bullet.damage *= 2f;
-            }
-
-            if ((pv -= bullet.damage) <= 0)
-            {
-                transform.destroy();
-                UIManager.Instance.update_score(1);
-                die();
-            }
-
-            bullet.transform.destroy();
-        }
-    }
+    
 }
