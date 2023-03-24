@@ -11936,8 +11936,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1073888210}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -9.45, y: 1.82, z: 15}
-  m_LocalScale: {x: 1, y: 13.65, z: 1}
+  m_LocalPosition: {x: -10, y: 1.88, z: 15}
+  m_LocalScale: {x: 2.11, y: 13.65, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 842469917}
@@ -12034,7 +12034,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _player: {fileID: 2065636607}
-  _raycast_length: 0.34
+  _raycast_length: 0.22
   _player_layer:
     serializedVersion: 2
     m_Bits: 256
@@ -12928,7 +12928,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db3801e00d0db434e828f6fe41b2af0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  camera: {fileID: 842469914}
+  camera: {fileID: 842469916}
   _move_speed: 12
   _changing_direction: 0
   _jump_force: 40
