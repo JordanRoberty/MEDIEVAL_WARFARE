@@ -194,14 +194,14 @@ public class GameManager : Singleton<GameManager>
 
     private void handle_quitting()
     {
-        clear_Coins();
+        clear_instantiated_prefab();
         SceneController.Instance.load_main_menu();
         _state = GameState.MAIN_MENU;
     }
 
     private void handle_fail_menu()
     {
-        clear_Coins();
+        clear_instantiated_prefab();
         SceneController.Instance.set_current_menu(GameMenu.FAIL);
         Time.timeScale = 0.0f;
         _state = GameState.FAIL_MENU;
@@ -209,7 +209,7 @@ public class GameManager : Singleton<GameManager>
 
     private void handle_victory_menu()
     {
-        clear_Coins();
+        clear_instantiated_prefab();
         SceneController.Instance.set_current_menu(GameMenu.VICTORY);
         _state = GameState.VICTORY_MENU;
     }
@@ -226,11 +226,16 @@ public class GameManager : Singleton<GameManager>
         _state = GameState.REGISTER_MENU;
     }
 
-    private void clear_Coins()
+    private void clear_instantiated_prefab()
     {
-        foreach(Transform coins in GameObject.Find("Coins").transform)
+        foreach(Transform coins in GameObject.Find("/Environment/Coins").transform)
         {
             Destroy(coins.gameObject);
+        }
+
+        foreach(Transform bullet in GameObject.Find("/Environment/Bullets").transform)
+        {
+            Destroy(bullet.gameObject);
         }
     }
 }
