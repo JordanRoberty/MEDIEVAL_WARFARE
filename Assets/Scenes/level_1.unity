@@ -8830,6 +8830,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   score: 0
   score_text: {fileID: 801125227}
+  nb_coins: 0
+  coins_text: {fileID: 71765458}
 --- !u!1 &772884823
 GameObject:
   m_ObjectHideFlags: 0
