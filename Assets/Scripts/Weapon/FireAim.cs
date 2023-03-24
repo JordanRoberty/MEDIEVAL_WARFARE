@@ -11,7 +11,8 @@ public class FireAim : MonoBehaviour
     public GameObject Player;
     private Vector3 mousePos;
     private Camera mainCam;
-    private weapon current_weapon;
+    private float shot_freq;
+    private GameObject bullet_prefab;
     private SpriteRenderer renderer;
 
     void Start()
@@ -30,11 +31,21 @@ public class FireAim : MonoBehaviour
             }
         };
 
-        AsyncOperationHandle<GameObject> load_bullet = weapon.definition.GetStaticProperty("bullet_prefab").AsAddressable<GameObject>();
-        double shot_freq = weapon.definition.GetStaticProperty("shot_freq").AsDouble();
-        Debug.Log(weapon.definition.GetStaticProperty("bullet_prefab").AsAddressable<GameObject>());
+        shot_freq = weapon.definition.GetStaticProperty("shot_freq");
 
-        current_weapon.bulletPrefab = load_bullet.Result;
+        AsyncOperationHandle<GameObject> load_bullet = weapon.definition.GetStaticProperty("bullet_prefab").AsAddressable<GameObject>();
+        load_bullet.Completed += (AsyncOperationHandle<GameObject> handle) =>
+        {
+            if (handle.Status == AsyncOperationStatus.Succeeded)
+            {
+                GameObject bullet = handle.Result;
+                Assert.IsNotNull(bullet);
+                bullet_prefab = bullet;
+                InvokeRepeating("Shoot", 0f, shot_freq);
+            }
+        };
+
+        
     }
 
     void Update()
@@ -48,9 +59,8 @@ public class FireAim : MonoBehaviour
         transform.rotation = Quaternion.Euler(0, 0, rotZ);
     }
 
-    IEnumerator Shoot()
+    void Shoot()
     {
-        Instantiate(current_weapon.bulletPrefab, gameObject.transform.position, gameObject.transform.rotation);
-        yield return new WaitForSeconds(((float)current_weapon.shot_freq));
+        Instantiate(bullet_prefab, gameObject.transform.position, gameObject.transform.rotation);
     }
 }
