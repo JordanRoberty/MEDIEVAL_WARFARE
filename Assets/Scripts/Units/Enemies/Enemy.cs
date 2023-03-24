@@ -11,13 +11,6 @@ public class Enemy : MonoBehaviour
     protected int max_droppable_quantity; // The maximum quantity of coins that can be dropped by an enemy
     public GameObject coinPrefab;
 
-    private void Update() {
-        if (pv <= 0)
-        {
-            die();
-        }
-    }
-
     public float get_damage()
     {
         return damage;
@@ -43,8 +36,10 @@ public class Enemy : MonoBehaviour
         return max_droppable_quantity;
     }
 
-    private void die()
+    public void die()
     {
+        UIManager.Instance.update_score(1);
+
         // Spawn the coin at the enemy's position
         GameObject coin = Instantiate(coinPrefab, transform.position, Quaternion.identity);
 

@@ -28,6 +28,10 @@ public class Bullet : MonoBehaviour
             }
 
             enemy.setpv(enemy.getpv() - damage);
+            if (enemy.getpv() <= 0)
+            {
+                enemy.die();
+            }
             transform.destroy();
         }
     }
