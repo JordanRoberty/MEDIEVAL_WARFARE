@@ -14217,7 +14217,7 @@ MonoBehaviour:
   _fall_gravity: 20
   _extra_jumps: 1
   _fast_fall_gravity: 500
-  _fastfall_max_speed: 20
+  _fastfall_max_speed: 50
   _ground_raycast_length: 1.52
   _ground_raycast_offset: {x: 0.16, y: 0, z: 0}
   _ground_layer:
