@@ -22,6 +22,16 @@ public class Enemy : MonoBehaviour
         damage = new_damage;
     }
 
+    public float getpv()
+    {
+        return pv;
+    }
+
+    public void setpv(float new_pv)
+    {
+        pv = new_pv;
+    }
+
     private void initialize_coin_quantity()
     {
         // Calculate the parameters of the normal distribution
@@ -35,37 +45,24 @@ public class Enemy : MonoBehaviour
         coin_quantity = Mathf.FloorToInt(Mathf.Clamp(random_value, 0, max_droppable_quantity));
     }
 
-    private void die()
+    public void die()
     {
+        UIManager.Instance.update_score(1);
+        
         initialize_coin_quantity();
         
         // Spawn the correct number of coin(s) at the enemy's position
         for (int i = 0; i < coin_quantity; i++)
         {
+            Transform coin_parent = GameObject.Find("/Environment/Coins").transform;
+
             // Add a random offset to the coin's position
-            GameObject coin = Instantiate(coinPrefab, transform.position + new Vector3(Random.Range(-0.5f, 0.5f), Random.Range(-0.5f, 0.5f), 0), Quaternion.identity);
+            GameObject coin = Instantiate(coinPrefab, transform.position + new Vector3(Random.Range(-0.5f, 0.5f), Random.Range(-0.5f, 0.5f), 0), Quaternion.identity, coin_parent.transform);
         }
 
         // Destroy the enemy
         transform.destroy();
     }
 
-    void OnTriggerEnter2D(Collider2D collision)
-    {
-        if(collision.gameObject.TryGetComponent(out Bullet bullet))
-        {
-            //critical hit
-            if (Random.Range(0, 100) < RuneManager.Instance.critial_hit_rune)
-            {
-                bullet.damage *= 2f;
-            }
-
-            if ((pv -= bullet.damage) <= 0)
-            {
-                die();
-            }
-
-            bullet.transform.destroy();
-        }
-    }
+    
 }
