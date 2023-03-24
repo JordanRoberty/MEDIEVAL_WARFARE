@@ -9,6 +9,7 @@ public class Enemy : MonoBehaviour
     protected float damage;
 
     protected int max_droppable_quantity; // The maximum quantity of coins that can be dropped by an enemy
+    protected int coin_quantity; // The quantity of coins that will actually be dropped by an enemy
     public GameObject coinPrefab;
 
     public float get_damage()
@@ -31,23 +32,33 @@ public class Enemy : MonoBehaviour
         pv = new_pv;
     }
 
-    public int get_max_droppable_quantity()
+    private void initialize_coin_quantity()
     {
-        return max_droppable_quantity;
+        // Calculate the parameters of the normal distribution
+        float mean = max_droppable_quantity / 2f;
+        float standard_deviation = max_droppable_quantity / 4f;
+
+        // Generate a random number following a normal distribution
+        float random_value = RandomFromDistribution.random_normal_distribution(mean, standard_deviation);
+
+        // The coin quantity is a number following a normal distribution between 0 and the enemy's max droppable quantity
+        coin_quantity = Mathf.FloorToInt(Mathf.Clamp(random_value, 0, max_droppable_quantity));
     }
 
     public void die()
     {
         UIManager.Instance.update_score(1);
+        
+        initialize_coin_quantity();
+        
+        // Spawn the correct number of coin(s) at the enemy's position
+        for (int i = 0; i < coin_quantity; i++)
+        {
+            Transform coin_parent = GameObject.Find("/Environment/Coins").transform;
 
-        // Spawn the coin at the enemy's position
-        Transform coin_parent = GameObject.Find("/Environment/Coins").transform;
-        GameObject coin = Instantiate(coinPrefab, transform.position, Quaternion.identity, coin_parent.transform);
-
-        // Pass the max_quantity value to the CoinPickup script and initialize the coin value
-        CoinPickup coinPickup = coin.GetComponentInChildren<CoinPickup>();
-        coinPickup.set_max_quantity(max_droppable_quantity);
-        coinPickup.initialize_coin_value();
+            // Add a random offset to the coin's position
+            GameObject coin = Instantiate(coinPrefab, transform.position + new Vector3(Random.Range(-0.5f, 0.5f), Random.Range(-0.5f, 0.5f), 0), Quaternion.identity, coin_parent.transform);
+        }
 
         // Destroy the enemy
         transform.destroy();
