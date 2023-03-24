@@ -37,7 +37,7 @@ public class Enemy : MonoBehaviour
         coinPickup.initialize_coin_value();
 
         // Destroy the enemy
-        Destroy(gameObject);
+        transform.destroy();
     }
 
     void OnTriggerEnter2D(Collider2D collision)
@@ -52,7 +52,7 @@ public class Enemy : MonoBehaviour
 
             if ((pv -= bullet.damage) <= 0)
             {
-                transform.destroy();
+                die();
             }
 
             bullet.transform.destroy();
