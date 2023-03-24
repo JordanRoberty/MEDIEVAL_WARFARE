@@ -29,11 +29,12 @@ public class FireAim : MonoBehaviour
                 renderer.sprite = sprite;
             }
         };
+
         AsyncOperationHandle<GameObject> load_bullet = weapon.definition.GetStaticProperty("bullet_prefab").AsAddressable<GameObject>();
-        AsyncOperationHandle<double> shot_freq = weapon.definition.GetStaticProperty("shot_freq").AsAddressable<double>();
+        double shot_freq = weapon.definition.GetStaticProperty("shot_freq").AsDouble();
+        Debug.Log(weapon.definition.GetStaticProperty("bullet_prefab").AsAddressable<GameObject>());
 
         current_weapon.bulletPrefab = load_bullet.Result;
-        current_weapon.shot_freq = shot_freq.Result;
     }
 
     void Update()
