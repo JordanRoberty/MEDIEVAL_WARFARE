@@ -64,12 +64,6 @@ public class PlayerManager : MonoBehaviour
         Debug.Log("Player died");
         StopCoroutine("invulnerability");
 
-        // Destroy all coins
-        foreach (Transform coin in GameObject.Find("Coins").transform)
-        {
-            Destroy(coin.gameObject);
-        }
-
         GameManager.Instance.set_state(GameState.FAIL_MENU);
         
     }
