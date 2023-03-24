@@ -9,7 +9,7 @@ public class CrushPlayer : MonoBehaviour
     [SerializeField] private LayerMask _player_layer;
     
 
-    void Update()
+    void FixedUpdate()
     {
         if(is_crushed() && GameManager.Instance._state == GameState.RUNNING)
         {
