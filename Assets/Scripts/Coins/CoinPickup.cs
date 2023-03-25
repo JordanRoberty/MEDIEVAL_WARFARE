@@ -19,9 +19,8 @@ public class CoinPickup : MonoBehaviour
         // If the Player moves onto the Coin
         if (collision.CompareTag("Player"))
         {
-            UIManager.Instance.update_coins(coin_value); // Update the Player's coin count
             GameFoundationSdk.wallet.Add(m_CoinDefinition, coin_value); // Add the coin to the Player's wallet
-            Destroy(transform.parent.gameObject); // Destroy the Coin GameObject
+            transform.parent.destroy();
         }
     }
 }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class PlayerManager : MonoBehaviour
+public class PlayerManager : Singleton<PlayerManager>
 {
     private Renderer _renderer;
     private RuneManager _rune_manager;
@@ -12,19 +12,17 @@ public class PlayerManager : MonoBehaviour
     public int shield = 0;
     public int max_health = 3;
     public int health = 3;
+    public int score = 0;
+
     // Time during which the character is invincible after being hit (in seconds)
     public float invulnerability_time = 2.0f;
-    
-    public int nb_coins = 0;
-    //[SerializeField] private TextMeshProUGUI health_text;
-    //[SerializeField] private TextMeshProUGUI coins_text;
-    
 
     void Awake()
     {
         _renderer = GetComponent<Renderer>();
         _rune_manager = GetComponent<RuneManager>();
         health = max_health;
+        score = 0;
         Debug.Log("Start !");
     }
 
@@ -34,8 +32,6 @@ public class PlayerManager : MonoBehaviour
         max_health += rune_health;
         health = max_health;
         shield = rune_shield;
-        //health_text.SetText("HEALTH : " + health);
-        //coins_text.SetText("MONEY : " + nb_coins);
     }
 
     //The layer 8 is the player, the 9th is the enemy
