@@ -10,6 +10,8 @@ public class Movement2D : MonoBehaviour
     [Header("Movement Variables")]
     [SerializeField]
     private float _move_speed = 12f;
+    private float _crouch_speed;
+    private float _current_speed;
 
     [SerializeField]
     private bool _changing_direction= false;
@@ -34,6 +36,8 @@ public class Movement2D : MonoBehaviour
     private bool _can_jump = false;
     private bool _on_ground = true;
     private float _default_speed;
+    private float _default_crouch_speed;
+    private float _current_default_speed;
 
 
     [Header("Ground Collision Variable")]
@@ -85,6 +89,12 @@ public class Movement2D : MonoBehaviour
         _default_speed = camera.GetComponent<CameraBehavior>().speed;
 
         }
+
+        _current_speed = _move_speed;
+        _current_default_speed = _default_speed;
+
+        _crouch_speed = _move_speed * 0.5f;
+        _default_crouch_speed = _default_speed * 0.5f;
     }
 
     private void Update()
@@ -128,6 +138,7 @@ public class Movement2D : MonoBehaviour
 
      void LateUpdate()
     {
+        //Clmp the player to the screen
         screenBounds = camera.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
         Vector3 viewPos = transform.position;
         //clamp the x position to the screen bounds
@@ -173,7 +184,7 @@ public class Movement2D : MonoBehaviour
             if (!is_boss_scene)
             {
                 _rigid_body.velocity = new Vector2(
-                        _default_speed,
+                        _current_default_speed,
                         _rigid_body.velocity.y);
             }else{
                 _rigid_body.velocity = new Vector2(
@@ -184,7 +195,7 @@ public class Movement2D : MonoBehaviour
         else
         {
             _rigid_body.velocity = new Vector2(
-                _horizontal_direction * _move_speed,
+                _horizontal_direction * _current_speed,
                 _rigid_body.velocity.y
             );
         }
@@ -195,14 +206,20 @@ public class Movement2D : MonoBehaviour
     {
         if (_vertical_direction < 0)
         {
-            GetComponent<BoxCollider2D>().size = new Vector2(0.5f, 0.5f);
+            GetComponent<BoxCollider2D>().size = new Vector2(0.2f, 0.425f);
+            GetComponent<BoxCollider2D>().offset = new Vector2(0f, -0.25f);
             animator.SetBool("IsCrouching", true);
+            _current_speed = _crouch_speed;
+            _current_default_speed = _default_crouch_speed;
             _is_crouching = true;
         }
         else
         {
-            GetComponent<BoxCollider2D>().size = new Vector2(0.37f, 0.85f);
+            GetComponent<BoxCollider2D>().size = new Vector2(0.4f, 0.85f);
+            GetComponent<BoxCollider2D>().offset = new Vector2(0f, -0.13f);
             animator.SetBool("IsCrouching", false);
+            _current_speed = _move_speed;
+            _current_default_speed = _default_speed;
             _is_crouching = false;
         }
     }

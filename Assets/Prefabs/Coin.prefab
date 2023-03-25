@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3896640322309650747}
   - component: {fileID: 2025750439784604372}
   - component: {fileID: -2425448967768600631}
+  - component: {fileID: 6831097960171559190}
   m_Layer: 11
   m_Name: Coin
   m_TagString: Untagged
@@ -28,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 8083888472559256018}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 147.57722, y: 89.3785, z: 0}
-  m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2369528086977172099}
@@ -76,7 +77,7 @@ SpriteRenderer:
   m_SortingLayerID: -1131285047
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 64df0b513ac7bd046be67a3fd50004c5, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 841df2eccb21fdf45b1c126f3533438a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -97,7 +98,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -118,12 +119,26 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 0.01
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
+--- !u!114 &6831097960171559190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8083888472559256018}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79459b966ab563e4789142b42709a79c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  float_speed: 1
+  float_amplitude: 0.5
 --- !u!1 &8242662531112690082
 GameObject:
   m_ObjectHideFlags: 0
@@ -185,4 +200,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77c27a84c98975444a32a84cc3cc8369, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  find_quantity: 0
+  coin_value: 1
