@@ -2007,8 +2007,6 @@ MonoBehaviour:
   health: 3
   invulnerability_time: 2
   nb_coins: 0
-  health_text: {fileID: 0}
-  coins_text: {fileID: 0}
 --- !u!114 &842757456
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4515,6 +4513,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6634100653299554774, guid: 773fd52991371de45ad484d36bae8a77, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 842757451}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 773fd52991371de45ad484d36bae8a77, type: 3}
 --- !u!224 &1781996617 stripped

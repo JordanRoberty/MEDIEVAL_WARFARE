@@ -13661,7 +13661,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2952590723858653923, guid: 773fd52991371de45ad484d36bae8a77, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2952590723858653923, guid: 773fd52991371de45ad484d36bae8a77, type: 3}
       propertyPath: m_AnchorMax.x
@@ -13735,6 +13735,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6634100653299554774, guid: 773fd52991371de45ad484d36bae8a77, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 2065636600}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 773fd52991371de45ad484d36bae8a77, type: 3}
 --- !u!224 &1582897390 stripped
@@ -14401,8 +14405,6 @@ MonoBehaviour:
   health: 3
   invulnerability_time: 2
   nb_coins: 0
-  health_text: {fileID: 0}
-  coins_text: {fileID: 0}
 --- !u!95 &2065636609
 Animator:
   serializedVersion: 4
