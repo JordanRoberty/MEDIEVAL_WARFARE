@@ -5,8 +5,6 @@ using UnityEngine;
 
 public class Movement2D : MonoBehaviour
 {
-    public Camera camera;
-
     [Header("Movement Variables")]
     [SerializeField]
     private float _move_speed = 12f;
@@ -50,6 +48,8 @@ public class Movement2D : MonoBehaviour
     [SerializeField]
     private LayerMask _ground_layer;
 
+    private Camera camera;
+
     private Rigidbody2D _rigid_body;
     private float _horizontal_direction;
     private float _vertical_direction;
@@ -65,17 +65,19 @@ public class Movement2D : MonoBehaviour
 
 
 
-    public void Init()
+    public void init()
     {
+        camera = Camera.main;
+
         _rigid_body = GetComponent<Rigidbody2D>();
         boxCollider = GetComponent<BoxCollider2D>();
         objectWidth = transform.GetComponent<SpriteRenderer>().bounds.extents.x; //extents = size of width / 2
         objectHeight = transform.GetComponent<SpriteRenderer>().bounds.extents.y; //extents = size of height / 2
 
         //RUNE MODIFIER
-        _move_speed *= transform.GetComponent<RuneManager>().speed_rune;
-        _jump_force *= transform.GetComponent<RuneManager>().high_jump_rune;
-        if(transform.GetComponent<RuneManager>().triple_jump_rune)
+        _move_speed *= RuneManager.Instance.speed_rune;
+        _jump_force *= RuneManager.Instance.high_jump_rune;
+        if(RuneManager.Instance.triple_jump_rune)
         {
             _extra_jumps++;
         }

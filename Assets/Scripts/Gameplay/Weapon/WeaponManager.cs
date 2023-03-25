@@ -19,12 +19,12 @@ public class WeaponManager : MonoBehaviour
     private GameObject bullet_prefab;
     [SerializeField] private Transform _bullet_container;
 
-    public void Init(float rune_firing_rate)
+    public void init()
     {
         _main_cam = Camera.main;
         _weapon_infos = PlayerInfosManager.Instance.equiped_weapon;
         shot_freq = (float)_weapon_infos.definition.GetStaticProperty("firing_rate");
-        shot_freq *= rune_firing_rate;
+        shot_freq *= RuneManager.Instance.firing_rate_rune;
 
         load_weapon();
     }

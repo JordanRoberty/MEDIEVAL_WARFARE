@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class RuneManager : Singleton<RuneManager>
 {
+    [SerializeField] private PlayerManager _player;
+
     //Stats
     [HideInInspector]
     public float damage_rune;// { get; private set; }
@@ -55,10 +57,7 @@ public class RuneManager : Singleton<RuneManager>
         _equiped_runes = PlayerInfosManager.Instance.get_equiped_runes();
         getRuneModifier();
 
-        transform.GetComponent<Movement2D>().Init();
-        transform.GetComponent<PlayerManager>().Init(health_rune, shield_rune);
-        transform.GetChild(0).GetComponent<WeaponManager>().Init(firing_rate_rune);
-
+        _player.init();
     }
 
     private void getRuneModifier()

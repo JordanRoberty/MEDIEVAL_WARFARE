@@ -26,12 +26,15 @@ public class PlayerManager : Singleton<PlayerManager>
         Debug.Log("Start !");
     }
 
-    public void Init(int rune_health, int rune_shield)
+    public void init()
     {
         // Update Player stats according to equiped runes
-        max_health += rune_health;
+        max_health += RuneManager.Instance.health_rune;
         health = max_health;
-        shield = rune_shield;
+        shield = RuneManager.Instance.shield_rune;
+
+        GetComponent<Movement2D>().init();
+        GetComponentInChildren<WeaponManager>().init();
     }
 
     //The layer 8 is the player, the 9th is the enemy
