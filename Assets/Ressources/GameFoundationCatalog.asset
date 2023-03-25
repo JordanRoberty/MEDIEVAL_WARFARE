@@ -901,7 +901,7 @@ MonoBehaviour:
   - {fileID: -91263394165242140}
   m_StaticPropertyKeys:
   - description
-  - icon
+  - item_icon
   m_StaticPropertyValues:
   - <type>k__BackingField: 3
     m_ValueType:
@@ -912,7 +912,7 @@ MonoBehaviour:
   - <type>k__BackingField: 5
     m_ValueType:
       longValue: 0
-    m_StringValue: Assets/Art/UI/Icons/gold_coin_icon.png
+    m_StringValue: Assets/Art/Sprites/Coin/coin.png
   m_InitialBalance: 0
   m_MaximumBalance: 1000000
   m_Type: 0

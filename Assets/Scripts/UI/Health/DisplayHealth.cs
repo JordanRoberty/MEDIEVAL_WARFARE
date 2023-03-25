@@ -6,69 +6,58 @@ using UnityEngine.UI;
 
 public class DisplayHealth : MonoBehaviour
 {
-   private int health;
-    private int numOfHeart;
-    private int shield;
-    private int maximum_health;
+    [SerializeField] private PlayerManager _player;
+    [SerializeField] private Heart _heart_prefab;
 
-    public GameObject player;
+    private int _max_health;
+    private int _local_health;
+    private int _shield;
 
-    public Image[] hearts;
-    public Sprite fullHeart;
-    public Sprite emptyHeart;
-    public Sprite shieldHeart;
+    private List<Heart> _hearts;
 
-    public void Awake()
+    public void Start()
     {
-        health = player.GetComponent<PlayerManager>().health;
-        numOfHeart = player.GetComponent<PlayerManager>().max_health;
-        shield = player.GetComponent<PlayerManager>().shield;
+        _max_health = _player.max_health;
+        _local_health = _player.health;
 
+        transform.destroy_children();
+        _hearts = new List<Heart>();
+
+        for(int i = 0; i < _max_health; ++i)
+        {
+            Heart heart = Instantiate(
+                _heart_prefab,
+                Vector3.zero,
+                Quaternion.identity,
+                transform
+            ).GetComponent<Heart>();
+
+            _hearts.Add(heart);
+        }
     }
 
     void Update()
     {
-
-        health = player.GetComponent<PlayerManager>().health;
-        shield = player.GetComponent<PlayerManager>().shield;
-        numOfHeart = player.GetComponent<PlayerManager>().max_health + shield;
-
-        if (health > numOfHeart)
+        if(_local_health != _player.health)
         {
-            health = numOfHeart;
+            update_health();
         }
+    }
 
-        int current_life = health + shield;
-
-        for (int i = 0; i < hearts.Length ; i++)
+    private void update_health()
+    {
+        _local_health = _player.health;
+        
+        for (int i = 0; i < _hearts.Count; ++i)
         {
-
-            //set the sprite of the heart
-            if (i < health )
+            if (i < _local_health)
             {
-                hearts[i].sprite = fullHeart;
+                _hearts[i].set_full();
 
             }
             else
             {
-                if(shield > 0){
-                    hearts[i].sprite = shieldHeart;
-                    shield--;
-                }else
-                {
-                    Debug.Log("shield : " + shield);
-                    hearts[i].sprite = emptyHeart;
-                }       
-            }
-
-            //set the heart active or not
-            if (i < numOfHeart)
-            {
-                hearts[i].enabled = true;
-            }
-            else
-            {
-                hearts[i].enabled = false;
+                _hearts[i].set_empty();
             }
         }
     }
