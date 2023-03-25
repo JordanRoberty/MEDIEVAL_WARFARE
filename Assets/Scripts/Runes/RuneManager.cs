@@ -13,7 +13,7 @@ public class RuneManager : Singleton<RuneManager>
     [HideInInspector]
     public float firing_rate_rune;// {get; private set;} // 0 is shooting fast and 1 is normal shot speed
     [HideInInspector]
-    public float health_rune;//{get; private set;}
+    public int health_rune;//{get; private set;}
     [HideInInspector]
     public float projectile_size_rune;//{get; private set;} 
     [HideInInspector]
@@ -44,7 +44,7 @@ public class RuneManager : Singleton<RuneManager>
         damage_rune = 1f;
         speed_rune = 1f;
         firing_rate_rune = 1f; // 0 is shooting fast and 1 is normal shot speed
-        health_rune = 1f;
+        health_rune = 0;
         projectile_size_rune = 1f; 
         high_jump_rune = 1f;
         money_drop_rate_rune = 1f; // ??
@@ -76,7 +76,7 @@ public class RuneManager : Singleton<RuneManager>
                         firing_rate_rune = rune.GetMutableProperty("modifier");
                         break;
                     case "commonHealthRune": // or "rareHealthRune" or "legendaryHealthRune"
-                        health_rune *= rune.GetMutableProperty("modifier");
+                        health_rune += rune.GetMutableProperty("modifier");
                         break;
                     case "commonProjectileSizeRune": // or "rareProjectileSizeRune" or "legendaryProjectileSizeRune"
                         projectile_size_rune *= rune.GetMutableProperty("modifier");

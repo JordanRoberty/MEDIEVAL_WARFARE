@@ -8,7 +8,6 @@ public class Puddle : Enemy
     {
         pv = 5000.0f;
         speed = 0.0f;
-        damage = 50.0f;
     }
 
     float life_time = 3f;

@@ -6,18 +6,18 @@ public class Enemy : MonoBehaviour
 {
     public float pv;
     protected float speed;
-    protected float damage;
+    protected int damage = 1;
 
     protected int max_droppable_quantity; // The maximum quantity of coins that can be dropped by an enemy
     protected int coin_quantity; // The quantity of coins that will actually be dropped by an enemy
     public GameObject coinPrefab;
 
-    public float get_damage()
+    public int get_damage()
     {
         return damage;
     }
 
-    public void set_damage(float new_damage)
+    public void set_damage(int new_damage)
     {
         damage = new_damage;
     }

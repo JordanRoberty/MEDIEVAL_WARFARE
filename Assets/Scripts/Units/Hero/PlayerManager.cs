@@ -9,15 +9,15 @@ public class PlayerManager : MonoBehaviour
     private RuneManager _rune_manager;
 
     [Header("Health & score")]
-    public float shield = 0f;
-    public float max_health = 100f;
-    public float health = 100f;
+    public int shield = 0;
+    public int max_health = 3;
+    public int health = 3;
     // Time during which the character is invincible after being hit (in seconds)
     public float invulnerability_time = 2.0f;
     
     public int nb_coins = 0;
-    [SerializeField] private TextMeshProUGUI health_text;
-    [SerializeField] private TextMeshProUGUI coins_text;
+    //[SerializeField] private TextMeshProUGUI health_text;
+    //[SerializeField] private TextMeshProUGUI coins_text;
     
 
     void Awake()
@@ -28,14 +28,14 @@ public class PlayerManager : MonoBehaviour
         Debug.Log("Start !");
     }
 
-    public void Init(float rune_health, float rune_shield)
+    public void Init(int rune_health, int rune_shield)
     {
         // Update Player stats according to equiped runes
-        max_health *= rune_health;
+        max_health += rune_health;
         health = max_health;
         shield = rune_shield;
-        health_text.SetText("HEALTH : " + health);
-        coins_text.SetText("MONEY : " + nb_coins);
+        //health_text.SetText("HEALTH : " + health);
+        //coins_text.SetText("MONEY : " + nb_coins);
     }
 
     //The layer 8 is the player, the 9th is the enemy
@@ -60,7 +60,7 @@ public class PlayerManager : MonoBehaviour
 
     public void die()
     {
-        health = 0.0F;
+        health = 0;
         Debug.Log("Player died");
         StopCoroutine("invulnerability");
 
@@ -68,12 +68,12 @@ public class PlayerManager : MonoBehaviour
         
     }
 
-    public void take_damages(float damages)
+    public void take_damages(int damages)
     {
         if (shield == 0)
         {
             health = Mathf.Clamp(health - damages, 0, max_health);
-            health_text.SetText("HEALTH : " + health);
+            //health_text.SetText("HEALTH : " + health);
 
             if(is_dead() && GameManager.Instance._state == GameState.RUNNING)
             {

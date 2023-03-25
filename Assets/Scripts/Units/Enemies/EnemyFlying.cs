@@ -8,7 +8,6 @@ public class EnemyFlying : Enemy
     {
         pv = 100.0f;
         speed = 5.0f;
-        damage = 80.0f;
         max_droppable_quantity = 7;
     }
 
