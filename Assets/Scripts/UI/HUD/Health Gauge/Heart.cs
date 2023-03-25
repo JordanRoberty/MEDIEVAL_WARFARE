@@ -10,7 +10,7 @@ public class Heart : MonoBehaviour
 
     private Image image_renderer;
 
-    private void Start()
+    private void Awake()
     {
         image_renderer = GetComponent<Image>();
         image_renderer.sprite = full_heart;

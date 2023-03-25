@@ -4,9 +4,10 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
-public class DisplayHealth : MonoBehaviour
+public class HealthGauge : MonoBehaviour
 {
     [SerializeField] private PlayerManager _player;
+    [SerializeField] private Transform _heart_gauge;
     [SerializeField] private Heart _heart_prefab;
 
     private int _max_health;
@@ -17,23 +18,9 @@ public class DisplayHealth : MonoBehaviour
 
     public void Start()
     {
-        _max_health = _player.max_health;
-        _local_health = _player.health;
-
-        transform.destroy_children();
+        _max_health = 0;
+        _local_health = 0;
         _hearts = new List<Heart>();
-
-        for(int i = 0; i < _max_health; ++i)
-        {
-            Heart heart = Instantiate(
-                _heart_prefab,
-                Vector3.zero,
-                Quaternion.identity,
-                transform
-            ).GetComponent<Heart>();
-
-            _hearts.Add(heart);
-        }
     }
 
     void Update()
@@ -46,19 +33,32 @@ public class DisplayHealth : MonoBehaviour
 
     private void update_health()
     {
+        _max_health = _player.max_health;
         _local_health = _player.health;
-        
-        for (int i = 0; i < _hearts.Count; ++i)
+
+        _heart_gauge.destroy_children();
+        _hearts.Clear();
+
+        for (int i = 0; i < _max_health; ++i)
         {
+            Heart heart = Instantiate(
+                _heart_prefab,
+                Vector3.zero,
+                Quaternion.identity,
+                _heart_gauge
+            ).GetComponent<Heart>();
+
             if (i < _local_health)
             {
-                _hearts[i].set_full();
+                heart.set_full();
 
             }
             else
             {
-                _hearts[i].set_empty();
+                heart.set_empty();
             }
+
+            _hearts.Add(heart);
         }
     }
 }
