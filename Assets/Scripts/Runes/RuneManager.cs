@@ -43,7 +43,7 @@ public class RuneManager : Singleton<RuneManager>
     {
         damage_rune = 1f;
         speed_rune = 1f;
-        firing_rate_rune = 1f; // 0 is shooting fast and 1 is normal shot speed
+        firing_rate_rune = 0.5f; // 0 is shooting fast and 1 is normal shot speed
         health_rune = 0;
         projectile_size_rune = 1f; 
         high_jump_rune = 1f;
@@ -57,6 +57,7 @@ public class RuneManager : Singleton<RuneManager>
 
         transform.GetComponent<Movement2D>().Init();
         transform.GetComponent<PlayerManager>().Init(health_rune, shield_rune);
+        transform.GetChild(0).GetComponent<WeaponManager>().Init(firing_rate_rune);
 
     }
 
@@ -72,31 +73,31 @@ public class RuneManager : Singleton<RuneManager>
                     case "commonSpeedRune" or "rareSpeedRune" or "legendarySpeedRune":
                         speed_rune *= rune.GetMutableProperty("modifier");
                         break;
-                    case "commonFiringRateRune": // or "rareFiringRateRune" or "legendaryFiringRateRune"
+                    case "commonFiringRateRune"or "rareFiringRateRune" or "legendaryFiringRateRune":
                         firing_rate_rune = rune.GetMutableProperty("modifier");
                         break;
-                    case "commonHealthRune": // or "rareHealthRune" or "legendaryHealthRune"
+                    case  "rareHealthRune" :
                         health_rune += rune.GetMutableProperty("modifier");
                         break;
-                    case "commonProjectileSizeRune": // or "rareProjectileSizeRune" or "legendaryProjectileSizeRune"
+                    case "commonProjectileSizeRune" or "rareProjectileSizeRune" or "legendaryProjectileSizeRune":
                         projectile_size_rune *= rune.GetMutableProperty("modifier");
                         break;
-                    case "commonHighJumpRune": // or "rareHighJumpRune" or "legendaryHighJumpRune
+                    case "commonHighJumpRune" or "rareHighJumpRune" or "legendaryHighJumpRune":
                         high_jump_rune *= rune.GetMutableProperty("modifier");
                         break;
                     case "commonMoneyDropRateRune": // or "rareMoneyDropRateRune" or "legendaryMoneyDropRateRune
                         money_drop_rate_rune *= rune.GetMutableProperty("modifier");
                         break;
-                    case "commonBulletSpeedRune": // or "rareBulletSpeedRune" or "legendaryBulletSpeedRune
+                    case "commonBulletSpeedRune" or "rareBulletSpeedRune" or "legendaryBulletSpeedRune":
                         bullet_speed_rune *= rune.GetMutableProperty("modifier");
                         break;
-                    case "commonShieldRune": // or "rareShieldRune" or "legendaryShieldRune
+                    case "commonShieldRune":
                         shield_rune += rune.GetMutableProperty("modifier");
                         break;
-                    case "commonCriticalHitRune": // or "rareCriticalHitRune" or "legendaryCriticalHitRune
+                    case "commonCriticalHitRune" or "rareCriticalHitRune" or "legendaryCriticalHitRune":
                         critial_hit_rune += rune.GetMutableProperty("modifier");
                         break;
-                    case "commonTripleJumpRune": // or "rareTripleJumpRune" or "legendaryTripleJumpRune
+                    case "commonTripleJumpRune":
                         triple_jump_rune = true;
                         break;
                     default:

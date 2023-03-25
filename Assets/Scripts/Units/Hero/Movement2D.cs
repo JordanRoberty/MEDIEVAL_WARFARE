@@ -77,7 +77,7 @@ public class Movement2D : MonoBehaviour
         _jump_force *= transform.GetComponent<RuneManager>().high_jump_rune;
         if(transform.GetComponent<RuneManager>().triple_jump_rune)
         {
-            _extra_jumps = 2;
+            _extra_jumps++;
         }
 
         //BOSS SCENE
