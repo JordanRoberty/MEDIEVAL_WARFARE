@@ -4,9 +4,9 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
-public class DisplayLife : MonoBehaviour
+public class DisplayHealth : MonoBehaviour
 {
-    private int health;
+   private int health;
     private int numOfHeart;
     private int shield;
     private int maximum_health;
@@ -56,12 +56,13 @@ public class DisplayLife : MonoBehaviour
                     shield--;
                 }else
                 {
+                    Debug.Log("shield : " + shield);
                     hearts[i].sprite = emptyHeart;
                 }       
             }
 
             //set the heart active or not
-            if (i < current_life)
+            if (i < numOfHeart)
             {
                 hearts[i].enabled = true;
             }
