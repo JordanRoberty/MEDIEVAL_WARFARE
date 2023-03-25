@@ -101,19 +101,21 @@ public class SceneController : Singleton<SceneController>
         SceneManager.UnloadSceneAsync(_scenes[_current_scene]);
 
         // Load player
-        SceneManager.LoadScene("Player", LoadSceneMode.Additive);
-
-        // Load Level
-        AsyncOperation load_level = SceneManager.LoadSceneAsync(_scenes[level], LoadSceneMode.Additive);
-        load_level.completed += (AsyncOperation result) =>
+        AsyncOperation load_Player = SceneManager.LoadSceneAsync("Player", LoadSceneMode.Additive);
+        load_Player.completed += (AsyncOperation result) =>
         {
-            _current_scene = level;
+            // Load Level
+            AsyncOperation load_level = SceneManager.LoadSceneAsync(_scenes[level], LoadSceneMode.Additive);
+            load_level.completed += (AsyncOperation result) =>
+            {
+                _current_scene = level;
 
-            // Manage Menu
-            if (_current_menu != GameMenu.NONE)  SceneManager.UnloadSceneAsync(_menus[_current_menu]);
-            _current_menu = GameMenu.NONE;
-            SceneManager.UnloadSceneAsync("loading_menu");
-            GameManager.Instance.set_state(GameState.RUNNING);
+                // Manage Menu
+                if (_current_menu != GameMenu.NONE) SceneManager.UnloadSceneAsync(_menus[_current_menu]);
+                _current_menu = GameMenu.NONE;
+                SceneManager.UnloadSceneAsync("loading_menu");
+                GameManager.Instance.set_state(GameState.RUNNING);
+            };
         };
     }
 
