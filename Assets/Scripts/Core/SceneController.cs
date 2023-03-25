@@ -99,6 +99,11 @@ public class SceneController : Singleton<SceneController>
         
         // Manage Scene
         SceneManager.UnloadSceneAsync(_scenes[_current_scene]);
+
+        // Load player
+        SceneManager.LoadScene("Player", LoadSceneMode.Additive);
+
+        // Load Level
         AsyncOperation load_level = SceneManager.LoadSceneAsync(_scenes[level], LoadSceneMode.Additive);
         load_level.completed += (AsyncOperation result) =>
         {

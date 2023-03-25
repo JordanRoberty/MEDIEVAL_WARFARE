@@ -27,6 +27,9 @@ EditorBuildSettings:
     path: Assets/Scenes/scores_menu.unity
     guid: ca03c094e84af094cae06f6f4ec2ad83
   - enabled: 1
+    path: Assets/Scenes/Player.unity
+    guid: 622009156f5b9d04db9c1c1c0084deda
+  - enabled: 1
     path: Assets/Scenes/level_1.unity
     guid: d2b350bdff9f2ab41a700af6a473e8a2
   - enabled: 1
