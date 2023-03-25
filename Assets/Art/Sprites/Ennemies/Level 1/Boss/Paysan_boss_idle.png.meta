@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c9c976b3e05314944a7354a1e081d475
+guid: 8baa8c0699998c54ab24f62cd4cf03a0
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -105,7 +105,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Paysan_boss_saut_0
+      name: Paysan_boss_idle_0
       rect:
         serializedVersion: 2
         x: 0
@@ -113,20 +113,20 @@ TextureImporter:
         width: 300
         height: 110
       alignment: 9
-      pivot: {x: 0.54, y: 0.46}
+      pivot: {x: 0.53, y: 0.46}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 556ccd591dea5eb4b9ffa07a67fda044
-      internalID: -873393367
+      spriteID: 3d574391c022e8c4cb0f505343202c3d
+      internalID: -497556141
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Paysan_boss_saut_1
+      name: Paysan_boss_idle_1
       rect:
         serializedVersion: 2
         x: 300
@@ -134,20 +134,20 @@ TextureImporter:
         width: 300
         height: 110
       alignment: 9
-      pivot: {x: 0.54, y: 0.46}
+      pivot: {x: 0.53, y: 0.46}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ce5a2ec3e9c4f3042a0a45a3434f81a8
-      internalID: 2054754636
+      spriteID: a89a2b2274e5c3640aefbf65c7d474be
+      internalID: -529383727
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Paysan_boss_saut_2
+      name: Paysan_boss_idle_2
       rect:
         serializedVersion: 2
         x: 600
@@ -155,20 +155,20 @@ TextureImporter:
         width: 300
         height: 110
       alignment: 9
-      pivot: {x: 0.54, y: 0.46}
+      pivot: {x: 0.53, y: 0.46}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dc727a107f5ba5e45a2ef3fd623e97e5
-      internalID: -2073295775
+      spriteID: 7e058a3835682194e988712ec3f8d525
+      internalID: -1297162270
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Paysan_boss_saut_3
+      name: Paysan_boss_idle_3
       rect:
         serializedVersion: 2
         x: 900
@@ -176,20 +176,20 @@ TextureImporter:
         width: 300
         height: 110
       alignment: 9
-      pivot: {x: 0.54, y: 0.46}
+      pivot: {x: 0.53, y: 0.46}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bbea704de5b5c4e4e8869eb79e5de2cc
-      internalID: -885441874
+      spriteID: dcd97981356afd44cbb0de60b54f7b44
+      internalID: -2002941395
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Paysan_boss_saut_4
+      name: Paysan_boss_idle_4
       rect:
         serializedVersion: 2
         x: 1200
@@ -197,14 +197,35 @@ TextureImporter:
         width: 300
         height: 110
       alignment: 9
-      pivot: {x: 0.54, y: 0.46}
+      pivot: {x: 0.53, y: 0.46}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e7e7f7694cdfcac43afe037d9b7f9fa3
-      internalID: -1873999108
+      spriteID: e691393b6e8e127458a9fa320da936d9
+      internalID: 912729825
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Paysan_boss_idle_5
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 0
+        width: 300
+        height: 110
+      alignment: 9
+      pivot: {x: 0.53, y: 0.46}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a935bf8f4c1541c4ea36bb6077e0387c
+      internalID: 2066104199
       vertices: []
       indices: 
       edges: []
@@ -220,11 +241,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Paysan_boss_saut_0: -873393367
-      Paysan_boss_saut_4: -1873999108
-      Paysan_boss_saut_1: 2054754636
-      Paysan_boss_saut_3: -885441874
-      Paysan_boss_saut_2: -2073295775
+      Paysan_boss_idle_3: -2002941395
+      Paysan_boss_idle_2: -1297162270
+      Paysan_boss_idle_0: -497556141
+      Paysan_boss_idle_4: 912729825
+      Paysan_boss_idle_1: -529383727
+      Paysan_boss_idle_5: 2066104199
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

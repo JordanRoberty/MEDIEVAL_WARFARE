@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: acfc720864108464f8073f89cb937a63
+guid: 5f294306d077bd144a75188dab412705
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -105,7 +105,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Paysan_boss_marche_arriere_0
+      name: Paysan_boss_marche_avant_0
       rect:
         serializedVersion: 2
         x: 0
@@ -113,20 +113,20 @@ TextureImporter:
         width: 300
         height: 110
       alignment: 9
-      pivot: {x: 0.53, y: 0.46}
+      pivot: {x: 0.54, y: 0.46}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5e913f10fc508ad429777b17a49e7ac9
-      internalID: 136240382
+      spriteID: 3380d957c9cb5b448abc856b03ed18d9
+      internalID: 1632295755
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Paysan_boss_marche_arriere_1
+      name: Paysan_boss_marche_avant_1
       rect:
         serializedVersion: 2
         x: 300
@@ -134,20 +134,20 @@ TextureImporter:
         width: 300
         height: 110
       alignment: 9
-      pivot: {x: 0.53, y: 0.46}
+      pivot: {x: 0.54, y: 0.46}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 90e18d47838d79d47a3667b1c9addc11
-      internalID: 1156235626
+      spriteID: a2cd9692fd875d6479774b94d85cd74b
+      internalID: -895151877
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Paysan_boss_marche_arriere_2
+      name: Paysan_boss_marche_avant_2
       rect:
         serializedVersion: 2
         x: 600
@@ -155,20 +155,20 @@ TextureImporter:
         width: 300
         height: 110
       alignment: 9
-      pivot: {x: 0.53, y: 0.46}
+      pivot: {x: 0.54, y: 0.46}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5a0d38971ef03354e996b0f847648115
-      internalID: -1993208718
+      spriteID: 75f3a25d0c1041942af8016292a0129d
+      internalID: 1301491456
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Paysan_boss_marche_arriere_3
+      name: Paysan_boss_marche_avant_3
       rect:
         serializedVersion: 2
         x: 900
@@ -176,20 +176,20 @@ TextureImporter:
         width: 300
         height: 110
       alignment: 9
-      pivot: {x: 0.53, y: 0.46}
+      pivot: {x: 0.54, y: 0.46}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c0409412ff452334e942c2496c671014
-      internalID: 1469929219
+      spriteID: 5bda2c5eea8f32947ac2b7e5debda7ce
+      internalID: 740804553
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Paysan_boss_marche_arriere_4
+      name: Paysan_boss_marche_avant_4
       rect:
         serializedVersion: 2
         x: 1200
@@ -197,20 +197,20 @@ TextureImporter:
         width: 300
         height: 110
       alignment: 9
-      pivot: {x: 0.53, y: 0.46}
+      pivot: {x: 0.54, y: 0.46}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8de544aeb4c69104c846e20c81b4ff8c
-      internalID: 1936397767
+      spriteID: 0658f232cb4e91746b9988de5a2a8649
+      internalID: -1130319625
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Paysan_boss_marche_arriere_5
+      name: Paysan_boss_marche_avant_5
       rect:
         serializedVersion: 2
         x: 1500
@@ -218,20 +218,20 @@ TextureImporter:
         width: 300
         height: 110
       alignment: 9
-      pivot: {x: 0.53, y: 0.46}
+      pivot: {x: 0.54, y: 0.46}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dd201f73fd883e948b4b6cdb46a2dccd
-      internalID: 2079238394
+      spriteID: 886a0bee7ae321d4eb0bf1cf9fee0f80
+      internalID: -1082621856
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Paysan_boss_marche_arriere_6
+      name: Paysan_boss_marche_avant_6
       rect:
         serializedVersion: 2
         x: 1800
@@ -239,20 +239,20 @@ TextureImporter:
         width: 300
         height: 110
       alignment: 9
-      pivot: {x: 0.53, y: 0.46}
+      pivot: {x: 0.54, y: 0.46}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6ccf44152c922de4a8ece82703e9cb75
-      internalID: -730164754
+      spriteID: ec8bfec998f7b6f4b9522df851fcccfa
+      internalID: 15837917
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Paysan_boss_marche_arriere_7
+      name: Paysan_boss_marche_avant_7
       rect:
         serializedVersion: 2
         x: 2100
@@ -260,20 +260,20 @@ TextureImporter:
         width: 300
         height: 110
       alignment: 9
-      pivot: {x: 0.53, y: 0.46}
+      pivot: {x: 0.54, y: 0.46}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 06e1a0ddb774ffe479c103b9007887e7
-      internalID: 912711720
+      spriteID: 9e537bcd2f24b84469876e0830cc7539
+      internalID: -1748005110
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Paysan_boss_marche_arriere_8
+      name: Paysan_boss_marche_avant_8
       rect:
         serializedVersion: 2
         x: 2400
@@ -281,20 +281,20 @@ TextureImporter:
         width: 300
         height: 110
       alignment: 9
-      pivot: {x: 0.53, y: 0.46}
+      pivot: {x: 0.54, y: 0.46}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0566c190ba93d5f44ae7ea06d3367848
-      internalID: 428070946
+      spriteID: 497b833ea4bce88438e0aaa3f0a7bde1
+      internalID: 1699729918
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Paysan_boss_marche_arriere_9
+      name: Paysan_boss_marche_avant_9
       rect:
         serializedVersion: 2
         x: 2700
@@ -302,14 +302,77 @@ TextureImporter:
         width: 300
         height: 110
       alignment: 9
-      pivot: {x: 0.53, y: 0.46}
+      pivot: {x: 0.54, y: 0.46}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b90f6747b370cd04f93e96fd83b562fe
-      internalID: 571970487
+      spriteID: 5189cc36cee80c04bb5b3a694c3f7af0
+      internalID: -775566786
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Paysan_boss_marche_avant_10
+      rect:
+        serializedVersion: 2
+        x: 3000
+        y: 0
+        width: 300
+        height: 110
+      alignment: 9
+      pivot: {x: 0.54, y: 0.46}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3dbd2618015341f48adae7c8f8e92ac4
+      internalID: 1106645944
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Paysan_boss_marche_avant_11
+      rect:
+        serializedVersion: 2
+        x: 3300
+        y: 0
+        width: 300
+        height: 110
+      alignment: 9
+      pivot: {x: 0.54, y: 0.46}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 266c1a501665cc74fbf63536302a5fb9
+      internalID: -1270464157
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Paysan_boss_marche_avant_12
+      rect:
+        serializedVersion: 2
+        x: 3600
+        y: 0
+        width: 300
+        height: 110
+      alignment: 9
+      pivot: {x: 0.54, y: 0.46}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bfa3d07a826a96249b2e6d27eaf5cdf8
+      internalID: -704247228
       vertices: []
       indices: 
       edges: []
@@ -325,16 +388,19 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Paysan_boss_marche_arriere_8: 428070946
-      Paysan_boss_marche_arriere_9: 571970487
-      Paysan_boss_marche_arriere_5: 2079238394
-      Paysan_boss_marche_arriere_6: -730164754
-      Paysan_boss_marche_arriere_0: 136240382
-      Paysan_boss_marche_arriere_1: 1156235626
-      Paysan_boss_marche_arriere_2: -1993208718
-      Paysan_boss_marche_arriere_3: 1469929219
-      Paysan_boss_marche_arriere_4: 1936397767
-      Paysan_boss_marche_arriere_7: 912711720
+      Paysan_boss_marche_avant_1: -895151877
+      Paysan_boss_marche_avant_11: -1270464157
+      Paysan_boss_marche_avant_4: -1130319625
+      Paysan_boss_marche_avant_6: 15837917
+      Paysan_boss_marche_avant_8: 1699729918
+      Paysan_boss_marche_avant_10: 1106645944
+      Paysan_boss_marche_avant_12: -704247228
+      Paysan_boss_marche_avant_9: -775566786
+      Paysan_boss_marche_avant_3: 740804553
+      Paysan_boss_marche_avant_7: -1748005110
+      Paysan_boss_marche_avant_2: 1301491456
+      Paysan_boss_marche_avant_0: 1632295755
+      Paysan_boss_marche_avant_5: -1082621856
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

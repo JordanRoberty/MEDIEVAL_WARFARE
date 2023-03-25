@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 35
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 90fbaea7289a07349891240ed6f82a25, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -121,6 +121,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pv: 4000
+  coinPrefab: {fileID: 0}
   puddle: {fileID: 4706152124163653200, guid: c03497f96e1a6374f830cca19af1cda8, type: 3}
 --- !u!58 &3875696490581138548
 CircleCollider2D:

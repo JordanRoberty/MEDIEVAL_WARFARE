@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: e90fc047f21a1d446aec77d6bd43bd21
+guid: b548ac9d7a5cd0948b4e40fe086cc3b4
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -49,7 +49,7 @@ TextureImporter:
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 20
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spriteGenerateFallbackPhysicsShape: 0
+  spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
@@ -67,7 +67,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 16384
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -105,13 +105,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Paysan_boss_marche_idle_0
+      name: Bottle_puddle_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 78
-        height: 99
+        width: 35
+        height: 14
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -119,20 +119,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d7e7764b000c65a4d91d69df414dc7cc
-      internalID: -7249108
+      spriteID: c215b1a07a716a049afe25e36f209363
+      internalID: -33912696
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Paysan_boss_marche_idle_1
+      name: Bottle_puddle_1
       rect:
         serializedVersion: 2
-        x: 79
+        x: 35
         y: 0
-        width: 78
-        height: 99
+        width: 35
+        height: 14
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -140,20 +140,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 16914e19592dc044d83e60dcb8664d95
-      internalID: 1900304410
+      spriteID: d35463f2accc2b14d9339c07c6a5f19c
+      internalID: -1602949298
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Paysan_boss_marche_idle_2
+      name: Bottle_puddle_2
       rect:
         serializedVersion: 2
-        x: 158
+        x: 70
         y: 0
-        width: 78
-        height: 99
+        width: 35
+        height: 14
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -161,20 +161,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5e8cd473b88fd0c4d93c95065edad907
-      internalID: 323581782
+      spriteID: d569dfd4b3d33a340a624a19df586f78
+      internalID: -627881585
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Paysan_boss_marche_idle_3
+      name: Bottle_puddle_3
       rect:
         serializedVersion: 2
-        x: 237
+        x: 105
         y: 0
-        width: 78
-        height: 99
+        width: 35
+        height: 14
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -182,20 +182,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8ad7ae4d96839994ca09c60fb6637060
-      internalID: -1119102042
+      spriteID: 142a69dcc85065a49a37f96d5fbfe3c0
+      internalID: -2018283295
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Paysan_boss_marche_idle_4
+      name: Bottle_puddle_4
       rect:
         serializedVersion: 2
-        x: 316
+        x: 140
         y: 0
-        width: 78
-        height: 99
+        width: 35
+        height: 14
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -203,20 +203,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 90a31c05bfc766e4aa977eac5fbe08b3
-      internalID: 2137507737
+      spriteID: 124f29aa443855a4889fecf41425203e
+      internalID: -222318216
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Paysan_boss_marche_idle_5
+      name: Bottle_puddle_5
       rect:
         serializedVersion: 2
-        x: 395
+        x: 175
         y: 0
-        width: 78
-        height: 99
+        width: 35
+        height: 14
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -224,8 +224,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7bd1dbc5ab388154eb61de1115bceebc
-      internalID: -215749514
+      spriteID: 64c63aa0e39a8594f83b40dcaa38e3e4
+      internalID: 1578686809
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bottle_puddle_6
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 0
+        width: 35
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b5bf989fb05aa64fa5ad7ca61a47d81
+      internalID: 1423764973
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bottle_puddle_7
+      rect:
+        serializedVersion: 2
+        x: 245
+        y: 0
+        width: 35
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db2b46ac1603cb043bea5964d9423e33
+      internalID: 1270723762
       vertices: []
       indices: 
       edges: []
@@ -241,12 +283,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Paysan_boss_marche_idle_0: -7249108
-      Paysan_boss_marche_idle_1: 1900304410
-      Paysan_boss_marche_idle_2: 323581782
-      Paysan_boss_marche_idle_5: -215749514
-      Paysan_boss_marche_idle_3: -1119102042
-      Paysan_boss_marche_idle_4: 2137507737
+      Bottle_puddle_0: -33912696
+      Bottle_puddle_2: -627881585
+      Bottle_puddle_5: 1578686809
+      Bottle_puddle_3: -2018283295
+      Bottle_puddle_4: -222318216
+      Bottle_puddle_7: 1270723762
+      Bottle_puddle_1: -1602949298
+      Bottle_puddle_6: 1423764973
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
