@@ -71,9 +71,9 @@ public class Movement2D : MonoBehaviour
         objectHeight = GetComponent<SpriteRenderer>().bounds.extents.y; //extents = size of height / 2
     }
 
-    public void init()
+    public void init(Camera main_cam)
     {
-        camera = GameObject.FindWithTag("MainCamera").GetComponent<Camera>();
+        camera = main_cam;
 
         //RUNE MODIFIER
         _move_speed *= RuneManager.Instance.speed_rune;
@@ -89,8 +89,7 @@ public class Movement2D : MonoBehaviour
         {
             is_boss_scene = true;
         }else{
-        _default_speed = camera.GetComponent<CameraBehavior>().speed;
-
+            _default_speed = camera.GetComponent<CameraBehavior>().speed;
         }
 
         _current_speed = _move_speed;
@@ -142,12 +141,13 @@ public class Movement2D : MonoBehaviour
      void LateUpdate()
     {
         //Clmp the player to the screen
-        screenBounds = camera.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
+        screenBounds = camera.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, camera.transform.position.z));
         Vector3 viewPos = transform.position;
         //clamp the x position to the screen bounds
         viewPos.x = Mathf.Clamp(viewPos.x, screenBounds.x *-1 + objectWidth, screenBounds.x  - objectWidth);
         transform.position = viewPos;
     }
+
     private void FixedUpdate()
     {
         check_ground_collision();

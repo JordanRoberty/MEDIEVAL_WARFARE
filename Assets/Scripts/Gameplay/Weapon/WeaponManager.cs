@@ -19,9 +19,9 @@ public class WeaponManager : MonoBehaviour
     private GameObject bullet_prefab;
     [SerializeField] private Transform _bullet_container;
 
-    public void init()
+    public void init(Camera main_cam)
     {
-        _main_cam = GameObject.FindWithTag("MainCamera").GetComponent<Camera>();
+        _main_cam = main_cam;
         _weapon_infos = PlayerInfosManager.Instance.equiped_weapon;
         shot_freq = (float)_weapon_infos.definition.GetStaticProperty("firing_rate");
         shot_freq *= RuneManager.Instance.firing_rate_rune;
