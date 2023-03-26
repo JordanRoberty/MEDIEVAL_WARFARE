@@ -1,5 +1,54 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-9040205315119447273
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcbd052539327467295d2009d33aa660, type: 3}
+  m_Name: Item_rareBulletSpeedRune
+  m_EditorClassIdentifier: 
+  m_DisplayName: Bullet Speed Rune (Rare)
+  m_Key: rareBulletSpeedRune
+  m_Tags:
+  - {fileID: -4591129078935206501}
+  - {fileID: 5304819582551107541}
+  m_StaticPropertyKeys:
+  - item_icon
+  m_StaticPropertyValues:
+  - <type>k__BackingField: 5
+    m_ValueType:
+      longValue: 0
+    m_StringValue: Assets/Art/Sprites/Runes/speed_rune.png
+  m_InitialAllocation: 0
+  m_IsStackableFlag: 1
+  m_InitialQuantityPerStack: 1
+  m_MutablePropertyKeys:
+  - type
+  - rarity
+  - modifier
+  - equiped
+  m_MutablePropertyDefaultValues:
+  - <type>k__BackingField: 3
+    m_ValueType:
+      longValue: 0
+    m_StringValue: statistics
+  - <type>k__BackingField: 3
+    m_ValueType:
+      longValue: 0
+    m_StringValue: rare
+  - <type>k__BackingField: 1
+    m_ValueType:
+      longValue: 4608308318706860032
+    m_StringValue: 
+  - <type>k__BackingField: 2
+    m_ValueType:
+      longValue: 0
+    m_StringValue: 
 --- !u!114 &-8717788907291719258
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -72,7 +121,181 @@ MonoBehaviour:
   - {fileID: 5304819582551107541}
   - {fileID: 5328996562115661337}
   - {fileID: 3756805002680557395}
+  - {fileID: -5290750113591347761}
   m_CatalogAsset: {fileID: 11400000}
+--- !u!114 &-8169112494538138968
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcbd052539327467295d2009d33aa660, type: 3}
+  m_Name: Item_legendaryCriticalChanceRune
+  m_EditorClassIdentifier: 
+  m_DisplayName: Critical Chance Rune (Legendary)
+  m_Key: legendaryCriticalChanceRune
+  m_Tags:
+  - {fileID: -4591129078935206501}
+  - {fileID: 5304819582551107541}
+  m_StaticPropertyKeys:
+  - item_icon
+  m_StaticPropertyValues:
+  - <type>k__BackingField: 5
+    m_ValueType:
+      longValue: 0
+    m_StringValue: Assets/Art/Sprites/Runes/speed_rune.png
+  m_InitialAllocation: 0
+  m_IsStackableFlag: 1
+  m_InitialQuantityPerStack: 1
+  m_MutablePropertyKeys:
+  - type
+  - rarity
+  - modifier
+  - equiped
+  m_MutablePropertyDefaultValues:
+  - <type>k__BackingField: 3
+    m_ValueType:
+      longValue: 0
+    m_StringValue: statistics
+  - <type>k__BackingField: 3
+    m_ValueType:
+      longValue: 0
+    m_StringValue: legendary
+  - <type>k__BackingField: 1
+    m_ValueType:
+      longValue: 4629841154425225216
+    m_StringValue: 
+  - <type>k__BackingField: 2
+    m_ValueType:
+      longValue: 0
+    m_StringValue: 
+--- !u!114 &-7986341259891477001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcbd052539327467295d2009d33aa660, type: 3}
+  m_Name: Item_rareExtraJumpRune
+  m_EditorClassIdentifier: 
+  m_DisplayName: Extra Jump Rune (Rare)
+  m_Key: rareExtraJumpRune
+  m_Tags:
+  - {fileID: -4591129078935206501}
+  - {fileID: -5290750113591347761}
+  m_StaticPropertyKeys:
+  - item_icon
+  m_StaticPropertyValues:
+  - <type>k__BackingField: 5
+    m_ValueType:
+      longValue: 0
+    m_StringValue: Assets/Art/Sprites/Runes/speed_rune.png
+  m_InitialAllocation: 0
+  m_IsStackableFlag: 1
+  m_InitialQuantityPerStack: 1
+  m_MutablePropertyKeys:
+  - type
+  - rarity
+  - equiped
+  m_MutablePropertyDefaultValues:
+  - <type>k__BackingField: 3
+    m_ValueType:
+      longValue: 0
+    m_StringValue: gameplay
+  - <type>k__BackingField: 3
+    m_ValueType:
+      longValue: 0
+    m_StringValue: rare
+  - <type>k__BackingField: 2
+    m_ValueType:
+      longValue: 0
+    m_StringValue: 
+--- !u!114 &-7777174297763336316
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcbd052539327467295d2009d33aa660, type: 3}
+  m_Name: Item_commonHighJumpRune
+  m_EditorClassIdentifier: 
+  m_DisplayName: High Jump Rune (Common)
+  m_Key: commonHighJumpRune
+  m_Tags:
+  - {fileID: -4591129078935206501}
+  - {fileID: 5304819582551107541}
+  m_StaticPropertyKeys:
+  - item_icon
+  m_StaticPropertyValues:
+  - <type>k__BackingField: 5
+    m_ValueType:
+      longValue: 0
+    m_StringValue: Assets/Art/Sprites/Runes/speed_rune.png
+  m_InitialAllocation: 0
+  m_IsStackableFlag: 1
+  m_InitialQuantityPerStack: 1
+  m_MutablePropertyKeys:
+  - type
+  - rarity
+  - modifier
+  - equiped
+  m_MutablePropertyDefaultValues:
+  - <type>k__BackingField: 3
+    m_ValueType:
+      longValue: 0
+    m_StringValue: statistics
+  - <type>k__BackingField: 3
+    m_ValueType:
+      longValue: 0
+    m_StringValue: common
+  - <type>k__BackingField: 1
+    m_ValueType:
+      longValue: 4607632778762754458
+    m_StringValue: 
+  - <type>k__BackingField: 2
+    m_ValueType:
+      longValue: 0
+    m_StringValue: 
+--- !u!114 &-7559816695210944817
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 188049432bcf74f78b314dc2b03ee516, type: 3}
+  m_Name: VirtualTransaction_buyCommonFiringRateRune
+  m_EditorClassIdentifier: 
+  m_DisplayName: 'Firing Rate Rune (Common) '
+  m_Key: buyCommonFiringRateRune
+  m_Tags:
+  - {fileID: -4591129078935206501}
+  m_StaticPropertyKeys:
+  - transaction_icon
+  m_StaticPropertyValues:
+  - <type>k__BackingField: 5
+    m_ValueType:
+      longValue: 0
+    m_StringValue: Assets/Art/Sprites/Runes/speed_rune.png
+  m_Payout:
+    m_Exchanges:
+    - m_CatalogItem: {fileID: -373247191189450316}
+      m_Amount: 1
+  m_Costs:
+    m_Exchanges:
+    - m_CatalogItem: {fileID: -3734650512700470626}
+      m_Amount: 100
 --- !u!114 &-6944496135251920086
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -97,7 +320,89 @@ MonoBehaviour:
       longValue: 0
     m_StringValue: Assets/Art/Sprites/Runes/speed_rune.png
   m_Payout:
-    m_Exchanges: []
+    m_Exchanges:
+    - m_CatalogItem: {fileID: 4545930279128530339}
+      m_Amount: 1
+  m_Costs:
+    m_Exchanges:
+    - m_CatalogItem: {fileID: -3734650512700470626}
+      m_Amount: 100
+--- !u!114 &-6643569677680102406
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcbd052539327467295d2009d33aa660, type: 3}
+  m_Name: Item_commonDamageRune
+  m_EditorClassIdentifier: 
+  m_DisplayName: Damage Rune (Common)
+  m_Key: commonDamageRune
+  m_Tags:
+  - {fileID: -4591129078935206501}
+  - {fileID: 5304819582551107541}
+  m_StaticPropertyKeys:
+  - item_icon
+  m_StaticPropertyValues:
+  - <type>k__BackingField: 5
+    m_ValueType:
+      longValue: 0
+    m_StringValue: Assets/Art/Sprites/Runes/speed_rune.png
+  m_InitialAllocation: 0
+  m_IsStackableFlag: 1
+  m_InitialQuantityPerStack: 1
+  m_MutablePropertyKeys:
+  - type
+  - rarity
+  - modifier
+  - equiped
+  m_MutablePropertyDefaultValues:
+  - <type>k__BackingField: 3
+    m_ValueType:
+      longValue: 0
+    m_StringValue: statistics
+  - <type>k__BackingField: 3
+    m_ValueType:
+      longValue: 0
+    m_StringValue: common
+  - <type>k__BackingField: 1
+    m_ValueType:
+      longValue: 4607632778762754458
+    m_StringValue: 
+  - <type>k__BackingField: 2
+    m_ValueType:
+      longValue: 0
+    m_StringValue: 
+--- !u!114 &-6365414212005067924
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 188049432bcf74f78b314dc2b03ee516, type: 3}
+  m_Name: VirtualTransaction_buyCommonHighJumpRune
+  m_EditorClassIdentifier: 
+  m_DisplayName: High Jump Rune (Common)
+  m_Key: buyCommonHighJumpRune
+  m_Tags:
+  - {fileID: -4591129078935206501}
+  m_StaticPropertyKeys:
+  - transaction_icon
+  m_StaticPropertyValues:
+  - <type>k__BackingField: 5
+    m_ValueType:
+      longValue: 0
+    m_StringValue: Assets/Art/Sprites/Runes/speed_rune.png
+  m_Payout:
+    m_Exchanges:
+    - m_CatalogItem: {fileID: -7777174297763336316}
+      m_Amount: 1
   m_Costs:
     m_Exchanges:
     - m_CatalogItem: {fileID: -3734650512700470626}
@@ -120,9 +425,156 @@ MonoBehaviour:
   m_StaticPropertyKeys: []
   m_StaticPropertyValues: []
   m_Payout:
-    m_Exchanges: []
+    m_Exchanges:
+    - m_CatalogItem: {fileID: -1655170713121715388}
+      m_Amount: 0
   m_Costs:
-    m_Exchanges: []
+    m_Exchanges:
+    - m_CatalogItem: {fileID: -3734650512700470626}
+      m_Amount: 1000
+--- !u!114 &-6211224067842480719
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcbd052539327467295d2009d33aa660, type: 3}
+  m_Name: Item_commonBulletSpeedRune
+  m_EditorClassIdentifier: 
+  m_DisplayName: Bullet Speed Rune (Common)
+  m_Key: commonBulletSpeedRune
+  m_Tags:
+  - {fileID: -4591129078935206501}
+  - {fileID: 5304819582551107541}
+  m_StaticPropertyKeys:
+  - item_icon
+  m_StaticPropertyValues:
+  - <type>k__BackingField: 5
+    m_ValueType:
+      longValue: 0
+    m_StringValue: Assets/Art/Sprites/Runes/speed_rune.png
+  m_InitialAllocation: 0
+  m_IsStackableFlag: 1
+  m_InitialQuantityPerStack: 1
+  m_MutablePropertyKeys:
+  - type
+  - rarity
+  - modifier
+  - equiped
+  m_MutablePropertyDefaultValues:
+  - <type>k__BackingField: 3
+    m_ValueType:
+      longValue: 0
+    m_StringValue: statistics
+  - <type>k__BackingField: 3
+    m_ValueType:
+      longValue: 0
+    m_StringValue: common
+  - <type>k__BackingField: 1
+    m_ValueType:
+      longValue: 4607632778762754458
+    m_StringValue: 
+  - <type>k__BackingField: 2
+    m_ValueType:
+      longValue: 0
+    m_StringValue: 
+--- !u!114 &-5938022825529016979
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcbd052539327467295d2009d33aa660, type: 3}
+  m_Name: Item_rareHealthRune
+  m_EditorClassIdentifier: 
+  m_DisplayName: Health Rune (Rare)
+  m_Key: rareHealthRune
+  m_Tags:
+  - {fileID: -4591129078935206501}
+  - {fileID: 5304819582551107541}
+  m_StaticPropertyKeys:
+  - item_icon
+  m_StaticPropertyValues:
+  - <type>k__BackingField: 5
+    m_ValueType:
+      longValue: 0
+    m_StringValue: Assets/Art/Sprites/Runes/speed_rune.png
+  m_InitialAllocation: 0
+  m_IsStackableFlag: 1
+  m_InitialQuantityPerStack: 1
+  m_MutablePropertyKeys:
+  - type
+  - rarity
+  - modifier
+  - equiped
+  m_MutablePropertyDefaultValues:
+  - <type>k__BackingField: 3
+    m_ValueType:
+      longValue: 0
+    m_StringValue: statistics
+  - <type>k__BackingField: 3
+    m_ValueType:
+      longValue: 0
+    m_StringValue: rare
+  - <type>k__BackingField: 0
+    m_ValueType:
+      longValue: 1
+    m_StringValue: 
+  - <type>k__BackingField: 2
+    m_ValueType:
+      longValue: 0
+    m_StringValue: 
+--- !u!114 &-5492740056995063324
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 188049432bcf74f78b314dc2b03ee516, type: 3}
+  m_Name: VirtualTransaction_buylegendaryProjectileSizeRune
+  m_EditorClassIdentifier: 
+  m_DisplayName: Projectile Size Rune (Legendary)
+  m_Key: buylegendaryProjectileSizeRune
+  m_Tags:
+  - {fileID: -4591129078935206501}
+  m_StaticPropertyKeys:
+  - transaction_icon
+  m_StaticPropertyValues:
+  - <type>k__BackingField: 5
+    m_ValueType:
+      longValue: 0
+    m_StringValue: Assets/Art/Sprites/Runes/speed_rune.png
+  m_Payout:
+    m_Exchanges:
+    - m_CatalogItem: {fileID: 7532340043465164661}
+      m_Amount: 1
+  m_Costs:
+    m_Exchanges:
+    - m_CatalogItem: {fileID: -3734650512700470626}
+      m_Amount: 1000
+--- !u!114 &-5290750113591347761
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4178f7fa125e7644ba2a2d0c6300db1, type: 3}
+  m_Name: Tag_GAMEPLAY_MODIFIER
+  m_EditorClassIdentifier: 
+  m_Key: GAMEPLAY_MODIFIER
+  m_Catalog: {fileID: -8483040674033979277}
 --- !u!114 &-4784950706083842624
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -155,6 +607,104 @@ MonoBehaviour:
     m_Exchanges:
     - m_CatalogItem: {fileID: -3734650512700470626}
       m_Amount: 500
+--- !u!114 &-4711141222716283432
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcbd052539327467295d2009d33aa660, type: 3}
+  m_Name: Item_commonCriticalChanceRune
+  m_EditorClassIdentifier: 
+  m_DisplayName: Critical Chance Rune (Common)
+  m_Key: commonCriticalChanceRune
+  m_Tags:
+  - {fileID: -4591129078935206501}
+  - {fileID: 5304819582551107541}
+  m_StaticPropertyKeys:
+  - item_icon
+  m_StaticPropertyValues:
+  - <type>k__BackingField: 5
+    m_ValueType:
+      longValue: 0
+    m_StringValue: Assets/Art/Sprites/Runes/speed_rune.png
+  m_InitialAllocation: 0
+  m_IsStackableFlag: 1
+  m_InitialQuantityPerStack: 1
+  m_MutablePropertyKeys:
+  - type
+  - rarity
+  - modifier
+  - equiped
+  m_MutablePropertyDefaultValues:
+  - <type>k__BackingField: 3
+    m_ValueType:
+      longValue: 0
+    m_StringValue: statistics
+  - <type>k__BackingField: 3
+    m_ValueType:
+      longValue: 0
+    m_StringValue: common
+  - <type>k__BackingField: 1
+    m_ValueType:
+      longValue: 4621819117588971520
+    m_StringValue: 
+  - <type>k__BackingField: 2
+    m_ValueType:
+      longValue: 0
+    m_StringValue: 
+--- !u!114 &-4678887183878209550
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcbd052539327467295d2009d33aa660, type: 3}
+  m_Name: Item_rareFiringRate
+  m_EditorClassIdentifier: 
+  m_DisplayName: Firing Rate Rune (rare)
+  m_Key: rareFiringRate
+  m_Tags:
+  - {fileID: -4591129078935206501}
+  - {fileID: 5304819582551107541}
+  m_StaticPropertyKeys:
+  - item_icon
+  m_StaticPropertyValues:
+  - <type>k__BackingField: 5
+    m_ValueType:
+      longValue: 0
+    m_StringValue: Assets/Art/Sprites/Runes/speed_rune.png
+  m_InitialAllocation: 0
+  m_IsStackableFlag: 1
+  m_InitialQuantityPerStack: 1
+  m_MutablePropertyKeys:
+  - type
+  - rarity
+  - modifier
+  - equiped
+  m_MutablePropertyDefaultValues:
+  - <type>k__BackingField: 3
+    m_ValueType:
+      longValue: 0
+    m_StringValue: statistics
+  - <type>k__BackingField: 3
+    m_ValueType:
+      longValue: 0
+    m_StringValue: rare
+  - <type>k__BackingField: 1
+    m_ValueType:
+      longValue: 4604930618986332160
+    m_StringValue: 
+  - <type>k__BackingField: 2
+    m_ValueType:
+      longValue: 0
+    m_StringValue: 
 --- !u!114 &-4656125569732803317
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -217,6 +767,38 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Key: RUNE
   m_Catalog: {fileID: -8483040674033979277}
+--- !u!114 &-4238936853102223044
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 188049432bcf74f78b314dc2b03ee516, type: 3}
+  m_Name: VirtualTransaction_buyLegendaryCriticalChanceRune
+  m_EditorClassIdentifier: 
+  m_DisplayName: Critical Chance Rune (Legendary)
+  m_Key: buyLegendaryCriticalChanceRune
+  m_Tags:
+  - {fileID: -4591129078935206501}
+  - {fileID: 5304819582551107541}
+  m_StaticPropertyKeys:
+  - transaction_icon
+  m_StaticPropertyValues:
+  - <type>k__BackingField: 5
+    m_ValueType:
+      longValue: 0
+    m_StringValue: Assets/Art/Sprites/Runes/speed_rune.png
+  m_Payout:
+    m_Exchanges:
+    - m_CatalogItem: {fileID: -8169112494538138968}
+      m_Amount: 1
+  m_Costs:
+    m_Exchanges:
+    - m_CatalogItem: {fileID: -3734650512700470626}
+      m_Amount: 1000
 --- !u!114 &-3933102931115007623
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -270,6 +852,37 @@ MonoBehaviour:
     m_ValueType:
       longValue: 0
     m_StringValue: unk
+--- !u!114 &-3763691316975879678
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 188049432bcf74f78b314dc2b03ee516, type: 3}
+  m_Name: VirtualTransaction_buyRareBulletSpeedRune
+  m_EditorClassIdentifier: 
+  m_DisplayName: Bullet Speed Rune (Rare)
+  m_Key: buyRareBulletSpeedRune
+  m_Tags:
+  - {fileID: -4591129078935206501}
+  m_StaticPropertyKeys:
+  - transaction_icon
+  m_StaticPropertyValues:
+  - <type>k__BackingField: 5
+    m_ValueType:
+      longValue: 0
+    m_StringValue: Assets/Art/Sprites/Runes/speed_rune.png
+  m_Payout:
+    m_Exchanges:
+    - m_CatalogItem: {fileID: -9040205315119447273}
+      m_Amount: 1
+  m_Costs:
+    m_Exchanges:
+    - m_CatalogItem: {fileID: -3734650512700470626}
+      m_Amount: 500
 --- !u!114 &-3734650512700470626
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -288,7 +901,7 @@ MonoBehaviour:
   - {fileID: -91263394165242140}
   m_StaticPropertyKeys:
   - description
-  - icon
+  - item_icon
   m_StaticPropertyValues:
   - <type>k__BackingField: 3
     m_ValueType:
@@ -299,7 +912,7 @@ MonoBehaviour:
   - <type>k__BackingField: 5
     m_ValueType:
       longValue: 0
-    m_StringValue: Assets/Art/UI/Icons/gold_coin_icon.png
+    m_StringValue: Assets/Art/Sprites/Coin/coin.png
   m_InitialBalance: 0
   m_MaximumBalance: 1000000
   m_Type: 0
@@ -423,6 +1036,37 @@ MonoBehaviour:
     m_ValueType:
       longValue: 0
     m_StringValue: unk
+--- !u!114 &-3021046575421189584
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 188049432bcf74f78b314dc2b03ee516, type: 3}
+  m_Name: VirtualTransaction_buyCommonProjectileSizeRune
+  m_EditorClassIdentifier: 
+  m_DisplayName: Projectile Size Rune (Common)
+  m_Key: buyCommonProjectileSizeRune
+  m_Tags:
+  - {fileID: -4591129078935206501}
+  m_StaticPropertyKeys:
+  - transaction_icon
+  m_StaticPropertyValues:
+  - <type>k__BackingField: 5
+    m_ValueType:
+      longValue: 0
+    m_StringValue: Assets/Art/Sprites/Runes/speed_rune.png
+  m_Payout:
+    m_Exchanges:
+    - m_CatalogItem: {fileID: 2554254541840718292}
+      m_Amount: 1
+  m_Costs:
+    m_Exchanges:
+    - m_CatalogItem: {fileID: -3734650512700470626}
+      m_Amount: 100
 --- !u!114 &-2313346778315101392
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -491,6 +1135,37 @@ MonoBehaviour:
     m_ValueType:
       longValue: 0
     m_StringValue: 
+--- !u!114 &-2072512684563352609
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 188049432bcf74f78b314dc2b03ee516, type: 3}
+  m_Name: VirtualTransaction_buyRareHealthRune
+  m_EditorClassIdentifier: 
+  m_DisplayName: Health Rune (Rare)
+  m_Key: buyRareHealthRune
+  m_Tags:
+  - {fileID: -4591129078935206501}
+  m_StaticPropertyKeys:
+  - transaction_icon
+  m_StaticPropertyValues:
+  - <type>k__BackingField: 5
+    m_ValueType:
+      longValue: 0
+    m_StringValue: Assets/Art/Sprites/Runes/speed_rune.png
+  m_Payout:
+    m_Exchanges:
+    - m_CatalogItem: {fileID: -5938022825529016979}
+      m_Amount: 1
+  m_Costs:
+    m_Exchanges:
+    - m_CatalogItem: {fileID: -3734650512700470626}
+      m_Amount: 500
 --- !u!114 &-1655170713121715388
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -531,10 +1206,59 @@ MonoBehaviour:
   - <type>k__BackingField: 3
     m_ValueType:
       longValue: 0
-    m_StringValue: common
+    m_StringValue: legendary
   - <type>k__BackingField: 1
     m_ValueType:
       longValue: 4609434218613702656
+    m_StringValue: 
+  - <type>k__BackingField: 2
+    m_ValueType:
+      longValue: 0
+    m_StringValue: 
+--- !u!114 &-1201048109850280085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcbd052539327467295d2009d33aa660, type: 3}
+  m_Name: Item_rareCriticalChanceRune
+  m_EditorClassIdentifier: 
+  m_DisplayName: Critical Chance Rune (Rare)
+  m_Key: rareCriticalChanceRune
+  m_Tags:
+  - {fileID: -4591129078935206501}
+  - {fileID: 5304819582551107541}
+  m_StaticPropertyKeys:
+  - item_icon
+  m_StaticPropertyValues:
+  - <type>k__BackingField: 5
+    m_ValueType:
+      longValue: 0
+    m_StringValue: Assets/Art/Sprites/Runes/speed_rune.png
+  m_InitialAllocation: 0
+  m_IsStackableFlag: 1
+  m_InitialQuantityPerStack: 1
+  m_MutablePropertyKeys:
+  - type
+  - rarity
+  - modifier
+  - equiped
+  m_MutablePropertyDefaultValues:
+  - <type>k__BackingField: 3
+    m_ValueType:
+      longValue: 0
+    m_StringValue: statistics
+  - <type>k__BackingField: 3
+    m_ValueType:
+      longValue: 0
+    m_StringValue: rare
+  - <type>k__BackingField: 1
+    m_ValueType:
+      longValue: 4626322717216342016
     m_StringValue: 
   - <type>k__BackingField: 2
     m_ValueType:
@@ -566,6 +1290,69 @@ MonoBehaviour:
     m_Enabled: 1
   - m_Transaction: {fileID: 3622263205221955680}
     m_Enabled: 1
+  - m_Transaction: {fileID: 989891840682264467}
+    m_Enabled: 1
+  - m_Transaction: {fileID: -4784950706083842624}
+    m_Enabled: 1
+  - m_Transaction: {fileID: -6262116807889100938}
+    m_Enabled: 1
+  - m_Transaction: {fileID: -7559816695210944817}
+    m_Enabled: 1
+  - m_Transaction: {fileID: 2349123785900567467}
+    m_Enabled: 1
+  - m_Transaction: {fileID: 3719100593318504104}
+    m_Enabled: 1
+  - m_Transaction: {fileID: -2072512684563352609}
+    m_Enabled: 1
+  - m_Transaction: {fileID: -3021046575421189584}
+    m_Enabled: 1
+  - m_Transaction: {fileID: 1705131772106879404}
+    m_Enabled: 1
+  - m_Transaction: {fileID: -5492740056995063324}
+    m_Enabled: 1
+  - m_Transaction: {fileID: -6365414212005067924}
+    m_Enabled: 1
+  - m_Transaction: {fileID: 5154963498997338924}
+    m_Enabled: 1
+  - m_Transaction: {fileID: 8793975392135960042}
+    m_Enabled: 1
+  - m_Transaction: {fileID: 4473091495549019687}
+    m_Enabled: 1
+  - m_Transaction: {fileID: -3763691316975879678}
+    m_Enabled: 1
+  - m_Transaction: {fileID: 3327756109202844105}
+    m_Enabled: 1
+  - m_Transaction: {fileID: 8847203096028379921}
+    m_Enabled: 1
+  - m_Transaction: {fileID: 3393879965858721854}
+    m_Enabled: 1
+  - m_Transaction: {fileID: 5215567685489712348}
+    m_Enabled: 1
+  - m_Transaction: {fileID: -4238936853102223044}
+    m_Enabled: 1
+  - m_Transaction: {fileID: 987351829753843864}
+    m_Enabled: 1
+--- !u!114 &-610518822950310104
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 188049432bcf74f78b314dc2b03ee516, type: 3}
+  m_Name: VirtualTransaction_buyRareExtraJumpRune
+  m_EditorClassIdentifier: 
+  m_DisplayName: Extra Jump Rune (Rare)
+  m_Key: buyRareExtraJumpRune
+  m_Tags: []
+  m_StaticPropertyKeys: []
+  m_StaticPropertyValues: []
+  m_Payout:
+    m_Exchanges: []
+  m_Costs:
+    m_Exchanges: []
 --- !u!114 &-374458136420537696
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -614,6 +1401,55 @@ MonoBehaviour:
   - <type>k__BackingField: 0
     m_ValueType:
       longValue: 3
+    m_StringValue: 
+  - <type>k__BackingField: 2
+    m_ValueType:
+      longValue: 0
+    m_StringValue: 
+--- !u!114 &-373247191189450316
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcbd052539327467295d2009d33aa660, type: 3}
+  m_Name: Item_commonFiringRate
+  m_EditorClassIdentifier: 
+  m_DisplayName: Firing Rate Rune (Common)
+  m_Key: commonFiringRate
+  m_Tags:
+  - {fileID: -4591129078935206501}
+  - {fileID: 5304819582551107541}
+  m_StaticPropertyKeys:
+  - item_icon
+  m_StaticPropertyValues:
+  - <type>k__BackingField: 5
+    m_ValueType:
+      longValue: 0
+    m_StringValue: Assets/Art/Sprites/Runes/speed_rune.png
+  m_InitialAllocation: 0
+  m_IsStackableFlag: 1
+  m_InitialQuantityPerStack: 1
+  m_MutablePropertyKeys:
+  - type
+  - rarity
+  - modifier
+  - equiped
+  m_MutablePropertyDefaultValues:
+  - <type>k__BackingField: 3
+    m_ValueType:
+      longValue: 0
+    m_StringValue: statistics
+  - <type>k__BackingField: 3
+    m_ValueType:
+      longValue: 0
+    m_StringValue: common
+  - <type>k__BackingField: 1
+    m_ValueType:
+      longValue: 4606281698874543309
     m_StringValue: 
   - <type>k__BackingField: 2
     m_ValueType:
@@ -668,6 +1504,234 @@ MonoBehaviour:
   - {fileID: -3055818415502069623}
   - {fileID: 5692329279478025112}
   - {fileID: -3933102931115007623}
+  - {fileID: -7559816695210944817}
+  - {fileID: -373247191189450316}
+  - {fileID: -6643569677680102406}
+  - {fileID: 989891840682264467}
+  - {fileID: -4678887183878209550}
+  - {fileID: 994579769108705567}
+  - {fileID: 2349123785900567467}
+  - {fileID: 3719100593318504104}
+  - {fileID: -5938022825529016979}
+  - {fileID: -2072512684563352609}
+  - {fileID: 2554254541840718292}
+  - {fileID: -3021046575421189584}
+  - {fileID: 3729457749267130429}
+  - {fileID: 7532340043465164661}
+  - {fileID: 1705131772106879404}
+  - {fileID: -5492740056995063324}
+  - {fileID: -7777174297763336316}
+  - {fileID: 8991827455550212804}
+  - {fileID: 5844790082932565263}
+  - {fileID: -6365414212005067924}
+  - {fileID: 5154963498997338924}
+  - {fileID: 8793975392135960042}
+  - {fileID: -6211224067842480719}
+  - {fileID: -9040205315119447273}
+  - {fileID: 914720730750384771}
+  - {fileID: 4473091495549019687}
+  - {fileID: -3763691316975879678}
+  - {fileID: 3327756109202844105}
+  - {fileID: 2273317043273248087}
+  - {fileID: 8847203096028379921}
+  - {fileID: -4711141222716283432}
+  - {fileID: -1201048109850280085}
+  - {fileID: -8169112494538138968}
+  - {fileID: 3393879965858721854}
+  - {fileID: 5215567685489712348}
+  - {fileID: -4238936853102223044}
+  - {fileID: 987351829753843864}
+  - {fileID: -7986341259891477001}
+  - {fileID: -610518822950310104}
+--- !u!114 &914720730750384771
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcbd052539327467295d2009d33aa660, type: 3}
+  m_Name: Item_legendaryBulletSpeedRune
+  m_EditorClassIdentifier: 
+  m_DisplayName: Bullet Speed Rune (Legendary)
+  m_Key: legendaryBulletSpeedRune
+  m_Tags:
+  - {fileID: -4591129078935206501}
+  - {fileID: 5304819582551107541}
+  m_StaticPropertyKeys:
+  - item_icon
+  m_StaticPropertyValues:
+  - <type>k__BackingField: 5
+    m_ValueType:
+      longValue: 0
+    m_StringValue: Assets/Art/Sprites/Runes/speed_rune.png
+  m_InitialAllocation: 0
+  m_IsStackableFlag: 1
+  m_InitialQuantityPerStack: 1
+  m_MutablePropertyKeys:
+  - type
+  - rarity
+  - modifier
+  - equiped
+  m_MutablePropertyDefaultValues:
+  - <type>k__BackingField: 3
+    m_ValueType:
+      longValue: 0
+    m_StringValue: statistics
+  - <type>k__BackingField: 3
+    m_ValueType:
+      longValue: 0
+    m_StringValue: legendary
+  - <type>k__BackingField: 1
+    m_ValueType:
+      longValue: 4609434218613702656
+    m_StringValue: 
+  - <type>k__BackingField: 2
+    m_ValueType:
+      longValue: 0
+    m_StringValue: 
+--- !u!114 &987351829753843864
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 188049432bcf74f78b314dc2b03ee516, type: 3}
+  m_Name: VirtualTransaction_buyRareTripleJumpRune
+  m_EditorClassIdentifier: 
+  m_DisplayName: Triple Jump Rune (Rare)
+  m_Key: buyRareTripleJumpRune
+  m_Tags:
+  - {fileID: -4591129078935206501}
+  m_StaticPropertyKeys:
+  - transaction_icon
+  m_StaticPropertyValues:
+  - <type>k__BackingField: 5
+    m_ValueType:
+      longValue: 0
+    m_StringValue: Assets/Art/Sprites/Runes/speed_rune.png
+  m_Payout:
+    m_Exchanges: []
+  m_Costs:
+    m_Exchanges:
+    - m_CatalogItem: {fileID: -3734650512700470626}
+      m_Amount: 500
+--- !u!114 &989891840682264467
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 188049432bcf74f78b314dc2b03ee516, type: 3}
+  m_Name: VirtualTransaction_buyCommonDamageRune
+  m_EditorClassIdentifier: 
+  m_DisplayName: Damage Rune (Common)
+  m_Key: buyCommonDamageRune
+  m_Tags:
+  - {fileID: -4591129078935206501}
+  m_StaticPropertyKeys:
+  - transaction_icon
+  m_StaticPropertyValues:
+  - <type>k__BackingField: 5
+    m_ValueType:
+      longValue: 0
+    m_StringValue: Assets/Art/Sprites/Runes/speed_rune.png
+  m_Payout:
+    m_Exchanges:
+    - m_CatalogItem: {fileID: -6643569677680102406}
+      m_Amount: 1
+  m_Costs:
+    m_Exchanges:
+    - m_CatalogItem: {fileID: -3734650512700470626}
+      m_Amount: 100
+--- !u!114 &994579769108705567
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcbd052539327467295d2009d33aa660, type: 3}
+  m_Name: Item_legendaryFiringRate
+  m_EditorClassIdentifier: 
+  m_DisplayName: Firing Rate Rune (Legendary)
+  m_Key: legendaryFiringRate
+  m_Tags:
+  - {fileID: -4591129078935206501}
+  - {fileID: 5304819582551107541}
+  m_StaticPropertyKeys:
+  - item_icon
+  m_StaticPropertyValues:
+  - <type>k__BackingField: 5
+    m_ValueType:
+      longValue: 0
+    m_StringValue: Assets/Art/Sprites/Runes/speed_rune.png
+  m_InitialAllocation: 0
+  m_IsStackableFlag: 1
+  m_InitialQuantityPerStack: 1
+  m_MutablePropertyKeys:
+  - type
+  - rarity
+  - modifier
+  - equiped
+  m_MutablePropertyDefaultValues:
+  - <type>k__BackingField: 3
+    m_ValueType:
+      longValue: 0
+    m_StringValue: statistics
+  - <type>k__BackingField: 3
+    m_ValueType:
+      longValue: 0
+    m_StringValue: legendary
+  - <type>k__BackingField: 1
+    m_ValueType:
+      longValue: 4602678819172646912
+    m_StringValue: 
+  - <type>k__BackingField: 2
+    m_ValueType:
+      longValue: 0
+    m_StringValue: 
+--- !u!114 &1705131772106879404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 188049432bcf74f78b314dc2b03ee516, type: 3}
+  m_Name: VirtualTransaction_buyRareProjectileSizeRune
+  m_EditorClassIdentifier: 
+  m_DisplayName: Projectile Size Rune (Rare)
+  m_Key: buyRareProjectileSizeRune
+  m_Tags:
+  - {fileID: -4591129078935206501}
+  m_StaticPropertyKeys:
+  - transaction_icon
+  m_StaticPropertyValues:
+  - <type>k__BackingField: 5
+    m_ValueType:
+      longValue: 0
+    m_StringValue: Assets/Art/Sprites/Runes/speed_rune.png
+  m_Payout:
+    m_Exchanges:
+    - m_CatalogItem: {fileID: 3729457749267130429}
+      m_Amount: 1
+  m_Costs:
+    m_Exchanges:
+    - m_CatalogItem: {fileID: -3734650512700470626}
+      m_Amount: 500
 --- !u!114 &2191732088584772111
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -708,7 +1772,7 @@ MonoBehaviour:
   - <type>k__BackingField: 3
     m_ValueType:
       longValue: 0
-    m_StringValue: common
+    m_StringValue: rare
   - <type>k__BackingField: 1
     m_ValueType:
       longValue: 4608308318706860032
@@ -717,6 +1781,86 @@ MonoBehaviour:
     m_ValueType:
       longValue: 0
     m_StringValue: 
+--- !u!114 &2273317043273248087
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcbd052539327467295d2009d33aa660, type: 3}
+  m_Name: Item_commonShieldRune
+  m_EditorClassIdentifier: 
+  m_DisplayName: Shield Rune (Common)
+  m_Key: commonShieldRune
+  m_Tags:
+  - {fileID: -4591129078935206501}
+  - {fileID: 5304819582551107541}
+  m_StaticPropertyKeys:
+  - item_icon
+  m_StaticPropertyValues:
+  - <type>k__BackingField: 5
+    m_ValueType:
+      longValue: 0
+    m_StringValue: Assets/Art/Sprites/Runes/speed_rune.png
+  m_InitialAllocation: 0
+  m_IsStackableFlag: 1
+  m_InitialQuantityPerStack: 1
+  m_MutablePropertyKeys:
+  - type
+  - rarity
+  - modifier
+  - equiped
+  m_MutablePropertyDefaultValues:
+  - <type>k__BackingField: 3
+    m_ValueType:
+      longValue: 0
+    m_StringValue: statistics
+  - <type>k__BackingField: 3
+    m_ValueType:
+      longValue: 0
+    m_StringValue: common
+  - <type>k__BackingField: 0
+    m_ValueType:
+      longValue: 1
+    m_StringValue: 
+  - <type>k__BackingField: 2
+    m_ValueType:
+      longValue: 0
+    m_StringValue: 
+--- !u!114 &2349123785900567467
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 188049432bcf74f78b314dc2b03ee516, type: 3}
+  m_Name: VirtualTransaction_buyRareFiringRateRune
+  m_EditorClassIdentifier: 
+  m_DisplayName: Firing Rate Rune (Rare)
+  m_Key: buyRareFiringRateRune
+  m_Tags:
+  - {fileID: -4591129078935206501}
+  m_StaticPropertyKeys:
+  - transaction_icon
+  m_StaticPropertyValues:
+  - <type>k__BackingField: 5
+    m_ValueType:
+      longValue: 0
+    m_StringValue: Assets/Art/Sprites/Runes/speed_rune.png
+  m_Payout:
+    m_Exchanges:
+    - m_CatalogItem: {fileID: -4678887183878209550}
+      m_Amount: 1
+  m_Costs:
+    m_Exchanges:
+    - m_CatalogItem: {fileID: -3734650512700470626}
+      m_Amount: 500
 --- !u!114 &2462236893667508694
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -770,6 +1914,117 @@ MonoBehaviour:
     m_ValueType:
       longValue: 0
     m_StringValue: 
+--- !u!114 &2554254541840718292
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcbd052539327467295d2009d33aa660, type: 3}
+  m_Name: Item_commonProjectileSizeRune
+  m_EditorClassIdentifier: 
+  m_DisplayName: 'Projectile Size Rune (Common) '
+  m_Key: commonProjectileSizeRune
+  m_Tags:
+  - {fileID: -4591129078935206501}
+  - {fileID: 5304819582551107541}
+  m_StaticPropertyKeys:
+  - item_icon
+  m_StaticPropertyValues:
+  - <type>k__BackingField: 5
+    m_ValueType:
+      longValue: 0
+    m_StringValue: Assets/Art/Sprites/Runes/speed_rune.png
+  m_InitialAllocation: 0
+  m_IsStackableFlag: 1
+  m_InitialQuantityPerStack: 1
+  m_MutablePropertyKeys:
+  - type
+  - rarity
+  - modifier
+  - equiped
+  m_MutablePropertyDefaultValues:
+  - <type>k__BackingField: 3
+    m_ValueType:
+      longValue: 0
+    m_StringValue: statistics
+  - <type>k__BackingField: 3
+    m_ValueType:
+      longValue: 0
+    m_StringValue: common
+  - <type>k__BackingField: 1
+    m_ValueType:
+      longValue: 4609434218613702656
+    m_StringValue: 
+  - <type>k__BackingField: 2
+    m_ValueType:
+      longValue: 0
+    m_StringValue: 
+--- !u!114 &3327756109202844105
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 188049432bcf74f78b314dc2b03ee516, type: 3}
+  m_Name: VirtualTransaction_buyLegendaryBulletSpeedRune
+  m_EditorClassIdentifier: 
+  m_DisplayName: Bullet Speed Rune (Legendary)
+  m_Key: buyLegendaryBulletSpeedRune
+  m_Tags:
+  - {fileID: -4591129078935206501}
+  m_StaticPropertyKeys:
+  - transaction_icon
+  m_StaticPropertyValues:
+  - <type>k__BackingField: 5
+    m_ValueType:
+      longValue: 0
+    m_StringValue: Assets/Art/Sprites/Runes/speed_rune.png
+  m_Payout:
+    m_Exchanges:
+    - m_CatalogItem: {fileID: 914720730750384771}
+      m_Amount: 1
+  m_Costs:
+    m_Exchanges:
+    - m_CatalogItem: {fileID: -3734650512700470626}
+      m_Amount: 1000
+--- !u!114 &3393879965858721854
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 188049432bcf74f78b314dc2b03ee516, type: 3}
+  m_Name: VirtualTransaction_buyCommonCriticalChanceRune
+  m_EditorClassIdentifier: 
+  m_DisplayName: Critical Chance Rune (Common)
+  m_Key: buyCommonCriticalChanceRune
+  m_Tags:
+  - {fileID: -4591129078935206501}
+  m_StaticPropertyKeys:
+  - transaction_icon
+  m_StaticPropertyValues:
+  - <type>k__BackingField: 5
+    m_ValueType:
+      longValue: 0
+    m_StringValue: Assets/Art/Sprites/Runes/speed_rune.png
+  m_Payout:
+    m_Exchanges:
+    - m_CatalogItem: {fileID: -4711141222716283432}
+      m_Amount: 1
+  m_Costs:
+    m_Exchanges:
+    - m_CatalogItem: {fileID: -3734650512700470626}
+      m_Amount: 100
 --- !u!114 &3622263205221955680
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -802,6 +2057,86 @@ MonoBehaviour:
     m_Exchanges:
     - m_CatalogItem: {fileID: -3734650512700470626}
       m_Amount: 1000
+--- !u!114 &3719100593318504104
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 188049432bcf74f78b314dc2b03ee516, type: 3}
+  m_Name: VirtualTransaction_buyLegendaryFiringRateRune
+  m_EditorClassIdentifier: 
+  m_DisplayName: Firing Rate Rune (Legendary)
+  m_Key: buyLegendaryFiringRateRune
+  m_Tags:
+  - {fileID: -4591129078935206501}
+  m_StaticPropertyKeys:
+  - transaction_icon
+  m_StaticPropertyValues:
+  - <type>k__BackingField: 5
+    m_ValueType:
+      longValue: 0
+    m_StringValue: Assets/Art/Sprites/Runes/speed_rune.png
+  m_Payout:
+    m_Exchanges:
+    - m_CatalogItem: {fileID: 994579769108705567}
+      m_Amount: 1
+  m_Costs:
+    m_Exchanges:
+    - m_CatalogItem: {fileID: -3734650512700470626}
+      m_Amount: 1000
+--- !u!114 &3729457749267130429
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcbd052539327467295d2009d33aa660, type: 3}
+  m_Name: Item_rareProjectileSizeRune
+  m_EditorClassIdentifier: 
+  m_DisplayName: Projectile Size Rune (Rare)
+  m_Key: rareProjectileSizeRune
+  m_Tags:
+  - {fileID: -4591129078935206501}
+  - {fileID: 5304819582551107541}
+  m_StaticPropertyKeys:
+  - item_icon
+  m_StaticPropertyValues:
+  - <type>k__BackingField: 5
+    m_ValueType:
+      longValue: 0
+    m_StringValue: Assets/Art/Sprites/Runes/speed_rune.png
+  m_InitialAllocation: 0
+  m_IsStackableFlag: 1
+  m_InitialQuantityPerStack: 1
+  m_MutablePropertyKeys:
+  - type
+  - rarity
+  - modifier
+  - equiped
+  m_MutablePropertyDefaultValues:
+  - <type>k__BackingField: 3
+    m_ValueType:
+      longValue: 0
+    m_StringValue: statistics
+  - <type>k__BackingField: 3
+    m_ValueType:
+      longValue: 0
+    m_StringValue: rare
+  - <type>k__BackingField: 1
+    m_ValueType:
+      longValue: 4611686018427387904
+    m_StringValue: 
+  - <type>k__BackingField: 2
+    m_ValueType:
+      longValue: 0
+    m_StringValue: 
 --- !u!114 &3756805002680557395
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -848,6 +2183,37 @@ MonoBehaviour:
     m_Exchanges:
     - m_CatalogItem: {fileID: -3734650512700470626}
       m_Amount: 500
+--- !u!114 &4473091495549019687
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 188049432bcf74f78b314dc2b03ee516, type: 3}
+  m_Name: VirtualTransaction_buyCommonBulletSpeedRune
+  m_EditorClassIdentifier: 
+  m_DisplayName: Bullet Speed Rune (Common)
+  m_Key: buyCommonBulletSpeedRune
+  m_Tags:
+  - {fileID: -4591129078935206501}
+  m_StaticPropertyKeys:
+  - transaction_icon
+  m_StaticPropertyValues:
+  - <type>k__BackingField: 5
+    m_ValueType:
+      longValue: 0
+    m_StringValue: Assets/Art/Sprites/Runes/speed_rune.png
+  m_Payout:
+    m_Exchanges:
+    - m_CatalogItem: {fileID: -6211224067842480719}
+      m_Amount: 1
+  m_Costs:
+    m_Exchanges:
+    - m_CatalogItem: {fileID: -3734650512700470626}
+      m_Amount: 100
 --- !u!114 &4545930279128530339
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -897,6 +2263,69 @@ MonoBehaviour:
     m_ValueType:
       longValue: 0
     m_StringValue: 
+--- !u!114 &5154963498997338924
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 188049432bcf74f78b314dc2b03ee516, type: 3}
+  m_Name: VirtualTransaction_buyRareHighJumpRune
+  m_EditorClassIdentifier: 
+  m_DisplayName: High Jump Rune (Rare)
+  m_Key: buyRareHighJumpRune
+  m_Tags:
+  - {fileID: -4591129078935206501}
+  m_StaticPropertyKeys:
+  - transaction_icon
+  m_StaticPropertyValues:
+  - <type>k__BackingField: 5
+    m_ValueType:
+      longValue: 0
+    m_StringValue: Assets/Art/Sprites/Runes/speed_rune.png
+  m_Payout:
+    m_Exchanges:
+    - m_CatalogItem: {fileID: 8991827455550212804}
+      m_Amount: 1
+  m_Costs:
+    m_Exchanges:
+    - m_CatalogItem: {fileID: -3734650512700470626}
+      m_Amount: 500
+--- !u!114 &5215567685489712348
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 188049432bcf74f78b314dc2b03ee516, type: 3}
+  m_Name: VirtualTransaction_buyRareCriticalChanceRune
+  m_EditorClassIdentifier: 
+  m_DisplayName: Critical Chance Rune (Rare)
+  m_Key: buyRareCriticalChanceRune
+  m_Tags:
+  - {fileID: -4591129078935206501}
+  - {fileID: 5304819582551107541}
+  m_StaticPropertyKeys:
+  - transaction_icon
+  m_StaticPropertyValues:
+  - <type>k__BackingField: 5
+    m_ValueType:
+      longValue: 0
+    m_StringValue: Assets/Art/Sprites/Runes/speed_rune.png
+  m_Payout:
+    m_Exchanges:
+    - m_CatalogItem: {fileID: -1201048109850280085}
+      m_Amount: 1
+  m_Costs:
+    m_Exchanges:
+    - m_CatalogItem: {fileID: -3734650512700470626}
+      m_Amount: 500
 --- !u!114 &5304819582551107541
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -978,6 +2407,55 @@ MonoBehaviour:
     m_ValueType:
       longValue: 0
     m_StringValue: unk
+--- !u!114 &5844790082932565263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcbd052539327467295d2009d33aa660, type: 3}
+  m_Name: Item_legendaryHighJumpRune
+  m_EditorClassIdentifier: 
+  m_DisplayName: High Jump Rune (Legendary)
+  m_Key: legendaryHighJumpRune
+  m_Tags:
+  - {fileID: -4591129078935206501}
+  - {fileID: 5304819582551107541}
+  m_StaticPropertyKeys:
+  - item_icon
+  m_StaticPropertyValues:
+  - <type>k__BackingField: 5
+    m_ValueType:
+      longValue: 0
+    m_StringValue: Assets/Art/Sprites/Runes/speed_rune.png
+  m_InitialAllocation: 0
+  m_IsStackableFlag: 1
+  m_InitialQuantityPerStack: 1
+  m_MutablePropertyKeys:
+  - type
+  - rarity
+  - modifier
+  - equiped
+  m_MutablePropertyDefaultValues:
+  - <type>k__BackingField: 3
+    m_ValueType:
+      longValue: 0
+    m_StringValue: statistics
+  - <type>k__BackingField: 3
+    m_ValueType:
+      longValue: 0
+    m_StringValue: legendary
+  - <type>k__BackingField: 1
+    m_ValueType:
+      longValue: 4609434218613702656
+    m_StringValue: 
+  - <type>k__BackingField: 2
+    m_ValueType:
+      longValue: 0
+    m_StringValue: 
 --- !u!114 &6418715324225482414
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1018,10 +2496,59 @@ MonoBehaviour:
   - <type>k__BackingField: 3
     m_ValueType:
       longValue: 0
-    m_StringValue: common
+    m_StringValue: rare
   - <type>k__BackingField: 1
     m_ValueType:
       longValue: 4608308318706860032
+    m_StringValue: 
+  - <type>k__BackingField: 2
+    m_ValueType:
+      longValue: 0
+    m_StringValue: 
+--- !u!114 &7532340043465164661
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcbd052539327467295d2009d33aa660, type: 3}
+  m_Name: Item_legendaryProjectileSizeRune
+  m_EditorClassIdentifier: 
+  m_DisplayName: Projectile Size Rune (Legendary)
+  m_Key: legendaryProjectileSizeRune
+  m_Tags:
+  - {fileID: -4591129078935206501}
+  - {fileID: 5304819582551107541}
+  m_StaticPropertyKeys:
+  - item_icon
+  m_StaticPropertyValues:
+  - <type>k__BackingField: 5
+    m_ValueType:
+      longValue: 0
+    m_StringValue: Assets/Art/Sprites/Runes/speed_rune.png
+  m_InitialAllocation: 0
+  m_IsStackableFlag: 1
+  m_InitialQuantityPerStack: 1
+  m_MutablePropertyKeys:
+  - type
+  - rarity
+  - modifier
+  - equiped
+  m_MutablePropertyDefaultValues:
+  - <type>k__BackingField: 3
+    m_ValueType:
+      longValue: 0
+    m_StringValue: statistics
+  - <type>k__BackingField: 3
+    m_ValueType:
+      longValue: 0
+    m_StringValue: legendary
+  - <type>k__BackingField: 1
+    m_ValueType:
+      longValue: 4613937818241073152
     m_StringValue: 
   - <type>k__BackingField: 2
     m_ValueType:
@@ -1120,10 +2647,121 @@ MonoBehaviour:
   - <type>k__BackingField: 3
     m_ValueType:
       longValue: 0
-    m_StringValue: common
+    m_StringValue: legendary
   - <type>k__BackingField: 1
     m_ValueType:
       longValue: 4609434218613702656
+    m_StringValue: 
+  - <type>k__BackingField: 2
+    m_ValueType:
+      longValue: 0
+    m_StringValue: 
+--- !u!114 &8793975392135960042
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 188049432bcf74f78b314dc2b03ee516, type: 3}
+  m_Name: VirtualTransaction_buyLegendaryHighJumpRune
+  m_EditorClassIdentifier: 
+  m_DisplayName: High Jump Rune (Legendary)
+  m_Key: buyLegendaryHighJumpRune
+  m_Tags:
+  - {fileID: -4591129078935206501}
+  m_StaticPropertyKeys:
+  - transaction_icon
+  m_StaticPropertyValues:
+  - <type>k__BackingField: 5
+    m_ValueType:
+      longValue: 0
+    m_StringValue: Assets/Art/Sprites/Runes/speed_rune.png
+  m_Payout:
+    m_Exchanges:
+    - m_CatalogItem: {fileID: 5844790082932565263}
+      m_Amount: 1
+  m_Costs:
+    m_Exchanges:
+    - m_CatalogItem: {fileID: -3734650512700470626}
+      m_Amount: 1000
+--- !u!114 &8847203096028379921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 188049432bcf74f78b314dc2b03ee516, type: 3}
+  m_Name: VirtualTransaction_buyCommonShieldRune
+  m_EditorClassIdentifier: 
+  m_DisplayName: 'Shied Rune (Common) '
+  m_Key: buyCommonShieldRune
+  m_Tags:
+  - {fileID: -4591129078935206501}
+  m_StaticPropertyKeys:
+  - transaction_icon
+  m_StaticPropertyValues:
+  - <type>k__BackingField: 5
+    m_ValueType:
+      longValue: 0
+    m_StringValue: Assets/Art/Sprites/Runes/speed_rune.png
+  m_Payout:
+    m_Exchanges:
+    - m_CatalogItem: {fileID: 2273317043273248087}
+      m_Amount: 1
+  m_Costs:
+    m_Exchanges:
+    - m_CatalogItem: {fileID: -3734650512700470626}
+      m_Amount: 100
+--- !u!114 &8991827455550212804
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcbd052539327467295d2009d33aa660, type: 3}
+  m_Name: Item_rareHighJumpRune
+  m_EditorClassIdentifier: 
+  m_DisplayName: High Jump Rune (Rare)
+  m_Key: rareHighJumpRune
+  m_Tags:
+  - {fileID: -4591129078935206501}
+  - {fileID: 5304819582551107541}
+  m_StaticPropertyKeys:
+  - item_icon
+  m_StaticPropertyValues:
+  - <type>k__BackingField: 5
+    m_ValueType:
+      longValue: 0
+    m_StringValue: Assets/Art/Sprites/Runes/speed_rune.png
+  m_InitialAllocation: 0
+  m_IsStackableFlag: 1
+  m_InitialQuantityPerStack: 1
+  m_MutablePropertyKeys:
+  - type
+  - rarity
+  - modifier
+  - equiped
+  m_MutablePropertyDefaultValues:
+  - <type>k__BackingField: 3
+    m_ValueType:
+      longValue: 0
+    m_StringValue: statistics
+  - <type>k__BackingField: 3
+    m_ValueType:
+      longValue: 0
+    m_StringValue: rare
+  - <type>k__BackingField: 1
+    m_ValueType:
+      longValue: 4608308318706860032
     m_StringValue: 
   - <type>k__BackingField: 2
     m_ValueType:

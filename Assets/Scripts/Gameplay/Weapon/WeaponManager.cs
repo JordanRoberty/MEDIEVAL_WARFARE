@@ -19,11 +19,12 @@ public class WeaponManager : MonoBehaviour
     private GameObject bullet_prefab;
     [SerializeField] private Transform _bullet_container;
 
-    void Awake()
+    public void init(Camera main_cam)
     {
-        _main_cam = Camera.main;
+        _main_cam = main_cam;
         _weapon_infos = PlayerInfosManager.Instance.equiped_weapon;
-        shot_freq = _weapon_infos.definition.GetStaticProperty("firing_rate");
+        shot_freq = (float)_weapon_infos.definition.GetStaticProperty("firing_rate");
+        shot_freq *= RuneManager.Instance.firing_rate_rune;
 
         load_weapon();
     }
@@ -61,12 +62,12 @@ public class WeaponManager : MonoBehaviour
             {
                 Assert.IsNotNull(handle.Result);
                 bullet_prefab = handle.Result;
-                init();
+                init_shoot();
             }
         };
     }
 
-    private void init()
+    private void init_shoot()
     {
         InvokeRepeating("Shoot", 0f, shot_freq);
     }
@@ -86,11 +87,13 @@ public class WeaponManager : MonoBehaviour
 
     void Shoot()
     {
-        Instantiate(
+        GameObject bullet =Instantiate(
             bullet_prefab,
             _current_weapon.cannon_end.position,
             _current_weapon.cannon_end.rotation,
             _bullet_container
         );
+
+        bullet.transform.localScale *= RuneManager.Instance.projectile_size_rune;
     }
 }

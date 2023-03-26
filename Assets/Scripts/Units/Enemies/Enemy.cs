@@ -6,18 +6,18 @@ public class Enemy : MonoBehaviour
 {
     public float pv;
     protected float speed;
-    protected float damage;
+    protected int damage = 1;
 
     protected int max_droppable_quantity; // The maximum quantity of coins that can be dropped by an enemy
     protected int coin_quantity; // The quantity of coins that will actually be dropped by an enemy
     public GameObject coinPrefab;
 
-    public float get_damage()
+    public int get_damage()
     {
         return damage;
     }
 
-    public void set_damage(float new_damage)
+    public void set_damage(int new_damage)
     {
         damage = new_damage;
     }
@@ -47,7 +47,7 @@ public class Enemy : MonoBehaviour
 
     public void die()
     {
-        UIManager.Instance.update_score(1);
+        StatsManager.Instance.update_score(1);
         
         initialize_coin_quantity();
         
@@ -57,7 +57,13 @@ public class Enemy : MonoBehaviour
             Transform coin_parent = GameObject.Find("/Environment/Coins").transform;
 
             // Add a random offset to the coin's position
-            GameObject coin = Instantiate(coinPrefab, transform.position + new Vector3(Random.Range(-0.5f, 0.5f), Random.Range(-0.5f, 0.5f), 0), Quaternion.identity, coin_parent.transform);
+            GameObject coin = Instantiate(
+                coinPrefab,
+                transform.position + new Vector3(Random.Range(-0.5f, 0.5f),
+                Random.Range(-0.5f, 0.5f), 0),
+                Quaternion.identity,
+                coin_parent
+            );
         }
 
         // Destroy the enemy

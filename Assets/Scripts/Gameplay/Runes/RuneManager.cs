@@ -13,7 +13,7 @@ public class RuneManager : Singleton<RuneManager>
     [HideInInspector]
     public float firing_rate_rune;// {get; private set;} // 0 is shooting fast and 1 is normal shot speed
     [HideInInspector]
-    public float health_rune;//{get; private set;}
+    public int health_rune;//{get; private set;}
     [HideInInspector]
     public float projectile_size_rune;//{get; private set;} 
     [HideInInspector]
@@ -38,13 +38,12 @@ public class RuneManager : Singleton<RuneManager>
     //  money magnet ??
     //  multiple shot ???
 
-    // Start is called before the first frame update
-    void Start()
+    public void init()
     {
         damage_rune = 1f;
         speed_rune = 1f;
-        firing_rate_rune = 1f; // 0 is shooting fast and 1 is normal shot speed
-        health_rune = 1f;
+        firing_rate_rune = 0.5f; // 0 is shooting fast and 1 is normal shot speed
+        health_rune = 0;
         projectile_size_rune = 1f; 
         high_jump_rune = 1f;
         money_drop_rate_rune = 1f; // ??
@@ -54,10 +53,6 @@ public class RuneManager : Singleton<RuneManager>
         triple_jump_rune = false;
         _equiped_runes = PlayerInfosManager.Instance.get_equiped_runes();
         getRuneModifier();
-
-        transform.GetComponent<Movement2D>().Init();
-        transform.GetComponent<PlayerManager>().Init(health_rune, shield_rune);
-
     }
 
     private void getRuneModifier()
@@ -72,31 +67,31 @@ public class RuneManager : Singleton<RuneManager>
                     case "commonSpeedRune" or "rareSpeedRune" or "legendarySpeedRune":
                         speed_rune *= rune.GetMutableProperty("modifier");
                         break;
-                    case "commonFiringRateRune": // or "rareFiringRateRune" or "legendaryFiringRateRune"
+                    case "commonFiringRateRune"or "rareFiringRateRune" or "legendaryFiringRateRune":
                         firing_rate_rune = rune.GetMutableProperty("modifier");
                         break;
-                    case "commonHealthRune": // or "rareHealthRune" or "legendaryHealthRune"
-                        health_rune *= rune.GetMutableProperty("modifier");
+                    case  "rareHealthRune" :
+                        health_rune += rune.GetMutableProperty("modifier");
                         break;
-                    case "commonProjectileSizeRune": // or "rareProjectileSizeRune" or "legendaryProjectileSizeRune"
+                    case "commonProjectileSizeRune" or "rareProjectileSizeRune" or "legendaryProjectileSizeRune":
                         projectile_size_rune *= rune.GetMutableProperty("modifier");
                         break;
-                    case "commonHighJumpRune": // or "rareHighJumpRune" or "legendaryHighJumpRune
+                    case "commonHighJumpRune" or "rareHighJumpRune" or "legendaryHighJumpRune":
                         high_jump_rune *= rune.GetMutableProperty("modifier");
                         break;
                     case "commonMoneyDropRateRune": // or "rareMoneyDropRateRune" or "legendaryMoneyDropRateRune
                         money_drop_rate_rune *= rune.GetMutableProperty("modifier");
                         break;
-                    case "commonBulletSpeedRune": // or "rareBulletSpeedRune" or "legendaryBulletSpeedRune
+                    case "commonBulletSpeedRune" or "rareBulletSpeedRune" or "legendaryBulletSpeedRune":
                         bullet_speed_rune *= rune.GetMutableProperty("modifier");
                         break;
-                    case "commonShieldRune": // or "rareShieldRune" or "legendaryShieldRune
+                    case "commonShieldRune":
                         shield_rune += rune.GetMutableProperty("modifier");
                         break;
-                    case "commonCriticalHitRune": // or "rareCriticalHitRune" or "legendaryCriticalHitRune
+                    case "commonCriticalHitRune" or "rareCriticalHitRune" or "legendaryCriticalHitRune":
                         critial_hit_rune += rune.GetMutableProperty("modifier");
                         break;
-                    case "commonTripleJumpRune": // or "rareTripleJumpRune" or "legendaryTripleJumpRune
+                    case "commonTripleJumpRune":
                         triple_jump_rune = true;
                         break;
                     default:

@@ -8,7 +8,6 @@ public class Boss : Enemy
     {
         pv = 10000.0f;
         speed = 2.0f;
-        damage = 50.0f;
     }
 
     private float bottle_range = 12.0f;

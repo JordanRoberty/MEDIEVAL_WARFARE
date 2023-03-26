@@ -8,7 +8,6 @@ public class Flail : Enemy
     {
         pv = 500000.0f;
         speed = 0.0f;
-        damage = 50.0f;
     }
 
     private Boss boss;
