@@ -5,33 +5,35 @@ using TMPro;
 
 public class PlayerManager : Singleton<PlayerManager>
 {
-    private Renderer _renderer;
-    private RuneManager _rune_manager;
+    [SerializeField] private Movement2D _player_controller;
+    [SerializeField] private WeaponManager _weapon_controller;
+    [SerializeField] private Renderer _renderer;
+
 
     [Header("Health & score")]
     public int shield = 0;
     public int max_health = 3;
     public int health = 3;
-    public int score = 0;
-
+    
     // Time during which the character is invincible after being hit (in seconds)
     public float invulnerability_time = 2.0f;
 
     void Awake()
     {
+        _player_controller = GetComponent<Movement2D>();
+        _weapon_controller = GetComponentInChildren<WeaponManager>();
         _renderer = GetComponent<Renderer>();
-        _rune_manager = GetComponent<RuneManager>();
-        health = max_health;
-        score = 0;
-        Debug.Log("Start !");
     }
 
-    public void Init(int rune_health, int rune_shield)
+    public void init(Camera main_cam)
     {
         // Update Player stats according to equiped runes
-        max_health += rune_health;
+        max_health += RuneManager.Instance.health_rune;
         health = max_health;
-        shield = rune_shield;
+        shield = RuneManager.Instance.shield_rune;
+
+        _player_controller.init(main_cam);
+        _weapon_controller.init(main_cam);
     }
 
     //The layer 8 is the player, the 9th is the enemy

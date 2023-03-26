@@ -5,8 +5,6 @@ using UnityEngine;
 
 public class Movement2D : MonoBehaviour
 {
-    public Camera camera;
-
     [Header("Movement Variables")]
     [SerializeField]
     private float _move_speed = 12f;
@@ -50,6 +48,8 @@ public class Movement2D : MonoBehaviour
     [SerializeField]
     private LayerMask _ground_layer;
 
+    private Camera camera;
+
     private Rigidbody2D _rigid_body;
     private float _horizontal_direction;
     private float _vertical_direction;
@@ -63,19 +63,22 @@ public class Movement2D : MonoBehaviour
     private float objectWidth;
     private float objectHeight;
 
-
-
-    public void Init()
+    private void Awake()
     {
         _rigid_body = GetComponent<Rigidbody2D>();
         boxCollider = GetComponent<BoxCollider2D>();
-        objectWidth = transform.GetComponent<SpriteRenderer>().bounds.extents.x; //extents = size of width / 2
-        objectHeight = transform.GetComponent<SpriteRenderer>().bounds.extents.y; //extents = size of height / 2
+        objectWidth = GetComponent<SpriteRenderer>().bounds.extents.x; //extents = size of width / 2
+        objectHeight = GetComponent<SpriteRenderer>().bounds.extents.y; //extents = size of height / 2
+    }
+
+    public void init(Camera main_cam)
+    {
+        camera = main_cam;
 
         //RUNE MODIFIER
-        _move_speed *= transform.GetComponent<RuneManager>().speed_rune;
-        _jump_force *= transform.GetComponent<RuneManager>().high_jump_rune;
-        if(transform.GetComponent<RuneManager>().triple_jump_rune)
+        _move_speed *= RuneManager.Instance.speed_rune;
+        _jump_force *= RuneManager.Instance.high_jump_rune;
+        if(RuneManager.Instance.triple_jump_rune)
         {
             _extra_jumps++;
         }
@@ -86,8 +89,7 @@ public class Movement2D : MonoBehaviour
         {
             is_boss_scene = true;
         }else{
-        _default_speed = camera.GetComponent<CameraBehavior>().speed;
-
+            _default_speed = camera.GetComponent<CameraBehavior>().speed;
         }
 
         _current_speed = _move_speed;
@@ -139,12 +141,13 @@ public class Movement2D : MonoBehaviour
      void LateUpdate()
     {
         //Clmp the player to the screen
-        screenBounds = camera.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
+        screenBounds = camera.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, camera.transform.position.z));
         Vector3 viewPos = transform.position;
         //clamp the x position to the screen bounds
         viewPos.x = Mathf.Clamp(viewPos.x, screenBounds.x *-1 + objectWidth, screenBounds.x  - objectWidth);
         transform.position = viewPos;
     }
+
     private void FixedUpdate()
     {
         check_ground_collision();
