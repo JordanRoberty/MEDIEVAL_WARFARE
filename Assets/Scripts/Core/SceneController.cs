@@ -132,6 +132,7 @@ public class SceneController : Singleton<SceneController>
     public void load_main_menu()
     {
         // Unload level
+        AudioSystem.Instance.stop_music();
         SceneManager.UnloadSceneAsync("Player");
         SceneManager.UnloadSceneAsync(_levels[_current_level]);
         _current_level = GameLevel.NONE;

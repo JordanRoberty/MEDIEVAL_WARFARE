@@ -9,19 +9,24 @@ public class AudioSystem : StaticInstance<AudioSystem>
     [SerializeField] private AudioSource _musicSource;
     [SerializeField] private AudioSource _soundsSource;
 
-    public void PlayMusic(AudioClip clip)
+    public void play_music(AudioClip clip)
     {
         _musicSource.clip = clip;
         _musicSource.Play();
     }
 
-    public void PlaySound(AudioClip clip, Vector3 pos, float vol = 1)
+    public void stop_music()
     {
-        _soundsSource.transform.position = pos;
-        PlaySound(clip, vol);
+        _musicSource.Stop();
     }
 
-    public void PlaySound(AudioClip clip, float vol = 1)
+    public void play_sound(AudioClip clip, Vector3 pos, float vol = 1)
+    {
+        _soundsSource.transform.position = pos;
+        play_sound(clip, vol);
+    }
+
+    public void play_sound(AudioClip clip, float vol = 1)
     {
         _soundsSource.PlayOneShot(clip, vol);
     }

@@ -6,6 +6,7 @@ public class BassicLevelLoader : LevelLoader
 {
     [SerializeField] private CameraCrusher _camera_crusher;
     [SerializeField] private EnemySpawner _enemy_spawner;
+    [SerializeField] private AudioClip _level_music;
 
     private RuneManager _rune_manager;
 
@@ -24,5 +25,7 @@ public class BassicLevelLoader : LevelLoader
         // INIT LEVEL SCENE COMPONENTS
         _camera_crusher.init(_player_manager);
         _enemy_spawner.init();
+
+        AudioSystem.Instance.play_music(_level_music);
     }
 }

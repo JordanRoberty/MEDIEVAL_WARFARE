@@ -17707,6 +17707,7 @@ MonoBehaviour:
   _initial_player: {fileID: 44167730}
   _camera_crusher: {fileID: 1073888214}
   _enemy_spawner: {fileID: 772884824}
+  _level_music: {fileID: 8300000, guid: 956d7cd9389a4b145a5e74bcc3721be9, type: 3}
 --- !u!1 &1541780840
 GameObject:
   m_ObjectHideFlags: 0
