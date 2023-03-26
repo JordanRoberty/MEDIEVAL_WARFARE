@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public enum GameScene
+public enum GameLevel
 {
-    HOME,
+    NONE,
     LEVEL_1,
+    BOSS_1,
     LEVEL_2,
     LEVEL_3,
 }
@@ -28,15 +29,15 @@ public enum GameMenu
 
 public class SceneController : Singleton<SceneController>
 {
-    private GameScene _current_scene;
+    private GameLevel _current_level;
     private GameMenu _current_menu;
 
-    private Dictionary<GameScene, string> _scenes = new Dictionary<GameScene, string>()
+    private Dictionary<GameLevel, string> _levels = new Dictionary<GameLevel, string>()
     {
-        { GameScene.HOME,        "home"      },
-        { GameScene.LEVEL_1,     "level_1"   },
-        { GameScene.LEVEL_2,     "level_2"   },
-        { GameScene.LEVEL_3,     "level_3"   },
+        { GameLevel.LEVEL_1,     "level_1"   },
+        { GameLevel.BOSS_1,     "boss_level_1"   },
+        { GameLevel.LEVEL_2,     "level_2"   },
+        { GameLevel.LEVEL_3,     "level_3"   },
     };
 
     private Dictionary<GameMenu, string> _menus = new Dictionary<GameMenu, string>()
@@ -53,39 +54,23 @@ public class SceneController : Singleton<SceneController>
         { GameMenu.REGISTER,    "register_menu" },
     };
 
-    public void init(GameScene initial_scene, GameMenu initial_menu)
+    public void init(GameMenu initial_menu)
     {
-        SceneManager.LoadScene(_scenes[initial_scene], LoadSceneMode.Additive);
-        _current_scene = initial_scene;
         SceneManager.LoadScene(_menus[initial_menu], LoadSceneMode.Additive);
         _current_menu = initial_menu;
-
-    }
-
-    public void set_current_scene(GameScene new_scene)
-    {
-        SceneManager.LoadScene("loading_menu", LoadSceneMode.Additive);
-        SceneManager.UnloadSceneAsync(_scenes[_current_scene]);
-        
-        AsyncOperation load_new_scene = SceneManager.LoadSceneAsync(_scenes[new_scene], LoadSceneMode.Additive);
-        load_new_scene.completed += (AsyncOperation result) =>
-        {
-            _current_scene = new_scene;
-            SceneManager.UnloadSceneAsync("loading_menu");
-        };
+        _current_level = GameLevel.NONE;
     }
 
     public void set_current_menu(GameMenu new_menu)
     {
-        if(_current_menu != GameMenu.NONE) SceneManager.UnloadSceneAsync(_menus[_current_menu]);
+        if (_current_menu != GameMenu.NONE) SceneManager.UnloadSceneAsync(_menus[_current_menu]);
 
-        if(new_menu != GameMenu.NONE)
+        LoadSceneMode load_mode = _current_level != GameLevel.NONE ? LoadSceneMode.Additive : LoadSceneMode.Single;
+
+        if (new_menu != GameMenu.NONE)
         {
-            AsyncOperation load_new_menu = SceneManager.LoadSceneAsync(_menus[new_menu], LoadSceneMode.Additive);
-            load_new_menu.completed += (AsyncOperation result) =>
-            {
-                _current_menu = new_menu;
-            };
+            SceneManager.LoadScene(_menus[new_menu], load_mode);
+            _current_menu = new_menu;   
         }
         else
         {
@@ -93,53 +78,70 @@ public class SceneController : Singleton<SceneController>
         }
     }
 
-    public void load_level(GameScene level)
+    public void load_level(GameLevel level)
     {
-        SceneManager.LoadScene("loading_menu", LoadSceneMode.Additive);
-
-        // Manage Scene
+        // In case of restart, destroy current level scenes
         if(SceneManager.GetSceneByName("Player").isLoaded) SceneManager.UnloadSceneAsync("Player");
-        SceneManager.UnloadSceneAsync(_scenes[_current_scene]);
+        if(_current_level != GameLevel.NONE) SceneManager.UnloadSceneAsync(_levels[_current_level]);
 
         // Load player
+        Time.timeScale = 0.0f;
         AsyncOperation load_Player = SceneManager.LoadSceneAsync("Player", LoadSceneMode.Additive);
         load_Player.completed += (AsyncOperation result) =>
         {
             // Load Level
-            AsyncOperation load_level = SceneManager.LoadSceneAsync(_scenes[level], LoadSceneMode.Additive);
+            AsyncOperation load_level = SceneManager.LoadSceneAsync(_levels[level], LoadSceneMode.Additive);
             load_level.completed += (AsyncOperation result) =>
             {
-                _current_scene = level;
+                _current_level = level;
+
+                LevelLoader.Instance.init();
 
                 // Manage Menu
                 if (_current_menu != GameMenu.NONE) SceneManager.UnloadSceneAsync(_menus[_current_menu]);
                 _current_menu = GameMenu.NONE;
-                SceneManager.UnloadSceneAsync("loading_menu");
+
+                Time.timeScale = 1.0f;
                 GameManager.Instance.set_state(GameState.RUNNING);
             };
         };
     }
 
-    public void load_main_menu()
+    public void load_boss_level(GameLevel boss_level)
     {
-        SceneManager.LoadScene("loading_menu", LoadSceneMode.Additive);
+        // Unload level scene
+        SceneManager.UnloadSceneAsync(_levels[_current_level]);
 
-        // Manage Scene
-        SceneManager.UnloadSceneAsync("Player");
-        SceneManager.UnloadSceneAsync(_scenes[_current_scene]);
-        AsyncOperation load_scene = SceneManager.LoadSceneAsync(_scenes[GameScene.HOME], LoadSceneMode.Additive);
-        load_scene.completed += (AsyncOperation result) =>
+        // Load Boss Level
+        Time.timeScale = 0.0f;
+        AsyncOperation load_level = SceneManager.LoadSceneAsync(_levels[boss_level], LoadSceneMode.Additive);
+        load_level.completed += (AsyncOperation result) =>
         {
-            _current_scene = GameScene.HOME;
+            _current_level = boss_level;
+
+            LevelLoader.Instance.init();
 
             // Manage Menu
             if (_current_menu != GameMenu.NONE) SceneManager.UnloadSceneAsync(_menus[_current_menu]);
-            AsyncOperation load_menu = SceneManager.LoadSceneAsync(_menus[GameMenu.MAIN], LoadSceneMode.Additive);
-            load_menu.completed += (AsyncOperation result) =>
-            {
-                _current_menu = GameMenu.MAIN;
-                SceneManager.UnloadSceneAsync("loading_menu");
-            };
+            _current_menu = GameMenu.NONE;
+
+            Time.timeScale = 1.0f;
         };
+    }
+
+    public void load_main_menu()
+    {
+        // Unload level
+        SceneManager.UnloadSceneAsync("Player");
+        SceneManager.UnloadSceneAsync(_levels[_current_level]);
+        _current_level = GameLevel.NONE;
+
+        // Unload Menu
+        if (_current_menu != GameMenu.NONE) SceneManager.UnloadSceneAsync(_menus[_current_menu]);
+
+        // Load Main Menu
+        SceneManager.LoadScene(_menus[GameMenu.MAIN]);
+        _current_menu = GameMenu.MAIN;
+        Time.timeScale = 1.0f;
     }
 }

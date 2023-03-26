@@ -5,22 +5,17 @@ using UnityEngine;
 
 public class CameraBehavior : MonoBehaviour
 {
-    private Rigidbody rb;
     public float speed = 5f;
-    // Start is called before the first frame update
-    void Start()
+
+    private Rigidbody _rigid_body;
+    
+    private void Awake()
     {
-        rb = GetComponent<Rigidbody>();
-        string sceneName = SceneManager.GetActiveScene().name;
-         if (sceneName.Contains("boss_level_")){
-            speed = 0f;
-         }
+        _rigid_body = GetComponent<Rigidbody>();
     }
 
-    // Update is called once per frame
     void FixedUpdate()
     {
-        rb.velocity = new Vector2(speed, 0f);
-
+        _rigid_body.velocity = new Vector2(speed, 0f);
     }
 }

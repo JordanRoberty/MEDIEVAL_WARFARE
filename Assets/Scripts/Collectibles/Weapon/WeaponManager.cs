@@ -29,6 +29,11 @@ public class WeaponManager : MonoBehaviour
         load_weapon();
     }
 
+    public void update_camera(Camera main_cam)
+    {
+        _main_cam = main_cam;
+    }
+
     private void load_weapon()
     {
         AsyncOperationHandle<GameObject> load_weapon_prefab = _weapon_infos.definition.GetStaticProperty("weapon_prefab").AsAddressable<GameObject>();

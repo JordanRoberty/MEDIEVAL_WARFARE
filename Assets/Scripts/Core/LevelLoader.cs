@@ -2,26 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LevelLoader : Singleton<LevelLoader>
+public abstract class LevelLoader : Singleton<LevelLoader>
 {
-    [SerializeField] private Camera _main_camera;
-    [SerializeField] private CameraCrusher _camera_crusher;
-    [SerializeField] private EnemySpawner _enemy_spawner;
+    [SerializeField] protected Camera _main_camera;
+    [SerializeField] protected Transform _initial_player;
 
-    private RuneManager _rune_manager;
-    private PlayerManager _player_manager;
+    protected PlayerManager _player_manager;
 
-    void Start()
+    public virtual void init()
     {
-        // INIT PLAYER SCENE COMPONENTS
-        _rune_manager = FindObjectOfType<RuneManager>();
-        _player_manager = FindObjectOfType<PlayerManager>();
-
-        _rune_manager.init();
-        _player_manager.init(_main_camera);
-
-        // INIT LEVEL SCENE COMPONENTS
-        _camera_crusher.init(_player_manager);
-        _enemy_spawner.init();
+        _player_manager = Resources.FindObjectsOfTypeAll<PlayerManager>()[0];
+        _player_manager.transform.position = _initial_player.position;
     }
 }

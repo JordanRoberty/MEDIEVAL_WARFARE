@@ -12,8 +12,6 @@ public class GameManager : Singleton<GameManager>
     [SerializeField]
     private GameState _initial_state;
     [SerializeField]
-    private GameScene _initial_scene;
-    [SerializeField]
     private GameMenu _initial_menu;
 
     private LevelManager level_manager;
@@ -21,7 +19,7 @@ public class GameManager : Singleton<GameManager>
 
     private void Start()
     {
-        SceneController.Instance.init(_initial_scene, _initial_menu);
+        SceneController.Instance.init(_initial_menu);
         _state = _initial_state;
 
         level_manager = GetComponentInChildren<LevelManager>();
@@ -33,10 +31,6 @@ public class GameManager : Singleton<GameManager>
         if (_state == GameState.RUNNING && Input.GetKeyDown("p"))
         {
             set_state(GameState.PAUSED);
-        }
-
-        if (_state == GameState.FAIL_MENU){
-            
         }
     }
 
@@ -149,18 +143,18 @@ public class GameManager : Singleton<GameManager>
 
     private void handle_loading()
     {
-        GameScene level_to_load = GameScene.HOME;
+        GameLevel level_to_load = GameLevel.NONE;
 
         switch(level_manager.current_level)
         {
             case 0:
-                level_to_load = GameScene.LEVEL_1;
+                level_to_load = GameLevel.LEVEL_1;
                 break;
             case 1:
-                level_to_load = GameScene.LEVEL_2;
+                level_to_load = GameLevel.LEVEL_2;
                 break;
             case 2:
-                level_to_load = GameScene.LEVEL_3;
+                level_to_load = GameLevel.LEVEL_3;
                 break;
             default:
                 throw new ArgumentOutOfRangeException(nameof(level_manager.current_level), level_manager.current_level, null);
@@ -172,7 +166,6 @@ public class GameManager : Singleton<GameManager>
     private void handle_running()
     {
         Cursor.visible = false;
-        Time.timeScale = 1.0f;
         _state = GameState.RUNNING;
     }
 
