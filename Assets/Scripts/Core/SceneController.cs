@@ -7,6 +7,7 @@ public enum GameLevel
 {
     NONE,
     LEVEL_1,
+    BOSS_1,
     LEVEL_2,
     LEVEL_3,
 }
@@ -34,6 +35,7 @@ public class SceneController : Singleton<SceneController>
     private Dictionary<GameLevel, string> _levels = new Dictionary<GameLevel, string>()
     {
         { GameLevel.LEVEL_1,     "level_1"   },
+        { GameLevel.BOSS_1,     "boss_level_1"   },
         { GameLevel.LEVEL_2,     "level_2"   },
         { GameLevel.LEVEL_3,     "level_3"   },
     };
@@ -78,7 +80,6 @@ public class SceneController : Singleton<SceneController>
 
     public void load_level(GameLevel level)
     {
-
         // In case of restart, destroy current level scenes
         if(SceneManager.GetSceneByName("Player").isLoaded) SceneManager.UnloadSceneAsync("Player");
         if(_current_level != GameLevel.NONE) SceneManager.UnloadSceneAsync(_levels[_current_level]);

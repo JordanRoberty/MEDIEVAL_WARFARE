@@ -7,9 +7,9 @@ public class LoadLevel : MonoBehaviour
 {
     public string area_to_load;
 
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(other.CompareTag("Player") && !other.isTrigger)
+        if(collision.TryGetComponent<PlayerManager>(out PlayerManager _player))
         {
             SceneManager.LoadScene(area_to_load);
         }
