@@ -63,22 +63,14 @@ public class Movement2D : MonoBehaviour
     private float objectWidth;
     private float objectHeight;
 
-    private void Awake()
+    public void init(Camera main_cam)
     {
+        camera = main_cam;
+
         _rigid_body = GetComponent<Rigidbody2D>();
         boxCollider = GetComponent<BoxCollider2D>();
         objectWidth = GetComponent<SpriteRenderer>().bounds.extents.x; //extents = size of width / 2
         objectHeight = GetComponent<SpriteRenderer>().bounds.extents.y; //extents = size of height / 2
-    }
-
-    public void update_camera(Camera main_cam)
-    {
-        camera = main_cam;
-    }
-
-    public void init(Camera main_cam)
-    {
-        camera = main_cam;
 
         //RUNE MODIFIER
         _move_speed *= RuneManager.Instance.speed_rune;
@@ -89,12 +81,13 @@ public class Movement2D : MonoBehaviour
         }
 
         //BOSS SCENE
-        string sceneName = SceneManager.GetActiveScene().name;
-        if (sceneName.Contains("boss_level_"))
+        if(camera.TryGetComponent<CameraBehavior>(out CameraBehavior scrolling_cam))
+        {
+            _default_speed = scrolling_cam.speed;
+        }
+        else
         {
             is_boss_scene = true;
-        }else{
-            _default_speed = camera.GetComponent<CameraBehavior>().speed;
         }
 
         _current_speed = _move_speed;
@@ -106,6 +99,8 @@ public class Movement2D : MonoBehaviour
 
     private void Update()
     {
+        if (GameManager.Instance._state != GameState.RUNNING) return;
+
         _horizontal_direction = get_input().x;
         _vertical_direction = get_input().y;
 
@@ -143,9 +138,9 @@ public class Movement2D : MonoBehaviour
     }
 
 
-     void LateUpdate()
+    void LateUpdate()
     {
-        //Clmp the player to the screen
+        //Clamp the player to the screen
         screenBounds = camera.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, camera.transform.position.z));
         Vector3 viewPos = transform.position;
         //clamp the x position to the screen bounds

@@ -1045,7 +1045,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5156aec957ee5478a9c4cf74ebe3cc4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _player: {fileID: 2065636607}
   damage_rune: 0
   speed_rune: 0
   firing_rate_rune: 0
@@ -1240,7 +1239,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2065636601
 Transform:
   m_ObjectHideFlags: 0
@@ -1393,10 +1392,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ef200027641645a89dcb6ff12f0b70b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _player_controller: {fileID: 0}
+  _weapon_controller: {fileID: 0}
+  _renderer: {fileID: 0}
   shield: 0
   max_health: 3
   health: 3
-  score: 0
   invulnerability_time: 2
 --- !u!95 &2065636609
 Animator:

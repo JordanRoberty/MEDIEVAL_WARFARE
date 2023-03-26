@@ -11,7 +11,7 @@ public abstract class LevelLoader : Singleton<LevelLoader>
 
     public virtual void init()
     {
-        _player_manager = FindObjectOfType<PlayerManager>();
+        _player_manager = Resources.FindObjectsOfTypeAll<PlayerManager>()[0];
         _player_manager.transform.position = _initial_player.position;
     }
 }

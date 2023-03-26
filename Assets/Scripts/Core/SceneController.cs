@@ -107,6 +107,28 @@ public class SceneController : Singleton<SceneController>
         };
     }
 
+    public void load_boss_level(GameLevel boss_level)
+    {
+        // Unload level scene
+        SceneManager.UnloadSceneAsync(_levels[_current_level]);
+
+        // Load Boss Level
+        Time.timeScale = 0.0f;
+        AsyncOperation load_level = SceneManager.LoadSceneAsync(_levels[boss_level], LoadSceneMode.Additive);
+        load_level.completed += (AsyncOperation result) =>
+        {
+            _current_level = boss_level;
+
+            LevelLoader.Instance.init();
+
+            // Manage Menu
+            if (_current_menu != GameMenu.NONE) SceneManager.UnloadSceneAsync(_menus[_current_menu]);
+            _current_menu = GameMenu.NONE;
+
+            Time.timeScale = 1.0f;
+        };
+    }
+
     public void load_main_menu()
     {
         // Unload level

@@ -18,15 +18,12 @@ public class PlayerManager : Singleton<PlayerManager>
     // Time during which the character is invincible after being hit (in seconds)
     public float invulnerability_time = 2.0f;
 
-    void Awake()
+    public void init(Camera main_cam)
     {
         _player_controller = GetComponent<Movement2D>();
         _weapon_controller = GetComponentInChildren<WeaponManager>();
         _renderer = GetComponent<Renderer>();
-    }
 
-    public void init(Camera main_cam)
-    {
         // Update Player stats according to equiped runes
         max_health += RuneManager.Instance.health_rune;
         health = max_health;
@@ -38,7 +35,7 @@ public class PlayerManager : Singleton<PlayerManager>
 
     public void update_dependencies(Camera main_cam)
     {
-        _player_controller.update_camera(main_cam);
+        _player_controller.init(main_cam);
         _weapon_controller.update_camera(main_cam);
     }
 
