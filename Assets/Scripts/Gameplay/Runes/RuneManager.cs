@@ -5,8 +5,6 @@ using UnityEngine;
 
 public class RuneManager : Singleton<RuneManager>
 {
-    [SerializeField] private PlayerManager _player;
-
     //Stats
     [HideInInspector]
     public float damage_rune;// { get; private set; }
@@ -40,8 +38,7 @@ public class RuneManager : Singleton<RuneManager>
     //  money magnet ??
     //  multiple shot ???
 
-    // Start is called before the first frame update
-    void Start()
+    public void init()
     {
         damage_rune = 1f;
         speed_rune = 1f;
@@ -56,8 +53,6 @@ public class RuneManager : Singleton<RuneManager>
         triple_jump_rune = false;
         _equiped_runes = PlayerInfosManager.Instance.get_equiped_runes();
         getRuneModifier();
-
-        _player.init();
     }
 
     private void getRuneModifier()

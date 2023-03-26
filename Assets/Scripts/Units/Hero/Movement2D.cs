@@ -63,16 +63,17 @@ public class Movement2D : MonoBehaviour
     private float objectWidth;
     private float objectHeight;
 
-
+    private void Awake()
+    {
+        _rigid_body = GetComponent<Rigidbody2D>();
+        boxCollider = GetComponent<BoxCollider2D>();
+        objectWidth = GetComponent<SpriteRenderer>().bounds.extents.x; //extents = size of width / 2
+        objectHeight = GetComponent<SpriteRenderer>().bounds.extents.y; //extents = size of height / 2
+    }
 
     public void init()
     {
-        camera = Camera.main;
-
-        _rigid_body = GetComponent<Rigidbody2D>();
-        boxCollider = GetComponent<BoxCollider2D>();
-        objectWidth = transform.GetComponent<SpriteRenderer>().bounds.extents.x; //extents = size of width / 2
-        objectHeight = transform.GetComponent<SpriteRenderer>().bounds.extents.y; //extents = size of height / 2
+        camera = GameObject.FindWithTag("MainCamera").GetComponent<Camera>();
 
         //RUNE MODIFIER
         _move_speed *= RuneManager.Instance.speed_rune;
