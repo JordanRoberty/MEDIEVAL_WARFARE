@@ -5,6 +5,7 @@ using UnityEngine;
 public class LevelLoader : Singleton<LevelLoader>
 {
     [SerializeField] private Camera _main_camera;
+    [SerializeField] private CameraCrusher _camera_crusher;
     [SerializeField] private EnemySpawner _enemy_spawner;
 
     private RuneManager _rune_manager;
@@ -20,6 +21,7 @@ public class LevelLoader : Singleton<LevelLoader>
         _player_manager.init(_main_camera);
 
         // INIT LEVEL SCENE COMPONENTS
-        //_enemy_spawner.init();
+        _camera_crusher.init(_player_manager);
+        _enemy_spawner.init();
     }
 }

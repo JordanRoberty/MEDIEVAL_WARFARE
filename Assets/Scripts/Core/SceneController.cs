@@ -96,8 +96,9 @@ public class SceneController : Singleton<SceneController>
     public void load_level(GameScene level)
     {
         SceneManager.LoadScene("loading_menu", LoadSceneMode.Additive);
-        
+
         // Manage Scene
+        if(SceneManager.GetSceneByName("Player").isLoaded) SceneManager.UnloadSceneAsync("Player");
         SceneManager.UnloadSceneAsync(_scenes[_current_scene]);
 
         // Load player
@@ -124,6 +125,7 @@ public class SceneController : Singleton<SceneController>
         SceneManager.LoadScene("loading_menu", LoadSceneMode.Additive);
 
         // Manage Scene
+        SceneManager.UnloadSceneAsync("Player");
         SceneManager.UnloadSceneAsync(_scenes[_current_scene]);
         AsyncOperation load_scene = SceneManager.LoadSceneAsync(_scenes[GameScene.HOME], LoadSceneMode.Additive);
         load_scene.completed += (AsyncOperation result) =>

@@ -16,7 +16,7 @@ public class EnemySpawner : MonoBehaviour
 
     public float scroll_speed = 0.2f;
 
-    private void Start()
+    public void init()
     {
         _enemies_container.destroy_children();
         InvokeRepeating("SpawnEnemy", 0.0f, spawn_rate); // lancement du spawn toutes les "spawn_rate" secondes

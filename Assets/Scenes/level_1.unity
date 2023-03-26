@@ -17034,7 +17034,7 @@ GameObject:
   - component: {fileID: 1073888212}
   - component: {fileID: 1073888214}
   m_Layer: 10
-  m_Name: Camera pusher
+  m_Name: Camera Crusher
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17149,6 +17149,7 @@ MonoBehaviour:
   _player_layer:
     serializedVersion: 2
     m_Bits: 256
+  _player_manager: {fileID: 0}
 --- !u!1 &1383007476
 GameObject:
   m_ObjectHideFlags: 0
@@ -17671,6 +17672,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _main_camera: {fileID: 842469916}
+  _camera_crusher: {fileID: 1073888214}
   _enemy_spawner: {fileID: 772884824}
 --- !u!1 &1541780840
 GameObject:
