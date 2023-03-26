@@ -71,6 +71,11 @@ public class Movement2D : MonoBehaviour
         objectHeight = GetComponent<SpriteRenderer>().bounds.extents.y; //extents = size of height / 2
     }
 
+    public void update_camera(Camera main_cam)
+    {
+        camera = main_cam;
+    }
+
     public void init(Camera main_cam)
     {
         camera = main_cam;

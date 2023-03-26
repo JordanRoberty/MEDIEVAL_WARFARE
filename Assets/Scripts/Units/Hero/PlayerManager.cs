@@ -36,6 +36,12 @@ public class PlayerManager : Singleton<PlayerManager>
         _weapon_controller.init(main_cam);
     }
 
+    public void update_dependencies(Camera main_cam)
+    {
+        _player_controller.update_camera(main_cam);
+        _weapon_controller.update_camera(main_cam);
+    }
+
     //The layer 8 is the player, the 9th is the enemy
     IEnumerator invulnerability()
     {

@@ -11,9 +11,11 @@ public class ClassicLevelLoader : LevelLoader
 
     public override void init()
     {
+        // Set player position in parent
+        base.init();
+
         // INIT PLAYER SCENE COMPONENTS
         _rune_manager = FindObjectOfType<RuneManager>();
-        _player_manager = FindObjectOfType<PlayerManager>();
 
         _rune_manager.init();
         _player_manager.init(_main_camera);
