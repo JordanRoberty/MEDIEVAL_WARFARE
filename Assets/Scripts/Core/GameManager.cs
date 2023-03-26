@@ -166,7 +166,6 @@ public class GameManager : Singleton<GameManager>
     private void handle_running()
     {
         Cursor.visible = false;
-        Time.timeScale = 1.0f;
         _state = GameState.RUNNING;
     }
 

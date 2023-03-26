@@ -11,7 +11,7 @@ public class LevelLoader : Singleton<LevelLoader>
     private RuneManager _rune_manager;
     private PlayerManager _player_manager;
 
-    void Start()
+    public void init()
     {
         // INIT PLAYER SCENE COMPONENTS
         _rune_manager = FindObjectOfType<RuneManager>();

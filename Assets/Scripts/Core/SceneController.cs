@@ -61,11 +61,13 @@ public class SceneController : Singleton<SceneController>
 
     public void set_current_menu(GameMenu new_menu)
     {
-        if(_current_menu != GameMenu.NONE) SceneManager.UnloadSceneAsync(_menus[_current_menu]);
+        if (_current_menu != GameMenu.NONE) SceneManager.UnloadSceneAsync(_menus[_current_menu]);
 
-        if(new_menu != GameMenu.NONE)
+        LoadSceneMode load_mode = _current_level != GameLevel.NONE ? LoadSceneMode.Additive : LoadSceneMode.Single;
+
+        if (new_menu != GameMenu.NONE)
         {
-            SceneManager.LoadScene(_menus[new_menu], LoadSceneMode.Additive);
+            SceneManager.LoadScene(_menus[new_menu], load_mode);
             _current_menu = new_menu;   
         }
         else
@@ -76,11 +78,13 @@ public class SceneController : Singleton<SceneController>
 
     public void load_level(GameLevel level)
     {
+
         // In case of restart, destroy current level scenes
         if(SceneManager.GetSceneByName("Player").isLoaded) SceneManager.UnloadSceneAsync("Player");
         if(_current_level != GameLevel.NONE) SceneManager.UnloadSceneAsync(_levels[_current_level]);
 
         // Load player
+        Time.timeScale = 0.0f;
         AsyncOperation load_Player = SceneManager.LoadSceneAsync("Player", LoadSceneMode.Additive);
         load_Player.completed += (AsyncOperation result) =>
         {
@@ -90,10 +94,13 @@ public class SceneController : Singleton<SceneController>
             {
                 _current_level = level;
 
+                LevelLoader.Instance.init();
+
                 // Manage Menu
                 if (_current_menu != GameMenu.NONE) SceneManager.UnloadSceneAsync(_menus[_current_menu]);
                 _current_menu = GameMenu.NONE;
-                
+
+                Time.timeScale = 1.0f;
                 GameManager.Instance.set_state(GameState.RUNNING);
             };
         };
@@ -112,5 +119,6 @@ public class SceneController : Singleton<SceneController>
         // Load Main Menu
         SceneManager.LoadScene(_menus[GameMenu.MAIN]);
         _current_menu = GameMenu.MAIN;
+        Time.timeScale = 1.0f;
     }
 }
