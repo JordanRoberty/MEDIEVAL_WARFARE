@@ -7,23 +7,16 @@ using UnityEngine.GameFoundation;
 
 public class GameManager : Singleton<GameManager>
 {
+    [SerializeField] private LevelManager level_manager;
+    [SerializeField] private DifficultyManager difficulty_manager;
+
     public GameState _state { get; private set; }
 
-    [SerializeField]
-    private GameState _initial_state;
-    [SerializeField]
-    private GameMenu _initial_menu;
-
-    private LevelManager level_manager;
-    private DifficultyManager difficulty_manager;
 
     private void Start()
     {
-        SceneController.Instance.init(_initial_menu);
-        _state = _initial_state;
-
-        level_manager = GetComponentInChildren<LevelManager>();
-        difficulty_manager = GetComponentInChildren<DifficultyManager>();
+        SceneController.Instance.init(GameMenu.TITLE);
+        _state = GameState.TITLE_MENU;
     }
         
     private void Update()
