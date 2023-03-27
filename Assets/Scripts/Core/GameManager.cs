@@ -166,22 +166,7 @@ public class GameManager : Singleton<GameManager>
 
     private void handle_loading()
     {
-        GameLevel level_to_load = GameLevel.NONE;
-
-        switch(level_manager.current_level)
-        {
-            case 0:
-                level_to_load = GameLevel.LEVEL_1;
-                break;
-            case 1:
-                level_to_load = GameLevel.LEVEL_2;
-                break;
-            case 2:
-                level_to_load = GameLevel.LEVEL_3;
-                break;
-            default:
-                throw new ArgumentOutOfRangeException(nameof(level_manager.current_level), level_manager.current_level, null);
-        }
+        GameLevel level_to_load = level_manager.get_selected_level();
 
         SceneController.Instance.load_level(level_to_load);
     }

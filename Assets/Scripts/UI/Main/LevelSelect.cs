@@ -24,7 +24,7 @@ public class LevelSelect : Select
     private void set_current_option(int index)
     {
         dropdown.value = index;
-        LevelManager.Instance.current_level = index;
+        LevelManager.Instance.selected_level = index;
     }
 
     public override void previous_option()

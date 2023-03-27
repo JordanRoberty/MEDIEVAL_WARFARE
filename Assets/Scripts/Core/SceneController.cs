@@ -89,7 +89,8 @@ public class SceneController : Singleton<SceneController>
     {
         if (_current_menu != GameMenu.NONE) SceneManager.UnloadSceneAsync(_menus[_current_menu]);
 
-        LoadSceneMode load_mode = _current_level != GameLevel.NONE ? LoadSceneMode.Additive : LoadSceneMode.Single;
+        bool in_game = _current_level != GameLevel.NONE || _current_boss_level != BossLevel.NONE;
+        LoadSceneMode load_mode = in_game ? LoadSceneMode.Additive : LoadSceneMode.Single;
 
         if (new_menu != GameMenu.NONE)
         {
