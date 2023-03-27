@@ -9,6 +9,7 @@ public class EnemyBasic : Enemy
         pv = 200.0f;
         speed = 5.0f;
         max_droppable_quantity = 5;
+        score_value = 1;
     }
 
     public float jump_force = 250.0f;
