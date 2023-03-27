@@ -18239,4 +18239,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b7192871d776b34ca8c8966dc0f4fdb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _boss_level_to_load: 2
+  _boss_level_to_load: 0

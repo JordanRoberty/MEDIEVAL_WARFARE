@@ -172,7 +172,7 @@ public class GameManager : Singleton<GameManager>
                 throw new ArgumentOutOfRangeException(nameof(level_manager.current_level), level_manager.current_level, null);
         }
 
-        StartCoroutine(SceneController.Instance.load_level(level_to_load));
+        SceneController.Instance.load_level(level_to_load);
     }
 
     private void handle_running()
