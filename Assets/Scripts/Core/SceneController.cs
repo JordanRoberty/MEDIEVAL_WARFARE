@@ -78,10 +78,10 @@ public class SceneController : Singleton<SceneController>
         }
     }
 
-    public void load_level(GameLevel level)
+    public IEnumerator load_level(GameLevel level)
     {
         // In case of restart, destroy current level scenes
-        if(SceneManager.GetSceneByName("Player").isLoaded) SceneManager.UnloadSceneAsync("Player");
+        if (SceneManager.GetSceneByName("Player").isLoaded) yield return SceneManager.UnloadSceneAsync("Player");
         if(_current_level != GameLevel.NONE) SceneManager.UnloadSceneAsync(_levels[_current_level]);
 
         // Load player
