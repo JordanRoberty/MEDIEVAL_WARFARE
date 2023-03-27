@@ -36,24 +36,6 @@ public class GameManager : Singleton<GameManager>
 
     public void set_state(GameState new_state)
     {
-        // HANDLE QUIT
-        switch (_state)
-        {
-            case GameState.SHOP_MENU:
-                SaveSystem.Instance.Save();
-                break;
-            case GameState.GEARS_MENU:
-                SaveSystem.Instance.Save();
-                break;
-            case GameState.RUNNING:
-                Cursor.visible = true;
-                break;
-
-            default:
-                break;
-        }
-
-        // HANDLE ENTER;
         switch (new_state)
         {
             case GameState.TITLE_MENU:
@@ -111,6 +93,19 @@ public class GameManager : Singleton<GameManager>
 
     private void handle_main_menu()
     {
+        // HANDLE QUIT
+        switch (_state)
+        {
+            case GameState.SHOP_MENU:
+                SaveSystem.Instance.Save();
+                break;
+            case GameState.GEARS_MENU:
+                SaveSystem.Instance.Save();
+                break;
+            default:
+                break;
+        }
+
         // HANDLE ENTER
         SceneController.Instance.set_current_menu(GameMenu.MAIN);
         _state = GameState.MAIN_MENU;
@@ -118,6 +113,18 @@ public class GameManager : Singleton<GameManager>
 
     private void handle_shop_menu()
     {
+        // HANDLE QUIT
+        switch (_state)
+        {
+            case GameState.GEARS_MENU:
+                SaveSystem.Instance.Save();
+                break;
+            
+            default:
+                break;
+        }
+
+        // HANDLE ENTER
         SceneController.Instance.set_current_menu(GameMenu.SHOP);
         _state = GameState.SHOP_MENU;
     }
@@ -125,9 +132,14 @@ public class GameManager : Singleton<GameManager>
     private void handle_gears_menu()
     {
         // HANDLE QUIT
-        if (_state == GameState.SHOP_MENU)
+        switch (_state)
         {
-            SaveSystem.Instance.Save();
+            case GameState.SHOP_MENU:
+                SaveSystem.Instance.Save();
+                break;
+
+            default:
+                break;
         }
 
         // HANDLE ENTER
@@ -171,10 +183,10 @@ public class GameManager : Singleton<GameManager>
 
     private void handle_paused()
     {
-        SceneController.Instance.set_current_menu(GameMenu.PAUSE);
         /* Stops the game */
         Time.timeScale = 0.0f;
-
+        Cursor.visible = true;
+        SceneController.Instance.set_current_menu(GameMenu.PAUSE);
         _state = GameState.PAUSED;
     }
 
@@ -193,6 +205,7 @@ public class GameManager : Singleton<GameManager>
 
     private void handle_fail_menu()
     {
+        Cursor.visible = true;
         SceneController.Instance.set_current_menu(GameMenu.FAIL);
         Time.timeScale = 0.0f;
         _state = GameState.FAIL_MENU;
@@ -200,6 +213,7 @@ public class GameManager : Singleton<GameManager>
 
     private void handle_victory_menu()
     {
+        Cursor.visible = true;
         SceneController.Instance.set_current_menu(GameMenu.VICTORY);
         _state = GameState.VICTORY_MENU;
     }

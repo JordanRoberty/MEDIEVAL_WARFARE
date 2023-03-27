@@ -9,6 +9,11 @@ public class StatsManager : Singleton<StatsManager>
     
     void Start()
     {
+        init();
+    }
+
+    public void init()
+    {
         score = 0;
     }
 
