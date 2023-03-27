@@ -336,8 +336,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88b09bf851fb34d4a84697c907407518, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _initial_state: 0
-  _initial_menu: 0
+  level_manager: {fileID: 658982497}
+  difficulty_manager: {fileID: 724561611}
 --- !u!4 &561860165
 Transform:
   m_ObjectHideFlags: 0
@@ -399,7 +399,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72fcd946e245b9c4abb86cb9035b4011, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  current_level: 0
+  selected_level: 0
 --- !u!1 &724561609
 GameObject:
   m_ObjectHideFlags: 0
