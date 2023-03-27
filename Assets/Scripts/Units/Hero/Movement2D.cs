@@ -140,12 +140,14 @@ public class Movement2D : MonoBehaviour
 
     void LateUpdate()
     {
-        //Clamp the player to the screen
-        screenBounds = camera.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, camera.transform.position.z));
-        Vector3 viewPos = transform.position;
-        //clamp the x position to the screen bounds
-        viewPos.x = Mathf.Clamp(viewPos.x, screenBounds.x *-1 + objectWidth, screenBounds.x  - objectWidth);
-        transform.position = viewPos;
+        if (!is_boss_scene){
+            //Clamp the player to the screen
+            screenBounds = camera.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, camera.transform.position.z));
+            Vector3 viewPos = transform.position;
+            //clamp the x position to the screen bounds
+            viewPos.x = Mathf.Clamp(viewPos.x, screenBounds.x *-1 + objectWidth, screenBounds.x  - objectWidth);
+            transform.position = viewPos;
+        }
     }
 
     private void FixedUpdate()
