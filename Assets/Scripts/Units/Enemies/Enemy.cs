@@ -45,7 +45,7 @@ public class Enemy : MonoBehaviour
         coin_quantity = Mathf.FloorToInt(Mathf.Clamp(random_value, 0, max_droppable_quantity));
     }
 
-    public void die()
+    public virtual void die()
     {
         StatsManager.Instance.update_score(1);
         
@@ -69,6 +69,4 @@ public class Enemy : MonoBehaviour
         // Destroy the enemy
         transform.destroy();
     }
-
-    
 }

@@ -129,7 +129,6 @@ public class Boss : Enemy
         }
     }
 
-
     void throw_bottle()
     {
         animator.SetBool("Bottle_toss", true);
@@ -187,6 +186,33 @@ public class Boss : Enemy
         rigidbody.AddForce(force, ForceMode2D.Impulse);
 
         StartCoroutine(Squash(timeToReachMaxHeight / 1000f));
+    }
+
+    public override void die()
+    {
+        StatsManager.Instance.update_score(1);
+
+        int coin_reward = 100;
+
+        // Spawn the correct number of coin(s) at the enemy's position
+        for (int i = 0; i < coin_reward; i++)
+        {
+            Transform coin_parent = GameObject.Find("/Environment/Coins").transform;
+
+            // Add a random offset to the coin's position
+            GameObject coin = Instantiate(
+                coinPrefab,
+                transform.position + new Vector3(Random.Range(-0.5f, 0.5f),
+                Random.Range(-0.5f, 0.5f), 0),
+                Quaternion.identity,
+                coin_parent
+            );
+        }
+
+        BossFightManager.Instance.boss_died();
+
+        // Destroy the enemy
+        transform.destroy();
     }
 
     IEnumerator Squash(float timeToReachMaxHeight)

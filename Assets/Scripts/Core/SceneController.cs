@@ -42,16 +42,16 @@ public class SceneController : Singleton<SceneController>
 
     private Dictionary<GameMenu, string> _menus = new Dictionary<GameMenu, string>()
     {
-        { GameMenu.TITLE,       "title_menu"    },
-        { GameMenu.MAIN,        "main_menu"     },
-        { GameMenu.SHOP,        "shop_menu"     },
-        { GameMenu.GEARS,       "gears_menu"    },
-        { GameMenu.SCORES,      "scores_menu"   },
-        { GameMenu.PAUSE,       "pause_menu"    },
-        { GameMenu.FAIL,        "fail_menu"     },
-        { GameMenu.VICTORY,     "victory_menu"  },
-        { GameMenu.STATS,       "stats_menu"    },
-        { GameMenu.REGISTER,    "register_menu" },
+        { GameMenu.TITLE,       "title_menu"        },
+        { GameMenu.MAIN,        "main_menu"         },
+        { GameMenu.SHOP,        "shop_menu"         },
+        { GameMenu.GEARS,       "gears_menu"        },
+        { GameMenu.SCORES,      "scores_menu"       },
+        { GameMenu.PAUSE,       "pause_menu"        },
+        { GameMenu.FAIL,        "fail_menu"         },
+        { GameMenu.VICTORY,     "victory_menu"      },
+        { GameMenu.STATS,       "statistics_menu"   },
+        { GameMenu.REGISTER,    "register_menu"     },
     };
 
     public void init(GameMenu initial_menu)
@@ -127,6 +127,17 @@ public class SceneController : Singleton<SceneController>
 
             Time.timeScale = 1.0f;
         };
+    }
+
+    public void load_victory_menu()
+    {
+        // Unload level scenes
+        AudioSystem.Instance.stop_music();
+        SceneManager.UnloadSceneAsync("Player");
+        SceneManager.UnloadSceneAsync(_levels[_current_level]);
+        _current_level = GameLevel.NONE;
+
+        GameManager.Instance.set_state(GameState.VICTORY_MENU);
     }
 
     public void load_main_menu()

@@ -364,9 +364,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1389882646}
-  - component: {fileID: 1389882647}
   m_Layer: 5
-  m_Name: Title Menu
+  m_Name: Victory Menu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -394,33 +393,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1389882647
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1389882645}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5475f14880a3d8e48a28a12d1732bfea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  id: 0
-  is_modal: 0
-  first_button_selected: {fileID: 1770585801}
-  pre_push_action:
-    m_PersistentCalls:
-      m_Calls: []
-  post_push_action:
-    m_PersistentCalls:
-      m_Calls: []
-  pre_pop_action:
-    m_PersistentCalls:
-      m_Calls: []
-  post_pop_action:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &1474345970
 GameObject:
   m_ObjectHideFlags: 0
@@ -744,7 +716,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35a6cfadc94c2b345922bcfe05df4835, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: 9
+  target: 12
 --- !u!114 &1770585804
 MonoBehaviour:
   m_ObjectHideFlags: 0
