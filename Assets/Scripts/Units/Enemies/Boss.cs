@@ -22,10 +22,12 @@ public class Boss : Enemy
     private Vector3 look_at = Vector3.left;
     public Animator animator;
     private float moveSpeedThreshold = 0.1f;
+    private SpriteRenderer sprite;
 
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+        sprite = GetComponent<SpriteRenderer>();
     }
 
     private void Update()
@@ -202,6 +204,11 @@ public class Boss : Enemy
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        if (collision.gameObject.CompareTag("Bullet"))
+        {
+            StartCoroutine(Flash());
+        }
+        StartCoroutine(Flash());
         // Si le joueur entre en collision avec le boss
         if (collision.gameObject.CompareTag("Player"))
         {
@@ -284,5 +291,14 @@ public class Boss : Enemy
 
         // Désactiver le paramètre "Horizontal_attack"
         animator.SetBool("Going_forward", false);
+    }
+
+    IEnumerator Flash()
+    {
+ 
+        sprite.color = Color.red;
+        yield return new WaitForSeconds(0.1f);
+        sprite.color = Color.white;
+
     }
 }
