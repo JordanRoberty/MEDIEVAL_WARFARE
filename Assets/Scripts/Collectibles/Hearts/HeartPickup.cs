@@ -5,22 +5,22 @@ using UnityEngine.GameFoundation;
 
 public class HeartPickup : MonoBehaviour
 {
-    //private Currency m_CoinDefinition;
-    public int heart_value = 1; // The value of the heart
+    [SerializeField] private PlayerManager _player;
 
-    void Start()
-    {
-        // Get the Life data definition for the Heart
-        // TODO
-    }
+    public int heart_value = 1; // The value of the heart
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         // If the Player moves onto the Coin
         if (collision.CompareTag("Player"))
+        //if (collision.gameObject.CompareTag("Player"))
         {
-            //GameFoundationSdk.wallet.Add(m_CoinDefinition, heart_value); // Add the heart to the Player's life
             transform.parent.destroy();
+            
+            if (_player.health < _player.max_health)
+            {
+                _player.health += heart_value;
+            }
         }
     }
 }
