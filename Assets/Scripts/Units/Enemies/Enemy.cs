@@ -12,6 +12,8 @@ public class Enemy : MonoBehaviour
     protected int coin_quantity; // The quantity of coins that will actually be dropped by an enemy
     public GameObject coinPrefab;
 
+    public GameObject heartPrefab;
+
     public int get_damage()
     {
         return damage;
@@ -48,23 +50,41 @@ public class Enemy : MonoBehaviour
     public virtual void die()
     {
         StatsManager.Instance.update_score(1);
-        
-        initialize_coin_quantity();
-        
-        // Spawn the correct number of coin(s) at the enemy's position
-        for (int i = 0; i < coin_quantity; i++)
-        {
-            Transform coin_parent = GameObject.Find("/Environment/Coins").transform;
 
-            // Add a random offset to the coin's position
-            GameObject coin = Instantiate(
-                coinPrefab,
+        // 1 chance out of 10 to drop a heart, except for the Bosses
+        //if (Random.Range(0, 10) == 0 && !gameObject.name.StartsWith("Boss"))
+        //{  // TODO: refactor this if/else block
+            Transform heart_parent = GameObject.Find("/Environment/Hearts").transform;
+
+            // Add a random offset to the heart's position
+            GameObject heart = Instantiate(
+                heartPrefab,
                 transform.position + new Vector3(Random.Range(-0.5f, 0.5f),
                 Random.Range(-0.5f, 0.5f), 0),
                 Quaternion.identity,
-                coin_parent
+                heart_parent
             );
-        }
+        //}
+        
+        // 9 chances out of 10 to drop coins
+        // else{
+        //     initialize_coin_quantity();
+            
+        //     // Spawn the correct number of coin(s) at the enemy's position
+        //     for (int i = 0; i < coin_quantity; i++)
+        //     {
+        //         Transform coin_parent = GameObject.Find("/Environment/Coins").transform;
+
+        //         // Add a random offset to the coin's position
+        //         GameObject coin = Instantiate(
+        //             coinPrefab,
+        //             transform.position + new Vector3(Random.Range(-0.5f, 0.5f),
+        //             Random.Range(-0.5f, 0.5f), 0),
+        //             Quaternion.identity,
+        //             coin_parent
+        //         );
+        //     }
+        // }
 
         // Destroy the enemy
         transform.destroy();

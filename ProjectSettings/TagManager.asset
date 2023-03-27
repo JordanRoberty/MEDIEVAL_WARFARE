@@ -24,7 +24,7 @@ TagManager:
   - Enemy
   - Camera pusher
   - Coin
-  - 
+  - Heart
   - 
   - 
   - 
@@ -47,6 +47,9 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Heart
+    uniqueID: 1539395391
     locked: 0
   - name: Coin
     uniqueID: 3163682249
