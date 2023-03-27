@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.GameFoundation;
+using static GameFoundationUtils;
 
 public enum GameState
 {
@@ -222,7 +223,27 @@ public class GameManager : Singleton<GameManager>
 
     private void handle_register_menu()
     {
-        SceneController.Instance.set_current_menu(GameMenu.REGISTER);
-        _state = GameState.REGISTER_MENU;
+        int current_level = (int) level_manager.get_selected_level();
+        int score_to_change = -1;
+        InventoryItem level_scores = get_inventory_items_from_tag("SCORE")[current_level];
+
+        for (int score = 0; score < 3; ++score)
+        {
+            if(level_scores.GetMutableProperty("score_" + score) < StatsManager.Instance.score)
+            {
+                score_to_change = score;
+                break;
+            }
+        }
+
+        if(score_to_change != -1)
+        {
+            SceneController.Instance.set_current_menu(GameMenu.REGISTER);
+            _state = GameState.REGISTER_MENU;
+        }
+        else
+        {
+            set_state(GameState.MAIN_MENU);
+        }
     }
 }
