@@ -26,6 +26,26 @@ public class RegisterManager : Singleton<RegisterManager>
             }
         }
 
-        _explanation_text.text = "Congratulations ! You just made the " + _score_to_change + " best score of this level !";
+        string rank = add_rank_extention(_score_to_change + 1);
+
+        _explanation_text.text = "Congratulations ! You just made the " + rank + " best score of this level !";
+    }
+
+    private string add_rank_extention(int rank)
+    {
+        switch (rank)
+        {
+            case 1:
+                return rank.ToString() + "st";
+
+            case 2:
+                return rank.ToString() + "nd";
+
+            case 3:
+                return rank.ToString() + "rd";
+
+            default:
+                return rank.ToString() + "th";
+        }
     }
 }
