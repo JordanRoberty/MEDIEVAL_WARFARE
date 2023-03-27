@@ -183,10 +183,10 @@ public class GameManager : Singleton<GameManager>
 
     private void handle_paused()
     {
-        SceneController.Instance.set_current_menu(GameMenu.PAUSE);
         /* Stops the game */
         Time.timeScale = 0.0f;
-
+        Cursor.visible = true;
+        SceneController.Instance.set_current_menu(GameMenu.PAUSE);
         _state = GameState.PAUSED;
     }
 
@@ -205,6 +205,7 @@ public class GameManager : Singleton<GameManager>
 
     private void handle_fail_menu()
     {
+        Cursor.visible = true;
         SceneController.Instance.set_current_menu(GameMenu.FAIL);
         Time.timeScale = 0.0f;
         _state = GameState.FAIL_MENU;
@@ -212,6 +213,7 @@ public class GameManager : Singleton<GameManager>
 
     private void handle_victory_menu()
     {
+        Cursor.visible = true;
         SceneController.Instance.set_current_menu(GameMenu.VICTORY);
         _state = GameState.VICTORY_MENU;
     }
