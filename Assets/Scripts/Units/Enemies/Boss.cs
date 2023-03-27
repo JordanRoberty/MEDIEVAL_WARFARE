@@ -239,7 +239,6 @@ public class Boss : Enemy
         // Désactiver le paramètre "Horizontal_attack"
         animator.SetBool("Horizontal_attack", false);
     }
-
     IEnumerator ThrowBottle()
     {
         // Attendre la fin de l'animation

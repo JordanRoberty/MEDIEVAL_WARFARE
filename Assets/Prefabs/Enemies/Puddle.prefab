@@ -11,7 +11,9 @@ GameObject:
   - component: {fileID: 522956053348396746}
   - component: {fileID: 4461358889318374486}
   - component: {fileID: -951611864181756296}
-  - component: {fileID: 6492209183270304889}
+  - component: {fileID: 892336063476681393}
+  - component: {fileID: 7470366823611426239}
+  - component: {fileID: 5589117013413147541}
   m_Layer: 9
   m_Name: Puddle
   m_TagString: Enemy
@@ -28,8 +30,8 @@ Transform:
   m_GameObject: {fileID: 4706152124163653200}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.1260753, y: -4, z: 0}
-  m_LocalScale: {x: 2.7125, y: 0.8375, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.24, y: 1.2891427, z: 0.45714283}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -100,8 +102,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pv: 5000
   coinPrefab: {fileID: 0}
---- !u!58 &6492209183270304889
-CircleCollider2D:
+--- !u!111 &892336063476681393
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4706152124163653200}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: ca722f2386cbd3e44ad7ee79bea07671, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 17736561fa6987a4d8482e5169a869ab, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
+--- !u!61 &7470366823611426239
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -113,6 +131,36 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.15}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0}
+    oldSize: {x: 1.75, y: 0.75}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
   serializedVersion: 2
-  m_Radius: 0.43
+  m_Size: {x: 2.05, y: 0.32}
+  m_EdgeRadius: 0
+--- !u!95 &5589117013413147541
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4706152124163653200}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b64f37bf4dc5c03448026c2dffe32ee7, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
