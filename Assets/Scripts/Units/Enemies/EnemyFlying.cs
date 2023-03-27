@@ -9,6 +9,7 @@ public class EnemyFlying : Enemy
         pv = 100.0f;
         speed = 5.0f;
         max_droppable_quantity = 7;
+        score_value = 2;
     }
 
     // Amplitude de la sinusoïde
