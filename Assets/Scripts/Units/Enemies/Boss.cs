@@ -10,29 +10,30 @@ public class Boss : Enemy
         speed = 2.0f;
     }
 
-    private float bottle_range = 12.0f;
-    private float flail_range = 9.0f;
-    public GameObject player;
     public GameObject bottle_prefab;
     public float timer_before_action = 1.0f;
     public float time_in_air = 1.0f;
     public LayerMask wall;
     public LayerMask ground;
+    public Animator animator;
+
+    private float bottle_range = 12.0f;
+    private float flail_range = 9.0f;
+    private Transform _player;
     private bool is_facing = true;
     private Vector3 look_at = Vector3.left;
-    public Animator animator;
     private float moveSpeedThreshold = 0.1f;
 
-    private void Start()
+    public void init(Transform player)
     {
-        player = GameObject.FindGameObjectWithTag("Player");
+        _player = player;
     }
 
     private void Update()
     {
-        if (player != null)
+        if (_player != null)
         {
-            is_facing = transform.position.x > player.transform.position.x ? false : true;
+            is_facing = transform.position.x > _player.position.x ? false : true;
             transform.rotation = Quaternion.Euler(0f, is_facing ? 180f : 0f, 0f);
             if (transform.rotation.eulerAngles.y == 180f)
             {
@@ -46,7 +47,7 @@ public class Boss : Enemy
             // on calcule la distance entre le boss et le joueur
             float distance_to_player = Vector3.Distance(
                 transform.position,
-                player.transform.position
+                _player.position
             );
 
             if (timer_before_action > 0.0f)
@@ -99,7 +100,7 @@ public class Boss : Enemy
             else if (distance_to_player > bottle_range)
             {
                 // On n'est pas assez proche pour attaquer, on se déplace vers le joueur
-                Vector3 direction_to_player = (player.transform.position - transform.position).normalized;
+                Vector3 direction_to_player = (_player.position - transform.position).normalized;
                 direction_to_player = new Vector3(direction_to_player.x, 0.0f, 0.0f);
 
                 if (direction_to_player.magnitude > moveSpeedThreshold)
@@ -144,7 +145,7 @@ public class Boss : Enemy
         Vector3 currentPosition = transform.position;
 
         // la position cible de l'atterrissage
-        Vector3 targetPosition = player.transform.position;
+        Vector3 targetPosition = _player.position;
 
         // la gravité dans votre scène
         float gravity = Physics.gravity.y;
@@ -203,10 +204,10 @@ public class Boss : Enemy
     private void OnCollisionEnter2D(Collision2D collision)
     {
         // Si le joueur entre en collision avec le boss
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.TryGetComponent<PlayerManager>(out PlayerManager player_manager))
         {
             // Calcul de la direction de la poussée
-            Vector3 position_dif = collision.transform.position - transform.position;
+            Vector3 position_dif = player_manager.transform.position - transform.position;
             Vector3 direction = new Vector3();
             if (position_dif.x > 0f)
             {
@@ -218,12 +219,12 @@ public class Boss : Enemy
             }
 
             // Application de la force de poussée
-            Rigidbody2D playerRb = collision.gameObject.GetComponent<Rigidbody2D>();
+            Rigidbody2D _playerRb = player_manager.transform.GetComponent<Rigidbody2D>();
             if (collision.transform.position.x > -8f && collision.transform.position.x < 3f)
             {
                 collision.transform.position += direction * 3f;
             }
-            playerRb.AddForce(direction * 2f, ForceMode2D.Impulse);
+            _playerRb.AddForce(direction * 2f, ForceMode2D.Impulse);
         }
         else if (collision.gameObject.name == "Ground")
         {
@@ -246,7 +247,7 @@ public class Boss : Enemy
         yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length);
 
         // On récupère la position actuelle du joueur et du boss
-        Vector2 player_position = player.transform.position;
+        Vector2 player_position = _player.position;
         Vector2 boss_position = transform.position;
 
         // On calcule la direction et la distance entre le boss et le joueur
