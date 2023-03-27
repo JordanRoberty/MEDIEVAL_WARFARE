@@ -15,6 +15,9 @@ public class BassicLevelLoader : LevelLoader
         // Set player position in parent
         base.init();
 
+        // INIT DON'T DESTROY SCENE COMPONENTS
+        StatsManager.Instance.init();
+
         // INIT PLAYER SCENE COMPONENTS
         _rune_manager = FindObjectOfType<RuneManager>();
 
