@@ -28,6 +28,7 @@ public class PlayerManager : Singleton<PlayerManager>
         max_health += RuneManager.Instance.health_rune;
         health = max_health;
         shield = RuneManager.Instance.shield_rune;
+        set_player_vulnerable();
 
         _player_controller.init(main_cam);
         _weapon_controller.init(main_cam);
@@ -39,19 +40,34 @@ public class PlayerManager : Singleton<PlayerManager>
         _weapon_controller.update_camera(main_cam);
     }
 
-    //The layer 8 is the player, the 9th is the enemy
-    IEnumerator invulnerability()
+    public void set_player_invulnerable()
     {
         Physics2D.IgnoreLayerCollision(8, 9, true);
         Color player_sprite_color = _renderer.material.color;
         player_sprite_color.a = 0.5F;
         _renderer.material.color = player_sprite_color;
+    }
 
-        yield return new WaitForSeconds(invulnerability_time);
-
+    public void set_player_vulnerable()
+    {
         Physics2D.IgnoreLayerCollision(8, 9, false);
+        Color player_sprite_color = _renderer.material.color;
         player_sprite_color.a = 1.0F;
         _renderer.material.color = player_sprite_color;
+    }
+
+    //The layer 8 is the player, the 9th is the enemy
+    IEnumerator invulnerability()
+    {
+        set_player_invulnerable();
+        yield return new WaitForSeconds(invulnerability_time);
+        set_player_vulnerable();
+    }
+
+    public void stop_invulnerability()
+    {
+        // Stop the current coroutine
+        StopCoroutine("invulnerability");
     }
 
     public bool is_dead()
@@ -63,7 +79,7 @@ public class PlayerManager : Singleton<PlayerManager>
     {
         health = 0;
         Debug.Log("Player died");
-        StopCoroutine("invulnerability");
+        stop_invulnerability();
 
         GameManager.Instance.set_state(GameState.FAIL_MENU);
         
@@ -74,7 +90,6 @@ public class PlayerManager : Singleton<PlayerManager>
         if (shield == 0)
         {
             health = Mathf.Clamp(health - damages, 0, max_health);
-            //health_text.SetText("HEALTH : " + health);
 
             if(is_dead() && GameManager.Instance._state == GameState.RUNNING)
             {
