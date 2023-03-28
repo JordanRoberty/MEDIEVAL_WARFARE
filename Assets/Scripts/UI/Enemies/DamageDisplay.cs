@@ -8,8 +8,7 @@ public class DamageDisplay : MonoBehaviour
         //Text damages variables
     public Text text;
     public float lifeTime = 15f;
-    public float minDistance = 1f;
-    public float maxDistance = 3f;
+    public float distance = 2f;
     public Vector3 finalSize = new Vector3(0.02f, 0.02f, 0.01f);
 
     private Vector3 initPosition;
@@ -22,9 +21,8 @@ public class DamageDisplay : MonoBehaviour
         transform.LookAt(2 * transform.position - Camera.main.transform.position);
 
         //float direction = Random.rotation.eulerAngles.z;
-        initPosition = transform.position;
-        float dist = Random.Range(minDistance, maxDistance);
-        targetPosition = initPosition + (Quaternion.Euler(0, 0, 45) * new Vector3(dist, dist, 0f));
+        initPosition = transform.position + new Vector3(0f, distance, -0.5f);
+        targetPosition = initPosition + (Quaternion.Euler(0, 0, 45) * new Vector3(distance, distance, 0f));
         transform.localScale = Vector3.zero;
     }
 
