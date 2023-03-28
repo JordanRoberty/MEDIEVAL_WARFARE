@@ -161,6 +161,17 @@ public class GameManager : Singleton<GameManager>
 
     private void handle_scores_menu()
     {
+        // HANDLE QUIT
+        switch (_state)
+        {
+            case GameState.REGISTER_MENU:
+                SaveSystem.Instance.Save();
+                break;
+
+            default:
+                break;
+        }
+
         SceneController.Instance.set_current_menu(GameMenu.SCORES);
         _state = GameState.SCORES_MENU;
     }
@@ -180,6 +191,9 @@ public class GameManager : Singleton<GameManager>
 
     private void handle_paused()
     {
+        SaveSystem.Instance.Save();
+        AudioSystem.Instance.pause_music();
+
         /* Stops the game */
         Time.timeScale = 0.0f;
         Cursor.visible = true;
@@ -189,6 +203,8 @@ public class GameManager : Singleton<GameManager>
 
     private void handle_unpaused()
     {
+        AudioSystem.Instance.unpause_music();
+
         SceneController.Instance.set_current_menu(GameMenu.NONE);
         Time.timeScale = 1.0f;
         set_state(GameState.RUNNING);
@@ -202,6 +218,10 @@ public class GameManager : Singleton<GameManager>
 
     private void handle_fail_menu()
     {
+        AudioSystem.Instance.stop_music();
+
+        SaveSystem.Instance.Save();
+        
         Cursor.visible = true;
         SceneController.Instance.set_current_menu(GameMenu.FAIL);
         Time.timeScale = 0.0f;
@@ -210,7 +230,12 @@ public class GameManager : Singleton<GameManager>
 
     private void handle_victory_menu()
     {
+        AudioSystem.Instance.stop_music();
+
+        SaveSystem.Instance.Save();
+        
         Cursor.visible = true;
+        
         SceneController.Instance.set_current_menu(GameMenu.VICTORY);
         _state = GameState.VICTORY_MENU;
     }
