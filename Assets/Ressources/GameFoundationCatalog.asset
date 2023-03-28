@@ -1053,7 +1053,7 @@ MonoBehaviour:
   - <type>k__BackingField: 5
     m_ValueType:
       longValue: 0
-    m_StringValue: Assets/Art/Sprites/Weapons/Machine Gun Sword/sword_icon.png
+    m_StringValue: Assets/Art/Sprites/Weapons/Items_icons/Petite_massue_miniature.png
   - <type>k__BackingField: 5
     m_ValueType:
       longValue: 0
@@ -1205,7 +1205,7 @@ MonoBehaviour:
   - <type>k__BackingField: 5
     m_ValueType:
       longValue: 0
-    m_StringValue: Assets/Art/Sprites/Weapons/Machine Gun Sword/sword_icon.png
+    m_StringValue: Assets/Art/Sprites/Weapons/Items_icons/Petite_epee_miniature.png
   - <type>k__BackingField: 5
     m_ValueType:
       longValue: 0

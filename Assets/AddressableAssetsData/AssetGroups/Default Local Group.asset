@@ -57,6 +57,14 @@ MonoBehaviour:
     m_Address: Assets/Prefabs/Weapons/Shot Gun Flail.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
+  - m_GUID: 30ae9729365415f49a0aa38b527b6187
+    m_Address: Assets/Art/Sprites/Weapons/Items_icons/Petite_epee_miniature.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: be7d3c8c205ff63468c446820e90291e
+    m_Address: Assets/Art/Sprites/Weapons/Items_icons/Petite_massue_miniature.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: f606f661b833fe140b592507dad01fe1, type: 2}
   m_SchemaSet:
