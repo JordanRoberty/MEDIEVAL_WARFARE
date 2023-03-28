@@ -92,13 +92,22 @@ public class WeaponManager : MonoBehaviour
 
     void Shoot()
     {
-        GameObject bullet =Instantiate(
-            bullet_prefab,
-            _current_weapon.cannon_end.position,
-            _current_weapon.cannon_end.rotation,
-            _bullet_container
-        );
+        if (_current_weapon.name == "Shot Gun Flail(Clone)")
+        {
+            Quaternion bullet_rotation_left = Quaternion.Euler(_current_weapon.cannon_end.rotation.eulerAngles.x, _current_weapon.cannon_end.rotation.eulerAngles.y, _current_weapon.cannon_end.rotation.eulerAngles.z + 25f);
+            Quaternion bullet_rotation_right = Quaternion.Euler(_current_weapon.cannon_end.rotation.eulerAngles.x, _current_weapon.cannon_end.rotation.eulerAngles.y, _current_weapon.cannon_end.rotation.eulerAngles.z - 25f);
 
-        bullet.transform.localScale *= RuneManager.Instance.projectile_size_rune;
+            Instantiate(bullet_prefab, _current_weapon.cannon_end.position, bullet_rotation_left, _bullet_container);
+            Instantiate(bullet_prefab, _current_weapon.cannon_end.position, bullet_rotation_right, _bullet_container);
+            Instantiate(bullet_prefab, _current_weapon.cannon_end.position, _current_weapon.cannon_end.rotation, _bullet_container);
+        }
+        else
+        {
+            // Spawn a single bullet
+            GameObject bullet = Instantiate(bullet_prefab, _current_weapon.cannon_end.position, _current_weapon.cannon_end.rotation, _bullet_container);
+
+            bullet.transform.localScale *= RuneManager.Instance.projectile_size_rune;
+        }
     }
+
 }

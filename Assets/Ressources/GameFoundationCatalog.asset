@@ -1046,11 +1046,26 @@ MonoBehaviour:
   - {fileID: -3515854801978052291}
   m_StaticPropertyKeys:
   - item_icon
+  - bullet_prefab
+  - firing_rate
+  - weapon_prefab
   m_StaticPropertyValues:
   - <type>k__BackingField: 5
     m_ValueType:
       longValue: 0
     m_StringValue: Assets/Art/Sprites/Weapons/Machine Gun Sword/sword_icon.png
+  - <type>k__BackingField: 5
+    m_ValueType:
+      longValue: 0
+    m_StringValue: Assets/Prefabs/Projectile/Shotgun_bullet.prefab
+  - <type>k__BackingField: 1
+    m_ValueType:
+      longValue: 4602678819172646912
+    m_StringValue: 
+  - <type>k__BackingField: 5
+    m_ValueType:
+      longValue: 0
+    m_StringValue: Assets/Prefabs/Weapons/Shot Gun Flail.prefab
   m_InitialAllocation: 0
   m_IsStackableFlag: 0
   m_InitialQuantityPerStack: 1
