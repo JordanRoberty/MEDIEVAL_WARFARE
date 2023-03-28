@@ -185,6 +185,30 @@ MonoBehaviour:
     m_Address: Assets/Art/Sprites/Runes/triple_rune_rare.png
     m_ReadOnly: 0
     m_SerializedLabels: []
+  - m_GUID: 586bd9f4d68054549b8fef1026595bc0
+    m_Address: Assets/Art/Sprites/Runes/shield_rune_common.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: e50ca0f0d080e434fbd931c927a246de
+    m_Address: Assets/Art/Sprites/Runes/shield_rune_legendary.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 01131efef59a9804ba76d4a51bd48a3e
+    m_Address: Assets/Art/Sprites/Runes/shield_rune_rare.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 6ea7513af8dca88499ccf2b126babbd5
+    m_Address: Assets/Art/Sprites/Runes/speed_bullet_rune_common.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 841146646d92a6a44b355e04651c72b5
+    m_Address: Assets/Art/Sprites/Runes/speed_bullet_rune_legendary.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 8cccf503dca48fd42aee4e38fab386d0
+    m_Address: Assets/Art/Sprites/Runes/speed_bullet_rune_rare.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: f606f661b833fe140b592507dad01fe1, type: 2}
   m_SchemaSet:
