@@ -61,7 +61,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a89cb0f1202a8a04e8c7e2be6220e658, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _player: {fileID: 0}
   heart_value: 1
 --- !u!1 &7085934474981611951
 GameObject:
@@ -186,4 +185,4 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
-  m_Constraints: 0
+  m_Constraints: 5

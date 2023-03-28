@@ -101,7 +101,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.010524154, y: 0.0035101175}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -112,7 +112,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.83, y: 2.23}
+  m_Size: {x: 1.5283127, y: 1.8581526}
   m_EdgeRadius: 0
 --- !u!50 &3032247486860614080
 Rigidbody2D:
@@ -126,10 +126,10 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 100
+  m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 2
+  m_GravityScale: 1
   m_Material: {fileID: 6200000, guid: a15a2957978d248779c7e8b578e72206, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -147,11 +147,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ade0c597c501714fa75b2ecef2196af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pv: 200
+  pv: 1500
   coinPrefab: {fileID: 8083888472559256018, guid: e4badc239d93919479e5d33088163925, type: 3}
   heartPrefab: {fileID: 7085934474981611951, guid: 7a52cb3b54bae164f963eda054952c39, type: 3}
   damageText: {fileID: 1492875461645354713, guid: b7913dfe196894d978ff534442376b9e, type: 3}
-  jump_force: 30000
+  jump_force: 2000
   _ground_layer:
     serializedVersion: 2
     m_Bits: 64
@@ -160,7 +160,9 @@ MonoBehaviour:
     m_Bits: 1024
   _ground_raycast_length: 1
   _ground_raycast_offset: {x: 0, y: 0, z: 0}
+  _on_ground: 0
   raycastDistance: 1
+  death_sound: {fileID: 8300000, guid: 61baccb52e98ffa4695964d72f178c56, type: 3}
 --- !u!95 &8963908923362266681
 Animator:
   serializedVersion: 4

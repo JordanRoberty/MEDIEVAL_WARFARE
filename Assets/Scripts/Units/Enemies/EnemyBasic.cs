@@ -27,13 +27,15 @@ public class EnemyBasic : Enemy
 
     [SerializeField]
     private Vector3 _ground_raycast_offset;
-    private bool _on_ground;
+    public bool _on_ground;
 
     private bool is_jumping = false;
     private float next_jump_time;
     public float raycastDistance = 2f;
 
     private Vector3 last_position;
+
+    public AudioClip death_sound;
 
     void Start()
     {
@@ -58,7 +60,7 @@ public class EnemyBasic : Enemy
             _ground_layer
         );
         if (
-            (player.transform.position.y > transform.position.y + 0.1) && _on_ground && !is_jumping
+            (player.transform.position.y > transform.position.y + 1f) && _on_ground && !is_jumping
             || hit.collider != null
         )
         {
@@ -70,7 +72,7 @@ public class EnemyBasic : Enemy
             rigid_body.AddForce(new Vector2(0f, jump_force));
             is_jumping = false;
         }
-        if (Vector3.Distance(last_position, transform.position) < 0.01f)
+        if (Vector3.Distance(last_position, transform.position) < 0.001f)
         {
             rigid_body.AddForce(new Vector2(0f, jump_force));
         }
@@ -79,6 +81,7 @@ public class EnemyBasic : Enemy
 
     private void check_ground_collision()
     {
+        Debug.DrawRay(transform.position + _ground_raycast_offset, Vector2.down, Color.red);
         _on_ground =
             Physics2D.Raycast(
                 transform.position + _ground_raycast_offset,
@@ -92,5 +95,10 @@ public class EnemyBasic : Enemy
                 _ground_raycast_length,
                 _ground_layer
             );
+    }
+
+    private void OnDestroy()
+    {
+        AudioSystem.Instance.play_sound(death_sound);
     }
 }

@@ -147,7 +147,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78b6693cdc741694083e1c43a18db6a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pv: 100
+  pv: 2000
   coinPrefab: {fileID: 8083888472559256018, guid: e4badc239d93919479e5d33088163925, type: 3}
   heartPrefab: {fileID: 7085934474981611951, guid: 7a52cb3b54bae164f963eda054952c39, type: 3}
   damageText: {fileID: 1492875461645354713, guid: b7913dfe196894d978ff534442376b9e, type: 3}
