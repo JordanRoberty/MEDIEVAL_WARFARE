@@ -40,11 +40,12 @@ public class Enemy : MonoBehaviour
     public void displayDamage(float damage, bool isCritial)
     {
         DamageDisplay damageDisplay = Instantiate(damageText, transform.position, Quaternion.identity).GetComponent<DamageDisplay>();
-        damageDisplay.SetColor(new Color(1f, 1f, 1f));
+        
         if(isCritial)
         {
             damageDisplay.SetColor(new Color(1f, 0f, 0f));
         }
+
         damageDisplay.SetDamageText(damage);
     }
 
