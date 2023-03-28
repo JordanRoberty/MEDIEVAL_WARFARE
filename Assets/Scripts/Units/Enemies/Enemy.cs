@@ -49,7 +49,7 @@ public class Enemy : MonoBehaviour
 
     public virtual void die()
     {
-        StatsManager.Instance.update_score(1);
+        StatsManager.Instance.update_score(score_value);
 
         // Sometimes drop a heart (except for the Bosses)
         if (Random.Range(0, 50) == 0 && !gameObject.name.StartsWith("Boss"))
