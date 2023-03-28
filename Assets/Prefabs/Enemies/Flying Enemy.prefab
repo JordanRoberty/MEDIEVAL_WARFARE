@@ -149,6 +149,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pv: 100
   coinPrefab: {fileID: 8083888472559256018, guid: e4badc239d93919479e5d33088163925, type: 3}
+  heartPrefab: {fileID: 7085934474981611951, guid: 7a52cb3b54bae164f963eda054952c39, type: 3}
   damageText: {fileID: 1492875461645354713, guid: b7913dfe196894d978ff534442376b9e, type: 3}
   amplitude: 3.5
   frequency: 4
