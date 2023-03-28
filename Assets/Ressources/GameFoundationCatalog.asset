@@ -553,7 +553,7 @@ MonoBehaviour:
   - <type>k__BackingField: 5
     m_ValueType:
       longValue: 0
-    m_StringValue: Assets/Art/Sprites/Runes/speed_rune.png
+    m_StringValue: Assets/Art/Sprites/Runes/damage_rune.png
   m_InitialAllocation: 0
   m_IsStackableFlag: 1
   m_InitialQuantityPerStack: 1
@@ -647,7 +647,7 @@ MonoBehaviour:
   - <type>k__BackingField: 5
     m_ValueType:
       longValue: 0
-    m_StringValue: Assets/Art/Sprites/Runes/damage_rune.png
+    m_StringValue: Assets/Art/Sprites/Runes/speed_rune.png
   m_Payout:
     m_Exchanges:
     - m_CatalogItem: {fileID: 2191732088584772111}
@@ -1046,26 +1046,11 @@ MonoBehaviour:
   - {fileID: -3515854801978052291}
   m_StaticPropertyKeys:
   - item_icon
-  - bullet_prefab
-  - firing_rate
-  - weapon_prefab
   m_StaticPropertyValues:
   - <type>k__BackingField: 5
     m_ValueType:
       longValue: 0
-    m_StringValue: Assets/Art/Sprites/Weapons/Items_icons/Petite_massue_miniature.png
-  - <type>k__BackingField: 5
-    m_ValueType:
-      longValue: 0
-    m_StringValue: Assets/Prefabs/Projectile/Shotgun_bullet.prefab
-  - <type>k__BackingField: 1
-    m_ValueType:
-      longValue: 4602678819172646912
-    m_StringValue: 
-  - <type>k__BackingField: 5
-    m_ValueType:
-      longValue: 0
-    m_StringValue: Assets/Prefabs/Weapons/Shot Gun Flail.prefab
+    m_StringValue: Assets/Art/Sprites/Weapons/Machine Gun Sword/sword_icon.png
   m_InitialAllocation: 0
   m_IsStackableFlag: 0
   m_InitialQuantityPerStack: 1
@@ -1205,14 +1190,14 @@ MonoBehaviour:
   - <type>k__BackingField: 5
     m_ValueType:
       longValue: 0
-    m_StringValue: Assets/Art/Sprites/Weapons/Items_icons/Petite_epee_miniature.png
+    m_StringValue: Assets/Art/Sprites/Weapons/Machine Gun Sword/sword_icon.png
   - <type>k__BackingField: 5
     m_ValueType:
       longValue: 0
     m_StringValue: Assets/Prefabs/Projectile/Bullet.prefab
   - <type>k__BackingField: 1
     m_ValueType:
-      longValue: 4591870180066957722
+      longValue: 4607182418800017408
     m_StringValue: 
   - <type>k__BackingField: 5
     m_ValueType:
@@ -1270,7 +1255,7 @@ MonoBehaviour:
   - <type>k__BackingField: 5
     m_ValueType:
       longValue: 0
-    m_StringValue: Assets/Art/Sprites/Runes/speed_rune.png
+    m_StringValue: Assets/Art/Sprites/Runes/damage_rune.png
   m_Payout:
     m_Exchanges:
     - m_CatalogItem: {fileID: -5938022825529016979}
@@ -1302,7 +1287,7 @@ MonoBehaviour:
   - <type>k__BackingField: 5
     m_ValueType:
       longValue: 0
-    m_StringValue: Assets/Art/Sprites/Runes/damage_rune.png
+    m_StringValue: Assets/Art/Sprites/Runes/speed_rune.png
   m_InitialAllocation: 0
   m_IsStackableFlag: 1
   m_InitialQuantityPerStack: 1
@@ -1848,7 +1833,7 @@ MonoBehaviour:
   - <type>k__BackingField: 5
     m_ValueType:
       longValue: 0
-    m_StringValue: Assets/Art/Sprites/Runes/damage_rune.png
+    m_StringValue: Assets/Art/Sprites/Runes/speed_rune.png
   m_InitialAllocation: 0
   m_IsStackableFlag: 1
   m_InitialQuantityPerStack: 1
@@ -1897,7 +1882,7 @@ MonoBehaviour:
   - <type>k__BackingField: 5
     m_ValueType:
       longValue: 0
-    m_StringValue: Assets/Art/Sprites/Runes/speed_rune.png
+    m_StringValue: Assets/Art/Sprites/Runes/damage_rune.png
   m_InitialAllocation: 0
   m_IsStackableFlag: 1
   m_InitialQuantityPerStack: 1
@@ -2753,7 +2738,7 @@ MonoBehaviour:
   - <type>k__BackingField: 5
     m_ValueType:
       longValue: 0
-    m_StringValue: Assets/Art/Sprites/Runes/speed_rune.png
+    m_StringValue: Assets/Art/Sprites/Runes/damage_rune.png
   m_Payout:
     m_Exchanges:
     - m_CatalogItem: {fileID: 2273317043273248087}
