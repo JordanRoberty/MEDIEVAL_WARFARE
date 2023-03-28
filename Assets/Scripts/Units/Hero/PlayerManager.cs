@@ -36,7 +36,8 @@ public class PlayerManager : Singleton<PlayerManager>
 
     public void update_dependencies(Camera main_cam)
     {
-        _player_controller.init(main_cam);
+
+        _player_controller.update_camera(main_cam);
         _weapon_controller.update_camera(main_cam);
     }
 

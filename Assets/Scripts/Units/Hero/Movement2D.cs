@@ -99,6 +99,8 @@ public class Movement2D : MonoBehaviour
 
     private void Update()
     {
+        Debug.Log("jump" + _jump_force);
+
         if (GameManager.Instance._state != GameState.RUNNING) return;
 
         _horizontal_direction = get_input().x;
@@ -172,6 +174,21 @@ public class Movement2D : MonoBehaviour
         if (_can_jump && _extra_jumps_count > 0)
             jump();
         _can_jump = false;
+    }
+
+      public void update_camera(Camera main_cam)
+    {
+        camera = main_cam;
+
+        //BOSS SCENE
+        if(camera.TryGetComponent<CameraBehavior>(out CameraBehavior scrolling_cam))
+        {
+            _default_speed = scrolling_cam.speed;
+        }
+        else
+        {
+            is_boss_scene = true;
+        }
     }
 
     ///Return a Vector 2 that contains the horizontal input and place it on the X value and the horizontal input and place it on the Y value
