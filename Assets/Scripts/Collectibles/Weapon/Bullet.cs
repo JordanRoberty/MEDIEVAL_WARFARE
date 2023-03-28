@@ -19,15 +19,18 @@ public class Bullet : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
+        bool isCritial = false;
         if(collision.gameObject.TryGetComponent(out Enemy enemy))
         {
             //critical hit
             if (Random.Range(0, 100) < RuneManager.Instance.critial_hit_rune)
             {
                 damage *= 2f;
+                isCritial = true;
             }
 
             enemy.setpv(enemy.getpv() - damage);
+            enemy.displayDamage(damage, isCritial);
             if (enemy.getpv() <= 0)
             {
                 enemy.die();

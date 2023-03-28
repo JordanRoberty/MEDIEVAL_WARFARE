@@ -13,6 +13,8 @@ public class Enemy : MonoBehaviour
     protected int coin_quantity; // The quantity of coins that will actually be dropped by an enemy
     public GameObject coinPrefab;
 
+    public GameObject damageText;
+
     public int get_damage()
     {
         return damage;
@@ -31,6 +33,17 @@ public class Enemy : MonoBehaviour
     public void setpv(float new_pv)
     {
         pv = new_pv;
+    }
+
+    public void displayDamage(float damage, bool isCritial)
+    {
+        DamageDisplay damageDisplay = Instantiate(damageText, transform.position, Quaternion.identity).GetComponent<DamageDisplay>();
+        damageDisplay.SetColor(new Color(1f, 1f, 1f));
+        if(isCritial)
+        {
+            damageDisplay.SetColor(new Color(1f, 0f, 0f));
+        }
+        damageDisplay.SetDamageText(damage);
     }
 
     private void initialize_coin_quantity()

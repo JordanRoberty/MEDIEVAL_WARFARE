@@ -99,7 +99,6 @@ public class Movement2D : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log("jump" + _jump_force);
 
         if (GameManager.Instance._state != GameState.RUNNING) return;
 

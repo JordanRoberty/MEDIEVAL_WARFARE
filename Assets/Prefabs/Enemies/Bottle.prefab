@@ -122,6 +122,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pv: 4000
   coinPrefab: {fileID: 0}
+  damageText: {fileID: 1492875461645354713, guid: b7913dfe196894d978ff534442376b9e, type: 3}
   puddle: {fileID: 4706152124163653200, guid: c03497f96e1a6374f830cca19af1cda8, type: 3}
 --- !u!58 &3875696490581138548
 CircleCollider2D:

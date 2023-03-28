@@ -281,7 +281,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pv: 1000
   coinPrefab: {fileID: 8083888472559256018, guid: e4badc239d93919479e5d33088163925, type: 3}
-  player: {fileID: 0}
+  damageText: {fileID: 1492875461645354713, guid: b7913dfe196894d978ff534442376b9e, type: 3}
   bottle_prefab: {fileID: 3506568146192781204, guid: c23836c4970ed094db7ce3176a1da81b, type: 3}
   timer_before_action: 3
   time_in_air: 1
