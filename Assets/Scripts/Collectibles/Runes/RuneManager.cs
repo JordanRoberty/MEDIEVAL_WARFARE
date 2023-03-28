@@ -91,7 +91,7 @@ public class RuneManager : Singleton<RuneManager>
                     case "commonCriticalHitRune" or "rareCriticalHitRune" or "legendaryCriticalHitRune":
                         critial_hit_rune += rune.GetMutableProperty("modifier");
                         break;
-                    case "commonTripleJumpRune":
+                    case "rareExtraJumpRune":
                         triple_jump_rune = true;
                         break;
                     default:
