@@ -4,10 +4,17 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    [SerializeField] private GameObject enemy_basic;
-    [SerializeField] private GameObject enemy_tank;
-    [SerializeField] private GameObject enemy_flying;
-    [SerializeField] private Transform _enemies_container;
+    [SerializeField]
+    private GameObject enemy_basic;
+
+    [SerializeField]
+    private GameObject enemy_tank;
+
+    [SerializeField]
+    private GameObject enemy_flying;
+
+    [SerializeField]
+    private Transform _enemies_container;
 
     public float spawn_rate = 1.0f; // taux de spawn en secondes
     public float enemy_basic_probability = 0.5f; // probabilité d'apparition de enemy_basic
@@ -45,5 +52,11 @@ public class EnemySpawner : MonoBehaviour
         {
             Instantiate(enemy_flying, transform.position, Quaternion.identity, _enemies_container);
         }
+
+        transform.position = new Vector3(
+            transform.position.x,
+            Random.Range(-2f, 3f),
+            transform.position.z
+        );
     }
 }

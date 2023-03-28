@@ -102,7 +102,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.0014599562, y: 0.00000020861626}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -113,7 +113,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.66, y: 1.05}
+  m_Size: {x: 0.60451937, y: 1.0019648}
   m_EdgeRadius: 0
 --- !u!50 &8838445317262580197
 Rigidbody2D:
@@ -148,7 +148,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e889e8720a3d8e428119ec4081f95bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pv: 1000
+  pv: 2500
   coinPrefab: {fileID: 8083888472559256018, guid: e4badc239d93919479e5d33088163925, type: 3}
   heartPrefab: {fileID: 7085934474981611951, guid: 7a52cb3b54bae164f963eda054952c39, type: 3}
   damageText: {fileID: 1492875461645354713, guid: b7913dfe196894d978ff534442376b9e, type: 3}
