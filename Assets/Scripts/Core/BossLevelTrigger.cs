@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class BossLevelTrigger : MonoBehaviour
 {
-    [SerializeField] private GameLevel _boss_level_to_load;
+    [SerializeField] private BossLevel _boss_level_to_load;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

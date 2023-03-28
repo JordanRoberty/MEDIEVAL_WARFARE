@@ -3,13 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public enum GameLevel
+public enum BossLevel
 {
-    NONE,
-    LEVEL_1,
     BOSS_1,
-    LEVEL_2,
-    LEVEL_3,
+    BOSS_2,
+    BOSS_3,
+    NONE,
 }
 
 public enum GameMenu
@@ -30,14 +29,21 @@ public enum GameMenu
 public class SceneController : Singleton<SceneController>
 {
     private GameLevel _current_level;
+    private BossLevel _current_boss_level;
     private GameMenu _current_menu;
 
     private Dictionary<GameLevel, string> _levels = new Dictionary<GameLevel, string>()
     {
         { GameLevel.LEVEL_1,     "level_1"   },
-        { GameLevel.BOSS_1,     "boss_level_1"   },
         { GameLevel.LEVEL_2,     "level_2"   },
         { GameLevel.LEVEL_3,     "level_3"   },
+    };
+
+    private Dictionary<BossLevel, string> _boss_levels = new Dictionary<BossLevel, string>()
+    {
+        { BossLevel.BOSS_1,     "boss_level_1"   },
+        { BossLevel.BOSS_2,     "boss_level_2"   },
+        { BossLevel.BOSS_3,     "boss_level_3"   },
     };
 
     private Dictionary<GameMenu, string> _menus = new Dictionary<GameMenu, string>()
@@ -59,13 +65,32 @@ public class SceneController : Singleton<SceneController>
         SceneManager.LoadScene(_menus[initial_menu], LoadSceneMode.Additive);
         _current_menu = initial_menu;
         _current_level = GameLevel.NONE;
+        _current_boss_level = BossLevel.NONE;
+    }
+
+    private void unload_current_level()
+    {
+        if (SceneManager.GetSceneByName("Player").isLoaded) SceneManager.UnloadSceneAsync("Player");
+        
+        if (_current_level != GameLevel.NONE)
+        {
+            SceneManager.UnloadSceneAsync(_levels[_current_level]);
+            _current_level = GameLevel.NONE;
+        }
+
+        if (_current_boss_level != BossLevel.NONE)
+        {
+            SceneManager.UnloadSceneAsync(_boss_levels[_current_boss_level]);
+            _current_boss_level = BossLevel.NONE;
+        }
     }
 
     public void set_current_menu(GameMenu new_menu)
     {
         if (_current_menu != GameMenu.NONE) SceneManager.UnloadSceneAsync(_menus[_current_menu]);
 
-        LoadSceneMode load_mode = _current_level != GameLevel.NONE ? LoadSceneMode.Additive : LoadSceneMode.Single;
+        bool in_game = _current_level != GameLevel.NONE || _current_boss_level != BossLevel.NONE;
+        LoadSceneMode load_mode = in_game ? LoadSceneMode.Additive : LoadSceneMode.Single;
 
         if (new_menu != GameMenu.NONE)
         {
@@ -81,8 +106,7 @@ public class SceneController : Singleton<SceneController>
     public void load_level(GameLevel level)
     {
         // In case of restart, destroy current level scenes
-        if(SceneManager.GetSceneByName("Player").isLoaded) SceneManager.UnloadSceneAsync("Player");
-        if(_current_level != GameLevel.NONE) SceneManager.UnloadSceneAsync(_levels[_current_level]);
+        unload_current_level();
 
         // Load player
         Time.timeScale = 0.0f;
@@ -107,17 +131,18 @@ public class SceneController : Singleton<SceneController>
         };
     }
 
-    public void load_boss_level(GameLevel boss_level)
+    public void load_boss_level(BossLevel boss_level)
     {
         // Unload level scene
         SceneManager.UnloadSceneAsync(_levels[_current_level]);
+        _current_level = GameLevel.NONE;
 
         // Load Boss Level
         Time.timeScale = 0.0f;
-        AsyncOperation load_level = SceneManager.LoadSceneAsync(_levels[boss_level], LoadSceneMode.Additive);
+        AsyncOperation load_level = SceneManager.LoadSceneAsync(_boss_levels[boss_level], LoadSceneMode.Additive);
         load_level.completed += (AsyncOperation result) =>
         {
-            _current_level = boss_level;
+            _current_boss_level = boss_level;
 
             LevelLoader.Instance.init();
 
@@ -133,9 +158,7 @@ public class SceneController : Singleton<SceneController>
     {
         // Unload level scenes
         AudioSystem.Instance.stop_music();
-        SceneManager.UnloadSceneAsync("Player");
-        SceneManager.UnloadSceneAsync(_levels[_current_level]);
-        _current_level = GameLevel.NONE;
+        unload_current_level();
 
         GameManager.Instance.set_state(GameState.VICTORY_MENU);
     }
@@ -144,9 +167,7 @@ public class SceneController : Singleton<SceneController>
     {
         // Unload level
         AudioSystem.Instance.stop_music();
-        SceneManager.UnloadSceneAsync("Player");
-        SceneManager.UnloadSceneAsync(_levels[_current_level]);
-        _current_level = GameLevel.NONE;
+        unload_current_level();
 
         // Unload Menu
         if (_current_menu != GameMenu.NONE) SceneManager.UnloadSceneAsync(_menus[_current_menu]);

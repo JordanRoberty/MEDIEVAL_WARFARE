@@ -7,6 +7,7 @@ public class Enemy : MonoBehaviour
     public float pv;
     protected float speed;
     protected int damage = 1;
+    protected int score_value = 1;
 
     protected int max_droppable_quantity; // The maximum quantity of coins that can be dropped by an enemy
     protected int coin_quantity; // The quantity of coins that will actually be dropped by an enemy

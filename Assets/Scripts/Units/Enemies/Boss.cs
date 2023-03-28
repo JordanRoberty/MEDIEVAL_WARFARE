@@ -8,6 +8,7 @@ public class Boss : Enemy
     {
         pv = 10000.0f;
         speed = 2.0f;
+        score_value = 1000;
     }
 
     public GameObject bottle_prefab;
@@ -190,7 +191,7 @@ public class Boss : Enemy
 
     public override void die()
     {
-        StatsManager.Instance.update_score(1);
+        StatsManager.Instance.update_score(score_value);
 
         int coin_reward = 100;
 

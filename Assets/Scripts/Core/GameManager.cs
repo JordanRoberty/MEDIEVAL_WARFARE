@@ -4,26 +4,38 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.GameFoundation;
+using static GameFoundationUtils;
+
+public enum GameState
+{
+    TITLE_MENU,
+    MAIN_MENU,
+    SHOP_MENU,
+    GEARS_MENU,
+    SCORES_MENU,
+    LOADING,
+    RUNNING,
+    PAUSED,
+    UNPAUSED,
+    QUITTING,
+    FAIL_MENU,
+    VICTORY_MENU,
+    STATS_MENU,
+    REGISTER_MENU
+}
 
 public class GameManager : Singleton<GameManager>
 {
+    [SerializeField] private LevelManager level_manager;
+    [SerializeField] private DifficultyManager difficulty_manager;
+
     public GameState _state { get; private set; }
 
-    [SerializeField]
-    private GameState _initial_state;
-    [SerializeField]
-    private GameMenu _initial_menu;
-
-    private LevelManager level_manager;
-    private DifficultyManager difficulty_manager;
 
     private void Start()
     {
-        SceneController.Instance.init(_initial_menu);
-        _state = _initial_state;
-
-        level_manager = GetComponentInChildren<LevelManager>();
-        difficulty_manager = GetComponentInChildren<DifficultyManager>();
+        SceneController.Instance.init(GameMenu.TITLE);
+        _state = GameState.TITLE_MENU;
     }
         
     private void Update()
@@ -155,22 +167,7 @@ public class GameManager : Singleton<GameManager>
 
     private void handle_loading()
     {
-        GameLevel level_to_load = GameLevel.NONE;
-
-        switch(level_manager.current_level)
-        {
-            case 0:
-                level_to_load = GameLevel.LEVEL_1;
-                break;
-            case 1:
-                level_to_load = GameLevel.LEVEL_2;
-                break;
-            case 2:
-                level_to_load = GameLevel.LEVEL_3;
-                break;
-            default:
-                throw new ArgumentOutOfRangeException(nameof(level_manager.current_level), level_manager.current_level, null);
-        }
+        GameLevel level_to_load = level_manager.get_selected_level();
 
         SceneController.Instance.load_level(level_to_load);
     }
@@ -226,7 +223,27 @@ public class GameManager : Singleton<GameManager>
 
     private void handle_register_menu()
     {
-        SceneController.Instance.set_current_menu(GameMenu.REGISTER);
-        _state = GameState.REGISTER_MENU;
+        int current_level = (int) level_manager.get_selected_level();
+        int score_to_change = -1;
+        InventoryItem level_scores = get_inventory_items_from_tag("SCORE")[current_level];
+
+        for (int score = 0; score < 3; ++score)
+        {
+            if(level_scores.GetMutableProperty("score_" + score) < StatsManager.Instance.score)
+            {
+                score_to_change = score;
+                break;
+            }
+        }
+
+        if(score_to_change != -1)
+        {
+            SceneController.Instance.set_current_menu(GameMenu.REGISTER);
+            _state = GameState.REGISTER_MENU;
+        }
+        else
+        {
+            set_state(GameState.MAIN_MENU);
+        }
     }
 }
