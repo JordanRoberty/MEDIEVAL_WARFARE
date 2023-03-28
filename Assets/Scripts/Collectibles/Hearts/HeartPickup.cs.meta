@@ -1,11 +1,9 @@
 fileFormatVersion: 2
-guid: 8792b40066c1fa1439d6cf8e953eb7c5
+guid: a89cb0f1202a8a04e8c7e2be6220e658
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences:
-  - coinPrefab: {instanceID: 0}
-  - heartPrefab: {instanceID: 0}
+  defaultReferences: []
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
