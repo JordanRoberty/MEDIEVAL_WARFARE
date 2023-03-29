@@ -13,27 +13,50 @@ public class GearsManager : Singleton<GearsManager>
     /*===== PRIVATE UI =====*/
     [Header("GEARS MENU")]
     [Header("UI prefabs")]
-    [SerializeField] private GameObject _weapon_viewer_prefab;
-    [SerializeField] private GameObject _empty_weapon_viewer_prefab;
-    [SerializeField] private GameObject _rune_viewer_prefab;
-    [SerializeField] private GameObject _empty_rune_viewer_prefab;
+    [SerializeField]
+    private GameObject _weapon_viewer_prefab;
+
+    [SerializeField]
+    private GameObject _empty_weapon_viewer_prefab;
+
+    [SerializeField]
+    private GameObject _rune_viewer_prefab;
+
+    [SerializeField]
+    private GameObject _empty_rune_viewer_prefab;
 
     [Space(10)]
-
     [Header("Gears menu elements")]
-    [SerializeField] private ItemView _equiped_weapon_viewer;
-    [SerializeField] private Transform _equiped_runes_container;
-    [SerializeField] private Transform _available_weapons_container;
+    [SerializeField]
+    private ItemView _equiped_weapon_viewer;
+
+    [SerializeField]
+    private Transform _equiped_runes_container;
+
+    [SerializeField]
+    private Transform _available_weapons_container;
 
     [Space(10)]
-
     [Header("RUNES MENU")]
     [Header("UI prefabs")]
-    [SerializeField] private GameObject _available_rune_viewer_prefab;
+    [SerializeField]
+    private GameObject _available_rune_viewer_prefab;
 
     [Header("Runes menu elements")]
-    [SerializeField] private GameObject _runes_menu;
-    [SerializeField] private Transform _available_runes_container;
+    [SerializeField]
+    private GameObject _runes_menu;
+
+    [SerializeField]
+    private Transform _available_runes_container;
+
+    [SerializeField]
+    private AudioClip EquipWeapon;
+
+    [SerializeField]
+    private AudioClip ExchangeRune;
+
+    [SerializeField]
+    private AudioClip RemoveRune;
 
     /*===== PRIVATE =====*/
     private int _rune_to_exchange_slot;
@@ -52,7 +75,9 @@ public class GearsManager : Singleton<GearsManager>
 
     private void display_available_weapons()
     {
-        List<InventoryItemDefinition> all_weapons = get_inventory_item_definitions_from_tag("WEAPON");
+        List<InventoryItemDefinition> all_weapons = get_inventory_item_definitions_from_tag(
+            "WEAPON"
+        );
         List<InventoryItem> player_weapons = PlayerInfosManager.Instance.get_player_weapons();
 
         _available_weapons_container.destroy_children();
@@ -62,22 +87,24 @@ public class GearsManager : Singleton<GearsManager>
             if (i < player_weapons.Count)
             {
                 AvailableWeaponViewer available_weapon_viewer = Instantiate(
-                    _weapon_viewer_prefab,
-                    Vector3.zero,
-                    Quaternion.identity,
-                    _available_weapons_container
-                ).GetComponent<AvailableWeaponViewer>();
+                        _weapon_viewer_prefab,
+                        Vector3.zero,
+                        Quaternion.identity,
+                        _available_weapons_container
+                    )
+                    .GetComponent<AvailableWeaponViewer>();
 
                 available_weapon_viewer.init(player_weapons[i]);
             }
             else
             {
                 AvailableWeaponViewer empty_weapon_viewer = Instantiate(
-                    _empty_weapon_viewer_prefab,
-                    Vector3.zero,
-                    Quaternion.identity,
-                    _available_weapons_container
-                ).GetComponent<AvailableWeaponViewer>();
+                        _empty_weapon_viewer_prefab,
+                        Vector3.zero,
+                        Quaternion.identity,
+                        _available_weapons_container
+                    )
+                    .GetComponent<AvailableWeaponViewer>();
 
                 empty_weapon_viewer.init(all_weapons[i]);
             }
@@ -101,7 +128,9 @@ public class GearsManager : Singleton<GearsManager>
 
     public void display_equiped_runes()
     {
-        int nb_rune_slots = PlayerInfosManager.Instance.equiped_weapon.GetMutableProperty("nb_rune_slots");
+        int nb_rune_slots = PlayerInfosManager.Instance.equiped_weapon.GetMutableProperty(
+            "nb_rune_slots"
+        );
         List<InventoryItem> equiped_runes = PlayerInfosManager.Instance.get_equiped_runes();
 
         // Clear viewer
@@ -113,22 +142,24 @@ public class GearsManager : Singleton<GearsManager>
             if (equiped_runes[rune_slot] != null)
             {
                 EquipedRuneViewer equiped_rune_viewer = Instantiate(
-                    _rune_viewer_prefab,
-                    Vector3.zero,
-                    Quaternion.identity,
-                    _equiped_runes_container
-                ).GetComponent<EquipedRuneViewer>();
+                        _rune_viewer_prefab,
+                        Vector3.zero,
+                        Quaternion.identity,
+                        _equiped_runes_container
+                    )
+                    .GetComponent<EquipedRuneViewer>();
 
                 equiped_rune_viewer.init(equiped_runes[rune_slot], rune_slot);
             }
             else
             {
                 EmptyRuneSlotViewer empty_rune_slot_viewer = Instantiate(
-                    _empty_rune_viewer_prefab,
-                    Vector3.zero,
-                    Quaternion.identity,
-                    _equiped_runes_container
-                ).GetComponent<EmptyRuneSlotViewer>();
+                        _empty_rune_viewer_prefab,
+                        Vector3.zero,
+                        Quaternion.identity,
+                        _equiped_runes_container
+                    )
+                    .GetComponent<EmptyRuneSlotViewer>();
 
                 empty_rune_slot_viewer.init(rune_slot);
             }
@@ -139,6 +170,7 @@ public class GearsManager : Singleton<GearsManager>
     {
         PlayerInfosManager.Instance.set_equiped_weapon(new_weapon_id);
         update_gear_menu();
+        AudioSystem.Instance.play_sound(EquipWeapon);
     }
 
     public void start_rune_exchange(int rune_to_exchange_slot)
@@ -154,15 +186,16 @@ public class GearsManager : Singleton<GearsManager>
 
         foreach (InventoryItem rune in runes)
         {
-            if(rune.GetMutableProperty("equiped") == false)
+            if (rune.GetMutableProperty("equiped") == false)
             {
                 // Create a new InventoryItem (rune here) viewer
                 AvailableRuneViewer available_rune_viewer = Instantiate(
-                    _available_rune_viewer_prefab,
-                    Vector3.zero,
-                    Quaternion.identity,
-                    _available_runes_container
-                ).GetComponent<AvailableRuneViewer>();
+                        _available_rune_viewer_prefab,
+                        Vector3.zero,
+                        Quaternion.identity,
+                        _available_runes_container
+                    )
+                    .GetComponent<AvailableRuneViewer>();
 
                 // Link the viewer to the InventoryItem it is displaying
                 available_rune_viewer.init(rune);
@@ -184,11 +217,13 @@ public class GearsManager : Singleton<GearsManager>
         display_equiped_runes();
 
         _runes_menu.SetActive(false);
+        AudioSystem.Instance.play_sound(ExchangeRune);
     }
 
     public void remove_rune(int rune_to_remove_slot)
     {
         PlayerInfosManager.Instance.remove_equiped_rune(rune_to_remove_slot);
         display_equiped_runes();
+        AudioSystem.Instance.play_sound(RemoveRune);
     }
 }

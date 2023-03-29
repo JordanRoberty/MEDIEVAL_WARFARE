@@ -12,7 +12,7 @@ public class Movement2D : MonoBehaviour
     private float _current_speed;
 
     [SerializeField]
-    private bool _changing_direction= false;
+    private bool _changing_direction = false;
     private bool _is_crouching = false;
 
     [Header("jump Variables")]
@@ -37,7 +37,6 @@ public class Movement2D : MonoBehaviour
     private float _default_crouch_speed;
     private float _current_default_speed;
 
-
     [Header("Ground Collision Variable")]
     [SerializeField]
     private float _ground_raycast_length = 0.8f;
@@ -48,6 +47,12 @@ public class Movement2D : MonoBehaviour
     [SerializeField]
     private LayerMask _ground_layer;
 
+    [SerializeField]
+    private AudioClip jump_sound_1;
+
+    [SerializeField]
+    private AudioClip jump_sound_2;
+
     private Camera camera;
 
     private Rigidbody2D _rigid_body;
@@ -57,7 +62,6 @@ public class Movement2D : MonoBehaviour
     bool facingRight = true;
     private BoxCollider2D boxCollider;
     private bool is_boss_scene = false;
-    private bool is_jumping = false;
 
     private Vector2 screenBounds;
     private float objectWidth;
@@ -75,13 +79,13 @@ public class Movement2D : MonoBehaviour
         //RUNE MODIFIER
         _move_speed *= RuneManager.Instance.speed_rune;
         _jump_force *= RuneManager.Instance.high_jump_rune;
-        if(RuneManager.Instance.triple_jump_rune)
+        if (RuneManager.Instance.triple_jump_rune)
         {
             _extra_jumps++;
         }
 
         //BOSS SCENE
-        if(camera.TryGetComponent<CameraBehavior>(out CameraBehavior scrolling_cam))
+        if (camera.TryGetComponent<CameraBehavior>(out CameraBehavior scrolling_cam))
         {
             _default_speed = scrolling_cam.speed;
         }
@@ -99,8 +103,8 @@ public class Movement2D : MonoBehaviour
 
     private void Update()
     {
-
-        if (GameManager.Instance._state != GameState.RUNNING) return;
+        if (GameManager.Instance._state != GameState.RUNNING)
+            return;
 
         _horizontal_direction = get_input().x;
         _vertical_direction = get_input().y;
@@ -138,15 +142,21 @@ public class Movement2D : MonoBehaviour
         _can_jump |= Input.GetButtonDown("Jump");
     }
 
-
     void LateUpdate()
     {
-        if (!is_boss_scene){
+        if (!is_boss_scene)
+        {
             //Clamp the player to the screen
-            screenBounds = camera.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, camera.transform.position.z));
+            screenBounds = camera.ScreenToWorldPoint(
+                new Vector3(Screen.width, Screen.height, camera.transform.position.z)
+            );
             Vector3 viewPos = transform.position;
             //clamp the x position to the screen bounds
-            viewPos.x = Mathf.Clamp(viewPos.x, screenBounds.x *-1 + objectWidth, screenBounds.x  - objectWidth);
+            viewPos.x = Mathf.Clamp(
+                viewPos.x,
+                screenBounds.x * -1 + objectWidth,
+                screenBounds.x - objectWidth
+            );
             transform.position = viewPos;
         }
     }
@@ -175,12 +185,12 @@ public class Movement2D : MonoBehaviour
         _can_jump = false;
     }
 
-      public void update_camera(Camera main_cam)
+    public void update_camera(Camera main_cam)
     {
         camera = main_cam;
 
         //BOSS SCENE
-        if(camera.TryGetComponent<CameraBehavior>(out CameraBehavior scrolling_cam))
+        if (camera.TryGetComponent<CameraBehavior>(out CameraBehavior scrolling_cam))
         {
             _default_speed = scrolling_cam.speed;
         }
@@ -204,13 +214,11 @@ public class Movement2D : MonoBehaviour
         {
             if (!is_boss_scene)
             {
-                _rigid_body.velocity = new Vector2(
-                        _current_default_speed,
-                        _rigid_body.velocity.y);
-            }else{
-                _rigid_body.velocity = new Vector2(
-                        0f,
-                        _rigid_body.velocity.y);
+                _rigid_body.velocity = new Vector2(_current_default_speed, _rigid_body.velocity.y);
+            }
+            else
+            {
+                _rigid_body.velocity = new Vector2(0f, _rigid_body.velocity.y);
             }
         }
         else
@@ -250,6 +258,7 @@ public class Movement2D : MonoBehaviour
 
     private void jump()
     {
+        StatsManager.Instance.update_jumps();
         if (!_on_ground)
         {
             _extra_jumps_count--;
@@ -262,6 +271,8 @@ public class Movement2D : MonoBehaviour
             _rigid_body.AddForce(Vector2.up * 1.25f * _jump_force, ForceMode2D.Impulse);
             animator.SetBool("IsJumping", true);
             animator.SetBool("IsAirborn", true);
+
+            AudioSystem.Instance.play_sound(jump_sound_1, 2f);
         }
         else
         {
@@ -269,6 +280,8 @@ public class Movement2D : MonoBehaviour
             _rigid_body.AddForce(Vector2.up * _jump_force, ForceMode2D.Impulse);
             animator.SetBool("IsJumping", true);
             animator.SetBool("IsAirborn", true);
+
+            AudioSystem.Instance.play_sound(jump_sound_2, 2f);
         }
     }
 
@@ -276,16 +289,17 @@ public class Movement2D : MonoBehaviour
     ///The value depends of the player movement (jump cut, fast fall, jump)
     private void set_gravity()
     {
-        if(!_can_jump)
+        if (!_can_jump)
         {
             _rigid_body.gravityScale = _fall_gravity;
-        }else
+        }
+        else
         {
             _rigid_body.gravityScale = 1f;
         }
 
         //fast fall
-        if(_vertical_direction < 0)
+        if (_vertical_direction < 0)
         {
             _rigid_body.gravityScale = _fast_fall_gravity;
             if (Mathf.Abs(_rigid_body.velocity.y) > _fastfall_max_speed)
@@ -296,7 +310,6 @@ public class Movement2D : MonoBehaviour
                 );
             }
         }
-        
     }
 
     /// To check the ground collision, we cast rays from the player to the ground.

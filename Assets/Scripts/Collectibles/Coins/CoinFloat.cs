@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class CoinFloat : MonoBehaviour
 {
-    public float float_speed = 1.0f;    // Controls the speed of the up-and-down motion
+    public float float_speed = 1.0f; // Controls the speed of the up-and-down motion
     public float float_amplitude = 0.3f; // Controls the height of the up-and-down motion
 
     private Vector3 initial_position;
@@ -21,6 +21,8 @@ public class CoinFloat : MonoBehaviour
     void Update()
     {
         float_timer += Time.deltaTime * float_speed;
-        transform.position = initial_position + new Vector3(0, Mathf.Sin(float_timer + time_offset) * float_amplitude, 0);
+        transform.position =
+            initial_position
+            + new Vector3(0, Mathf.Sin(float_timer + time_offset) * float_amplitude, 0);
     }
 }

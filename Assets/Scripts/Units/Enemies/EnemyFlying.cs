@@ -22,6 +22,26 @@ public class EnemyFlying : Enemy
 
     // Temps écoulé depuis le début du mouvement
     private float time = 0.0f;
+    public AudioClip death_sound;
+
+    private void Start()
+    {
+        switch (DifficultyManager.Instance.current_difficulty)
+        {
+            case 0:
+                pv = 1500f;
+                break;
+            case 1:
+                pv = 2000f;
+                break;
+            case 2:
+                pv = 2500f;
+                break;
+            default:
+                pv = 3500f;
+                break;
+        }
+    }
 
     void Update()
     {
@@ -52,5 +72,10 @@ public class EnemyFlying : Enemy
             // Désactiver la collision avec l'objet ayant le tag spécifié
             Physics2D.IgnoreCollision(GetComponent<BoxCollider2D>(), collision.collider, true);
         }
+    }
+
+    private void OnDestroy()
+    {
+        AudioSystem.Instance.play_sound(death_sound, 0.8f);
     }
 }

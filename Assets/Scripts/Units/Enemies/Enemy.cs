@@ -39,9 +39,14 @@ public class Enemy : MonoBehaviour
 
     public void displayDamage(float damage, bool isCritial)
     {
-        DamageDisplay damageDisplay = Instantiate(damageText, transform.position, Quaternion.identity).GetComponent<DamageDisplay>();
+        DamageDisplay damageDisplay = Instantiate(
+                damageText,
+                transform.position,
+                Quaternion.identity
+            )
+            .GetComponent<DamageDisplay>();
         damageDisplay.SetColor(new Color(1f, 1f, 1f));
-        if(isCritial)
+        if (isCritial)
         {
             damageDisplay.SetColor(new Color(1f, 0f, 0f));
         }
@@ -55,7 +60,10 @@ public class Enemy : MonoBehaviour
         float standard_deviation = max_droppable_quantity / 4f;
 
         // Generate a random number following a normal distribution
-        float random_value = RandomFromDistribution.random_normal_distribution(mean, standard_deviation);
+        float random_value = RandomFromDistribution.random_normal_distribution(
+            mean,
+            standard_deviation
+        );
 
         // The coin quantity is a number following a normal distribution between 0 and the enemy's max droppable quantity
         coin_quantity = Mathf.FloorToInt(Mathf.Clamp(random_value, 0, max_droppable_quantity));
@@ -64,10 +72,11 @@ public class Enemy : MonoBehaviour
     public virtual void die()
     {
         StatsManager.Instance.update_score(score_value);
+        StatsManager.Instance.update_kills();
 
         // Sometimes drop a heart (except for the Bosses)
         if (Random.Range(0, 50) == 0 && !gameObject.name.StartsWith("Boss"))
-        {  // TODO: refactor this if/else block
+        { // TODO: refactor this if/else block
             Transform heart_parent = GameObject.Find("/Environment/Hearts").transform;
 
             GameObject heart = Instantiate(
@@ -77,11 +86,11 @@ public class Enemy : MonoBehaviour
                 heart_parent
             );
         }
-        
         // Otherwise drop coins
-        else{
+        else
+        {
             initialize_coin_quantity();
-            
+
             // Spawn the correct number of coin(s) at the enemy's position
             for (int i = 0; i < coin_quantity; i++)
             {
@@ -90,7 +99,8 @@ public class Enemy : MonoBehaviour
                 // Add a random offset to the coin's position
                 GameObject coin = Instantiate(
                     coinPrefab,
-                    transform.position + new Vector3(Random.Range(-0.5f, 0.5f), Random.Range(-0.5f, 0.5f), 0),
+                    transform.position
+                        + new Vector3(Random.Range(-0.5f, 0.5f), Random.Range(-0.5f, 0.5f), 0),
                     Quaternion.identity,
                     coin_parent
                 );

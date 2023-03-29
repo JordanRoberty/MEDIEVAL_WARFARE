@@ -26,18 +26,22 @@ public enum GameState
 
 public class GameManager : Singleton<GameManager>
 {
-    [SerializeField] private LevelManager level_manager;
-    [SerializeField] private DifficultyManager difficulty_manager;
+    [SerializeField]
+    private LevelManager level_manager;
+
+    [SerializeField]
+    private DifficultyManager difficulty_manager;
 
     public GameState _state { get; private set; }
-
+    public Texture2D cursor_image;
 
     private void Start()
     {
         SceneController.Instance.init(GameMenu.TITLE);
         _state = GameState.TITLE_MENU;
+        Cursor.SetCursor(cursor_image, Vector2.zero, CursorMode.Auto);
     }
-        
+
     private void Update()
     {
         if (_state == GameState.RUNNING && Input.GetKeyDown("p"))
@@ -131,7 +135,7 @@ public class GameManager : Singleton<GameManager>
             case GameState.GEARS_MENU:
                 SaveSystem.Instance.Save();
                 break;
-            
+
             default:
                 break;
         }
@@ -174,7 +178,6 @@ public class GameManager : Singleton<GameManager>
 
     private void handle_running()
     {
-        Cursor.visible = false;
         _state = GameState.RUNNING;
     }
 
@@ -182,7 +185,7 @@ public class GameManager : Singleton<GameManager>
     {
         /* Stops the game */
         Time.timeScale = 0.0f;
-        Cursor.visible = true;
+
         SceneController.Instance.set_current_menu(GameMenu.PAUSE);
         _state = GameState.PAUSED;
     }
@@ -202,7 +205,6 @@ public class GameManager : Singleton<GameManager>
 
     private void handle_fail_menu()
     {
-        Cursor.visible = true;
         SceneController.Instance.set_current_menu(GameMenu.FAIL);
         Time.timeScale = 0.0f;
         _state = GameState.FAIL_MENU;
@@ -210,7 +212,6 @@ public class GameManager : Singleton<GameManager>
 
     private void handle_victory_menu()
     {
-        Cursor.visible = true;
         SceneController.Instance.set_current_menu(GameMenu.VICTORY);
         _state = GameState.VICTORY_MENU;
     }
@@ -223,20 +224,22 @@ public class GameManager : Singleton<GameManager>
 
     private void handle_register_menu()
     {
-        int current_level = (int) level_manager.get_selected_level();
+        int current_level = (int)level_manager.get_selected_level();
         int score_to_change = -1;
+        Debug.Log(current_level);
+        Debug.Log(get_inventory_items_from_tag("SCORE").Count);
         InventoryItem level_scores = get_inventory_items_from_tag("SCORE")[current_level];
 
         for (int score = 0; score < 3; ++score)
         {
-            if(level_scores.GetMutableProperty("score_" + score) < StatsManager.Instance.score)
+            if (level_scores.GetMutableProperty("score_" + score) < StatsManager.Instance.score)
             {
                 score_to_change = score;
                 break;
             }
         }
 
-        if(score_to_change != -1)
+        if (score_to_change != -1)
         {
             SceneController.Instance.set_current_menu(GameMenu.REGISTER);
             _state = GameState.REGISTER_MENU;

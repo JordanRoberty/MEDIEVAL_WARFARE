@@ -10,7 +10,7 @@ public class EnemyTank : Enemy
     public EnemyTank()
     {
         pv = 1000.0f;
-        speed = 100.0f;
+        speed = 1000.0f;
         max_droppable_quantity = 10;
         score_value = 3;
     }
@@ -40,6 +40,7 @@ public class EnemyTank : Enemy
     private Vector3 last_position;
     private float timer = 1.0f;
     private float jump_cooldown = 0.0f;
+    public AudioClip death_sound;
 
     public void Start()
     {
@@ -48,6 +49,22 @@ public class EnemyTank : Enemy
         rb = GetComponent<Rigidbody2D>();
 
         InvokeRepeating("UpdatePath", 0f, pathUpdateSeconds);
+
+        switch (DifficultyManager.Instance.current_difficulty)
+        {
+            case 0:
+                pv = 2500f;
+                break;
+            case 1:
+                pv = 4000f;
+                break;
+            case 2:
+                pv = 6000f;
+                break;
+            default:
+                pv = 8000f;
+                break;
+        }
     }
 
     private void FixedUpdate()
@@ -184,5 +201,10 @@ public class EnemyTank : Enemy
             // Désactiver la collision avec l'objet ayant le tag spécifié
             Physics2D.IgnoreCollision(GetComponent<BoxCollider2D>(), collision.collider, true);
         }
+    }
+
+    private void OnDestroy()
+    {
+        AudioSystem.Instance.play_sound(death_sound);
     }
 }

@@ -9,7 +9,7 @@ public class ShopManager : MonoBehaviour
     ///     The prefab to show wait animation when Transaction is in progress
     /// </summary>
     public GameObject waitAnimationPrefab;
-        
+
     /// <summary>
     ///     The Transform to keep the reference of wait animation
     /// </summary>
@@ -18,22 +18,22 @@ public class ShopManager : MonoBehaviour
     /// <summary>
     ///     Standard starting point for Unity scripts.
     /// </summary>
-    void Start()
-    {
-        
-    }
-        
+
+    public AudioClip open_shop_sound;
+
+    void Start() { }
+
     private void OnEnable()
     {
         GameFoundationSdk.initialized += RegisterEvents;
         GameFoundationSdk.uninitialized += UnregisterEvents;
-            
+
         if (GameFoundationSdk.IsInitialized)
         {
-            RegisterEvents();   
+            RegisterEvents();
         }
     }
-        
+
     private void OnDisable()
     {
         GameFoundationSdk.initialized -= RegisterEvents;
@@ -41,10 +41,10 @@ public class ShopManager : MonoBehaviour
 
         if (GameFoundationSdk.IsInitialized)
         {
-            UnregisterEvents();   
+            UnregisterEvents();
         }
     }
-        
+
     /// <summary>
     ///     Add necessary events for this sample to Game Foundation.
     /// </summary>
@@ -70,7 +70,7 @@ public class ShopManager : MonoBehaviour
         GameFoundationSdk.transactions.transactionSucceeded -= OnTransactionSucceeded;
         GameFoundationSdk.transactions.transactionFailed -= OnTransactionFailed;
     }
-        
+
     private void OnTransactionInitiated(BaseTransaction transaction)
     {
         if (m_WaitAnimation == null && waitAnimationPrefab != null)
@@ -86,6 +86,7 @@ public class ShopManager : MonoBehaviour
     private void OnTransactionSucceeded(BaseTransaction transaction, TransactionResult result)
     {
         RemoveLoadingAnimation();
+        AudioSystem.Instance.play_sound(open_shop_sound);
     }
 
     /// <summary>
@@ -96,7 +97,7 @@ public class ShopManager : MonoBehaviour
     {
         RemoveLoadingAnimation();
     }
-        
+
     /// <summary>
     ///     Callback that gets triggered when any purchase button status is changed.
     /// </summary>
@@ -109,8 +110,11 @@ public class ShopManager : MonoBehaviour
     /// <param name="newStatus">
     ///     The new status of the purchase button
     /// </param>
-    public void OnPurchasableStatusChanged(PurchaseButton purchaseButton, PurchasableStatus oldStatus,
-        PurchasableStatus newStatus)
+    public void OnPurchasableStatusChanged(
+        PurchaseButton purchaseButton,
+        PurchasableStatus oldStatus,
+        PurchasableStatus newStatus
+    )
     {
         if (newStatus == PurchasableStatus.ItemUnaffordable)
         {
@@ -127,7 +131,8 @@ public class ShopManager : MonoBehaviour
     /// </summary>
     private void RemoveLoadingAnimation()
     {
-        if (m_WaitAnimation == null) return;
+        if (m_WaitAnimation == null)
+            return;
         Destroy(m_WaitAnimation.gameObject);
         m_WaitAnimation = null;
     }

@@ -148,7 +148,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e889e8720a3d8e428119ec4081f95bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pv: 2500
+  pv: 4000
   coinPrefab: {fileID: 8083888472559256018, guid: e4badc239d93919479e5d33088163925, type: 3}
   heartPrefab: {fileID: 7085934474981611951, guid: 7a52cb3b54bae164f963eda054952c39, type: 3}
   damageText: {fileID: 1492875461645354713, guid: b7913dfe196894d978ff534442376b9e, type: 3}
@@ -164,6 +164,7 @@ MonoBehaviour:
   _edge_layer:
     serializedVersion: 2
     m_Bits: 1024
+  death_sound: {fileID: 8300000, guid: c73f42bcbfe6d4b46a5c097dd06c209a, type: 3}
 --- !u!114 &7837641992204427281
 MonoBehaviour:
   m_ObjectHideFlags: 0

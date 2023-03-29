@@ -11,6 +11,12 @@ public class Puddle : Enemy
     }
 
     float life_time = 3f;
+    public AudioClip puddle_sound;
+
+    private void Start()
+    {
+        AudioSystem.Instance.play_sound(puddle_sound, 2f);
+    }
 
     private void Update()
     {

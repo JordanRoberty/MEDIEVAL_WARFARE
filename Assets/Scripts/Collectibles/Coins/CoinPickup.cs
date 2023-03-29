@@ -7,6 +7,7 @@ public class CoinPickup : MonoBehaviour
 {
     private Currency m_CoinDefinition;
     public int coin_value = 1; // The value of the coin
+    public AudioClip gold_sound;
 
     void Start()
     {
@@ -19,6 +20,8 @@ public class CoinPickup : MonoBehaviour
         // If the Player moves onto the Coin
         if (collision.CompareTag("Player"))
         {
+            AudioSystem.Instance.play_sound(gold_sound, 0.8f);
+            StatsManager.Instance.update_pieces();
             GameFoundationSdk.wallet.Add(m_CoinDefinition, coin_value); // Add the coin to the Player's wallet
             transform.parent.destroy();
         }
