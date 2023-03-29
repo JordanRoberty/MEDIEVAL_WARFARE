@@ -989,7 +989,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7545015803107958875, guid: 13b29b9f5373db147895bccc2c6b42bc, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7545015803107958875, guid: 13b29b9f5373db147895bccc2c6b42bc, type: 3}
       propertyPath: m_AnchorMax.x
@@ -1667,7 +1667,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 700814154}
   m_OnClick:
     m_PersistentCalls:
@@ -1982,7 +1982,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 825326506}
   m_Template: {fileID: 1017421740}
   m_CaptionText: {fileID: 1580655884}
@@ -2221,7 +2221,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 936154950}
   m_Template: {fileID: 458717953}
   m_CaptionText: {fileID: 1352284946}
@@ -4104,7 +4104,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1775020005}
   m_OnClick:
     m_PersistentCalls:
