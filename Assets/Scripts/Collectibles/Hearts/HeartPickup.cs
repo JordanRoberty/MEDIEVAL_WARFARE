@@ -16,7 +16,7 @@ public class HeartPickup : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        // If the Player moves onto the Coin
+        // If the Player moves onto the Heart
         if (collision.CompareTag("Player"))
         {
             if (_player.health < _player.max_health)

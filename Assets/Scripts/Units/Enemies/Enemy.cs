@@ -15,6 +15,8 @@ public class Enemy : MonoBehaviour
 
     public GameObject heartPrefab;
 
+    public GameObject flailPrefab;
+
     public GameObject damageText;
 
     public int get_damage()
@@ -68,7 +70,7 @@ public class Enemy : MonoBehaviour
 
         // Sometimes drop a heart (except for the Bosses)
         if (Random.Range(0, 50) == 0 && !gameObject.name.StartsWith("Boss"))
-        {  // TODO: refactor this if/else block
+        {  // TODO: refactor this if/else block?
             Transform heart_parent = GameObject.Find("/Environment/Hearts").transform;
 
             GameObject heart = Instantiate(
@@ -79,7 +81,7 @@ public class Enemy : MonoBehaviour
             );
         }
         
-        // Otherwise drop coins
+        // The rest of the time, drop coins
         else{
             initialize_coin_quantity();
             
