@@ -219,8 +219,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Level 1
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 7bc06ecf452bf684bb465a38b60ae729, type: 2}
-  m_sharedMaterial: {fileID: -5231271259870633375, guid: 7bc06ecf452bf684bb465a38b60ae729, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: a10e4f33708e2cd4d95148038f012636, type: 2}
+  m_sharedMaterial: {fileID: 401879096486111229, guid: a10e4f33708e2cd4d95148038f012636, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -427,6 +427,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7439398907874976284}
     m_Modifications:
+    - target: {fileID: 966289729210470373, guid: 7affacdca14eae44198236c2290453ff, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: a10e4f33708e2cd4d95148038f012636, type: 2}
+    - target: {fileID: 966289729210470373, guid: 7affacdca14eae44198236c2290453ff, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 401879096486111229, guid: a10e4f33708e2cd4d95148038f012636, type: 2}
     - target: {fileID: 966289729228863308, guid: 7affacdca14eae44198236c2290453ff, type: 3}
       propertyPath: m_Name
       value: Score Viewer
@@ -515,6 +523,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4533411701509556200, guid: 7affacdca14eae44198236c2290453ff, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: a10e4f33708e2cd4d95148038f012636, type: 2}
+    - target: {fileID: 4533411701509556200, guid: 7affacdca14eae44198236c2290453ff, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 401879096486111229, guid: a10e4f33708e2cd4d95148038f012636, type: 2}
+    - target: {fileID: 8635507469572231336, guid: 7affacdca14eae44198236c2290453ff, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: a10e4f33708e2cd4d95148038f012636, type: 2}
+    - target: {fileID: 8635507469572231336, guid: 7affacdca14eae44198236c2290453ff, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 401879096486111229, guid: a10e4f33708e2cd4d95148038f012636, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7affacdca14eae44198236c2290453ff, type: 3}
 --- !u!224 &426665191308881668 stripped
