@@ -125,7 +125,7 @@ public class PlayerInfosManager : Singleton<PlayerInfosManager>
     private void DEBUG_add_runes_to_weapon(string new_weapon_id)
     {
         InventoryItem weapon = GameFoundationSdk.inventory.FindItem(new_weapon_id);
-        create_new_inventory_item("shotgunFlail");
+        //create_new_inventory_item("shotgunFlail");
 
         // Create three new runes
         InventoryItem rune_0 = create_new_inventory_item("commonSpeedRune");

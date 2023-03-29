@@ -305,6 +305,34 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2142295451}
     m_Modifications:
+    - target: {fileID: 7545015803107958872, guid: a901fcccb85c40a4a8117a316d62fa8d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7545015803107958872, guid: a901fcccb85c40a4a8117a316d62fa8d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7545015803107958872, guid: a901fcccb85c40a4a8117a316d62fa8d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 606426441}
+    - target: {fileID: 7545015803107958872, guid: a901fcccb85c40a4a8117a316d62fa8d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7545015803107958872, guid: a901fcccb85c40a4a8117a316d62fa8d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: on_pseudo_submitted
+      objectReference: {fileID: 0}
+    - target: {fileID: 7545015803107958872, guid: a901fcccb85c40a4a8117a316d62fa8d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: RegisterManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7545015803107958872, guid: a901fcccb85c40a4a8117a316d62fa8d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 7545015803107958874, guid: a901fcccb85c40a4a8117a316d62fa8d, type: 3}
       propertyPath: m_Name
       value: Save Button
