@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.GameFoundation;
 
 public class Boss : Enemy
 {
@@ -207,6 +208,21 @@ public class Boss : Enemy
                 Random.Range(-0.5f, 0.5f), 0),
                 Quaternion.identity,
                 coin_parent
+            );
+        }
+
+        // If the player doesn't have the Shotgun Flail already, spawn it (at the enemy's position)
+        InventoryItemDefinition m_ShotgunFlailDefinition;
+        m_ShotgunFlailDefinition = GameFoundationSdk.catalog.Find<InventoryItemDefinition>("shotgunFlail");
+        
+        if (GameFoundationSdk.inventory.GetTotalQuantity(m_ShotgunFlailDefinition) == 0)
+        {
+            Transform weapon_parent = GameObject.Find("/Environment/Weapons").transform;
+            GameObject weapon = Instantiate(
+                flailPrefab,
+                transform.position,
+                Quaternion.identity,
+                weapon_parent
             );
         }
 
