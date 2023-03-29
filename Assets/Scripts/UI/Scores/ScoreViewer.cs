@@ -11,6 +11,7 @@ public class ScoreViewer : MonoBehaviour
 
     public void init(int rank, Score score)
     {
+        rank_text.text = (rank + 1).ToString();
         name_text.text = score.name;
         score_text.text = score.score.ToString();
     }
