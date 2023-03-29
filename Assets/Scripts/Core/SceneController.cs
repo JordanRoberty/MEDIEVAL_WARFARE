@@ -157,7 +157,6 @@ public class SceneController : Singleton<SceneController>
     public void load_victory_menu()
     {
         // Unload level scenes
-        AudioSystem.Instance.stop_music();
         unload_current_level();
 
         GameManager.Instance.set_state(GameState.VICTORY_MENU);

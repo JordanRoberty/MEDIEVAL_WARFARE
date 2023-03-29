@@ -15,6 +15,16 @@ public class AudioSystem : StaticInstance<AudioSystem>
         _musicSource.Play();
     }
 
+    public void pause_music()
+    {
+        _musicSource.Pause();
+    }
+
+    public void unpause_music()
+    {
+        _musicSource.UnPause();
+    }
+
     public void stop_music()
     {
         _musicSource.Stop();
