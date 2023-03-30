@@ -2279,6 +2279,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 4957904075573091102, guid: f4963b633eab342cca37235bd6606031, type: 3}
     - target: {fileID: 993201757458344063, guid: 1f1ecf031b91e73409a4ad2f489cc52c, type: 3}
+      propertyPath: flailPrefab
+      value: 
+      objectReference: {fileID: 15402495052055654, guid: 0895781b2ced17542ac76016e7e9319a, type: 3}
+    - target: {fileID: 993201757458344063, guid: 1f1ecf031b91e73409a4ad2f489cc52c, type: 3}
       propertyPath: flail_sound
       value: 
       objectReference: {fileID: 8300000, guid: 4c0260236470de74a8eff74bd8633799, type: 3}
