@@ -23,6 +23,7 @@ public class LevelSelect : Select
 
     private void set_current_option(int index)
     {
+        Debug.Log(index);
         dropdown.value = index;
         LevelManager.Instance.selected_level = index;
     }
@@ -37,7 +38,7 @@ public class LevelSelect : Select
 
     public override void next_option()
     {
-        if (dropdown.value < dropdown.options.Count)
+        if (dropdown.value < (dropdown.options.Count - 1))
         {
             set_current_option(dropdown.value + 1);
         }

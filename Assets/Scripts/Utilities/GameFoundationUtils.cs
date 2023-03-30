@@ -6,9 +6,8 @@ using UnityEngine.Assertions;
 using UnityEngine.GameFoundation.Components;
 using UnityEngine.ResourceManagement.AsyncOperations;
 
-/// <summary>
-/// A static class for GameFoundation helpful methods
-/// </summary>
+/// Various helpers for GameFoundation.
+///\author MrLorent (Tanguy LORENT)
 public static class GameFoundationUtils
 {
     public static InventoryItem create_new_inventory_item(string definition_key)
