@@ -69,9 +69,7 @@ public class SceneController : Singleton<SceneController>
     }
 
     private void unload_current_level()
-    {
-        if (SceneManager.GetSceneByName("Player").isLoaded) SceneManager.UnloadSceneAsync("Player");
-        
+    {   
         if (_current_level != GameLevel.NONE)
         {
             SceneManager.UnloadSceneAsync(_levels[_current_level]);
@@ -83,6 +81,8 @@ public class SceneController : Singleton<SceneController>
             SceneManager.UnloadSceneAsync(_boss_levels[_current_boss_level]);
             _current_boss_level = BossLevel.NONE;
         }
+
+        if (SceneManager.GetSceneByName("Player").isLoaded) SceneManager.UnloadSceneAsync("Player");
     }
 
     public void set_current_menu(GameMenu new_menu)
@@ -157,7 +157,6 @@ public class SceneController : Singleton<SceneController>
     public void load_victory_menu()
     {
         // Unload level scenes
-        AudioSystem.Instance.stop_music();
         unload_current_level();
 
         GameManager.Instance.set_state(GameState.VICTORY_MENU);

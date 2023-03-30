@@ -2,6 +2,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.GameFoundation;
+using static GameFoundationUtils;
 
 public enum GameLevel
 {
@@ -13,22 +15,29 @@ public enum GameLevel
 
 public class LevelManager : Singleton<LevelManager>
 {
-    public int selected_level;
     public List<string> available_levels { get; private set; }
+    public int selected_level;
 
-    private List<string> levels = new List<string>()
-    {
-        "LEVEL 1",
-        "LEVEL 2",
-        "LEVEL 3"
-    };
-
-
+    private InventoryItem _levels;
+    
     protected override void Awake() {
         base.Awake();
 
+        _levels = get_inventory_items_from_tag("LEVELS")[0];
         available_levels = new List<string>();
-        available_levels.Add(levels[0]);
+
+        for(int i = 1; i < _levels.GetMutableProperty("nb_levels"); ++i)
+        {
+            if (_levels.GetMutableProperty("level_available_" + i))
+            {
+                available_levels.Add(_levels.GetMutableProperty("level_label_" + i));
+            }
+            else
+            {
+                break;
+            }
+        }
+
         selected_level = 0;
     }
 

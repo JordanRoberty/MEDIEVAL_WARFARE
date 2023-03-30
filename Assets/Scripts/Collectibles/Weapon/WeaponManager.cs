@@ -111,6 +111,6 @@ public class WeaponManager : MonoBehaviour
 
         bullet.transform.localScale *= RuneManager.Instance.projectile_size_rune;
 
-        AudioSystem.Instance.play_sound(bullet_sound, 0.5f);
+        AudioSystem.Instance.play_sound(bullet_sound, 0.4f);
     }
 }

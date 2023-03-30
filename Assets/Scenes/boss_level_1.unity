@@ -601,6 +601,7 @@ Transform:
   - {fileID: 706138115}
   - {fileID: 1339546953}
   - {fileID: 367186535}
+  - {fileID: 2069460732}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2183,6 +2184,37 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1978344196}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &2069460731
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2069460732}
+  m_Layer: 0
+  m_Name: Weapons
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2069460732
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2069460731}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 526619707}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &993201756396516657
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2246,6 +2278,10 @@ PrefabInstance:
       propertyPath: damageText
       value: 
       objectReference: {fileID: 4957904075573091102, guid: f4963b633eab342cca37235bd6606031, type: 3}
+    - target: {fileID: 993201757458344063, guid: 1f1ecf031b91e73409a4ad2f489cc52c, type: 3}
+      propertyPath: flailPrefab
+      value: 
+      objectReference: {fileID: 15402495052055654, guid: 0895781b2ced17542ac76016e7e9319a, type: 3}
     - target: {fileID: 993201757458344063, guid: 1f1ecf031b91e73409a4ad2f489cc52c, type: 3}
       propertyPath: flail_sound
       value: 

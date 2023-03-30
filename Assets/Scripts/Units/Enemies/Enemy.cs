@@ -15,6 +15,8 @@ public class Enemy : MonoBehaviour
 
     public GameObject heartPrefab;
 
+    public GameObject flailPrefab;
+
     public GameObject damageText;
 
     public int get_damage()
@@ -39,17 +41,13 @@ public class Enemy : MonoBehaviour
 
     public void displayDamage(float damage, bool isCritial)
     {
-        DamageDisplay damageDisplay = Instantiate(
-                damageText,
-                transform.position,
-                Quaternion.identity
-            )
-            .GetComponent<DamageDisplay>();
-        damageDisplay.SetColor(new Color(1f, 1f, 1f));
-        if (isCritial)
+        DamageDisplay damageDisplay = Instantiate(damageText, transform.position, Quaternion.identity).GetComponent<DamageDisplay>();
+        
+        if(isCritial)
         {
             damageDisplay.SetColor(new Color(1f, 0f, 0f));
         }
+
         damageDisplay.SetDamageText(damage);
     }
 
@@ -76,7 +74,7 @@ public class Enemy : MonoBehaviour
 
         // Sometimes drop a heart (except for the Bosses)
         if (Random.Range(0, 50) == 0 && !gameObject.name.StartsWith("Boss"))
-        { // TODO: refactor this if/else block
+        {  // TODO: refactor this if/else block?
             Transform heart_parent = GameObject.Find("/Environment/Hearts").transform;
 
             GameObject heart = Instantiate(
@@ -86,9 +84,9 @@ public class Enemy : MonoBehaviour
                 heart_parent
             );
         }
-        // Otherwise drop coins
-        else
-        {
+        
+        // The rest of the time, drop coins
+        else{
             initialize_coin_quantity();
 
             // Spawn the correct number of coin(s) at the enemy's position

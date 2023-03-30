@@ -2,11 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class DamageDisplay : MonoBehaviour
 {
         //Text damages variables
-    public Text text;
+    public TextMeshProUGUI text;
     public float lifeTime = 15f;
     public float distance = 2f;
     public Vector3 finalSize = new Vector3(0.02f, 0.02f, 0.01f);
