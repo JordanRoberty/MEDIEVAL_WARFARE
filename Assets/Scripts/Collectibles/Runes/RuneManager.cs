@@ -7,45 +7,40 @@ public class RuneManager : Singleton<RuneManager>
 {
     //Stats
     [HideInInspector]
-    public float damage_rune; // { get; private set; }
+    public float damage_rune  { get; private set; }
 
     [HideInInspector]
-    public float speed_rune; // { get; private set; }
+    public float speed_rune  { get; private set; }
 
     [HideInInspector]
-    public float firing_rate_rune; // {get; private set;} // 0 is shooting fast and 1 is normal shot speed
+    public float firing_rate_rune  {get; private set;} // 0 is shooting fast and 1 is normal shot speed
 
     [HideInInspector]
-    public int health_rune; //{get; private set;}
+    public int health_rune {get; private set;}
 
     [HideInInspector]
-    public float projectile_size_rune; //{get; private set;}
+    public float projectile_size_rune {get; private set;}
 
     [HideInInspector]
-    public float high_jump_rune; //{get; private set;}
+    public float high_jump_rune {get; private set;}
 
     [HideInInspector]
-    public float money_drop_rate_rune; //{get; private set;} // ??
+    public float money_drop_rate_rune {get; private set;}
 
     [HideInInspector]
-    public float bullet_speed_rune; //{get; private set;}
+    public float bullet_speed_rune {get; private set;}
 
     //Functionnality
     [HideInInspector]
-    public int shield_rune; // {get; private set;}
+    public int shield_rune  {get; private set;}
 
     [HideInInspector]
-    public int critial_hit_rune; // {get; private set;}
+    public int critial_hit_rune  {get; private set;}
 
     [HideInInspector]
-    public bool triple_jump_rune; // {get; private set;}
+    public bool triple_jump_rune  {get; private set;}
 
     private List<InventoryItem> _equiped_runes = new List<InventoryItem>();
-
-    //  thornmail
-    //  repulse shot ??
-    //  money magnet ??
-    //  multiple shot ???
 
     public void init()
     {
@@ -55,7 +50,7 @@ public class RuneManager : Singleton<RuneManager>
         health_rune = 0;
         projectile_size_rune = 1f;
         high_jump_rune = 1f;
-        money_drop_rate_rune = 1f; // ??
+        money_drop_rate_rune = 1f;
         bullet_speed_rune = 1f;
         shield_rune = 0;
         critial_hit_rune = 0;
