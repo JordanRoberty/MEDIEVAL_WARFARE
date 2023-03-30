@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 7545015803107958878}
   - component: {fileID: 7545015803107958873}
   - component: {fileID: 7545015803107958872}
+  - component: {fileID: 3051875258169403838}
   - component: {fileID: 7545015803107958879}
   m_Layer: 5
-  m_Name: GameState Switcher Button
+  m_Name: GameState Switcher 0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -39,7 +40,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 770, y: 0}
-  m_SizeDelta: {x: 300, y: 80}
+  m_SizeDelta: {x: 336, y: 112}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7545015803107958878
 CanvasRenderer:
@@ -69,8 +70,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 39ffcb137105e26478dbf571cc2bbf80, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -98,7 +99,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 2
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -108,10 +109,10 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
+    m_HighlightedSprite: {fileID: 21300000, guid: 39ffcb137105e26478dbf571cc2bbf80, type: 3}
+    m_PressedSprite: {fileID: 21300000, guid: 08c48da4a2a821b42aaa90cc0beb9645, type: 3}
+    m_SelectedSprite: {fileID: 21300000, guid: 39ffcb137105e26478dbf571cc2bbf80, type: 3}
+    m_DisabledSprite: {fileID: 21300000, guid: 39ffcb137105e26478dbf571cc2bbf80, type: 3}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
     m_HighlightedTrigger: Highlighted
@@ -123,6 +124,23 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &3051875258169403838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7545015803107958874}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5299da6cd830644aacdd6a881380068, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _button_text: {fileID: 7545015803596804000}
+  _button_text_transform: {fileID: 7545015803596804003}
+  _default_color: {r: 0.28235295, g: 0.36862746, b: 0.38431373, a: 1}
+  _hover_color: {r: 0.5686275, g: 0.85882354, b: 0.4117647, a: 1}
+  _pressed_color: {r: 0.13725491, g: 0.5647059, b: 0.3882353, a: 1}
 --- !u!114 &7545015803107958879
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -171,8 +189,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 7.4869}
+  m_SizeDelta: {x: 0, y: -34.031}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7545015803596804001
 CanvasRenderer:
@@ -202,7 +220,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: State Switcher
+  m_text: Button
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a10e4f33708e2cd4d95148038f012636, type: 2}
   m_sharedMaterial: {fileID: 401879096486111229, guid: a10e4f33708e2cd4d95148038f012636, type: 2}
@@ -211,8 +229,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4281479730
-  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+    rgba: 4284636744
+  m_fontColor: {r: 0.28235295, g: 0.36862746, b: 0.38431373, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -229,8 +247,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20
-  m_fontSizeBase: 20
+  m_fontSize: 25
+  m_fontSizeBase: 25
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18

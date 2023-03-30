@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.GameFoundation;
 
 public class Boss : Enemy
 {
@@ -100,13 +101,13 @@ public class Boss : Enemy
                 if (Random.value < 0.5f)
                 {
                     animator.SetBool("Horizontal_attack", true);
-                    AudioSystem.Instance.play_sound(slash_attack_sound, 5f);
+                    AudioSystem.Instance.play_sound(slash_attack_sound, 6f);
                     StartCoroutine(DisableHorizontalAttackAfterAnimation());
                 }
                 else
                 {
                     animator.SetBool("Vertical_attack", true);
-                    AudioSystem.Instance.play_sound(air_flail_sound, 5f);
+                    AudioSystem.Instance.play_sound(air_flail_sound, 6f);
                     StartCoroutine(DisableVerticalAttack());
                 }
             }
@@ -159,7 +160,7 @@ public class Boss : Enemy
     void throw_bottle()
     {
         animator.SetBool("Bottle_toss", true);
-        AudioSystem.Instance.play_sound(bottle_throw, 5f);
+        AudioSystem.Instance.play_sound(bottle_throw, 6f);
         StartCoroutine(ThrowBottle());
     }
 
@@ -210,7 +211,7 @@ public class Boss : Enemy
             0.0f
         );
 
-        AudioSystem.Instance.play_sound(jump_sound, 5f);
+        AudioSystem.Instance.play_sound(jump_sound, 6f);
         // appliquer la force à votre personnage
         rigidbody.AddForce(force, ForceMode2D.Impulse);
 
@@ -240,6 +241,23 @@ public class Boss : Enemy
             );
         }
 
+        // If the player doesn't have the Shotgun Flail already, spawn it (at the enemy's position)
+        InventoryItemDefinition m_ShotgunFlailDefinition;
+        m_ShotgunFlailDefinition = GameFoundationSdk.catalog.Find<InventoryItemDefinition>(
+            "shotgunFlail"
+        );
+
+        if (GameFoundationSdk.inventory.GetTotalQuantity(m_ShotgunFlailDefinition) == 0)
+        {
+            Transform weapon_parent = GameObject.Find("/Environment/Weapons").transform;
+            GameObject weapon = Instantiate(
+                flailPrefab,
+                transform.position,
+                Quaternion.identity,
+                weapon_parent
+            );
+        }
+
         BossFightManager.Instance.boss_died();
 
         // Destroy the enemy
@@ -253,7 +271,7 @@ public class Boss : Enemy
         if (rb != null)
         {
             rb.velocity = Vector2.zero;
-            AudioSystem.Instance.play_sound(landing_sound, 5f);
+            AudioSystem.Instance.play_sound(landing_sound, 6f);
             rb.AddForce(Vector2.down * 50000f, ForceMode2D.Impulse); // Ajouter une force vers le bas
         }
         animator.SetBool("IsAirborn", false);
@@ -335,7 +353,7 @@ public class Boss : Enemy
         yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length * 2f);
 
         // Désactiver le paramètre "Horizontal_attack"
-        AudioSystem.Instance.play_sound(flail_sound, 5f);
+        AudioSystem.Instance.play_sound(flail_sound, 6f);
         animator.SetBool("Vertical_attack", false);
     }
 

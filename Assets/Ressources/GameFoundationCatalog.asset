@@ -23,7 +23,7 @@ MonoBehaviour:
   - <type>k__BackingField: 5
     m_ValueType:
       longValue: 0
-    m_StringValue: Assets/Art/Sprites/Runes/speed_rune.png
+    m_StringValue: Assets/Art/Sprites/Runes/speed_bullet_rune_rare.png
   m_InitialAllocation: 0
   m_IsStackableFlag: 1
   m_InitialQuantityPerStack: 1
@@ -125,7 +125,7 @@ MonoBehaviour:
   - <type>k__BackingField: 5
     m_ValueType:
       longValue: 0
-    m_StringValue: Assets/Art/Sprites/Runes/speed_rune.png
+    m_StringValue: Assets/Art/Sprites/Runes/height_rune_common.png
   m_InitialAllocation: 0
   m_IsStackableFlag: 1
   m_InitialQuantityPerStack: 1
@@ -195,7 +195,7 @@ MonoBehaviour:
   - <type>k__BackingField: 5
     m_ValueType:
       longValue: 0
-    m_StringValue: Assets/Art/Sprites/Runes/speed_rune.png
+    m_StringValue: Assets/Art/Sprites/Runes/critique_rune_legendary.png
   m_InitialAllocation: 0
   m_IsStackableFlag: 1
   m_InitialQuantityPerStack: 1
@@ -244,7 +244,7 @@ MonoBehaviour:
   - <type>k__BackingField: 5
     m_ValueType:
       longValue: 0
-    m_StringValue: Assets/Art/Sprites/Runes/damage_rune.png
+    m_StringValue: Assets/Art/Sprites/Runes/triple_rune_rare.png
   m_InitialAllocation: 0
   m_IsStackableFlag: 1
   m_InitialQuantityPerStack: 1
@@ -287,7 +287,7 @@ MonoBehaviour:
   - <type>k__BackingField: 5
     m_ValueType:
       longValue: 0
-    m_StringValue: Assets/Art/Sprites/Runes/speed_rune.png
+    m_StringValue: Assets/Art/Sprites/Runes/firing_rate_rune_common.png
   m_Payout:
     m_Exchanges:
     - m_CatalogItem: {fileID: -373247191189450316}
@@ -319,7 +319,7 @@ MonoBehaviour:
   - <type>k__BackingField: 5
     m_ValueType:
       longValue: 0
-    m_StringValue: Assets/Art/Sprites/Runes/speed_rune.png
+    m_StringValue: Assets/Art/Sprites/Runes/height_rune_rare.png
   m_InitialAllocation: 0
   m_IsStackableFlag: 1
   m_InitialQuantityPerStack: 1
@@ -367,7 +367,7 @@ MonoBehaviour:
   - <type>k__BackingField: 5
     m_ValueType:
       longValue: 0
-    m_StringValue: Assets/Art/Sprites/Runes/speed_rune.png
+    m_StringValue: Assets/Art/Sprites/Runes/speed_rune_common.png
   m_Payout:
     m_Exchanges:
     - m_CatalogItem: {fileID: 4545930279128530339}
@@ -399,7 +399,7 @@ MonoBehaviour:
   - <type>k__BackingField: 5
     m_ValueType:
       longValue: 0
-    m_StringValue: Assets/Art/Sprites/Runes/speed_rune.png
+    m_StringValue: Assets/Art/Sprites/Runes/atk_rune_common.png
   m_InitialAllocation: 0
   m_IsStackableFlag: 1
   m_InitialQuantityPerStack: 1
@@ -447,7 +447,7 @@ MonoBehaviour:
   - <type>k__BackingField: 5
     m_ValueType:
       longValue: 0
-    m_StringValue: Assets/Art/Sprites/Runes/speed_rune.png
+    m_StringValue: Assets/Art/Sprites/Runes/height_rune_common.png
   m_Payout:
     m_Exchanges:
     - m_CatalogItem: {fileID: -8629987964794365791}
@@ -470,13 +470,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_DisplayName: Damage Rune (Legendary)
   m_Key: buyLegendaryDamageRune
-  m_Tags: []
-  m_StaticPropertyKeys: []
-  m_StaticPropertyValues: []
+  m_Tags:
+  - {fileID: -4591129078935206501}
+  m_StaticPropertyKeys:
+  - transaction_icon
+  m_StaticPropertyValues:
+  - <type>k__BackingField: 5
+    m_ValueType:
+      longValue: 0
+    m_StringValue: Assets/Art/Sprites/Runes/atk_rune_legendary.png
   m_Payout:
     m_Exchanges:
     - m_CatalogItem: {fileID: -1655170713121715388}
-      m_Amount: 0
+      m_Amount: 1
   m_Costs:
     m_Exchanges:
     - m_CatalogItem: {fileID: -3734650512700470626}
@@ -504,7 +510,7 @@ MonoBehaviour:
   - <type>k__BackingField: 5
     m_ValueType:
       longValue: 0
-    m_StringValue: Assets/Art/Sprites/Runes/speed_rune.png
+    m_StringValue: Assets/Art/Sprites/Runes/speed_bullet_rune_common.png
   m_InitialAllocation: 0
   m_IsStackableFlag: 1
   m_InitialQuantityPerStack: 1
@@ -553,7 +559,7 @@ MonoBehaviour:
   - <type>k__BackingField: 5
     m_ValueType:
       longValue: 0
-    m_StringValue: Assets/Art/Sprites/Runes/speed_rune.png
+    m_StringValue: Assets/Art/Sprites/Runes/health_rune_rare.png
   m_InitialAllocation: 0
   m_IsStackableFlag: 1
   m_InitialQuantityPerStack: 1
@@ -601,7 +607,7 @@ MonoBehaviour:
   - <type>k__BackingField: 5
     m_ValueType:
       longValue: 0
-    m_StringValue: Assets/Art/Sprites/Runes/speed_rune.png
+    m_StringValue: Assets/Art/Sprites/Runes/big_rune_legendary.png
   m_Payout:
     m_Exchanges:
     - m_CatalogItem: {fileID: 7532340043465164661}
@@ -647,7 +653,7 @@ MonoBehaviour:
   - <type>k__BackingField: 5
     m_ValueType:
       longValue: 0
-    m_StringValue: Assets/Art/Sprites/Runes/damage_rune.png
+    m_StringValue: Assets/Art/Sprites/Runes/atk_rune_rare.png
   m_Payout:
     m_Exchanges:
     - m_CatalogItem: {fileID: 2191732088584772111}
@@ -679,7 +685,7 @@ MonoBehaviour:
   - <type>k__BackingField: 5
     m_ValueType:
       longValue: 0
-    m_StringValue: Assets/Art/Sprites/Runes/speed_rune.png
+    m_StringValue: Assets/Art/Sprites/Runes/critique_rune_common.png
   m_InitialAllocation: 0
   m_IsStackableFlag: 1
   m_InitialQuantityPerStack: 1
@@ -728,7 +734,7 @@ MonoBehaviour:
   - <type>k__BackingField: 5
     m_ValueType:
       longValue: 0
-    m_StringValue: Assets/Art/Sprites/Runes/speed_rune.png
+    m_StringValue: Assets/Art/Sprites/Runes/firing_rate_rune_rare.png
   m_InitialAllocation: 0
   m_IsStackableFlag: 1
   m_InitialQuantityPerStack: 1
@@ -839,7 +845,7 @@ MonoBehaviour:
   - <type>k__BackingField: 5
     m_ValueType:
       longValue: 0
-    m_StringValue: Assets/Art/Sprites/Runes/speed_rune.png
+    m_StringValue: Assets/Art/Sprites/Runes/critique_rune_legendary.png
   m_Payout:
     m_Exchanges:
     - m_CatalogItem: {fileID: -8169112494538138968}
@@ -923,7 +929,7 @@ MonoBehaviour:
   - <type>k__BackingField: 5
     m_ValueType:
       longValue: 0
-    m_StringValue: Assets/Art/Sprites/Runes/speed_rune.png
+    m_StringValue: Assets/Art/Sprites/Runes/speed_bullet_rune_rare.png
   m_Payout:
     m_Exchanges:
     - m_CatalogItem: {fileID: -9040205315119447273}
@@ -988,7 +994,7 @@ MonoBehaviour:
   - <type>k__BackingField: 5
     m_ValueType:
       longValue: 0
-    m_StringValue: Assets/Art/Sprites/Runes/speed_rune.png
+    m_StringValue: Assets/Art/Sprites/Runes/height_rune_legendary.png
   m_InitialAllocation: 0
   m_IsStackableFlag: 1
   m_InitialQuantityPerStack: 1
@@ -1050,7 +1056,7 @@ MonoBehaviour:
   - <type>k__BackingField: 5
     m_ValueType:
       longValue: 0
-    m_StringValue: Assets/Art/Sprites/Weapons/Machine Gun Sword/sword_icon.png
+    m_StringValue: Assets/Art/Sprites/Weapons/Petite_massue.png
   m_InitialAllocation: 0
   m_IsStackableFlag: 0
   m_InitialQuantityPerStack: 1
@@ -1156,7 +1162,7 @@ MonoBehaviour:
   - <type>k__BackingField: 5
     m_ValueType:
       longValue: 0
-    m_StringValue: Assets/Art/Sprites/Runes/speed_rune.png
+    m_StringValue: Assets/Art/Sprites/Runes/big_rune_common.png
   m_Payout:
     m_Exchanges:
     - m_CatalogItem: {fileID: 2554254541840718292}
@@ -1190,7 +1196,7 @@ MonoBehaviour:
   - <type>k__BackingField: 5
     m_ValueType:
       longValue: 0
-    m_StringValue: Assets/Art/Sprites/Weapons/Machine Gun Sword/sword_icon.png
+    m_StringValue: Assets/Art/Sprites/Weapons/Petite_epee.png
   - <type>k__BackingField: 5
     m_ValueType:
       longValue: 0
@@ -1255,7 +1261,7 @@ MonoBehaviour:
   - <type>k__BackingField: 5
     m_ValueType:
       longValue: 0
-    m_StringValue: Assets/Art/Sprites/Runes/speed_rune.png
+    m_StringValue: Assets/Art/Sprites/Runes/health_rune_rare.png
   m_Payout:
     m_Exchanges:
     - m_CatalogItem: {fileID: -5938022825529016979}
@@ -1287,7 +1293,7 @@ MonoBehaviour:
   - <type>k__BackingField: 5
     m_ValueType:
       longValue: 0
-    m_StringValue: Assets/Art/Sprites/Runes/damage_rune.png
+    m_StringValue: Assets/Art/Sprites/Runes/atk_rune_legendary.png
   m_InitialAllocation: 0
   m_IsStackableFlag: 1
   m_InitialQuantityPerStack: 1
@@ -1336,7 +1342,7 @@ MonoBehaviour:
   - <type>k__BackingField: 5
     m_ValueType:
       longValue: 0
-    m_StringValue: Assets/Art/Sprites/Runes/speed_rune.png
+    m_StringValue: Assets/Art/Sprites/Runes/critique_rune_rare.png
   m_InitialAllocation: 0
   m_IsStackableFlag: 1
   m_InitialQuantityPerStack: 1
@@ -1452,7 +1458,7 @@ MonoBehaviour:
   - <type>k__BackingField: 5
     m_ValueType:
       longValue: 0
-    m_StringValue: Assets/Art/Sprites/Runes/damage_rune.png
+    m_StringValue: Assets/Art/Sprites/Runes/triple_rune_rare.png
   m_Payout:
     m_Exchanges:
     - m_CatalogItem: {fileID: -7986341259891477001}
@@ -1537,7 +1543,7 @@ MonoBehaviour:
   - <type>k__BackingField: 5
     m_ValueType:
       longValue: 0
-    m_StringValue: Assets/Art/Sprites/Runes/speed_rune.png
+    m_StringValue: Assets/Art/Sprites/Runes/firing_rate_rune_common.png
   m_InitialAllocation: 0
   m_IsStackableFlag: 1
   m_InitialQuantityPerStack: 1
@@ -1673,7 +1679,7 @@ MonoBehaviour:
   - <type>k__BackingField: 5
     m_ValueType:
       longValue: 0
-    m_StringValue: Assets/Art/Sprites/Runes/speed_rune.png
+    m_StringValue: Assets/Art/Sprites/Runes/speed_bullet_rune_legendary.png
   m_InitialAllocation: 0
   m_IsStackableFlag: 1
   m_InitialQuantityPerStack: 1
@@ -1721,7 +1727,7 @@ MonoBehaviour:
   - <type>k__BackingField: 5
     m_ValueType:
       longValue: 0
-    m_StringValue: Assets/Art/Sprites/Runes/speed_rune.png
+    m_StringValue: Assets/Art/Sprites/Runes/atk_rune_common.png
   m_Payout:
     m_Exchanges:
     - m_CatalogItem: {fileID: -6643569677680102406}
@@ -1753,7 +1759,7 @@ MonoBehaviour:
   - <type>k__BackingField: 5
     m_ValueType:
       longValue: 0
-    m_StringValue: Assets/Art/Sprites/Runes/speed_rune.png
+    m_StringValue: Assets/Art/Sprites/Runes/firing_rate_rune_legendary.png
   m_InitialAllocation: 0
   m_IsStackableFlag: 1
   m_InitialQuantityPerStack: 1
@@ -1801,7 +1807,7 @@ MonoBehaviour:
   - <type>k__BackingField: 5
     m_ValueType:
       longValue: 0
-    m_StringValue: Assets/Art/Sprites/Runes/speed_rune.png
+    m_StringValue: Assets/Art/Sprites/Runes/big_rune_rare.png
   m_Payout:
     m_Exchanges:
     - m_CatalogItem: {fileID: 3729457749267130429}
@@ -1833,7 +1839,7 @@ MonoBehaviour:
   - <type>k__BackingField: 5
     m_ValueType:
       longValue: 0
-    m_StringValue: Assets/Art/Sprites/Runes/damage_rune.png
+    m_StringValue: Assets/Art/Sprites/Runes/atk_rune_rare.png
   m_InitialAllocation: 0
   m_IsStackableFlag: 1
   m_InitialQuantityPerStack: 1
@@ -1882,7 +1888,7 @@ MonoBehaviour:
   - <type>k__BackingField: 5
     m_ValueType:
       longValue: 0
-    m_StringValue: Assets/Art/Sprites/Runes/speed_rune.png
+    m_StringValue: Assets/Art/Sprites/Runes/shield_rune_common.png
   m_InitialAllocation: 0
   m_IsStackableFlag: 1
   m_InitialQuantityPerStack: 1
@@ -1930,7 +1936,7 @@ MonoBehaviour:
   - <type>k__BackingField: 5
     m_ValueType:
       longValue: 0
-    m_StringValue: Assets/Art/Sprites/Runes/speed_rune.png
+    m_StringValue: Assets/Art/Sprites/Runes/firing_rate_rune_rare.png
   m_Payout:
     m_Exchanges:
     - m_CatalogItem: {fileID: -4678887183878209550}
@@ -2015,7 +2021,7 @@ MonoBehaviour:
   - <type>k__BackingField: 5
     m_ValueType:
       longValue: 0
-    m_StringValue: Assets/Art/Sprites/Runes/speed_rune.png
+    m_StringValue: Assets/Art/Sprites/Runes/big_rune_common.png
   m_InitialAllocation: 0
   m_IsStackableFlag: 1
   m_InitialQuantityPerStack: 1
@@ -2063,7 +2069,7 @@ MonoBehaviour:
   - <type>k__BackingField: 5
     m_ValueType:
       longValue: 0
-    m_StringValue: Assets/Art/Sprites/Runes/speed_rune.png
+    m_StringValue: Assets/Art/Sprites/Runes/speed_bullet_rune_legendary.png
   m_Payout:
     m_Exchanges:
     - m_CatalogItem: {fileID: 914720730750384771}
@@ -2094,7 +2100,7 @@ MonoBehaviour:
   - <type>k__BackingField: 5
     m_ValueType:
       longValue: 0
-    m_StringValue: Assets/Art/Sprites/Runes/speed_rune.png
+    m_StringValue: Assets/Art/Sprites/Runes/critique_rune_common.png
   m_Payout:
     m_Exchanges:
     - m_CatalogItem: {fileID: -4711141222716283432}
@@ -2126,7 +2132,7 @@ MonoBehaviour:
   - <type>k__BackingField: 5
     m_ValueType:
       longValue: 0
-    m_StringValue: Assets/Art/Sprites/Runes/speed_rune.png
+    m_StringValue: Assets/Art/Sprites/Runes/speed_rune_legendary.png
   m_Payout:
     m_Exchanges:
     - m_CatalogItem: {fileID: 8676002907350652864}
@@ -2157,7 +2163,7 @@ MonoBehaviour:
   - <type>k__BackingField: 5
     m_ValueType:
       longValue: 0
-    m_StringValue: Assets/Art/Sprites/Runes/speed_rune.png
+    m_StringValue: Assets/Art/Sprites/Runes/firing_rate_rune_legendary.png
   m_Payout:
     m_Exchanges:
     - m_CatalogItem: {fileID: 994579769108705567}
@@ -2189,7 +2195,7 @@ MonoBehaviour:
   - <type>k__BackingField: 5
     m_ValueType:
       longValue: 0
-    m_StringValue: Assets/Art/Sprites/Runes/speed_rune.png
+    m_StringValue: Assets/Art/Sprites/Runes/big_rune_rare.png
   m_InitialAllocation: 0
   m_IsStackableFlag: 1
   m_InitialQuantityPerStack: 1
@@ -2252,7 +2258,7 @@ MonoBehaviour:
   - <type>k__BackingField: 5
     m_ValueType:
       longValue: 0
-    m_StringValue: Assets/Art/Sprites/Runes/speed_rune.png
+    m_StringValue: Assets/Art/Sprites/Runes/speed_rune_rare.png
   m_Payout:
     m_Exchanges:
     - m_CatalogItem: {fileID: 6418715324225482414}
@@ -2283,7 +2289,7 @@ MonoBehaviour:
   - <type>k__BackingField: 5
     m_ValueType:
       longValue: 0
-    m_StringValue: Assets/Art/Sprites/Runes/speed_rune.png
+    m_StringValue: Assets/Art/Sprites/Runes/speed_bullet_rune_common.png
   m_Payout:
     m_Exchanges:
     - m_CatalogItem: {fileID: -6211224067842480719}
@@ -2315,7 +2321,7 @@ MonoBehaviour:
   - <type>k__BackingField: 5
     m_ValueType:
       longValue: 0
-    m_StringValue: Assets/Art/Sprites/Runes/speed_rune.png
+    m_StringValue: Assets/Art/Sprites/Runes/speed_rune_common.png
   m_InitialAllocation: 0
   m_IsStackableFlag: 1
   m_InitialQuantityPerStack: 1
@@ -2363,7 +2369,7 @@ MonoBehaviour:
   - <type>k__BackingField: 5
     m_ValueType:
       longValue: 0
-    m_StringValue: Assets/Art/Sprites/Runes/speed_rune.png
+    m_StringValue: Assets/Art/Sprites/Runes/height_rune_rare.png
   m_Payout:
     m_Exchanges:
     - m_CatalogItem: {fileID: -7080540771435165924}
@@ -2395,7 +2401,7 @@ MonoBehaviour:
   - <type>k__BackingField: 5
     m_ValueType:
       longValue: 0
-    m_StringValue: Assets/Art/Sprites/Runes/speed_rune.png
+    m_StringValue: Assets/Art/Sprites/Runes/critique_rune_rare.png
   m_Payout:
     m_Exchanges:
     - m_CatalogItem: {fileID: -1201048109850280085}
@@ -2508,7 +2514,7 @@ MonoBehaviour:
   - <type>k__BackingField: 5
     m_ValueType:
       longValue: 0
-    m_StringValue: Assets/Art/Sprites/Runes/speed_rune.png
+    m_StringValue: Assets/Art/Sprites/Runes/speed_rune_rare.png
   m_InitialAllocation: 0
   m_IsStackableFlag: 1
   m_InitialQuantityPerStack: 1
@@ -2557,7 +2563,7 @@ MonoBehaviour:
   - <type>k__BackingField: 5
     m_ValueType:
       longValue: 0
-    m_StringValue: Assets/Art/Sprites/Runes/speed_rune.png
+    m_StringValue: Assets/Art/Sprites/Runes/big_rune_legendary.png
   m_InitialAllocation: 0
   m_IsStackableFlag: 1
   m_InitialQuantityPerStack: 1
@@ -2659,7 +2665,7 @@ MonoBehaviour:
   - <type>k__BackingField: 5
     m_ValueType:
       longValue: 0
-    m_StringValue: Assets/Art/Sprites/Runes/speed_rune.png
+    m_StringValue: Assets/Art/Sprites/Runes/speed_rune_legendary.png
   m_InitialAllocation: 0
   m_IsStackableFlag: 1
   m_InitialQuantityPerStack: 1
@@ -2707,7 +2713,7 @@ MonoBehaviour:
   - <type>k__BackingField: 5
     m_ValueType:
       longValue: 0
-    m_StringValue: Assets/Art/Sprites/Runes/speed_rune.png
+    m_StringValue: Assets/Art/Sprites/Runes/height_rune_legendary.png
   m_Payout:
     m_Exchanges:
     - m_CatalogItem: {fileID: -3724370542825862844}
@@ -2738,7 +2744,7 @@ MonoBehaviour:
   - <type>k__BackingField: 5
     m_ValueType:
       longValue: 0
-    m_StringValue: Assets/Art/Sprites/Runes/speed_rune.png
+    m_StringValue: Assets/Art/Sprites/Runes/shield_rune_common.png
   m_Payout:
     m_Exchanges:
     - m_CatalogItem: {fileID: 2273317043273248087}

@@ -23,10 +23,10 @@ public class PlayerInfosManager : Singleton<PlayerInfosManager>
         string equiped_weapon_id = "";
         if (weapons.Count > 0)
         {
-            
             for (int i = 0; equiped_weapon_id.Length == 0; ++i)
             {
-                if (weapons[i].GetMutableProperty("equiped") == true) equiped_weapon_id = weapons[i].id;
+                if (weapons[i].GetMutableProperty("equiped") == true)
+                    equiped_weapon_id = weapons[i].id;
             }
         }
         else
@@ -46,11 +46,12 @@ public class PlayerInfosManager : Singleton<PlayerInfosManager>
     public void set_equiped_weapon(string new_weapon_id)
     {
         // Update previous equiped weapon
-        if(equiped_weapon != null) equiped_weapon.SetMutableProperty("equiped", false);
+        if (equiped_weapon != null)
+            equiped_weapon.SetMutableProperty("equiped", false);
 
         // Get new equiped weapon
         equiped_weapon = GameFoundationSdk.inventory.FindItem(new_weapon_id);
-        
+
         // Update new equiped weapon
         equiped_weapon.SetMutableProperty("equiped", true);
     }
@@ -70,7 +71,7 @@ public class PlayerInfosManager : Singleton<PlayerInfosManager>
         Assert.IsTrue(nb_runes_slots > 0);
 
         // Get all the equiped rune objects
-        for(int rune_slot = 0; rune_slot < nb_runes_slots; rune_slot++)
+        for (int rune_slot = 0; rune_slot < nb_runes_slots; rune_slot++)
         {
             string rune_id = equiped_weapon.GetMutableProperty("rune_id_" + rune_slot);
             if (rune_id.Length != 0)
@@ -92,7 +93,9 @@ public class PlayerInfosManager : Singleton<PlayerInfosManager>
         Assert.IsTrue(rune_to_remove_slot >= 0 && rune_to_remove_slot < nb_rune_slots);
 
         // Update the added rune
-        string rune_to_remove_id = equiped_weapon.GetMutableProperty("rune_id_" + rune_to_remove_slot);
+        string rune_to_remove_id = equiped_weapon.GetMutableProperty(
+            "rune_id_" + rune_to_remove_slot
+        );
         Assert.IsFalse(rune_to_remove_id.Length == 0);
         InventoryItem rune_to_remove = GameFoundationSdk.inventory.FindItem(rune_to_remove_id);
         rune_to_remove.SetMutableProperty("equiped", false);
@@ -107,7 +110,9 @@ public class PlayerInfosManager : Singleton<PlayerInfosManager>
         Assert.IsTrue(rune_to_exchange_slot >= 0 && rune_to_exchange_slot < nb_rune_slots);
 
         // Update the removed rune only if the slot wasn't empty
-        string previous_rune_id = equiped_weapon.GetMutableProperty("rune_id_" + rune_to_exchange_slot);
+        string previous_rune_id = equiped_weapon.GetMutableProperty(
+            "rune_id_" + rune_to_exchange_slot
+        );
         if (previous_rune_id.Length != 0)
         {
             InventoryItem rune_to_exchange = GameFoundationSdk.inventory.FindItem(previous_rune_id);
@@ -125,7 +130,7 @@ public class PlayerInfosManager : Singleton<PlayerInfosManager>
     private void DEBUG_add_runes_to_weapon(string new_weapon_id)
     {
         InventoryItem weapon = GameFoundationSdk.inventory.FindItem(new_weapon_id);
-        create_new_inventory_item("shotgunFlail");
+        // create_new_inventory_item("shotgunFlail");
 
         // Create three new runes
         InventoryItem rune_0 = create_new_inventory_item("commonSpeedRune");
@@ -140,9 +145,12 @@ public class PlayerInfosManager : Singleton<PlayerInfosManager>
 
         Debug.Log(
             $"Equiped weapon : {weapon.definition.displayName}"
-            + "\n-Rune 0 : " + weapon.GetMutableProperty("rune_id_0")
-            + "\n-Rune 1 : " + weapon.GetMutableProperty("rune_id_1")
-            + "\n-Rune 2 : " + weapon.GetMutableProperty("rune_id_2")
+                + "\n-Rune 0 : "
+                + weapon.GetMutableProperty("rune_id_0")
+                + "\n-Rune 1 : "
+                + weapon.GetMutableProperty("rune_id_1")
+                + "\n-Rune 2 : "
+                + weapon.GetMutableProperty("rune_id_2")
         );
     }
 }
