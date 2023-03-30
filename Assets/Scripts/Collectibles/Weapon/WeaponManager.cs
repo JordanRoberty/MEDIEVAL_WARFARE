@@ -107,9 +107,15 @@ public class WeaponManager : MonoBehaviour
             Quaternion bullet_rotation_left = Quaternion.Euler(_current_weapon.cannon_end.rotation.eulerAngles.x, _current_weapon.cannon_end.rotation.eulerAngles.y, _current_weapon.cannon_end.rotation.eulerAngles.z + 10f);
             Quaternion bullet_rotation_right = Quaternion.Euler(_current_weapon.cannon_end.rotation.eulerAngles.x, _current_weapon.cannon_end.rotation.eulerAngles.y, _current_weapon.cannon_end.rotation.eulerAngles.z - 20f);
 
-            Instantiate(bullet_prefab, _current_weapon.cannon_end.position, bullet_rotation_left, _bullet_container);
-            Instantiate(bullet_prefab, _current_weapon.cannon_end.position, bullet_rotation_right, _bullet_container);
-            Instantiate(bullet_prefab, _current_weapon.cannon_end.position, _current_weapon.cannon_end.rotation, _bullet_container);
+            GameObject bullet =Instantiate(bullet_prefab, _current_weapon.cannon_end.position, bullet_rotation_left, _bullet_container);
+            bullet.transform.localScale *= RuneManager.Instance.projectile_size_rune;
+            
+            bullet = Instantiate(bullet_prefab, _current_weapon.cannon_end.position, bullet_rotation_right, _bullet_container);
+            bullet.transform.localScale *= RuneManager.Instance.projectile_size_rune;
+
+            bullet =Instantiate(bullet_prefab, _current_weapon.cannon_end.position, _current_weapon.cannon_end.rotation, _bullet_container);
+            bullet.transform.localScale *= RuneManager.Instance.projectile_size_rune;
+
         }
         else
         {
