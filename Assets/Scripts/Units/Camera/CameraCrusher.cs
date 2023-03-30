@@ -32,7 +32,7 @@ public class CameraCrusher : MonoBehaviour
 
     private bool is_crushed()
     {
-        return Physics2D.Raycast(new Vector3(transform.position.x, _player_manager.transform.position.y, transform.position.z), -Vector2.left, _raycast_length , _player_layer);
+        return Physics2D.Raycast(new Vector3(transform.position.x, _player_manager.transform.position.y - 0.5f, transform.position.z), -Vector2.left, _raycast_length , _player_layer);
     }
 
     private void OnDrawGizmos() 
@@ -40,7 +40,7 @@ public class CameraCrusher : MonoBehaviour
         if(initialized)
         {
             Gizmos.color = Color.red;
-            Vector3 position = new Vector3(transform.position.x, _player_manager.transform.position.y, transform.position.z);
+            Vector3 position = new Vector3(transform.position.x, _player_manager.transform.position.y - 0.5f, transform.position.z);
             {
                 Gizmos.DrawLine(position, position - Vector3.left * _raycast_length);
             }
