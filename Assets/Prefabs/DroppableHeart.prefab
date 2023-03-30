@@ -62,6 +62,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   heart_value: 1
+  heart_sound: {fileID: 8300000, guid: e654ab6bf44bf504b8ad4b6b0438fe11, type: 3}
 --- !u!1 &7085934474981611951
 GameObject:
   m_ObjectHideFlags: 0

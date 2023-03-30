@@ -440,6 +440,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waitAnimationPrefab: {fileID: 0}
+  open_shop_sound: {fileID: 8300000, guid: 8a9d965800385934bad997b1c6245fa9, type: 3}
 --- !u!1 &787102718
 GameObject:
   m_ObjectHideFlags: 0

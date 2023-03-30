@@ -279,10 +279,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7455b8cfbb0fa4b438237fb1ee89e899, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pv: 1000
+  pv: 500000
   coinPrefab: {fileID: 8083888472559256018, guid: e4badc239d93919479e5d33088163925, type: 3}
   heartPrefab: {fileID: 0}
-  flailPrefab: {fileID: 15402495052055654, guid: 0895781b2ced17542ac76016e7e9319a, type: 3}
   damageText: {fileID: 1492875461645354713, guid: b7913dfe196894d978ff534442376b9e, type: 3}
   bottle_prefab: {fileID: 3506568146192781204, guid: c23836c4970ed094db7ce3176a1da81b, type: 3}
   timer_before_action: 3
@@ -294,3 +293,10 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   animator: {fileID: 993201757458344059}
+  bottle_throw: {fileID: 8300000, guid: 8d819f5e5e90fd84ebbfd67d8ed0e04b, type: 3}
+  flail_sound: {fileID: 8300000, guid: 4c0260236470de74a8eff74bd8633799, type: 3}
+  air_flail_sound: {fileID: 8300000, guid: f97640cc9b14d6342b966e3c519629d7, type: 3}
+  slash_attack_sound: {fileID: 8300000, guid: 18f50baac2ce6d941a6f9c4a75f91d0c, type: 3}
+  victory_sound: {fileID: 8300000, guid: e9de5883173dfe742bb222492f8fe0be, type: 3}
+  jump_sound: {fileID: 8300000, guid: dec475a7a5295244aaaaeef7829be63f, type: 3}
+  landing_sound: {fileID: 8300000, guid: 58fd31b30c0a16c4bbaec8b1b28c914a, type: 3}

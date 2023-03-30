@@ -7,6 +7,7 @@ public class Bullet : MonoBehaviour
     public float speed = 20f;
     public Rigidbody2D rb;
     public float damage = 2f;
+
     //public float bullet_size = 1f;
 
     // Start is called before the first frame update
@@ -20,7 +21,7 @@ public class Bullet : MonoBehaviour
     void OnTriggerEnter2D(Collider2D collision)
     {
         bool isCritial = false;
-        if(collision.gameObject.TryGetComponent(out Enemy enemy))
+        if (collision.gameObject.TryGetComponent(out Enemy enemy))
         {
             //critical hit
             if (Random.Range(0, 100) < RuneManager.Instance.critial_hit_rune)
@@ -31,6 +32,7 @@ public class Bullet : MonoBehaviour
 
             enemy.setpv(enemy.getpv() - damage);
             enemy.displayDamage(damage, isCritial);
+            StatsManager.Instance.update_damage_done(damage);
             if (enemy.getpv() <= 0)
             {
                 enemy.die();

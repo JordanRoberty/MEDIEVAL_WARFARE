@@ -58,7 +58,10 @@ public class Enemy : MonoBehaviour
         float standard_deviation = max_droppable_quantity / 4f;
 
         // Generate a random number following a normal distribution
-        float random_value = RandomFromDistribution.random_normal_distribution(mean, standard_deviation);
+        float random_value = RandomFromDistribution.random_normal_distribution(
+            mean,
+            standard_deviation
+        );
 
         // The coin quantity is a number following a normal distribution between 0 and the enemy's max droppable quantity
         coin_quantity = Mathf.FloorToInt(Mathf.Clamp(random_value, 0, max_droppable_quantity));
@@ -67,6 +70,7 @@ public class Enemy : MonoBehaviour
     public virtual void die()
     {
         StatsManager.Instance.update_score(score_value);
+        StatsManager.Instance.update_kills();
 
         // Sometimes drop a heart (except for the Bosses)
         if (Random.Range(0, 50) == 0 && !gameObject.name.StartsWith("Boss"))
@@ -84,7 +88,7 @@ public class Enemy : MonoBehaviour
         // The rest of the time, drop coins
         else{
             initialize_coin_quantity();
-            
+
             // Spawn the correct number of coin(s) at the enemy's position
             for (int i = 0; i < coin_quantity; i++)
             {
@@ -93,7 +97,8 @@ public class Enemy : MonoBehaviour
                 // Add a random offset to the coin's position
                 GameObject coin = Instantiate(
                     coinPrefab,
-                    transform.position + new Vector3(Random.Range(-0.5f, 0.5f), Random.Range(-0.5f, 0.5f), 0),
+                    transform.position
+                        + new Vector3(Random.Range(-0.5f, 0.5f), Random.Range(-0.5f, 0.5f), 0),
                     Quaternion.identity,
                     coin_parent
                 );

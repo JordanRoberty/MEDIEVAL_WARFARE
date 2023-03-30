@@ -2,9 +2,8 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
-/// <summary>
-/// A static class for Gameobject helpful methods
-/// </summary>
+/// Helpers for Unity GameObjects.
+///\author MrLorent (Tanguy LORENT)
 public static class GameObjectUtils
 {
     /// <summary>

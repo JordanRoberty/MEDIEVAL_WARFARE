@@ -8719,7 +8719,6 @@ MonoBehaviour:
   enemy_basic_probability: 0.5
   enemy_tank_probability: 0.15
   enemy_flying_probability: 0.35
-  scroll_speed: 0
 --- !u!4 &772884825
 Transform:
   m_ObjectHideFlags: 0
@@ -18438,7 +18437,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1917711137}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 690, y: -3.01, z: 0}
+  m_LocalPosition: {x: 350, y: -3.01, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

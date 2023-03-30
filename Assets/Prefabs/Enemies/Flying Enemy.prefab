@@ -156,6 +156,7 @@ MonoBehaviour:
   _edge_layer:
     serializedVersion: 2
     m_Bits: 0
+  death_sound: {fileID: 8300000, guid: 9c147db1c95447c47ab412eb93f2edd3, type: 3}
 --- !u!95 &5175886276744185866
 Animator:
   serializedVersion: 4

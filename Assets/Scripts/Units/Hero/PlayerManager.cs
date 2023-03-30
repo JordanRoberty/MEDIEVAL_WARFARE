@@ -5,18 +5,25 @@ using TMPro;
 
 public class PlayerManager : Singleton<PlayerManager>
 {
-    [SerializeField] private Movement2D _player_controller;
-    [SerializeField] private WeaponManager _weapon_controller;
-    [SerializeField] private Renderer _renderer;
+    [SerializeField]
+    private Movement2D _player_controller;
 
+    [SerializeField]
+    private WeaponManager _weapon_controller;
+
+    [SerializeField]
+    private Renderer _renderer;
 
     [Header("Health & score")]
     public int shield = 0;
     public int max_health = 3;
     public int health = 3;
-    
+
     // Time during which the character is invincible after being hit (in seconds)
     public float invulnerability_time = 2.0f;
+    public AudioClip hit_sound;
+    public AudioClip shield_sound;
+    public AudioClip death_sound;
 
     public void init(Camera main_cam)
     {
@@ -36,7 +43,6 @@ public class PlayerManager : Singleton<PlayerManager>
 
     public void update_dependencies(Camera main_cam)
     {
-
         _player_controller.update_camera(main_cam);
         _weapon_controller.update_camera(main_cam);
     }
@@ -82,17 +88,19 @@ public class PlayerManager : Singleton<PlayerManager>
         Debug.Log("Player died");
         stop_invulnerability();
 
+        AudioSystem.Instance.play_sound(death_sound, 5f);
         GameManager.Instance.set_state(GameState.FAIL_MENU);
-        
     }
 
     public void take_damages(int damages)
     {
+        StatsManager.Instance.update_damage_taken();
         if (shield == 0)
         {
+            AudioSystem.Instance.play_sound(hit_sound, 2f);
             health = Mathf.Clamp(health - damages, 0, max_health);
 
-            if(is_dead() && GameManager.Instance._state == GameState.RUNNING)
+            if (is_dead() && GameManager.Instance._state == GameState.RUNNING)
             {
                 die();
             }
@@ -104,6 +112,7 @@ public class PlayerManager : Singleton<PlayerManager>
         }
         else
         {
+            AudioSystem.Instance.play_sound(shield_sound, 2f);
             shield--;
         }
     }
@@ -117,4 +126,3 @@ public class PlayerManager : Singleton<PlayerManager>
         }
     }
 }
-

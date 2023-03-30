@@ -1965,6 +1965,10 @@ MonoBehaviour:
   _available_rune_viewer_prefab: {fileID: 1109384446469286346, guid: 78b3c4314c0f3604d907e3452e18dbbb, type: 3}
   _runes_menu: {fileID: 507406817}
   _available_runes_container: {fileID: 121685557}
+  EquipWeapon: {fileID: 8300000, guid: d515b1d15827ea94789a5fad1400d104, type: 3}
+  ExchangeRune: {fileID: 8300000, guid: 644a22aad4496d64a8f03cd3e55af1d9, type: 3}
+  RemoveRune: {fileID: 8300000, guid: ce677e2b8c1af174ea4ff84ae638b568, type: 3}
+  OpenGear: {fileID: 8300000, guid: 7f613c806aa74ed49b8500ba12bd8ec6, type: 3}
 --- !u!4 &1182963075
 Transform:
   m_ObjectHideFlags: 0

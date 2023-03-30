@@ -11,6 +11,7 @@ public class Bottle : Enemy
     }
 
     public GameObject puddle;
+    public AudioClip bottle_explosion;
     private float life_time = 3f;
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -21,6 +22,7 @@ public class Bottle : Enemy
             || other.gameObject.name == "Player"
         )
         {
+            AudioSystem.Instance.play_sound(bottle_explosion, 5f);
             Destroy(gameObject);
         }
     }

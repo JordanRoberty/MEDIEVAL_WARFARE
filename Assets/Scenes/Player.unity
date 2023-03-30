@@ -1173,6 +1173,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _bullet_container: {fileID: 432094803}
+  bullet_sound: {fileID: 8300000, guid: ffc80e1265b268c4aaa59a833417f82d, type: 3}
 --- !u!1 &2065636600
 GameObject:
   m_ObjectHideFlags: 0
@@ -1235,6 +1236,8 @@ MonoBehaviour:
   _ground_layer:
     serializedVersion: 2
     m_Bits: 64
+  jump_sound_1: {fileID: 8300000, guid: 26d746b274789e645a8859b71fa0365d, type: 3}
+  jump_sound_2: {fileID: 8300000, guid: 2fff406e19c482c41b375fc4a3b248df, type: 3}
   animator: {fileID: 2065636609}
 --- !u!50 &2065636604
 Rigidbody2D:
@@ -1354,6 +1357,9 @@ MonoBehaviour:
   max_health: 3
   health: 3
   invulnerability_time: 2
+  hit_sound: {fileID: 8300000, guid: 0aa1153f1aaf5c24ea1bf663b78f9b40, type: 3}
+  shield_sound: {fileID: 8300000, guid: 7cd48860b5debde4fb9379141c11a676, type: 3}
+  death_sound: {fileID: 8300000, guid: 58beb064392644f47aaab206d32110e2, type: 3}
 --- !u!95 &2065636609
 Animator:
   serializedVersion: 4

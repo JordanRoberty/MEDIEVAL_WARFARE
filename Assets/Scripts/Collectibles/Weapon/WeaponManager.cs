@@ -17,7 +17,12 @@ public class WeaponManager : MonoBehaviour
     private Weapon _current_weapon;
     private float shot_freq;
     private GameObject bullet_prefab;
-    [SerializeField] private Transform _bullet_container;
+
+    [SerializeField]
+    private Transform _bullet_container;
+
+    [SerializeField]
+    private AudioClip bullet_sound;
 
     public void init(Camera main_cam)
     {
@@ -36,7 +41,9 @@ public class WeaponManager : MonoBehaviour
 
     private void load_weapon()
     {
-        AsyncOperationHandle<GameObject> load_weapon_prefab = _weapon_infos.definition.GetStaticProperty("weapon_prefab").AsAddressable<GameObject>();
+        AsyncOperationHandle<GameObject> load_weapon_prefab = _weapon_infos.definition
+            .GetStaticProperty("weapon_prefab")
+            .AsAddressable<GameObject>();
         load_weapon_prefab.Completed += (AsyncOperationHandle<GameObject> handle) =>
         {
             if (handle.Status == AsyncOperationStatus.Succeeded)
@@ -45,11 +52,12 @@ public class WeaponManager : MonoBehaviour
                 _weapon_prefab = handle.Result;
 
                 _current_weapon = Instantiate(
-                    _weapon_prefab,
-                    transform.position,
-                    Quaternion.identity,
-                    transform
-                ).GetComponent<Weapon>();
+                        _weapon_prefab,
+                        transform.position,
+                        Quaternion.identity,
+                        transform
+                    )
+                    .GetComponent<Weapon>();
 
                 Assert.IsNotNull(_current_weapon);
 
@@ -60,7 +68,9 @@ public class WeaponManager : MonoBehaviour
 
     private void load_bullet()
     {
-        AsyncOperationHandle<GameObject> load_bullet_prefab = _weapon_infos.definition.GetStaticProperty("bullet_prefab").AsAddressable<GameObject>();
+        AsyncOperationHandle<GameObject> load_bullet_prefab = _weapon_infos.definition
+            .GetStaticProperty("bullet_prefab")
+            .AsAddressable<GameObject>();
         load_bullet_prefab.Completed += (AsyncOperationHandle<GameObject> handle) =>
         {
             if (handle.Status == AsyncOperationStatus.Succeeded)
@@ -79,7 +89,7 @@ public class WeaponManager : MonoBehaviour
 
     void Update()
     {
-        if(GameManager.Instance._state == GameState.RUNNING)
+        if (GameManager.Instance._state == GameState.RUNNING)
         {
             mouse_position = _main_cam.ScreenToWorldPoint(Input.mousePosition);
 
@@ -92,22 +102,15 @@ public class WeaponManager : MonoBehaviour
 
     void Shoot()
     {
-        if (_current_weapon.name == "Shot Gun Flail(Clone)")
-        {
-            Quaternion bullet_rotation_left = Quaternion.Euler(_current_weapon.cannon_end.rotation.eulerAngles.x, _current_weapon.cannon_end.rotation.eulerAngles.y, _current_weapon.cannon_end.rotation.eulerAngles.z + 25f);
-            Quaternion bullet_rotation_right = Quaternion.Euler(_current_weapon.cannon_end.rotation.eulerAngles.x, _current_weapon.cannon_end.rotation.eulerAngles.y, _current_weapon.cannon_end.rotation.eulerAngles.z - 25f);
+        GameObject bullet = Instantiate(
+            bullet_prefab,
+            _current_weapon.cannon_end.position,
+            _current_weapon.cannon_end.rotation,
+            _bullet_container
+        );
 
-            Instantiate(bullet_prefab, _current_weapon.cannon_end.position, bullet_rotation_left, _bullet_container);
-            Instantiate(bullet_prefab, _current_weapon.cannon_end.position, bullet_rotation_right, _bullet_container);
-            Instantiate(bullet_prefab, _current_weapon.cannon_end.position, _current_weapon.cannon_end.rotation, _bullet_container);
-        }
-        else
-        {
-            // Spawn a single bullet
-            GameObject bullet = Instantiate(bullet_prefab, _current_weapon.cannon_end.position, _current_weapon.cannon_end.rotation, _bullet_container);
+        bullet.transform.localScale *= RuneManager.Instance.projectile_size_rune;
 
-            bullet.transform.localScale *= RuneManager.Instance.projectile_size_rune;
-        }
+        AudioSystem.Instance.play_sound(bullet_sound, 0.4f);
     }
-
 }

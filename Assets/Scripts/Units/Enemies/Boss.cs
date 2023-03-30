@@ -7,7 +7,7 @@ public class Boss : Enemy
 {
     public Boss()
     {
-        pv = 10000.0f;
+        pv = 500000.0f;
         speed = 2.0f;
         score_value = 1000;
     }
@@ -18,9 +18,16 @@ public class Boss : Enemy
     public LayerMask wall;
     public LayerMask ground;
     public Animator animator;
+    public AudioClip bottle_throw;
+    public AudioClip flail_sound;
+    public AudioClip air_flail_sound;
+    public AudioClip slash_attack_sound;
+    public AudioClip victory_sound;
+    public AudioClip jump_sound;
+    public AudioClip landing_sound;
 
     private float bottle_range = 12.0f;
-    private float flail_range = 9.0f;
+    private float flail_range = 10.0f;
     private Transform _player;
     private bool is_facing = true;
     private Vector3 look_at = Vector3.left;
@@ -29,6 +36,22 @@ public class Boss : Enemy
     public void init(Transform player)
     {
         _player = player;
+
+        switch (DifficultyManager.Instance.current_difficulty)
+        {
+            case 0:
+                pv = 100000f;
+                break;
+            case 1:
+                pv = 200000f;
+                break;
+            case 2:
+                pv = 300000f;
+                break;
+            default:
+                pv = 400000f;
+                break;
+        }
     }
 
     private void Update()
@@ -47,10 +70,7 @@ public class Boss : Enemy
             }
 
             // on calcule la distance entre le boss et le joueur
-            float distance_to_player = Vector3.Distance(
-                transform.position,
-                _player.position
-            );
+            float distance_to_player = Vector3.Distance(transform.position, _player.position);
 
             if (timer_before_action > 0.0f)
             {
@@ -58,7 +78,7 @@ public class Boss : Enemy
             }
 
             if (
-                Physics2D.Raycast(transform.position, look_at, 8f, wall)
+                Physics2D.Raycast(transform.position, look_at, 11f, wall)
                 && Physics2D.Raycast(transform.position, Vector3.down, 4f, ground)
                 && timer_before_action < 0.5f
             )
@@ -69,6 +89,11 @@ public class Boss : Enemy
                     .AddForce(new Vector3(6000f * -look_at.x, 8000f, 0f), ForceMode2D.Impulse);
             }
 
+            if (distance_to_player <= bottle_range)
+            {
+                animator.SetBool("Going_forward", false);
+            }
+
             // on est assez proche pour attaquer, on commence l'attaque
             if (distance_to_player <= flail_range && timer_before_action < 0.0f)
             {
@@ -76,28 +101,30 @@ public class Boss : Enemy
                 if (Random.value < 0.5f)
                 {
                     animator.SetBool("Horizontal_attack", true);
+                    AudioSystem.Instance.play_sound(slash_attack_sound, 6f);
                     StartCoroutine(DisableHorizontalAttackAfterAnimation());
                 }
                 else
                 {
                     animator.SetBool("Vertical_attack", true);
+                    AudioSystem.Instance.play_sound(air_flail_sound, 6f);
                     StartCoroutine(DisableVerticalAttack());
                 }
             }
 
-            if (distance_to_player <= bottle_range && timer_before_action< 0.0f)
+            if (distance_to_player <= bottle_range && timer_before_action < 0.0f)
             {
-                animator.SetBool("Going_forward", false);
+                // animator.SetBool("Going_forward", false);
                 timer_before_action = Random.Range(2f, 4f);
-                if (Random.value< 0.5f)
+                if (Random.value < 0.5f)
                 {
                     throw_bottle();
-            }
+                }
                 else
-            {
-                jump_on_player();
-                animator.SetBool("IsAiborn", false);
-            }
+                {
+                    jump_on_player();
+                    animator.SetBool("IsAiborn", false);
+                }
             }
             else if (distance_to_player > bottle_range)
             {
@@ -113,27 +140,27 @@ public class Boss : Enemy
                     transform.position += direction_to_player * speed * Time.deltaTime;
                     if (distance_to_player <= bottle_range)
                     {
-                        animator.SetBool("Going_forward", false);
+                        // animator.SetBool("Going_forward", false);
                     }
                     if (Physics2D.Raycast(transform.position, Vector3.down, 2.5f, ground))
                     {
                         GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-                        animator.SetBool("Going_forward", false);
+                        // animator.SetBool("Going_forward", false);
                     }
                 }
                 else
                 {
                     // Le personnage est immobile, on met à jour le booléen Going_forward
-                    animator.SetBool("Going_forward", false);
+                    // animator.SetBool("Going_forward", false);
                 }
             }
-
         }
     }
 
     void throw_bottle()
     {
         animator.SetBool("Bottle_toss", true);
+        AudioSystem.Instance.play_sound(bottle_throw, 6f);
         StartCoroutine(ThrowBottle());
     }
 
@@ -184,6 +211,7 @@ public class Boss : Enemy
             0.0f
         );
 
+        AudioSystem.Instance.play_sound(jump_sound, 6f);
         // appliquer la force à votre personnage
         rigidbody.AddForce(force, ForceMode2D.Impulse);
 
@@ -192,6 +220,8 @@ public class Boss : Enemy
 
     public override void die()
     {
+        AudioSystem.Instance.play_sound(victory_sound, 2f);
+
         StatsManager.Instance.update_score(score_value);
 
         int coin_reward = 100;
@@ -204,8 +234,8 @@ public class Boss : Enemy
             // Add a random offset to the coin's position
             GameObject coin = Instantiate(
                 coinPrefab,
-                transform.position + new Vector3(Random.Range(-0.5f, 0.5f),
-                Random.Range(-0.5f, 0.5f), 0),
+                transform.position
+                    + new Vector3(Random.Range(-0.5f, 0.5f), Random.Range(-0.5f, 0.5f), 0),
                 Quaternion.identity,
                 coin_parent
             );
@@ -213,8 +243,10 @@ public class Boss : Enemy
 
         // If the player doesn't have the Shotgun Flail already, spawn it (at the enemy's position)
         InventoryItemDefinition m_ShotgunFlailDefinition;
-        m_ShotgunFlailDefinition = GameFoundationSdk.catalog.Find<InventoryItemDefinition>("shotgunFlail");
-        
+        m_ShotgunFlailDefinition = GameFoundationSdk.catalog.Find<InventoryItemDefinition>(
+            "shotgunFlail"
+        );
+
         if (GameFoundationSdk.inventory.GetTotalQuantity(m_ShotgunFlailDefinition) == 0)
         {
             Transform weapon_parent = GameObject.Find("/Environment/Weapons").transform;
@@ -239,6 +271,7 @@ public class Boss : Enemy
         if (rb != null)
         {
             rb.velocity = Vector2.zero;
+            AudioSystem.Instance.play_sound(landing_sound, 6f);
             rb.AddForce(Vector2.down * 50000f, ForceMode2D.Impulse); // Ajouter une force vers le bas
         }
         animator.SetBool("IsAirborn", false);
@@ -263,11 +296,11 @@ public class Boss : Enemy
 
             // Application de la force de poussée
             Rigidbody2D _playerRb = player_manager.transform.GetComponent<Rigidbody2D>();
-            if (collision.transform.position.x > -8f && collision.transform.position.x < 3f)
-            {
-                collision.transform.position += direction * 3f;
-            }
-            _playerRb.AddForce(direction * 2f, ForceMode2D.Impulse);
+            // if (collision.transform.position.x > -8f && collision.transform.position.x < 3f)
+            // {
+            //     collision.transform.position += direction * 3f;
+            // }
+            _playerRb.AddForce(direction * 10f, ForceMode2D.Impulse);
         }
         else if (collision.gameObject.name == "Ground")
         {
@@ -317,11 +350,13 @@ public class Boss : Enemy
     IEnumerator DisableVerticalAttack()
     {
         // Attendre la fin de l'animation
-        yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length);
+        yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length * 2f);
 
         // Désactiver le paramètre "Horizontal_attack"
+        AudioSystem.Instance.play_sound(flail_sound, 6f);
         animator.SetBool("Vertical_attack", false);
     }
+
     IEnumerator DisableWalk()
     {
         // Attendre la fin de l'animation
