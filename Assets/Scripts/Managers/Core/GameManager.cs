@@ -41,7 +41,7 @@ public class GameManager : Singleton<GameManager>
     {
         SceneController.Instance.init(GameMenu.TITLE);
         _state = GameState.TITLE_MENU;
-        Cursor.SetCursor(cursor_sprite, new Vector2(16, 16), CursorMode.Auto);
+        Cursor.SetCursor(cursor_sprite, new Vector2(cursor_sprite.width/2, cursor_sprite.height/2), CursorMode.Auto);
     }
 
     private void Update()
