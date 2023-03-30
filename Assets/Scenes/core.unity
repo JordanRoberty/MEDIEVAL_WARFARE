@@ -338,7 +338,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   level_manager: {fileID: 658982497}
   difficulty_manager: {fileID: 724561611}
-  cursor_image: {fileID: 2800000, guid: 18bd77aefe922c74a92fc6a77b3159fc, type: 3}
+  cursor_sprite: {fileID: 2800000, guid: 18bd77aefe922c74a92fc6a77b3159fc, type: 3}
 --- !u!4 &561860165
 Transform:
   m_ObjectHideFlags: 0
