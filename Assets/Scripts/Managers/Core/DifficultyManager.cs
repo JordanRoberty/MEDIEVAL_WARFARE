@@ -9,6 +9,7 @@ public class DifficultyManager : Singleton<DifficultyManager>
 {
     public List<string> available_difficulties { get; private set; }
     public int selected_difficulty;
+    public int nb_difficulties;
 
     private InventoryItem _difficulties;
 
@@ -22,7 +23,17 @@ public class DifficultyManager : Singleton<DifficultyManager>
         _difficulties = difficulties_container[0];
         available_difficulties = new List<string>();
 
-        for (int i = 1; i < _difficulties.GetMutableProperty("nb_difficulties"); ++i)
+        selected_difficulty = 0;
+        nb_difficulties = _difficulties.GetMutableProperty("nb_difficulties");
+
+        update_available_difficulties();
+    }
+
+    private void update_available_difficulties()
+    {
+        available_difficulties.Clear();
+
+        for (int i = 1; i < nb_difficulties; ++i)
         {
             if (_difficulties.GetMutableProperty("difficulty_available_" + i))
             {
@@ -33,7 +44,13 @@ public class DifficultyManager : Singleton<DifficultyManager>
                 break;
             }
         }
+    }
 
-        selected_difficulty = 0;
+    public void update_difficulties()
+    {
+        if(LevelManager.Instance.selected_level == (LevelManager.Instance.nb_levels - 1))
+        {
+            _difficulties.SetMutableProperty("difficulty_available_" + (nb_difficulties - 1), true);
+        }
     }
 }

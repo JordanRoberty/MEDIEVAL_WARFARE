@@ -18,6 +18,7 @@ public class LevelManager : Singleton<LevelManager>
 {
     public List<string> available_levels { get; private set; }
     public int selected_level;
+    public int nb_levels;
 
     private InventoryItem _levels;
     
@@ -30,16 +31,17 @@ public class LevelManager : Singleton<LevelManager>
         _levels = levels_container[0];
         available_levels = new List<string>();
 
-        update_levels();
-
         selected_level = 0;
+        nb_levels = _levels.GetMutableProperty("nb_levels");
+
+        update_available_levels();
     }
 
-    private void update_levels()
+    private void update_available_levels()
     {
         available_levels.Clear();
 
-        for (int i = 1; i < _levels.GetMutableProperty("nb_levels"); ++i)
+        for (int i = 1; i < nb_levels; ++i)
         {
             if (_levels.GetMutableProperty("level_available_" + i))
             {
@@ -74,13 +76,13 @@ public class LevelManager : Singleton<LevelManager>
         return current_level;
     }
 
-    public void update_available_levels()
+    public void update_levels()
     {
         int current_level = selected_level + 1;
-        if (current_level < _levels.GetMutableProperty("nb_levels"))
+        if (current_level < nb_levels)
         {
             _levels.SetMutableProperty("level_available_" + (current_level + 1), true);
-            update_levels();
+            update_available_levels();
         }
     }
 }

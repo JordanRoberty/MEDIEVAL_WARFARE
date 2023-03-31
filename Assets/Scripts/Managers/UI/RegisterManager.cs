@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Assertions;
 using UnityEngine.GameFoundation;
 using static GameFoundationUtils;
 using TMPro;
@@ -18,7 +19,10 @@ public class RegisterManager : Singleton<RegisterManager>
     public void Start()
     {
         int current_level = (int) LevelManager.Instance.get_selected_level();
-        level_scores = get_inventory_items_from_tag("SCORE")[current_level];
+        List<InventoryItem> levels_scores_container = get_inventory_items_from_tag("SCORE");
+        Assert.IsTrue(levels_scores_container.Count != 0 && current_level < levels_scores_container.Count);
+
+        level_scores = levels_scores_container[current_level];
 
         _scores = new List<Score>();
         _score_to_change = -1;
