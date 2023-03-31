@@ -15,7 +15,7 @@ public class FlailPickup : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        // If the Player moves onto the item and doesn't already have it
+        // If the Player moves onto the item
         if (collision.CompareTag("Player"))
         {
             GameFoundationSdk.inventory.CreateItem(m_ShotgunFlailDefinition); // Add the item to the Player's inventory
