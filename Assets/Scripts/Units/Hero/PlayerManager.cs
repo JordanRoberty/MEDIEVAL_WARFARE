@@ -45,6 +45,7 @@ public class PlayerManager : Singleton<PlayerManager>
     {
         _player_controller.update_camera(main_cam);
         _weapon_controller.update_camera(main_cam);
+        set_player_vulnerable();
     }
 
     public void set_player_invulnerable()
