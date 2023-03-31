@@ -9,7 +9,7 @@ public class DifficultySelect : Select
     {
         base.Awake();
         update_options();
-        set_current_option(0);
+        set_current_option(DifficultyManager.Instance.selected_difficulty);
     }
 
     private void update_options()

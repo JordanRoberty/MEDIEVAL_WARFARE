@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Assertions;
 using UnityEngine.GameFoundation;
 using static GameFoundationUtils;
 
@@ -23,10 +24,22 @@ public class LevelManager : Singleton<LevelManager>
     protected override void Awake() {
         base.Awake();
 
-        _levels = get_inventory_items_from_tag("LEVELS")[0];
+        List<InventoryItem> levels_container = get_inventory_items_from_tag("LEVELS");
+        Assert.IsTrue(levels_container.Count == 1);
+
+        _levels = levels_container[0];
         available_levels = new List<string>();
 
-        for(int i = 1; i < _levels.GetMutableProperty("nb_levels"); ++i)
+        update_levels();
+
+        selected_level = 0;
+    }
+
+    private void update_levels()
+    {
+        available_levels.Clear();
+
+        for (int i = 1; i < _levels.GetMutableProperty("nb_levels"); ++i)
         {
             if (_levels.GetMutableProperty("level_available_" + i))
             {
@@ -37,8 +50,6 @@ public class LevelManager : Singleton<LevelManager>
                 break;
             }
         }
-
-        selected_level = 0;
     }
 
     public GameLevel get_selected_level()
@@ -61,5 +72,15 @@ public class LevelManager : Singleton<LevelManager>
         }
 
         return current_level;
+    }
+
+    public void update_available_levels()
+    {
+        int current_level = selected_level + 1;
+        if (current_level < _levels.GetMutableProperty("nb_levels"))
+        {
+            _levels.SetMutableProperty("level_available_" + (current_level + 1), true);
+            update_levels();
+        }
     }
 }

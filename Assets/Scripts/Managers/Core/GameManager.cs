@@ -235,6 +235,10 @@ public class GameManager : Singleton<GameManager>
     {
         AudioSystem.Instance.stop_music();
 
+        // Ready for next levels
+        // level_manager.update_available_levels();
+        // difficulty_manager.update_available_difficulties();
+
         SaveSystem.Instance.Save();
 
         SceneController.Instance.set_current_menu(GameMenu.VICTORY);
