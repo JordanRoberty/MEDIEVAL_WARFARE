@@ -25,7 +25,7 @@ public class EnemySpawner : MonoBehaviour
     {
         _enemies_container.destroy_children();
         InvokeRepeating("SpawnEnemy", 0.0f, spawn_rate); // lancement du spawn toutes les "spawn_rate" secondes
-        switch (DifficultyManager.Instance.current_difficulty)
+        switch (DifficultyManager.Instance.selected_difficulty)
         {
             case 0:
                 spawn_rate = 1f;

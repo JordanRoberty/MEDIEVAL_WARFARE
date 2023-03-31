@@ -50,7 +50,7 @@ public class EnemyTank : Enemy
 
         InvokeRepeating("UpdatePath", 0f, pathUpdateSeconds);
 
-        switch (DifficultyManager.Instance.current_difficulty)
+        switch (DifficultyManager.Instance.selected_difficulty)
         {
             case 0:
                 pv = 2500f;

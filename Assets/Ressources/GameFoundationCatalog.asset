@@ -256,7 +256,7 @@ MonoBehaviour:
   - <type>k__BackingField: 3
     m_ValueType:
       longValue: 0
-    m_StringValue: Normal
+    m_StringValue: NORMAL
   - <type>k__BackingField: 2
     m_ValueType:
       longValue: 1
@@ -264,7 +264,7 @@ MonoBehaviour:
   - <type>k__BackingField: 3
     m_ValueType:
       longValue: 0
-    m_StringValue: Difficult
+    m_StringValue: DIFFICULT
   - <type>k__BackingField: 2
     m_ValueType:
       longValue: 1
@@ -272,7 +272,7 @@ MonoBehaviour:
   - <type>k__BackingField: 3
     m_ValueType:
       longValue: 0
-    m_StringValue: Hardcore
+    m_StringValue: HARDCORE
   - <type>k__BackingField: 2
     m_ValueType:
       longValue: 0

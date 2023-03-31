@@ -26,7 +26,7 @@ public class EnemyFlying : Enemy
 
     private void Start()
     {
-        switch (DifficultyManager.Instance.current_difficulty)
+        switch (DifficultyManager.Instance.selected_difficulty)
         {
             case 0:
                 pv = 1500f;

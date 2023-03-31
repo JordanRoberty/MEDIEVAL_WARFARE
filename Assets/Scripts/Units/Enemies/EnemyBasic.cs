@@ -42,7 +42,7 @@ public class EnemyBasic : Enemy
         player = GameObject.Find("Player");
         rigid_body = GetComponent<Rigidbody2D>();
 
-        switch (DifficultyManager.Instance.current_difficulty)
+        switch (DifficultyManager.Instance.selected_difficulty)
         {
             case 0:
                 pv = 1000f;

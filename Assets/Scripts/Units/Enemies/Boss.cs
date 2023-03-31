@@ -37,7 +37,7 @@ public class Boss : Enemy
     {
         _player = player;
 
-        switch (DifficultyManager.Instance.current_difficulty)
+        switch (DifficultyManager.Instance.selected_difficulty)
         {
             case 0:
                 pv = 100000f;
