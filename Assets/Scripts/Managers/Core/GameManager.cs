@@ -191,7 +191,6 @@ public class GameManager : Singleton<GameManager>
 
     private void handle_running()
     {
-        Cursor.visible = false;
         _state = GameState.RUNNING;
     }
 
@@ -202,7 +201,6 @@ public class GameManager : Singleton<GameManager>
 
         /* Stops the game */
         Time.timeScale = 0.0f;
-        Cursor.visible = true;
         SceneController.Instance.set_current_menu(GameMenu.PAUSE);
         _state = GameState.PAUSED;
     }
@@ -228,7 +226,6 @@ public class GameManager : Singleton<GameManager>
 
         SaveSystem.Instance.Save();
 
-        Cursor.visible = true;
         SceneController.Instance.set_current_menu(GameMenu.FAIL);
         Time.timeScale = 0.0f;
         _state = GameState.FAIL_MENU;
@@ -239,8 +236,6 @@ public class GameManager : Singleton<GameManager>
         AudioSystem.Instance.stop_music();
 
         SaveSystem.Instance.Save();
-
-        Cursor.visible = true;
 
         SceneController.Instance.set_current_menu(GameMenu.VICTORY);
         _state = GameState.VICTORY_MENU;

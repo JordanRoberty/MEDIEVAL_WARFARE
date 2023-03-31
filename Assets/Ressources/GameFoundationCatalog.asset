@@ -172,6 +172,7 @@ MonoBehaviour:
   - {fileID: 3756805002680557395}
   - {fileID: -5290750113591347761}
   - {fileID: 7780702808409756087}
+  - {fileID: -2662790796210063697}
   m_CatalogAsset: {fileID: 11400000}
 --- !u!114 &-8169112494538138968
 MonoBehaviour:
@@ -221,6 +222,64 @@ MonoBehaviour:
   - <type>k__BackingField: 2
     m_ValueType:
       longValue: 0
+    m_StringValue: 
+--- !u!114 &-8059927860664905948
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcbd052539327467295d2009d33aa660, type: 3}
+  m_Name: Item_difficultiesAvailable
+  m_EditorClassIdentifier: 
+  m_DisplayName: Difficulties Available
+  m_Key: difficultiesAvailable
+  m_Tags:
+  - {fileID: -2662790796210063697}
+  m_StaticPropertyKeys: []
+  m_StaticPropertyValues: []
+  m_InitialAllocation: 1
+  m_IsStackableFlag: 0
+  m_InitialQuantityPerStack: 1
+  m_MutablePropertyKeys:
+  - difficulty_label_1
+  - difficulty_available_1
+  - difficulty_label_2
+  - difficulty_available_2
+  - difficulty_label_3
+  - difficulty_available_3
+  - nb_difficulties
+  m_MutablePropertyDefaultValues:
+  - <type>k__BackingField: 3
+    m_ValueType:
+      longValue: 0
+    m_StringValue: Normal
+  - <type>k__BackingField: 2
+    m_ValueType:
+      longValue: 1
+    m_StringValue: 
+  - <type>k__BackingField: 3
+    m_ValueType:
+      longValue: 0
+    m_StringValue: Difficult
+  - <type>k__BackingField: 2
+    m_ValueType:
+      longValue: 1
+    m_StringValue: 
+  - <type>k__BackingField: 3
+    m_ValueType:
+      longValue: 0
+    m_StringValue: Hardcore
+  - <type>k__BackingField: 2
+    m_ValueType:
+      longValue: 0
+    m_StringValue: 
+  - <type>k__BackingField: 0
+    m_ValueType:
+      longValue: 3
     m_StringValue: 
 --- !u!114 &-7986341259891477001
 MonoBehaviour:
@@ -1187,6 +1246,20 @@ MonoBehaviour:
     m_Exchanges:
     - m_CatalogItem: {fileID: -3734650512700470626}
       m_Amount: 100
+--- !u!114 &-2662790796210063697
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4178f7fa125e7644ba2a2d0c6300db1, type: 3}
+  m_Name: Tag_DIFFICULTIES
+  m_EditorClassIdentifier: 
+  m_Key: DIFFICULTIES
+  m_Catalog: {fileID: -8483040674033979277}
 --- !u!114 &-2313346778315101392
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1672,7 +1745,8 @@ MonoBehaviour:
   - {fileID: -3724370542825862844}
   - {fileID: -8629987964794365791}
   - {fileID: -7080540771435165924}
-  - {fileID: 8003642837837551583}
+  - {fileID: -8059927860664905948}
+  - {fileID: 1322048035484175011}
 --- !u!114 &914720730750384771
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1801,6 +1875,64 @@ MonoBehaviour:
   - <type>k__BackingField: 2
     m_ValueType:
       longValue: 0
+    m_StringValue: 
+--- !u!114 &1322048035484175011
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcbd052539327467295d2009d33aa660, type: 3}
+  m_Name: Item_levelsAvailable
+  m_EditorClassIdentifier: 
+  m_DisplayName: Levels Available
+  m_Key: levelsAvailable
+  m_Tags:
+  - {fileID: 7780702808409756087}
+  m_StaticPropertyKeys: []
+  m_StaticPropertyValues: []
+  m_InitialAllocation: 1
+  m_IsStackableFlag: 0
+  m_InitialQuantityPerStack: 1
+  m_MutablePropertyKeys:
+  - level_label_1
+  - level_available_1
+  - level_label_2
+  - level_available_2
+  - level_label_3
+  - level_available_3
+  - nb_levels
+  m_MutablePropertyDefaultValues:
+  - <type>k__BackingField: 3
+    m_ValueType:
+      longValue: 0
+    m_StringValue: level 1
+  - <type>k__BackingField: 2
+    m_ValueType:
+      longValue: 1
+    m_StringValue: 
+  - <type>k__BackingField: 3
+    m_ValueType:
+      longValue: 0
+    m_StringValue: level 2
+  - <type>k__BackingField: 2
+    m_ValueType:
+      longValue: 0
+    m_StringValue: 
+  - <type>k__BackingField: 3
+    m_ValueType:
+      longValue: 0
+    m_StringValue: level 3
+  - <type>k__BackingField: 2
+    m_ValueType:
+      longValue: 0
+    m_StringValue: 
+  - <type>k__BackingField: 0
+    m_ValueType:
+      longValue: 3
     m_StringValue: 
 --- !u!114 &1705131772106879404
 MonoBehaviour:
@@ -2620,64 +2752,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Key: LEVELS
   m_Catalog: {fileID: -8483040674033979277}
---- !u!114 &8003642837837551583
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fcbd052539327467295d2009d33aa660, type: 3}
-  m_Name: Item_levelsAvailable
-  m_EditorClassIdentifier: 
-  m_DisplayName: Levels Available
-  m_Key: levelsAvailable
-  m_Tags:
-  - {fileID: 7780702808409756087}
-  m_StaticPropertyKeys: []
-  m_StaticPropertyValues: []
-  m_InitialAllocation: 1
-  m_IsStackableFlag: 1
-  m_InitialQuantityPerStack: 1
-  m_MutablePropertyKeys:
-  - level_available_3
-  - level_label_2
-  - level_available_2
-  - level_label_1
-  - level_label_3
-  - level_available_1
-  - nb_levels
-  m_MutablePropertyDefaultValues:
-  - <type>k__BackingField: 2
-    m_ValueType:
-      longValue: 0
-    m_StringValue: 
-  - <type>k__BackingField: 3
-    m_ValueType:
-      longValue: 0
-    m_StringValue: Level 2
-  - <type>k__BackingField: 2
-    m_ValueType:
-      longValue: 0
-    m_StringValue: 
-  - <type>k__BackingField: 3
-    m_ValueType:
-      longValue: 0
-    m_StringValue: Level 1
-  - <type>k__BackingField: 3
-    m_ValueType:
-      longValue: 0
-    m_StringValue: Level 3
-  - <type>k__BackingField: 2
-    m_ValueType:
-      longValue: 1
-    m_StringValue: 
-  - <type>k__BackingField: 0
-    m_ValueType:
-      longValue: 3
-    m_StringValue: 
 --- !u!114 &8285172246896152485
 MonoBehaviour:
   m_ObjectHideFlags: 0

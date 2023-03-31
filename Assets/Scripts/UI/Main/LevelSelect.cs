@@ -23,7 +23,6 @@ public class LevelSelect : Select
 
     private void set_current_option(int index)
     {
-        Debug.Log(index);
         dropdown.value = index;
         LevelManager.Instance.selected_level = index;
     }
