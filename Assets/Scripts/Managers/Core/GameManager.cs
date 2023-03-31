@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Assertions;
 using UnityEngine.SceneManagement;
 using UnityEngine.GameFoundation;
 using static GameFoundationUtils;
@@ -236,8 +237,8 @@ public class GameManager : Singleton<GameManager>
         AudioSystem.Instance.stop_music();
 
         // Ready for next levels
-        // level_manager.update_available_levels();
-        // difficulty_manager.update_available_difficulties();
+        // level_manager.update_levels();
+        // difficulty_manager.update_difficulties();
 
         SaveSystem.Instance.Save();
 
@@ -255,7 +256,11 @@ public class GameManager : Singleton<GameManager>
     {
         int current_level = (int)level_manager.get_selected_level();
         int score_to_change = -1;
-        InventoryItem level_scores = get_inventory_items_from_tag("SCORE")[current_level];
+
+        List<InventoryItem> levels_scores_container = get_inventory_items_from_tag("SCORE");
+        Assert.IsTrue(levels_scores_container.Count != 0 && current_level < levels_scores_container.Count);
+
+        InventoryItem level_scores = levels_scores_container[current_level];
 
         for (int score = 0; score < 3; ++score)
         {

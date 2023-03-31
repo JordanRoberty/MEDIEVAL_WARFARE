@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Assertions;
 using UnityEngine.GameFoundation;
 using static GameFoundationUtils;
 
@@ -12,6 +13,7 @@ public class ScoresManager : Singleton<ScoresManager>
     private void Start()
     {
         List<InventoryItem> levels_scores = get_inventory_items_from_tag("SCORE");
+        Assert.IsNotNull(levels_scores);
 
         _levels_scores_container.destroy_children();
 
