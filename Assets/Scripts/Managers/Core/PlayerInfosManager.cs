@@ -34,8 +34,6 @@ public class PlayerInfosManager : Singleton<PlayerInfosManager>
             InventoryItem item = create_new_inventory_item("machineGunSword");
             item.SetMutableProperty("equiped", true);
             equiped_weapon_id = item.id;
-
-            DEBUG_add_runes_to_weapon(equiped_weapon_id);
         }
 
         Assert.IsFalse(equiped_weapon_id.Length == 0);
