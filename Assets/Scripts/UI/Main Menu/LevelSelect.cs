@@ -9,10 +9,10 @@ public class LevelSelect : Select
     {
         base.Awake();
         update_options();
-        set_current_option(0);
+        set_current_option(LevelManager.Instance.selected_level);
     }
 
-    private void update_options()
+    public void update_options()
     {
         dropdown.options.Clear();
         foreach (string option in LevelManager.Instance.available_levels)
@@ -23,7 +23,6 @@ public class LevelSelect : Select
 
     private void set_current_option(int index)
     {
-        Debug.Log(index);
         dropdown.value = index;
         LevelManager.Instance.selected_level = index;
     }

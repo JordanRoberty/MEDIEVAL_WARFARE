@@ -9,7 +9,7 @@ public class DifficultySelect : Select
     {
         base.Awake();
         update_options();
-        set_current_option(0);
+        set_current_option(DifficultyManager.Instance.selected_difficulty);
     }
 
     private void update_options()
@@ -24,7 +24,7 @@ public class DifficultySelect : Select
     private void set_current_option(int index)
     {
         dropdown.value = index;
-        DifficultyManager.Instance.current_difficulty = index;
+        DifficultyManager.Instance.selected_difficulty = index;
     }
 
     public override void previous_option()
@@ -37,7 +37,7 @@ public class DifficultySelect : Select
 
     public override void next_option()
     {
-        if (dropdown.value < dropdown.options.Count)
+        if (dropdown.value < dropdown.options.Count - 1)
         {
             set_current_option(dropdown.value + 1);
         }
